@@ -11,11 +11,12 @@
 		7501A4F727E20D4000EB4EB0 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61327E00D8300A66F11 /* Pretendard-Light.otf */; };
 		7501A4F827E20D4500EB4EB0 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61427E00D8300A66F11 /* Pretendard-Medium.otf */; };
 		7501A4F927E20D4800EB4EB0 /* Blatant-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61727E00E2100A66F11 /* Blatant-Bold.otf */; };
-		7501A4FA27E20D4C00EB4EB0 /* Blatant.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61627E00E2100A66F11 /* Blatant.otf */; };
+		7501A4FA27E20D4C00EB4EB0 /* Blatant-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61627E00E2100A66F11 /* Blatant-Regular.otf */; };
 		7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FB27E239B500EB4EB0 /* MyNC.swift */; };
-		7501A4FF27E23B1E00EB4EB0 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FE27E23B1E00EB4EB0 /* SettingVC.swift */; };
+		7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */; };
 		751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A19F327E8A8890025812D /* UIColor+Extension.swift */; };
 		7537B61127E00A9800A66F11 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537B61027E00A9800A66F11 /* MyVC.swift */; };
+		753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB1DA27EB65A300D20579 /* MyInfoVC.swift */; };
 		759D326827C879E900A88C02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D326727C879E900A88C02 /* AppDelegate.swift */; };
 		759D326C27C879E900A88C02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D326B27C879E900A88C02 /* ViewController.swift */; };
 		759D326F27C879E900A88C02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759D326D27C879E900A88C02 /* Main.storyboard */; };
@@ -35,19 +36,24 @@
 		75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C727E307D50022B5D8 /* ExploreListVC.swift */; };
 		75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */; };
 		DCBE380F2BCEEBBA85A7E593 /* Pods_Thirty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */; };
+		F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */; };
+		F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */; };
+		F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */; };
+		F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		71BEF133679519B33BEE5990 /* Pods-Thirty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.debug.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.debug.xcconfig"; sourceTree = "<group>"; };
 		7501A4FB27E239B500EB4EB0 /* MyNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNC.swift; sourceTree = "<group>"; };
-		7501A4FE27E23B1E00EB4EB0 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingVC.swift; sourceTree = "<group>"; };
 		751A19F327E8A8890025812D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7537B61027E00A9800A66F11 /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		7537B61327E00D8300A66F11 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		7537B61427E00D8300A66F11 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		7537B61527E00D8300A66F11 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		7537B61627E00E2100A66F11 /* Blatant.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Blatant.otf; sourceTree = "<group>"; };
+		7537B61627E00E2100A66F11 /* Blatant-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blatant-Regular.otf"; sourceTree = "<group>"; };
 		7537B61727E00E2100A66F11 /* Blatant-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blatant-Bold.otf"; sourceTree = "<group>"; };
+		753EB1DA27EB65A300D20579 /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
 		759D326427C879E900A88C02 /* Thirty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thirty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759D326727C879E900A88C02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759D326B27C879E900A88C02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,12 @@
 		75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailVC.swift; sourceTree = "<group>"; };
 		A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thirty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD038CDF5D2D1A6BE620AA3 /* Pods-Thirty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.release.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.release.xcconfig"; sourceTree = "<group>"; };
+		F9BC339927EC993800F0C722 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F9BC339A27EC993800F0C722 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlertVC.swift; sourceTree = "<group>"; };
+		F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShareSettingVC.swift; sourceTree = "<group>"; };
+		F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeVC.swift; sourceTree = "<group>"; };
+		F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +120,9 @@
 				7537B61327E00D8300A66F11 /* Pretendard-Light.otf */,
 				7537B61427E00D8300A66F11 /* Pretendard-Medium.otf */,
 				7537B61727E00E2100A66F11 /* Blatant-Bold.otf */,
-				7537B61627E00E2100A66F11 /* Blatant.otf */,
+				7537B61627E00E2100A66F11 /* Blatant-Regular.otf */,
+				F9BC339A27EC993800F0C722 /* Pretendard-Regular.otf */,
+				F9BC339927EC993800F0C722 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -190,7 +204,12 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
-				7501A4FE27E23B1E00EB4EB0 /* SettingVC.swift */,
+				F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */,
+				F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */,
+				F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */,
+				F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */,
+				753EB1DA27EB65A300D20579 /* MyInfoVC.swift */,
+				7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */,
 				7501A4FB27E239B500EB4EB0 /* MyNC.swift */,
 				7537B61027E00A9800A66F11 /* MyVC.swift */,
 			);
@@ -293,7 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7501A4FA27E20D4C00EB4EB0 /* Blatant.otf in Resources */,
+				7501A4FA27E20D4C00EB4EB0 /* Blatant-Regular.otf in Resources */,
 				7501A4F927E20D4800EB4EB0 /* Blatant-Bold.otf in Resources */,
 				759D327427C879EA00A88C02 /* LaunchScreen.storyboard in Resources */,
 				7501A4F827E20D4500EB4EB0 /* Pretendard-Medium.otf in Resources */,
@@ -357,11 +376,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */,
 				75A41CF927E409D2009AD9D0 /* UIViewController+Extension.swift in Sources */,
+				F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */,
 				75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */,
+				F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */,
+				F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */,
 				759D328B27C8A45000A88C02 /* ChallengeVC.swift in Sources */,
 				751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */,
-				7501A4FF27E23B1E00EB4EB0 /* SettingVC.swift in Sources */,
+				753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */,
+				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
 				759D328F27C8AD2B00A88C02 /* ChallengeListViewModel.swift in Sources */,

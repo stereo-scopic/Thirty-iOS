@@ -4,7 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Blatant.otf</string>
+		<string>Pretendard-Regular.otf</string>
+		<string>Pretendard-SemiBold.otf</string>
+		<string>Blatant-Regular.otf</string>
 		<string>Blatant-Bold.otf</string>
 		<string>Pretendard-Bold.otf</string>
 		<string>Pretendard-Light.otf</string>
