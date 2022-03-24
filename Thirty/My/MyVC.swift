@@ -10,6 +10,11 @@ import UIKit
 class MyVC: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
+    
+    @IBOutlet weak var ampmLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +31,11 @@ class MyVC: UIViewController {
     }
     
     @IBAction func settingButtonTouchUpInside(_ sender: Any) {
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "MySettingVC") as! MySettingVC
         self.navigationController?.pushViewController(settingVC, animated: false)
+    }
+    
+    @IBAction func timeButtonTouchUpInside(_ sender: Any) {
+        
     }
 }
