@@ -36,6 +36,8 @@
 		75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C727E307D50022B5D8 /* ExploreListVC.swift */; };
 		75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */; };
 		DCBE380F2BCEEBBA85A7E593 /* Pods_Thirty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */; };
+		F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46427EF654A0092F2B8 /* TabBarController.swift */; };
+		F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46727EF67210092F2B8 /* CommunityNC.swift */; };
 		F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */; };
 		F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */; };
 		F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */; };
@@ -76,6 +78,8 @@
 		75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailVC.swift; sourceTree = "<group>"; };
 		A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thirty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD038CDF5D2D1A6BE620AA3 /* Pods-Thirty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.release.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.release.xcconfig"; sourceTree = "<group>"; };
+		F9B0D46427EF654A0092F2B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F9B0D46727EF67210092F2B8 /* CommunityNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityNC.swift; sourceTree = "<group>"; };
 		F9BC339927EC993800F0C722 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F9BC339A27EC993800F0C722 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlertVC.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				759D328227C8933700A88C02 /* Community.storyboard */,
+				F9B0D46727EF67210092F2B8 /* CommunityNC.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				7537B61227E00D6D00A66F11 /* Font */,
 				759D327027C879EA00A88C02 /* Assets.xcassets */,
 				759D326D27C879E900A88C02 /* Main.storyboard */,
+				F9B0D46427EF654A0092F2B8 /* TabBarController.swift */,
 				759D327227C879EA00A88C02 /* LaunchScreen.storyboard */,
 			);
 			path = Asset;
@@ -390,10 +396,12 @@
 				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
 				759D328F27C8AD2B00A88C02 /* ChallengeListViewModel.swift in Sources */,
 				75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */,
+				F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */,
 				75A41CFE27E45F10009AD9D0 /* UIView+Extension.swift in Sources */,
 				759D326C27C879E900A88C02 /* ViewController.swift in Sources */,
 				759D326827C879E900A88C02 /* AppDelegate.swift in Sources */,
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
+				F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */,
 				75A41CFC27E45D03009AD9D0 /* UIView+IBDesignable.swift in Sources */,
 				759D328D27C8AC6E00A88C02 /* ChallengeModel.swift in Sources */,
 			);
@@ -546,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SBTM3U9GU4;
 				INFOPLIST_FILE = Thirty/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -567,7 +575,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SBTM3U9GU4;
 				INFOPLIST_FILE = Thirty/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

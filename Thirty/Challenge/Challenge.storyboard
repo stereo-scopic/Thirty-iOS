@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="spY-Y2-d19">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="spY-Y2-d19">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +14,7 @@
         <array key="Blatant-Bold.otf">
             <string>BlatantBold</string>
         </array>
-        <array key="Blatant.otf">
+        <array key="Blatant-Regular.otf">
             <string>BlatantRegular</string>
         </array>
         <array key="Pretendard-Bold.otf">
@@ -28,11 +28,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Challenge-->
+        <!--CHALLENGE-->
         <scene sceneID="3Uc-Fg-ITl">
             <objects>
-                <navigationController navigationBarHidden="YES" id="spY-Y2-d19" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Challenge" image="checkerboard.rectangle" catalog="system" selectedImage="checkerboard.rectangle" id="LNr-Rb-A51"/>
+                <navigationController navigationBarHidden="YES" id="spY-Y2-d19" customClass="ChallengeNC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CHALLENGE" image="tab_challenge_disable" selectedImage="tab_challenge" id="LNr-Rb-A51"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NAn-FR-Gum">
                         <autoresizingMask key="autoresizingMask"/>
@@ -380,12 +380,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkerboard.rectangle" catalog="system" width="128" height="93"/>
         <image name="icon_18_music" width="18" height="18"/>
         <image name="icon_dot" width="44" height="44"/>
         <image name="icon_notification" width="44" height="44"/>
         <image name="icon_plus_background" width="44" height="44"/>
         <image name="samplecat" width="350" height="287"/>
+        <image name="tab_challenge" width="45" height="33"/>
+        <image name="tab_challenge_disable" width="45" height="33"/>
         <namedColor name="Gray300">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

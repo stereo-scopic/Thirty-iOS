@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1R-Bs-8uE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1R-Bs-8uE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +14,7 @@
         <array key="Blatant-Bold.otf">
             <string>BlatantBold</string>
         </array>
-        <array key="Blatant.otf">
+        <array key="Blatant-Regular.otf">
             <string>BlatantRegular</string>
         </array>
         <array key="Pretendard-Bold.otf">
@@ -28,11 +28,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--탐색-->
+        <!--EXPLORE-->
         <scene sceneID="Abe-Dp-eh6">
             <objects>
-                <navigationController navigationBarHidden="YES" id="L1R-Bs-8uE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="탐색" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="dh9-uy-Pit"/>
+                <navigationController navigationBarHidden="YES" id="L1R-Bs-8uE" customClass="ExploreNC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="EXPLORE" image="tab_explore_disable" selectedImage="tab_explore" id="dh9-uy-Pit"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHD-s7-yz8">
                         <autoresizingMask key="autoresizingMask"/>
@@ -78,7 +78,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreCell" id="qJt-8O-gnN" customClass="ExploreCell" customModule="Thirty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="112"/>
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="112"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qJt-8O-gnN" id="ShE-fW-hdQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="112"/>
@@ -381,7 +381,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iVK-gM-Rk4">
-                                                                <rect key="frame" x="0.0" y="24.5" width="374" height="48"/>
+                                                                <rect key="frame" x="0.0" y="28" width="374" height="48"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iVK-gM-Rk4" id="WwA-ou-TGd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -480,7 +480,8 @@
         <image name="arrow-left-black" width="44" height="44"/>
         <image name="icon_plus" width="44" height="44"/>
         <image name="icon_search" width="44" height="44"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="tab_explore" width="45" height="33"/>
+        <image name="tab_explore_disable" width="45" height="33"/>
         <namedColor name="Gray300">
             <color red="0.87800002098083496" green="0.87800002098083496" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
