@@ -14,6 +14,7 @@ class MyNC: UINavigationController, UINavigationControllerDelegate {
         
         self.delegate = self
     }
+    
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         viewController.navigationItem.backBarButtonItem = backItem
