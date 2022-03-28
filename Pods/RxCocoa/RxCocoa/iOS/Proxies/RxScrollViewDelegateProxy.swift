@@ -10,16 +10,13 @@
 
 import RxSwift
 import UIKit
-    
+
 extension UIScrollView: HasDelegate {
     public typealias Delegate = UIScrollViewDelegate
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxScrollViewDelegateProxy
-    : DelegateProxy<UIScrollView, UIScrollViewDelegate>
-    , DelegateProxyType 
-    , UIScrollViewDelegate {
+open class RxScrollViewDelegateProxy: DelegateProxy<UIScrollView, UIScrollViewDelegate>, DelegateProxyType {
 
     /// Typed parent object.
     public weak private(set) var scrollView: UIScrollView?
@@ -64,9 +61,19 @@ open class RxScrollViewDelegateProxy
 
         return subject
     }
-    
-    // MARK: delegate methods
 
+    deinit {
+        if let subject = _contentOffsetBehaviorSubject {
+            subject.on(.completed)
+        }
+
+        if let subject = _contentOffsetPublishSubject {
+            subject.on(.completed)
+        }
+    }
+}
+
+extension RxScrollViewDelegateProxy: UIScrollViewDelegate {
     /// For more information take a look at `DelegateProxyType`.
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let subject = _contentOffsetBehaviorSubject {
@@ -76,16 +83,6 @@ open class RxScrollViewDelegateProxy
             subject.on(.next(()))
         }
         self._forwardToDelegate?.scrollViewDidScroll?(scrollView)
-    }
-    
-    deinit {
-        if let subject = _contentOffsetBehaviorSubject {
-            subject.on(.completed)
-        }
-
-        if let subject = _contentOffsetPublishSubject {
-            subject.on(.completed)
-        }
     }
 }
 

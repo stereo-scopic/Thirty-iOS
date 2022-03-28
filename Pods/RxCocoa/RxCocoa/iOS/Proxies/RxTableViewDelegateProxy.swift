@@ -12,9 +12,7 @@ import UIKit
 import RxSwift
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxTableViewDelegateProxy
-    : RxScrollViewDelegateProxy
-    , UITableViewDelegate {
+open class RxTableViewDelegateProxy: RxScrollViewDelegateProxy {
 
     /// Typed parent object.
     public weak private(set) var tableView: UITableView?
@@ -26,5 +24,7 @@ open class RxTableViewDelegateProxy
     }
 
 }
+
+extension RxTableViewDelegateProxy: UITableViewDelegate {}
 
 #endif

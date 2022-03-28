@@ -16,10 +16,7 @@ extension UISearchController: HasDelegate {
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxSearchControllerDelegateProxy
-    : DelegateProxy<UISearchController, UISearchControllerDelegate>
-    , DelegateProxyType 
-    , UISearchControllerDelegate {
+open class RxSearchControllerDelegateProxy: DelegateProxy<UISearchController, UISearchControllerDelegate>, DelegateProxyType {
 
     /// Typed parent object.
     public weak private(set) var searchController: UISearchController?
@@ -29,11 +26,13 @@ open class RxSearchControllerDelegateProxy
         self.searchController = searchController
         super.init(parentObject: searchController, delegateProxy: RxSearchControllerDelegateProxy.self)
     }
-    
+
     // Register known implementations
     public static func registerKnownImplementations() {
         self.register { RxSearchControllerDelegateProxy(searchController: $0) }
     }
 }
-   
+
+extension RxSearchControllerDelegateProxy: UISearchControllerDelegate {}
+
 #endif

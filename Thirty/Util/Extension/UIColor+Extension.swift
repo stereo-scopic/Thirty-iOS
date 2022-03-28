@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIColor{
+extension UIColor {
     static let gray50 = UIColor.init(named: "Gray50")
     static let gray100 = UIColor.init(named: "Gray100")
     static let gray200 = UIColor.init(named: "Gray200")
@@ -17,7 +17,7 @@ extension UIColor{
     static let gray600 = UIColor.init(named: "Gray600")
     static let gray700 = UIColor.init(named: "Gray700")
     static let gray800 = UIColor.init(named: "Gray800")
-    
+
     static let thirtyBlack = UIColor.init(named: "THIRTY Black")
     static let thirtyBlue = UIColor.init(named: "THIRTY Blue")
     static let thirtyGreen = UIColor.init(named: "THIRTY Green")

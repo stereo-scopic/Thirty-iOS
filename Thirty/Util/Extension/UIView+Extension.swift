@@ -7,11 +7,10 @@
 
 import UIKit
 
-extension UIView{
-    func topRoundCorner(corners: UIRectCorner = [.topLeft, .topRight], radius: CGFloat){
+extension UIView {
+    func topRoundCorner(corners: UIRectCorner = [.topLeft, .topRight], radius: CGFloat) {
         clipsToBounds = true
         layer.cornerRadius = radius
         layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
     }
 }
-

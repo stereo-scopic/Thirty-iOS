@@ -12,10 +12,7 @@ import UIKit
 import RxSwift
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxCollectionViewDelegateProxy
-    : RxScrollViewDelegateProxy
-    , UICollectionViewDelegate
-    , UICollectionViewDelegateFlowLayout {
+open class RxCollectionViewDelegateProxy: RxScrollViewDelegateProxy {
 
     /// Typed parent object.
     public weak private(set) var collectionView: UICollectionView?
@@ -28,5 +25,7 @@ open class RxCollectionViewDelegateProxy
         super.init(scrollView: collectionView)
     }
 }
+
+extension RxCollectionViewDelegateProxy: UICollectionViewDelegateFlowLayout {}
 
 #endif

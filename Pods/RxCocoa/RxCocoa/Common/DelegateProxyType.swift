@@ -54,7 +54,7 @@ This is more or less how it works.
       +-------------------------------------------+                           
 
 
-Since RxCocoa needs to automagically create those Proxys and because views that have delegates can be hierarchical
+Since RxCocoa needs to automagically create those Proxies and because views that have delegates can be hierarchical
 
      UITableView : UIScrollView : UIView
 
@@ -71,7 +71,7 @@ Since RxCocoa needs to automagically create those Proxys and because views that 
 public protocol DelegateProxyType: AnyObject {
     associatedtype ParentObject: AnyObject
     associatedtype Delegate
-    
+
     /// It is require that enumerate call `register` of the extended DelegateProxy subclasses here.
     static func registerKnownImplementations()
 
@@ -98,8 +98,8 @@ public protocol DelegateProxyType: AnyObject {
     ///
     /// It's abstract method.
     ///
-    /// - parameter toObject: Object that has delegate property.
     /// - parameter delegate: Delegate value.
+    /// - parameter object: Object that has delegate property.
     static func setCurrentDelegate(_ delegate: Delegate?, to object: ParentObject)
 
     /// Returns reference of normal delegate that receives all forwarded messages
@@ -131,15 +131,15 @@ extension DelegateProxyType {
     static func _currentDelegate(for object: ParentObject) -> AnyObject? {
         currentDelegate(for: object).map { $0 as AnyObject }
     }
-    
+
     static func _setCurrentDelegate(_ delegate: AnyObject?, to object: ParentObject) {
         setCurrentDelegate(castOptionalOrFatalError(delegate), to: object)
     }
-    
+
     func _forwardToDelegate() -> AnyObject? {
         self.forwardToDelegate().map { $0 as AnyObject }
     }
-    
+
     func _setForwardToDelegate(_ forwardToDelegate: AnyObject?, retainDelegate: Bool) {
         self.setForwardToDelegate(castOptionalOrFatalError(forwardToDelegate), retainDelegate: retainDelegate)
     }
@@ -186,8 +186,7 @@ extension DelegateProxyType {
         let proxy: AnyObject
         if let existingProxy = maybeProxy {
             proxy = existingProxy
-        }
-        else {
+        } else {
             proxy = castOrFatalError(self.createProxy(for: object))
             self.assignProxy(proxy, toObject: object)
             assert(self.assignedProxy(for: object) === proxy)
@@ -236,7 +235,6 @@ extension DelegateProxyType {
         }
     }
 }
-
 
 // private extensions
 extension DelegateProxyType {
@@ -319,19 +317,18 @@ extension DelegateProxyType where ParentObject: HasPrefetchDataSource, Self.Dele
         extension ObservableType {
             func subscribeProxyDataSource<DelegateProxy: DelegateProxyType>(ofObject object: DelegateProxy.ParentObject, dataSource: DelegateProxy.Delegate, retainDataSource: Bool, binding: @escaping (DelegateProxy, Event<Element>) -> Void)
                 -> Disposable
-                where DelegateProxy.ParentObject: UIView
-                , DelegateProxy.Delegate: AnyObject {
+                where DelegateProxy.ParentObject: UIView, DelegateProxy.Delegate: AnyObject {
                 let proxy = DelegateProxy.proxy(for: object)
                 let unregisterDelegate = DelegateProxy.installForwardDelegate(dataSource, retainDelegate: retainDataSource, onProxyForObject: object)
 
-                // Do not perform layoutIfNeeded if the object is still not in the view heirarchy
+                // Do not perform layoutIfNeeded if the object is still not in the view hierarchy
                 if object.window != nil {
                     // this is needed to flush any delayed old state (https://github.com/RxSwiftCommunity/RxDataSources/pull/75)
                     object.layoutIfNeeded()
                 }
 
                 let subscription = self.asObservable()
-                    .observe(on:MainScheduler())
+                    .observe(on: MainScheduler())
                     .catch { error in
                         bindingError(error)
                         return Observable.empty()
@@ -344,9 +341,9 @@ extension DelegateProxyType where ParentObject: HasPrefetchDataSource, Self.Dele
                         if let object = object {
                             assert(proxy === DelegateProxy.currentDelegate(for: object), "Proxy changed from the time it was first set.\nOriginal: \(proxy)\nExisting: \(String(describing: DelegateProxy.currentDelegate(for: object)))")
                         }
-                        
+
                         binding(proxy, event)
-                        
+
                         switch event {
                         case .error(let error):
                             bindingError(error)
@@ -357,7 +354,7 @@ extension DelegateProxyType where ParentObject: HasPrefetchDataSource, Self.Dele
                             break
                         }
                     }
-                    
+
                 return Disposables.create { [weak object] in
                     subscription.dispose()
 

@@ -13,7 +13,7 @@ extension ObservableType {
      Creates new subscription and sends elements to observer(s).
      In this form, it's equivalent to the `subscribe` method, but it better conveys intent, and enables
      writing more consistent binding code.
-     - parameter to: Observers to receives events.
+     - parameter observers: Observers to receives events.
      - returns: Disposable object that can be used to unsubscribe the observers.
      */
     public func bind<Observer: ObserverType>(to observers: Observer...) -> Disposable where Observer.Element == Element {
@@ -26,7 +26,7 @@ extension ObservableType {
      Creates new subscription and sends elements to observer(s).
      In this form, it's equivalent to the `subscribe` method, but it better conveys intent, and enables
      writing more consistent binding code.
-     - parameter to: Observers to receives events.
+     - parameter observers: Observers to receives events.
      - returns: Disposable object that can be used to unsubscribe the observers.
      */
     public func bind<Observer: ObserverType>(to observers: Observer...) -> Disposable where Observer.Element == Element? {
@@ -39,7 +39,7 @@ extension ObservableType {
     /**
     Subscribes to observable sequence using custom binder function.
 
-    - parameter to: Function used to bind elements from `self`.
+    - parameter binder: Function used to bind elements from `self`.
     - returns: Object representing subscription.
     */
     public func bind<Result>(to binder: (Self) -> Result) -> Result {
@@ -54,14 +54,14 @@ extension ObservableType {
             return binder(self)(curriedArgument)
         }
 
-    - parameter to: Function used to bind elements from `self`.
+    - parameter binder: Function used to bind elements from `self`.
     - parameter curriedArgument: Final argument passed to `binder` to finish binding process.
     - returns: Object representing subscription.
     */
     public func bind<R1, R2>(to binder: (Self) -> (R1) -> R2, curriedArgument: R1) -> R2 {
         binder(self)(curriedArgument)
     }
-    
+
     /**
     Subscribes an element handler to an observable sequence.
     In case error occurs in debug mode, `fatalError` will be raised.
@@ -85,7 +85,7 @@ extension ObservableType {
             rxFatalErrorInDebug("Binding error: \(error)")
         })
     }
-    
+
     /**
     Subscribes an element handler to an observable sequence.
     In case error occurs in debug mode, `fatalError` will be raised.
