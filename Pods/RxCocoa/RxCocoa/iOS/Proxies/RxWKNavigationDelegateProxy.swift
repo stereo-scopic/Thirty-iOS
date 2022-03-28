@@ -12,10 +12,7 @@ import RxSwift
 import WebKit
 
 @available(iOS 8.0, OSX 10.10, OSXApplicationExtension 10.10, *)
-open class RxWKNavigationDelegateProxy
-    : DelegateProxy<WKWebView, WKNavigationDelegate>
-    , DelegateProxyType
-, WKNavigationDelegate {
+open class RxWKNavigationDelegateProxy: DelegateProxy<WKWebView, WKNavigationDelegate>, DelegateProxyType {
 
     /// Typed parent object.
     public weak private(set) var webView: WKWebView?
@@ -30,14 +27,17 @@ open class RxWKNavigationDelegateProxy
     public static func registerKnownImplementations() {
         self.register { RxWKNavigationDelegateProxy(webView: $0) }
     }
-    
+
     public static func currentDelegate(for object: WKWebView) -> WKNavigationDelegate? {
         object.navigationDelegate
     }
-    
+
     public static func setCurrentDelegate(_ delegate: WKNavigationDelegate?, to object: WKWebView) {
         object.navigationDelegate = delegate
     }
 }
+
+@available(iOS 8.0, OSX 10.10, OSXApplicationExtension 10.10, *)
+extension RxWKNavigationDelegateProxy: WKNavigationDelegate {}
 
 #endif

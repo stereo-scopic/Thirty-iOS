@@ -11,4 +11,5 @@ target 'Thirty' do
   pod 'SwiftyJSON'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SwiftLint'
 end
