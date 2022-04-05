@@ -19,27 +19,25 @@ class ChallengeVC: UIViewController {
     @IBOutlet weak var infoNumber: UILabel!
     @IBOutlet weak var infoTitle: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         thirtyCollectionView.delegate = self
         setThirtyCollectionView()
     }
     
-    func setThirtyCollectionView(){
-        let dayArr = Array<Int>(1...30)
+    func setThirtyCollectionView() {
+        let dayArr = [Int](1...30)
         
         let dataSource = BehaviorSubject<[Int]>(value: dayArr)
         
-        dataSource.bind(to: thirtyCollectionView.rx.items){ (collectionView,row,element) in
+        dataSource.bind(to: thirtyCollectionView.rx.items) { (collectionView, row, element) in
             let indexPath = IndexPath(row: row, section: 0)
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThirtyCell", for: indexPath) as? ThirtyCell{
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThirtyCell", for: indexPath) as? ThirtyCell {
                 cell.number.text = "\(element)"
                 
-                
-                if (indexPath.row / 6) % 2 == 0{
+                if (indexPath.row / 6) % 2 == 0 {
                     cell.view.backgroundColor = indexPath.row % 2 == 0 ? UIColor.gray50 : UIColor.gray200
-                }else{
+                } else {
                     cell.view.backgroundColor = indexPath.row % 2 == 0 ? UIColor.gray200 : UIColor.gray50
                 }
                 
@@ -49,7 +47,7 @@ class ChallengeVC: UIViewController {
         }.disposed(by: disposeBag)
         
         thirtyCollectionView.rx.itemSelected
-            .subscribe(onNext:{ [weak self] index in
+            .subscribe(onNext: { [weak self] index in
                 self?.infoNumber.text = "#\(index.row + 1)"
             })
             .disposed(by: disposeBag)
@@ -57,7 +55,7 @@ class ChallengeVC: UIViewController {
     }
 }
 
-extension ChallengeVC: UICollectionViewDelegateFlowLayout{
+extension ChallengeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = collectionView.bounds.width / 6
         let height: CGFloat = 84
@@ -70,7 +68,7 @@ extension ChallengeVC: UICollectionViewDelegateFlowLayout{
     }
 }
 
-class ThirtyCell: UICollectionViewCell{
+class ThirtyCell: UICollectionViewCell {
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var view: UIView!
     

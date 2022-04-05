@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ChallengeAnswer{
+struct ChallengeAnswer {
     var music: String
     var question: String
     var detail: String
-    var photo: URL
+    var image: URL
     var stamp: Int
     var date: Int
 }

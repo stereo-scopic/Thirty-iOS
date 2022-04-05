@@ -22,14 +22,13 @@ class ExploreListVC: UIViewController {
 
 }
 
-extension ExploreListVC: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ExploreListVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreListCell", for: indexPath) as? ExploreListCell else { return UICollectionViewCell() }
-        
         
         return cell
     }
@@ -40,16 +39,15 @@ extension ExploreListVC: UICollectionViewDelegate, UICollectionViewDataSource{
         
     }
     
-    
 }
 
-class ExploreListCell: UICollectionViewCell{
+class ExploreListCell: UICollectionViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
-    @IBAction func addButtonTouchUpInside(_ sender: Any){
+    @IBAction func addButtonTouchUpInside(_ sender: Any) {
         
     }
 }
