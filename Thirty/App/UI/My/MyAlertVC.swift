@@ -1,20 +1,22 @@
 //
-//  TabBarController.swift
+//  MyAlertVC.swift
 //  Thirty
 //
-//  Created by 송하경 on 2022/03/27.
+//  Created by 송하경 on 2022/03/24.
 //
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class MyAlertVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tabBar.unselectedItemTintColor = UIColor.gray300
-        tabBar.tintColor = UIColor.thirtyBlack
+    }
+    
+    @IBAction func backButtonTouchUpInside(_ sender: Any) {
+        self.popVC(animated: false, completion: nil)
     }
 
     /*

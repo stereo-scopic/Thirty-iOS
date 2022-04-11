@@ -1,5 +1,5 @@
 //
-//  SignUpVC.swift
+//  LoginVC.swift
 //  Thirty
 //
 //  Created by 송하경 on 2022/04/05.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpVC: UINavigationController {
+class LoginVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

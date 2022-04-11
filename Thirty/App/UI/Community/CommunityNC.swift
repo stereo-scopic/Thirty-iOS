@@ -1,5 +1,5 @@
 //
-//  TabBarController.swift
+//  CommunityNC.swift
 //  Thirty
 //
 //  Created by 송하경 on 2022/03/27.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class CommunityNC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tabBar.unselectedItemTintColor = UIColor.gray300
-        tabBar.tintColor = UIColor.thirtyBlack
+        
+//        tabBarItem = UITabBarItem(title: "COMMUNITY", image: UIImage(named: "tab_community_disable"), selectedImage: UIImage(named: "tab_community"))
     }
 
     /*
