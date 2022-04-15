@@ -8,7 +8,7 @@ import Moya
 
 protocol BaseAPI: TargetType {}
 
-extension BaseAPI{
+extension BaseAPI {
     var baseURL: URL { URL(string: "")! }
     
     var method: Method { .get }
@@ -17,5 +17,5 @@ extension BaseAPI{
     
     var task: Task { .requestPlain }
     
-    var headers: [String : String]? { nil }
+    var headers: [String: String]? { nil }
 }

@@ -167,7 +167,6 @@
 		759D326627C879E900A88C02 /* Thirty */ = {
 			isa = PBXGroup;
 			children = (
-				75C586C627E300F60022B5D8 /* Network */,
 				759D328827C893DB00A88C02 /* Util */,
 				759D327B27C8913200A88C02 /* App */,
 				759D326B27C879E900A88C02 /* ViewController.swift */,
@@ -268,13 +267,6 @@
 				751A19F327E8A8890025812D /* UIColor+Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		75C586C627E300F60022B5D8 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		75E58EC027FE5A4A00A87E73 /* UI */ = {

@@ -6,20 +6,30 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MyShareSettingVC: UIViewController {
 
     @IBOutlet weak var slider: UISlider!
+    
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateUI()
+        sliderEvent()
     }
     
-    func updateUI() {
+    func sliderEvent() {
+        slider.rx.value
+            .subscribe(onNext: { value in
+                let roundValue = roundf(value / 0.5) * 0.5
+                self.slider.value = roundValue
+            }).disposed(by: disposeBag)
         
     }
-    
+
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
     }

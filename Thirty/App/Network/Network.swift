@@ -12,8 +12,7 @@ enum ThirtyService {
     case explore(_ exploreIdx: String)
 }
 
-
-extension ThirtyService: TargetType{
+extension ThirtyService: TargetType {
     var baseURL: URL {
         return URL(string: "")!
     }
@@ -23,19 +22,19 @@ extension ThirtyService: TargetType{
         case .challenge:
             return "/challenge"
         case .explore:
-            return "explore"
+            return "/explore"
         }
     }
     
     var method: Moya.Method {
-        switch self{
+        switch self {
         case .challenge, .explore:
             return .get
         }
     }
     
-    var parameters: [String: Any]?{
-        switch self{
+    var parameters: [String: Any]? {
+        switch self {
         case let .challenge:
             return [:]
         case let .explore(exploreIdx):
@@ -46,17 +45,17 @@ extension ThirtyService: TargetType{
     }
     
     var task: Task {
-        switch self{
+        switch self {
         default:
-            if let parameters = parameters{
-                return .requestParameters(parameters: parameters, encoding: ㅔarameterEncoding)
+            if let parameters = parameters {
+                return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
             }
+            return .requestPlain
         }
     }
     
-    var headers: [String : String]? {
-        <#code#>
+    var headers: [String: String]? {
+        return ["Content-Type": "application/json"]
     }
-    
     
 }
