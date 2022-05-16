@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "ic24Setting.png",
+      "filename" : "Frame 34.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic24Setting@2x.png",
+      "filename" : "Frame 34@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic24Setting@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

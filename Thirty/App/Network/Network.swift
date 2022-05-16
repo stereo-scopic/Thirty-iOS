@@ -5,57 +5,42 @@
 //  Created by hakyung on 2022/04/07.
 //
 
+import Network
+import RxSwift
 import Moya
 
-enum ThirtyService {
-    case challenge
-    case explore(_ exploreIdx: String)
+class Network<API: TargetType> : MoyaProvider<API>{
+    init(plugins: [PluginType] = []){
+        let session = MoyaProvider<API>.defaultAlamofireSession()
+        session.sessionConfiguration.timeoutIntervalForRequest = 10
+        
+        super.init(session: session, plugins: plugins)
+    }
+    
+    func request(_ api: API) -> Single<Response>{
+        return self.rx.request(api)
+            .filterSuccessfulStatusCodes()
+    }
 }
 
-extension ThirtyService: TargetType {
-    var baseURL: URL {
-        return URL(string: "")!
+extension Network{
+    func requestWithoutMapping(_ target: API) -> Single<Void> {
+        return request(target)
+            .map { _ in }
     }
     
-    var path: String {
-        switch self {
-        case .challenge:
-            return "/challenge"
-        case .explore:
-            return "/explore"
-        }
+    func requestObject<T: Codable>(_ target: API, type: T.Type) -> Single<T> {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return request(target)
+            .map(T.self, using: decoder)
     }
     
-    var method: Moya.Method {
-        switch self {
-        case .challenge, .explore:
-            return .get
-        }
+    func requestArray<T: Codable>(_ target: API, type: T.Type) -> Single<[T]> {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return request(target)
+            .map([T].self, using: decoder)
     }
-    
-    var parameters: [String: Any]? {
-        switch self {
-        case let .challenge:
-            return [:]
-        case let .explore(exploreIdx):
-            return [
-                "exploreIdx": exploreIdx
-            ]
-        }
-    }
-    
-    var task: Task {
-        switch self {
-        default:
-            if let parameters = parameters {
-                return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-            }
-            return .requestPlain
-        }
-    }
-    
-    var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
-    }
-    
 }
+

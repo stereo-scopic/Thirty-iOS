@@ -24,7 +24,6 @@ class MyVC: UIViewController {
     }
 
     func setUI() {
-        mainView.topRoundCorner(radius: 20)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

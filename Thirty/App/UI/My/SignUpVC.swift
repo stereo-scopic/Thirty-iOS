@@ -37,6 +37,10 @@ class SignUpVC: UINavigationController {
     
     var disposeBag = DisposeBag()
     
+    @IBAction func backButtonTouchUpInside(_ sender: Any) {
+        self.popVC(animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

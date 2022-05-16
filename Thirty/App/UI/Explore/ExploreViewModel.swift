@@ -10,6 +10,6 @@ import RxSwift
 import RxRelay
 
 class ExploreListViewModel {
-    var exploreObservable = BehaviorRelay<[Explore]>(value: [])
+    var categoryObservable = BehaviorRelay<[Category]>(value: [])
     
 }

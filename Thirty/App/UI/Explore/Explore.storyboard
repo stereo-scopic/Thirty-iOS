@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1R-Bs-8uE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1R-Bs-8uE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPLORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pl-Sz-Mmn">
-                                                <rect key="frame" x="20" y="10.5" width="85.5" height="18.5"/>
+                                                <rect key="frame" x="20" y="10.5" width="90" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="BlatantBold" family="Blatant" pointSize="20"/>
                                                 <color key="textColor" name="THIRTY Black"/>
                                                 <nil key="highlightedColor"/>
@@ -74,11 +74,11 @@
                                                 <state key="normal" image="icon_search"/>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bba-y1-BOd">
-                                                <rect key="frame" x="20" y="59.5" width="374" height="689.5"/>
+                                                <rect key="frame" x="20" y="64.5" width="374" height="684.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExploreCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreCell" id="qJt-8O-gnN" customClass="ExploreCell" customModule="Thirty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="44.5" width="374" height="112"/>
+                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="112"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qJt-8O-gnN" id="ShE-fW-hdQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="112"/>
@@ -88,13 +88,13 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="96"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXTRA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMc-bx-YZh">
-                                                                            <rect key="frame" x="151.5" y="26" width="71" height="23"/>
+                                                                            <rect key="frame" x="148" y="26" width="78.5" height="29.5"/>
                                                                             <fontDescription key="fontDescription" name="BlatantRegular" family="Blatant" pointSize="25"/>
                                                                             <color key="textColor" name="THIRTY White"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8f-1L-j0l">
-                                                                            <rect key="frame" x="173" y="53" width="28" height="19"/>
+                                                                            <rect key="frame" x="173" y="59.5" width="28" height="19"/>
                                                                             <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                                             <color key="textColor" name="THIRTY White"/>
                                                                             <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXTRA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0h-ut-hQW">
-                                        <rect key="frame" x="178.5" y="11" width="57" height="22"/>
+                                        <rect key="frame" x="175.5" y="11" width="63" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="3Cc-lW-hDB"/>
                                         </constraints>
@@ -250,7 +250,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVl-y9-SLd">
-                                                    <rect key="frame" x="112" y="112" width="44" height="44"/>
+                                                    <rect key="frame" x="140" y="134" width="16" height="22"/>
                                                     <state key="normal" image="icon_plus"/>
                                                     <connections>
                                                         <action selector="addButtonTouchUpInside:" destination="NPR-bJ-XS8" eventType="touchUpInside" id="1H7-s0-fzg"/>
@@ -326,7 +326,7 @@
                                                             <constraint firstAttribute="width" constant="44" id="0go-ZC-dan"/>
                                                             <constraint firstAttribute="height" constant="44" id="tiU-rl-64d"/>
                                                         </constraints>
-                                                        <state key="normal" image="arrow-left-black"/>
+                                                        <state key="normal" image="arrow-left"/>
                                                         <connections>
                                                             <action selector="backButtonTouchUpInside:" destination="VP5-e0-QFH" eventType="touchUpInside" id="3LT-pX-ccf"/>
                                                         </connections>
@@ -355,36 +355,36 @@
                                                         </state>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최애 공통점 찾기 챌린지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uj9-JK-Y0J">
-                                                        <rect key="frame" x="20" y="28" width="268" height="24.5"/>
+                                                        <rect key="frame" x="20" y="28" width="268" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                                         <color key="textColor" name="THIRTY Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25명이 이 챌린지를 하고 있어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7U-dQ-Tvr">
-                                                        <rect key="frame" x="20" y="60.5" width="268" height="17"/>
+                                                        <rect key="frame" x="20" y="59.5" width="268" height="17"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="14"/>
                                                         <color key="textColor" name="Gray400"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최애의 라이프스타일을 하나씩 파헤쳐보고 공통점을 찾아보자!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2A-dW-BCf">
-                                                        <rect key="frame" x="20" y="101.5" width="374" height="38.5"/>
+                                                        <rect key="frame" x="20" y="100.5" width="374" height="37.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="16"/>
                                                         <color key="textColor" name="THIRTY Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tTg-h2-btS">
-                                                        <rect key="frame" x="20" y="156" width="374" height="397"/>
+                                                        <rect key="frame" x="20" y="154" width="374" height="399"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iVK-gM-Rk4">
-                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                                                <rect key="frame" x="0.0" y="24.5" width="374" height="48"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iVK-gM-Rk4" id="WwA-ou-TGd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeS-P0-jRo">
-                                                                            <rect key="frame" x="16" y="12" width="35" height="19.5"/>
+                                                                            <rect key="frame" x="16" y="12" width="35" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="35" id="zTv-e2-lGM"/>
                                                                             </constraints>
@@ -393,7 +393,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닮은 버릇이 있다면?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-TA-PQL">
-                                                                            <rect key="frame" x="71" y="12.5" width="283" height="19"/>
+                                                                            <rect key="frame" x="71" y="14.5" width="283" height="19"/>
                                                                             <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="16"/>
                                                                             <color key="textColor" name="THIRTY Black"/>
                                                                             <nil key="highlightedColor"/>
@@ -411,24 +411,42 @@
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="challenge_layer" translatesAutoresizingMaskIntoConstraints="NO" id="wBk-fB-iZw">
+                                                        <rect key="frame" x="20" y="257" width="374" height="296"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="296" id="5J0-qw-dry"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="challenge_guide" translatesAutoresizingMaskIntoConstraints="NO" id="OPz-k1-Vox">
+                                                        <rect key="frame" x="107" y="467" width="200" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="200" id="7gx-EJ-K4G"/>
+                                                            <constraint firstAttribute="height" constant="50" id="xAA-s4-TPE"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="tTg-h2-btS" firstAttribute="leading" secondItem="jOr-eM-QOg" secondAttribute="leading" constant="20" id="4P8-sp-rGF"/>
                                                     <constraint firstItem="Krx-eo-foE" firstAttribute="leading" secondItem="j7U-dQ-Tvr" secondAttribute="trailing" constant="10" id="59w-J5-TRu"/>
                                                     <constraint firstItem="Uj9-JK-Y0J" firstAttribute="leading" secondItem="jOr-eM-QOg" secondAttribute="leading" constant="20" id="83o-RG-2QB"/>
+                                                    <constraint firstItem="OPz-k1-Vox" firstAttribute="centerX" secondItem="jOr-eM-QOg" secondAttribute="centerX" id="9EP-VG-mEc"/>
                                                     <constraint firstItem="j7U-dQ-Tvr" firstAttribute="leading" secondItem="jOr-eM-QOg" secondAttribute="leading" constant="20" id="AvT-CH-RZI"/>
                                                     <constraint firstAttribute="bottom" secondItem="tTg-h2-btS" secondAttribute="bottom" constant="20" id="FQG-eZ-Wzv"/>
                                                     <constraint firstItem="F2A-dW-BCf" firstAttribute="top" secondItem="j7U-dQ-Tvr" secondAttribute="bottom" constant="24" id="H4I-1R-SCi"/>
                                                     <constraint firstItem="Krx-eo-foE" firstAttribute="top" secondItem="jOr-eM-QOg" secondAttribute="top" constant="28" id="Igm-Mv-JQu"/>
                                                     <constraint firstItem="F2A-dW-BCf" firstAttribute="leading" secondItem="jOr-eM-QOg" secondAttribute="leading" constant="20" id="KGg-aZ-1tB"/>
                                                     <constraint firstAttribute="height" constant="573" id="O47-hj-H4v"/>
+                                                    <constraint firstItem="wBk-fB-iZw" firstAttribute="leading" secondItem="tTg-h2-btS" secondAttribute="leading" id="VZs-Th-caV"/>
+                                                    <constraint firstItem="tTg-h2-btS" firstAttribute="trailing" secondItem="wBk-fB-iZw" secondAttribute="trailing" id="dkg-Pb-UZ2"/>
                                                     <constraint firstAttribute="trailing" secondItem="tTg-h2-btS" secondAttribute="trailing" constant="20" id="eUX-4p-aSK"/>
                                                     <constraint firstItem="Krx-eo-foE" firstAttribute="leading" secondItem="Uj9-JK-Y0J" secondAttribute="trailing" constant="10" id="fjv-Nv-aVT"/>
                                                     <constraint firstItem="tTg-h2-btS" firstAttribute="top" secondItem="F2A-dW-BCf" secondAttribute="bottom" constant="16" id="gag-eT-bW7"/>
                                                     <constraint firstAttribute="trailing" secondItem="Krx-eo-foE" secondAttribute="trailing" constant="20" id="iaX-iP-fwZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="F2A-dW-BCf" secondAttribute="trailing" constant="20" id="jfd-RV-et2"/>
                                                     <constraint firstItem="Uj9-JK-Y0J" firstAttribute="top" secondItem="jOr-eM-QOg" secondAttribute="top" constant="28" id="qeA-FJ-CNS"/>
+                                                    <constraint firstItem="tTg-h2-btS" firstAttribute="bottom" secondItem="OPz-k1-Vox" secondAttribute="bottom" constant="36" id="uay-RJ-3RD"/>
+                                                    <constraint firstItem="tTg-h2-btS" firstAttribute="bottom" secondItem="wBk-fB-iZw" secondAttribute="bottom" id="vta-5E-cEt"/>
                                                     <constraint firstItem="j7U-dQ-Tvr" firstAttribute="top" secondItem="Uj9-JK-Y0J" secondAttribute="bottom" constant="8" id="zIB-c7-x70"/>
                                                 </constraints>
                                             </view>
@@ -457,7 +475,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J4i-rx-UZu"/>
-                        <color key="backgroundColor" name="THIRTY Black"/>
+                        <color key="backgroundColor" name="THIRTY White"/>
                         <constraints>
                             <constraint firstItem="VV8-oK-Jis" firstAttribute="top" secondItem="J4i-rx-UZu" secondAttribute="top" id="5Mu-ff-iUq"/>
                             <constraint firstItem="J4i-rx-UZu" firstAttribute="trailing" secondItem="VV8-oK-Jis" secondAttribute="trailing" id="HfF-4A-0QC"/>
@@ -473,8 +491,9 @@
     </scenes>
     <resources>
         <image name="arrow-left" width="44" height="44"/>
-        <image name="arrow-left-black" width="44" height="44"/>
-        <image name="icon_plus" width="44" height="44"/>
+        <image name="challenge_guide" width="133" height="51"/>
+        <image name="challenge_layer" width="335" height="296"/>
+        <image name="icon_plus" width="16" height="16"/>
         <image name="icon_search" width="44" height="44"/>
         <image name="tab_explore" width="45" height="33"/>
         <image name="tab_explore_disable" width="45" height="33"/>
