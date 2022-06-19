@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "notification.png",
+      "filename" : "Group 50.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "notification@2x.png",
+      "filename" : "Group 50@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
