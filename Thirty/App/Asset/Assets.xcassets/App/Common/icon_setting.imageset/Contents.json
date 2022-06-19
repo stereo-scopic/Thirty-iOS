@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "setting.svg",
-      "idiom" : "universal"
+      "filename" : "ic24Setting.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ic24Setting@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ic24Setting@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

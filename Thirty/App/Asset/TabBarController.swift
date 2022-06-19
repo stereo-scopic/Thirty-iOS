@@ -16,7 +16,6 @@ class TabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = UIColor.gray300
         tabBar.tintColor = UIColor.thirtyBlack
     }
-    
 
     /*
     // MARK: - Navigation
