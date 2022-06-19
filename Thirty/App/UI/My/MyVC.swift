@@ -65,4 +65,9 @@ class MyVC: UIViewController {
 
         present(dateChooserAlert, animated: true, completion: nil)
     }
+  
+  @IBAction func noticeButtonTouchUpInside(_ sender: Any) {
+    let noticeVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNoticeVC") as! MyNoticeVC
+    self.navigationController?.pushViewController(noticeVC, animated: false)
+  }
 }

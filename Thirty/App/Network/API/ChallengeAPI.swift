@@ -28,7 +28,7 @@ extension ChallengeAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .categoryList,.challengeList:
+        case .categoryList, .challengeList:
             return .get
         }
     }

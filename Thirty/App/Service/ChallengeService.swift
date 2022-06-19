@@ -7,12 +7,12 @@
 
 import RxSwift
 
-protocol ChallengeServiceType{
-    func getCategoryList() -> Single<[Category]>
-    func getChallengeList(_ categoryName: String) -> Single<[Challenge]>
+protocol ChallengeServiceType {
+//    func getCategoryList() -> Single<[Category]>
+//    func getChallengeList(_ categoryName: String) -> Single<[Challenge]>
 }
 
-final class ChallengeService: ChallengeServiceType{
+final class ChallengeService: ChallengeServiceType {
     
     fileprivate let network: Network<ChallengeAPI>
     
@@ -20,11 +20,11 @@ final class ChallengeService: ChallengeServiceType{
         self.network = network
     }
     
-    func getCategoryList() -> Single<[Category]> {
-        <#code#>
-    }
-    
-    func getChallengeList(_ categoryName: String) -> Single<[Challenge]> {
-        <#code#>
-    }
+//    func getCategoryList() -> Single<[Category]> {
+//
+//    }
+//
+//    func getChallengeList(_ categoryName: String) -> Single<[Challenge]> {
+//
+//    }
 }

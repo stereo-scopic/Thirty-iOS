@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGI-hO-5bQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGI-hO-5bQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -236,19 +236,22 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plX-tk-5fe">
-                                        <rect key="frame" x="20" y="179.5" width="374" height="71"/>
+                                        <rect key="frame" x="20" y="179.5" width="374" height="61"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="71" id="1QD-nG-evj"/>
+                                            <constraint firstAttribute="height" constant="61" id="1QD-nG-evj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                         <state key="normal" title="공지사항">
                                             <color key="titleColor" name="THIRTY Black"/>
                                         </state>
+                                        <connections>
+                                            <action selector="noticeButtonTouchUpInside:" destination="4Lf-hF-ndf" eventType="touchUpInside" id="jhj-pQ-Zf0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r07-Pq-lwc">
-                                        <rect key="frame" x="20" y="250.5" width="374" height="71"/>
+                                        <rect key="frame" x="20" y="240.5" width="374" height="61"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="71" id="AFH-FS-Gah"/>
+                                            <constraint firstAttribute="height" constant="61" id="AFH-FS-Gah"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                         <state key="normal" title="문의하기">
@@ -895,10 +898,17 @@
                                 <color key="textColor" name="Gray500"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft6-xi-Zf9">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft6-xi-Zf9">
                                 <rect key="frame" x="21" y="498" width="372" height="31"/>
                                 <color key="tintColor" name="THIRTY Black"/>
                             </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share0" translatesAutoresizingMaskIntoConstraints="NO" id="Lfh-bK-n0P">
+                                <rect key="frame" x="77" y="182" width="260" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="DCF-Rx-AR5"/>
+                                    <constraint firstAttribute="height" constant="250" id="wnu-mC-b2N"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rsc-0V-DE8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -909,16 +919,19 @@
                             <constraint firstItem="TY0-if-LLI" firstAttribute="leading" secondItem="rsc-0V-DE8" secondAttribute="leading" constant="23" id="DCX-xT-tA2"/>
                             <constraint firstItem="rsc-0V-DE8" firstAttribute="trailing" secondItem="4cT-kN-rbc" secondAttribute="trailing" id="NbY-sh-4ig"/>
                             <constraint firstItem="rsc-0V-DE8" firstAttribute="trailing" secondItem="smp-IN-yI4" secondAttribute="trailing" constant="23" id="OS6-fn-ePe"/>
+                            <constraint firstItem="Lfh-bK-n0P" firstAttribute="centerX" secondItem="s9g-Ft-PnT" secondAttribute="centerX" id="YmC-GV-nth"/>
                             <constraint firstItem="rsc-0V-DE8" firstAttribute="trailing" secondItem="ft6-xi-Zf9" secondAttribute="trailing" constant="23" id="Yt1-ka-sVc"/>
                             <constraint firstItem="4cT-kN-rbc" firstAttribute="top" secondItem="rsc-0V-DE8" secondAttribute="top" id="eFs-EN-tzH"/>
                             <constraint firstItem="ft6-xi-Zf9" firstAttribute="top" secondItem="4cT-kN-rbc" secondAttribute="bottom" constant="410" id="ePg-Ma-Jl4"/>
                             <constraint firstItem="ft6-xi-Zf9" firstAttribute="leading" secondItem="rsc-0V-DE8" secondAttribute="leading" constant="23" id="geb-Xg-Cg9"/>
+                            <constraint firstItem="ft6-xi-Zf9" firstAttribute="top" secondItem="Lfh-bK-n0P" secondAttribute="bottom" constant="66" id="hos-i2-bGh"/>
                             <constraint firstItem="smp-IN-yI4" firstAttribute="centerY" secondItem="TY0-if-LLI" secondAttribute="centerY" id="nSh-P7-J1n"/>
                             <constraint firstItem="XLd-sf-pLV" firstAttribute="centerY" secondItem="TY0-if-LLI" secondAttribute="centerY" id="yMa-Dw-UiN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="공유범위 설정" id="ZtM-NB-Tim"/>
                     <connections>
+                        <outlet property="shareImage" destination="Lfh-bK-n0P" id="4Cl-cu-Dta"/>
                         <outlet property="slider" destination="ft6-xi-Zf9" id="4Zf-8p-x1U"/>
                     </connections>
                 </viewController>
@@ -968,7 +981,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="J7y-Uo-nQU">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="112"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J7y-Uo-nQU" id="NtH-6E-yJV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
@@ -1675,8 +1688,9 @@
         <image name="icon_setting" width="44" height="44"/>
         <image name="icon_x" width="44" height="44"/>
         <image name="my_background" width="375" height="842"/>
-        <image name="tab_my" width="45" height="33"/>
-        <image name="tab_my_disable" width="45" height="33"/>
+        <image name="share0" width="196" height="210"/>
+        <image name="tab_my" width="44" height="32"/>
+        <image name="tab_my_disable" width="44" height="32"/>
         <namedColor name="Gray200">
             <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
