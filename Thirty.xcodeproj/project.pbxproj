@@ -19,6 +19,13 @@
 		7537B61127E00A9800A66F11 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537B61027E00A9800A66F11 /* MyVC.swift */; };
 		753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB1DA27EB65A300D20579 /* MyInfoVC.swift */; };
 		754C31C82831C96400BD4195 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 754C31C72831C96400BD4195 /* Onboarding.storyboard */; };
+		757C96742863E051005CCBA3 /* ChallengeEnrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96732863E051005CCBA3 /* ChallengeEnrollVC.swift */; };
+		757C96762863E067005CCBA3 /* ChallengeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96752863E067005CCBA3 /* ChallengeDetailVC.swift */; };
+		757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */; };
+		757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96792863E090005CCBA3 /* NoticeVC.swift */; };
+		757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */; };
+		757C96802863E0E3005CCBA3 /* ChallengeShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C967F2863E0E3005CCBA3 /* ChallengeShareVC.swift */; };
+		757C96822863E169005CCBA3 /* ChallengeExportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96812863E169005CCBA3 /* ChallengeExportVC.swift */; };
 		759D326827C879E900A88C02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D326727C879E900A88C02 /* AppDelegate.swift */; };
 		759D326C27C879E900A88C02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D326B27C879E900A88C02 /* ViewController.swift */; };
 		759D326F27C879E900A88C02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759D326D27C879E900A88C02 /* Main.storyboard */; };
@@ -68,6 +75,13 @@
 		7537B61727E00E2100A66F11 /* Blatant-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blatant-Bold.otf"; sourceTree = "<group>"; };
 		753EB1DA27EB65A300D20579 /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
 		754C31C72831C96400BD4195 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		757C96732863E051005CCBA3 /* ChallengeEnrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeEnrollVC.swift; sourceTree = "<group>"; };
+		757C96752863E067005CCBA3 /* ChallengeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailVC.swift; sourceTree = "<group>"; };
+		757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailImageVC.swift; sourceTree = "<group>"; };
+		757C96792863E090005CCBA3 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
+		757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCompleteVC.swift; sourceTree = "<group>"; };
+		757C967F2863E0E3005CCBA3 /* ChallengeShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeShareVC.swift; sourceTree = "<group>"; };
+		757C96812863E169005CCBA3 /* ChallengeExportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeExportVC.swift; sourceTree = "<group>"; };
 		759D326427C879E900A88C02 /* Thirty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thirty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759D326727C879E900A88C02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759D326B27C879E900A88C02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +220,13 @@
 			isa = PBXGroup;
 			children = (
 				759D328627C8935C00A88C02 /* Challenge.storyboard */,
+				757C967F2863E0E3005CCBA3 /* ChallengeShareVC.swift */,
+				757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */,
+				757C96812863E169005CCBA3 /* ChallengeExportVC.swift */,
+				757C96792863E090005CCBA3 /* NoticeVC.swift */,
+				757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */,
+				757C96752863E067005CCBA3 /* ChallengeDetailVC.swift */,
+				757C96732863E051005CCBA3 /* ChallengeEnrollVC.swift */,
 				759D328A27C8A45000A88C02 /* ChallengeVC.swift */,
 				759D328C27C8AC6E00A88C02 /* ChallengeModel.swift */,
 				759D328E27C8AD2B00A88C02 /* ChallengeListViewModel.swift */,
@@ -472,20 +493,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */,
 				F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */,
+				757C96762863E067005CCBA3 /* ChallengeDetailVC.swift in Sources */,
 				75A41CF927E409D2009AD9D0 /* UIViewController+Extension.swift in Sources */,
 				F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */,
 				75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */,
 				F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */,
 				F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */,
+				757C96822863E169005CCBA3 /* ChallengeExportVC.swift in Sources */,
 				759D328B27C8A45000A88C02 /* ChallengeVC.swift in Sources */,
 				751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */,
 				75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */,
+				757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */,
 				F9B4859627FC8978003A129B /* ExploreViewModel.swift in Sources */,
 				753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */,
 				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
+				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
 				75E58EC727FE5E7500A87E73 /* BaseAPI.swift in Sources */,
 				75D4EF932810D346001E531D /* ChallengeService.swift in Sources */,
 				759D328F27C8AD2B00A88C02 /* ChallengeListViewModel.swift in Sources */,
@@ -498,8 +524,10 @@
 				759D326827C879E900A88C02 /* AppDelegate.swift in Sources */,
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
 				F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */,
+				757C96802863E0E3005CCBA3 /* ChallengeShareVC.swift in Sources */,
 				75E58EC427FE5DE100A87E73 /* Network.swift in Sources */,
 				75A41CFC27E45D03009AD9D0 /* UIView+IBDesignable.swift in Sources */,
+				757C96742863E051005CCBA3 /* ChallengeEnrollVC.swift in Sources */,
 				759D328D27C8AC6E00A88C02 /* ChallengeModel.swift in Sources */,
 				F91A251027FC642B0037BDA7 /* LoginVC.swift in Sources */,
 			);
