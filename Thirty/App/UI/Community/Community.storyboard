@@ -13,9 +13,6 @@
         <array key="Blatant-Bold.otf">
             <string>BlatantBold</string>
         </array>
-        <array key="Pretendard-SemiBold.otf">
-            <string>Pretendard-SemiBold</string>
-        </array>
     </customFonts>
     <scenes>
         <!--COMMUNITY-->
@@ -35,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-435" y="142"/>
         </scene>
-        <!--View Controller-->
+        <!--CommunityVC-->
         <scene sceneID="cdS-zO-ooq">
             <objects>
-                <viewController id="hCL-SH-vKu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hCL-SH-vKu" customClass="CommunityVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S0E-AV-E9f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,33 +46,35 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1d-SQ-Pfd">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9n-iH-eIa">
-                                                <rect key="frame" x="111" y="3.5" width="35" height="23.5"/>
-                                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
-                                                <color key="textColor" name="THIRTY Black"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hE-kg-rW9">
+                                                <rect key="frame" x="140" y="0.0" width="30" height="30"/>
+                                                <state key="normal" title="친구"/>
+                                                <connections>
+                                                    <action selector="friendButtonTouchUpInside:" destination="hCL-SH-vKu" eventType="touchUpInside" id="eUp-PC-nRg"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="d9n-iH-eIa" secondAttribute="trailing" constant="40" id="4rL-06-ZTn"/>
-                                            <constraint firstItem="d9n-iH-eIa" firstAttribute="centerY" secondItem="c1d-SQ-Pfd" secondAttribute="centerY" id="HA4-gP-SU8"/>
+                                            <constraint firstAttribute="trailing" secondItem="4hE-kg-rW9" secondAttribute="trailing" constant="16" id="dOi-Gl-h1n"/>
+                                            <constraint firstItem="4hE-kg-rW9" firstAttribute="centerY" secondItem="c1d-SQ-Pfd" secondAttribute="centerY" id="i2B-tc-r8w"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4u3-Yh-iGr">
                                         <rect key="frame" x="196" y="0.0" width="186" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqX-eg-hcq">
-                                                <rect key="frame" x="40" y="3.5" width="35" height="23.5"/>
-                                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
-                                                <color key="textColor" name="THIRTY Black"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-Zc-4db">
+                                                <rect key="frame" x="16" y="0.0" width="30" height="30"/>
+                                                <state key="normal" title="전체"/>
+                                                <connections>
+                                                    <action selector="allButtonTouchUpInside:" destination="hCL-SH-vKu" eventType="touchUpInside" id="Liy-qj-HIz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="cqX-eg-hcq" firstAttribute="centerY" secondItem="4u3-Yh-iGr" secondAttribute="centerY" id="j3D-1Q-m4D"/>
-                                            <constraint firstItem="cqX-eg-hcq" firstAttribute="leading" secondItem="4u3-Yh-iGr" secondAttribute="leading" constant="40" id="kPf-dC-KJa"/>
+                                            <constraint firstItem="bRd-Zc-4db" firstAttribute="leading" secondItem="4u3-Yh-iGr" secondAttribute="leading" constant="16" id="UCZ-co-iFA"/>
+                                            <constraint firstItem="bRd-Zc-4db" firstAttribute="centerY" secondItem="4u3-Yh-iGr" secondAttribute="centerY" id="qCo-k4-or1"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -137,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="508.69565217391306" y="141.96428571428569"/>
         </scene>
-        <!--NoticeVC-->
+        <!--Find FriendVC-->
         <scene sceneID="lga-en-jpd">
             <objects>
-                <viewController id="6vm-Ka-kxb" customClass="NoticeVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FindFriendVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6vm-Ka-kxb" customClass="FindFriendVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUl-0H-WHg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,7 +246,7 @@
         <!--Item-->
         <scene sceneID="W6k-2G-yZ2">
             <objects>
-                <viewController id="8AI-Hq-bEc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityFriendVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8AI-Hq-bEc" customClass="CommunityFriendVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hng-kk-AJD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="674"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,12 +281,13 @@
             </objects>
             <point key="canvasLocation" x="1418.840579710145" y="833.70535714285711"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Community Tab Bar Controller-->
         <scene sceneID="mI9-xB-lFH">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jDZ-LC-jt5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CommunityTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jDZ-LC-jt5" customClass="CommunityTabBarController" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I9k-St-Jyj">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -303,7 +303,7 @@
         <!--Item-->
         <scene sceneID="Eor-tq-WP3">
             <objects>
-                <viewController id="Dxt-fO-IQC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityAllVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dxt-fO-IQC" customClass="CommunityAllVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lyx-UV-Kvv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="674"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

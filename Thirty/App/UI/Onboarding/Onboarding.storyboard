@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDF-hM-OaY">
-                                <rect key="frame" x="20" y="116" width="267" height="74.666666666666686"/>
+                                <rect key="frame" x="20" y="116" width="265.33333333333331" height="77"/>
                                 <string key="text">가볍게 한 가지 
 챌린지를 담아보세요.</string>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="32"/>
@@ -128,7 +128,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqF-q2-gdZ">
-                                <rect key="frame" x="19.999999999999986" y="72" width="220.66666666666663" height="74.666666666666686"/>
+                                <rect key="frame" x="20.000000000000014" y="72" width="218.33333333333337" height="77"/>
                                 <string key="text">어떤 테마가 
 마음에 드시나요?</string>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="32"/>
@@ -193,7 +193,7 @@
                                 <state key="selected" image="love_on"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l8-EW-8pn">
-                                <rect key="frame" x="213.66666666666666" y="171.66666666666669" width="1" height="578.33333333333326"/>
+                                <rect key="frame" x="213.66666666666666" y="174" width="1" height="576"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="zG5-RK-EDi"/>
