@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Mask group.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Mask group@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Mask group@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "수정 완료.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

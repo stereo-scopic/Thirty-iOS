@@ -14,7 +14,7 @@ class LoginVC: UINavigationController {
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let emailInputText: BehaviorSubject<String> = BehaviorSubject(value:"")
+    let emailInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let pwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
