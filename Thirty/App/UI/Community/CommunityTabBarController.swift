@@ -14,7 +14,6 @@ class CommunityTabBarController: UITabBarController {
         self.tabBar.isHidden = true
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

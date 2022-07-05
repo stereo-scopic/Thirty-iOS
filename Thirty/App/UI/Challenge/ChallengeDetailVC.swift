@@ -9,7 +9,6 @@ import UIKit
 
 class ChallengeDetailVC: UIViewController {
     
-    
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

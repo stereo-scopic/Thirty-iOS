@@ -17,8 +17,10 @@ class CommunityVC: UIViewController {
         case all
     }
     
-    private var currentPage: PageType {
-        communityTabBarController?.selectedIndex = currentPage == .friend ? 0 : 1
+    private var currentPage: PageType? {
+        didSet {
+            communityTabBarController?.selectedIndex = self.currentPage == .friend ? 0 : 1
+        }
     }
     
     @IBAction func friendButtonTouchUpInside(_ sender: Any) {
