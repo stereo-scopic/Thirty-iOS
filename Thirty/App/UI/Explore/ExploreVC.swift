@@ -38,7 +38,13 @@ class ExploreVC: UIViewController {
 //                
 //            }).disposed(by: disposeBag)
     }
-
+    
+    @IBAction func exploreButtonTouchUpInside(_ sender: Any) {
+        if let createChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "createChallengeVC") as? CreateChallengeVC {        
+            self.navigationController?.pushViewController(createChallengeVC, animated: false)
+        }
+        
+    }
 }
 
 class ExploreCell: UITableViewCell {
