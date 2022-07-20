@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SignUpVC: UINavigationController {
+class SignUpVC: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
@@ -33,7 +33,7 @@ class SignUpVC: UINavigationController {
     
     let emailValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     let pwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
-    let confirmPwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    var confirmPwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     var disposeBag = DisposeBag()
     
@@ -71,10 +71,10 @@ class SignUpVC: UINavigationController {
             .bind(to: confirmPwdInputText)
             .disposed(by: disposeBag)
         
-        confirmPwdInputText
-            .map(checkConfirmPwdValid)
-            .bind(to: confirmPwdValid)
-            .disposed(by: disposeBag)
+//        confirmPwdInputText
+//            .map(checkConfirmPwdValid)
+//            .bind(to: confirmPwdValid)
+//            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
@@ -84,7 +84,11 @@ class SignUpVC: UINavigationController {
         pwdValid.subscribe(onNext: { b in self.pwdValidImage.image = b ? self.successImage : self.warningImage })
             .disposed(by: disposeBag)
         
-        confirmPwdValid.subscribe(onNext: { b in self.confirmPwdValidImage.image = b ? self.successImage : self.warningImage })
+        Observable.combineLatest(pwdInputText, confirmPwdInputText, resultSelector: { $0 == $1})
+            .subscribe(onNext: { b in
+                self.confirmPwdValidImage.image = b ? self.successImage : self.warningImage
+                self.confirmPwdInfoLabel.isHidden = b
+            })
             .disposed(by: disposeBag)
         
         Observable.combineLatest(emailValid, pwdValid, confirmPwdValid, resultSelector: {$0 && $1 && $2})
@@ -97,16 +101,10 @@ class SignUpVC: UINavigationController {
     }
 
     func checkPwdValid(_ password: String) -> Bool {
-        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.\\d)(?=.*[$@$!%?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8}"
+        let passwordRegex = "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&]).{8,20}"
         let passwordTesting = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordTesting.evaluate(with: password)
-    }
-    
-    func checkConfirmPwdValid(_ confirmPwd: String) -> Bool {
-        _ = pwdInputText.subscribe(onNext: { v in
-            let boolValue = v == confirmPwd
-//            return boolValue
-        })
-        return true
+        let verification = passwordTesting.evaluate(with: password)
+        pwdInfoLabel.isHidden = verification
+        return verification
     }
 }
