@@ -6,41 +6,111 @@
 //
 
 import UIKit
+import RxSwift
 
 class MySettingVC: UIViewController {
-
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var myInfoButton: UIButton!
+    @IBOutlet weak var noticeButton: UIButton!
+    @IBOutlet weak var myShareButton: UIButton!
+    @IBOutlet weak var termsOfServiceButton: UIButton!
+    @IBOutlet weak var privateInfoButton: UIButton!
+    @IBOutlet weak var openSourceButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var withdrawalButton: UIButton!
+    
+    @IBOutlet weak var appVersionLabel: UILabel!
+    
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUI()
     }
     
-    @IBAction func backButtonTouchUpInside(_ sender: Any) {
-        self.popVC(animated: false, completion: nil)
-    }
-    
-    @IBAction func myInfoTouchUpInside(_ sender: Any) {
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "MyInfoVC") as! MyInfoVC
-        self.navigationController?.pushViewController(settingVC, animated: false)
-    }
-    
-    @IBAction func myAlertTouchUpInside(_ sender: Any) {
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "MyAlertVC") as! MyAlertVC
-        self.navigationController?.pushViewController(settingVC, animated: false)
-    }
-    
-    @IBAction func myShareSettingTouchUpInside(_ sender: Any) {
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "MyShareSettingVC") as! MyShareSettingVC
-        self.navigationController?.pushViewController(settingVC, animated: false)
-    }
-    
-    @IBAction func myNoticeTouchUpInside(_ sender: Any) {
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNoticeVC") as! MyNoticeVC
-        self.navigationController?.pushViewController(settingVC, animated: false)
-    }
-    
-    @IBAction func myAppInfoTouchUpInside(_ sender: Any) {
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "MyAppInfoVC") as! MyAppInfoVC
-        self.navigationController?.pushViewController(settingVC, animated: false)
+    func setUI() {
+        backButton.rx.tap
+            .bind {
+                self.popVC(animated: false, completion: nil)
+            }
+            .disposed(by: disposeBag)
+        
+        myInfoButton.rx.tap
+            .bind {
+                guard let myInfoVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "MyInfoVC") as? MyInfoVC else {
+                            return
+                        }
+                self.navigationController?.pushViewController(myInfoVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        noticeButton.rx.tap
+            .bind {
+                guard let myAlertVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "MyAlertVC") as? MyAlertVC else {
+                            return
+                        }
+                self.navigationController?.pushViewController(myAlertVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        myShareButton.rx.tap
+            .bind {
+                guard let myShareSettingVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as? MyShareSettingVC else {
+                            return
+                        }
+                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+//        termsOfServiceButton.rx.tap
+//            .bind {
+//                guard let myShareSettingVC = self.storyboard?
+//                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
+//                            return
+//                        }
+//                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
+//            }
+//            .disposed(by: disposeBag)
+        
+//        privateInfoButton.rx.tap
+//            .bind {
+//                guard let myShareSettingVC = self.storyboard?
+//                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
+//                            return
+//                        }
+//                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
+//            }
+//            .disposed(by: disposeBag)
+        
+//        openSourceButton.rx.tap
+//            .bind {
+//                guard let myShareSettingVC = self.storyboard?
+//                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
+//                            return
+//                        }
+//                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
+//            }
+//            .disposed(by: disposeBag)
+        
+        if let dictionary = Bundle.main.infoDictionary,
+           let appVersion = dictionary["CFBundleShortVersion"] as? String {
+            appVersionLabel.text = appVersion
+        }
+        
+        logoutButton.rx.tap
+            .bind {
+                
+            }
+            .disposed(by: disposeBag)
+        
+        withdrawalButton.rx.tap
+            .bind {
+                
+            }
+            .disposed(by: disposeBag)
     }
 }
