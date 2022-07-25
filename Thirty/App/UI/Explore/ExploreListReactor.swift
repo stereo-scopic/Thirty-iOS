@@ -1,5 +1,5 @@
 //
-//  ExploreListViewModel.swift
+//  ExploreListReactor.swift
 //  Thirty
 //
 //  Created by hakyung on 2022/07/12.
@@ -57,10 +57,10 @@ class ExploreListReactor: Reactor {
     private func requestCategoryListRx() -> Observable<Mutation> {
         return Observable.create { observer in
             let dummyCategoryList = [
-                Category(category_id: 0, name: "자기계발", description: "눈누누누", image: URL(string: "")),
-                Category(category_id: 1, name: "취미", description: "눈누누누", image: URL(string: "")),
-                Category(category_id: 2, name: "힐링", description: "눈누누누", image: URL(string: "")),
-                Category(category_id: 3, name: "피트니스", description: "눈누누누", image: URL(string: "")),
+                Category(category_id: 0, name: "자기계발", description: "눈누누누", image: URL(string: "")!),
+                Category(category_id: 1, name: "취미", description: "눈누누누", image: URL(string: "")!),
+                Category(category_id: 2, name: "힐링", description: "눈누누누", image: URL(string: "")!),
+                Category(category_id: 3, name: "피트니스", description: "눈누누누", image: URL(string: "")!),
             ].shuffled()
             
             observer.onNext(Mutation.setCategoryList(dummyCategoryList))

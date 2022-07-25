@@ -7,13 +7,6 @@
 
 import Foundation
 
-struct Category: Codable {
-    var category_id: String
-    var name: String
-    var description: String
-    var image: URL
-}
-
 struct Challenge: Codable {
     var challenge_id: String
     var category: String

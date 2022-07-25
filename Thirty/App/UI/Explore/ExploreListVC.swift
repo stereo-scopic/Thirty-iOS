@@ -6,20 +6,34 @@
 //
 
 import UIKit
+import ReactorKit
 
-class ExploreListVC: UIViewController {
-
+class ExploreListVC: UIViewController, StoryboardView {
+    typealias Reactor = ExploreListReactor
+    var disposeBag = DisposeBag()
+    
+    @IBOutlet weak var exploreCollectionView: UICollectionView!
+    
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: false)
         self.popVC(animated: false, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    func bind(reactor: ExploreListReactor) {
+        //Action ( View -> Reactor )
+        //State ( Reactor -> View )
+        reactor.state
+            .map { $0.categoryList }
+            .bind(to: self.exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier)) { collectionView, row, item in
 
+                
+            }
+    }
+    
+    
 }
 
 extension ExploreListVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -46,6 +60,8 @@ class ExploreListCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    
+    static var identifier = "ExploreListCell"
     
     @IBAction func addButtonTouchUpInside(_ sender: Any) {
         
