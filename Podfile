@@ -13,4 +13,5 @@ target 'Thirty' do
   pod 'RxCocoa'
   pod 'SwiftLint'
   pod 'Moya'
+  pod 'ReactorKit'
 end
