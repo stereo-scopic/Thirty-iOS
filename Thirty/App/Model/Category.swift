@@ -11,5 +11,4 @@ struct Category: Codable {
     var category_id: Int
     var name: String
     var description: String
-    var image: URL
 }

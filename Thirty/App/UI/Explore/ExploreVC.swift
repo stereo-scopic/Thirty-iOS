@@ -8,12 +8,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Moya
 
 class ExploreVC: UIViewController {
 
     @IBOutlet weak var exploreTV: UITableView!
     
-    let exploreViewModel = ExploreListViewModel()
+//    let exploreViewModel = ExploreListViewModel()
     var disposeBag = DisposeBag()
     
     let cellId = "ExploreCell"
@@ -25,6 +26,15 @@ class ExploreVC: UIViewController {
     }
     
     func setup() {
+        let provider = MoyaProvider<ChallengeAPI>()
+        provider.request(.categoryList) { result in
+            switch result {
+            case let .success(response):
+                let result = try? response.map([Category].self)
+            case let .failure(error):
+                print("Explore - CategoryList Error", error.localizedDescription)
+            }
+        }
 //        exploreViewModel.categoryObservable
 //            .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
 //                cell.title.text = item.name
@@ -35,7 +45,7 @@ class ExploreVC: UIViewController {
 //            .subscribe(onNext: { [weak self] _ in
 //                let exploreListVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreListVC") as! ExploreListVC
 //                self?.navigationController?.pushViewController(exploreListVC, animated: false)
-//                
+//
 //            }).disposed(by: disposeBag)
     }
     
