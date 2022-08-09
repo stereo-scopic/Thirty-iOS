@@ -62,6 +62,9 @@
 		F91A251027FC642B0037BDA7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A250F27FC642B0037BDA7 /* LoginVC.swift */; };
 		F91A251227FC643B0037BDA7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A251127FC643B0037BDA7 /* SignUpVC.swift */; };
 		F984DE4D27F1D4C90049EA83 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F984DE4C27F1D4C90049EA83 /* .swiftlint.yml */; };
+		F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65626288D02B300544D83 /* CommunityListCell.swift */; };
+		F9A65629288D07AB00544D83 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65628288D07AB00544D83 /* Community.swift */; };
+		F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */; };
 		F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46427EF654A0092F2B8 /* TabBarController.swift */; };
 		F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46727EF67210092F2B8 /* CommunityNC.swift */; };
 		F9B4859427FC8926003A129B /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B4859327FC8926003A129B /* Challenge.swift */; };
@@ -131,6 +134,9 @@
 		F91A250F27FC642B0037BDA7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F91A251127FC643B0037BDA7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		F984DE4C27F1D4C90049EA83 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F9A65626288D02B300544D83 /* CommunityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCell.swift; sourceTree = "<group>"; };
+		F9A65628288D07AB00544D83 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListViewModel.swift; sourceTree = "<group>"; };
 		F9B0D46427EF654A0092F2B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F9B0D46727EF67210092F2B8 /* CommunityNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityNC.swift; sourceTree = "<group>"; };
 		F9B4859327FC8926003A129B /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -274,12 +280,14 @@
 			isa = PBXGroup;
 			children = (
 				759D328227C8933700A88C02 /* Community.storyboard */,
-				753B078E286BC84500B62F35 /* FindFriendVC.swift */,
+				F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */,
 				753B078C286BC82200B62F35 /* CommunityAllVC.swift */,
 				753B078A286BC80200B62F35 /* CommunityFriendVC.swift */,
+				F9A65626288D02B300544D83 /* CommunityListCell.swift */,
 				753B0788286BC7E700B62F35 /* CommunityVC.swift */,
 				753B0786286BC7CA00B62F35 /* CommunityTabBarController.swift */,
 				F9B0D46727EF67210092F2B8 /* CommunityNC.swift */,
+				753B078E286BC84500B62F35 /* FindFriendVC.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -367,6 +375,7 @@
 			children = (
 				F9B4859327FC8926003A129B /* Challenge.swift */,
 				75E98C42287CEB03009DBDC2 /* Category.swift */,
+				F9A65628288D07AB00544D83 /* Community.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,9 +552,11 @@
 				753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */,
 				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
+				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
 				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
 				75E98C43287CEB03009DBDC2 /* Category.swift in Sources */,
+				F9A65629288D07AB00544D83 /* Community.swift in Sources */,
 				75E58EC727FE5E7500A87E73 /* BaseAPI.swift in Sources */,
 				75D4EF932810D346001E531D /* ChallengeService.swift in Sources */,
 				753B0789286BC7E700B62F35 /* CommunityVC.swift in Sources */,
@@ -553,6 +564,7 @@
 				75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */,
 				753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */,
 				F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */,
+				F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */,
 				753B078F286BC84500B62F35 /* FindFriendVC.swift in Sources */,
 				F9B4859427FC8926003A129B /* Challenge.swift in Sources */,
 				757D66CB2874FEFB00E3C5DE /* SelectChallengeVC.swift in Sources */,

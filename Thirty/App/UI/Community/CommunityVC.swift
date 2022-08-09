@@ -9,8 +9,11 @@ import UIKit
 
 class CommunityVC: UIViewController {
     var communityTabBarController: CommunityTabBarController?
-    @IBOutlet weak var friendButton: UIView!
-    @IBOutlet weak var allButton: UIView!
+    @IBOutlet weak var friendButton: UIButton!
+    @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var friendUnderBarView: UIView!
+    @IBOutlet weak var allUnderBarView: UIView!
+    @IBOutlet weak var seperatorView: UIView!
     
     private enum PageType {
         case friend
@@ -20,6 +23,24 @@ class CommunityVC: UIViewController {
     private var currentPage: PageType? {
         didSet {
             communityTabBarController?.selectedIndex = self.currentPage == .friend ? 0 : 1
+            
+            if currentPage == .friend {
+                friendButton.setTitleColor(UIColor.thirtyBlack, for: .normal)
+                allButton.setTitleColor(UIColor.gray300, for: .normal)
+                friendUnderBarView.backgroundColor = UIColor.thirtyBlack
+                allUnderBarView.backgroundColor = UIColor.white
+            } else {
+                friendButton.setTitleColor(UIColor.gray300, for: .normal)
+                allButton.setTitleColor(UIColor.thirtyBlack, for: .normal)
+                friendUnderBarView.backgroundColor = UIColor.white
+                allUnderBarView.backgroundColor = UIColor.thirtyBlack
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tabBarSegue" {
+            self.communityTabBarController = segue.destination as? CommunityTabBarController
         }
     }
     
@@ -33,7 +54,5 @@ class CommunityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
