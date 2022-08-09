@@ -9,7 +9,8 @@ import Moya
 
 enum ChallengeAPI {
     case categoryList
-    case challengeList(_ categoryName: String)
+    case challengeListInCategory(_ categoryName: String)
+    case challengeDetail(_ categoryName: String, _ challengeId: String)
 }
 
 extension ChallengeAPI: TargetType {
@@ -21,14 +22,16 @@ extension ChallengeAPI: TargetType {
         switch self {
         case .categoryList:
             return "/challenges"
-        case let .challengeList(categoryName):
+        case let .challengeListInCategory(categoryName):
             return "/challenges/\(categoryName)"
+        case let .challengeDetail(categoryName, categoryId):
+            return "/challenges/\(categoryName)/\(categoryId)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .categoryList, .challengeList:
+        case .categoryList, .challengeListInCategory, .challengeDetail:
             return .get
         }
     }
@@ -46,6 +49,11 @@ extension ChallengeAPI: TargetType {
     
     var task: Task {
         switch self {
+//        case .challengeList(categoryName):
+//            let params: [String: Any] = [
+//                "categoryName": ""
+//            ]
+//            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         default:
             if let parameters = parameters {
                 return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)

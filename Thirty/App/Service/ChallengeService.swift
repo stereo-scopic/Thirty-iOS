@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol ChallengeServiceType {
-//    func getCategoryList() -> Single<[Category]>
+    func getCategoryList() -> Single<[Category]>
 //    func getChallengeList(_ categoryName: String) -> Single<[Challenge]>
 }
 
@@ -20,9 +20,9 @@ final class ChallengeService: ChallengeServiceType {
         self.network = network
     }
     
-//    func getCategoryList() -> Single<[Category]> {
-//
-//    }
+    func getCategoryList() -> Single<[Category]> {
+        return self.network.requestArray(.categoryList, type: Category.self)
+    }
 //
 //    func getChallengeList(_ categoryName: String) -> Single<[Challenge]> {
 //
