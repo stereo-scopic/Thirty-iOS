@@ -9,20 +9,54 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
+import ReactorKit
 
-class ExploreVC: UIViewController {
+class ExploreVC: UIViewController, StoryboardView {
+    
+    typealias Reactor = ExploreListReactor
 
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var exploreTV: UITableView!
     
-//    let exploreViewModel = ExploreListViewModel()
     var disposeBag = DisposeBag()
     
     let cellId = "ExploreCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setup()
+//        Reactor.Action.load
+//            .bind(to: reactor?.action)
+//            .disposed(by: disposeBag)
+//        setup()
+        self.reactor = ExploreListReactor()
+    }
+    
+//    init(reactor: Reactor) {
+//        defer {
+//            self.reactor = reactor
+//        }
+//        super.init(
+//    }
+    
+    func bind(reactor: ExploreListReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
+    
+    private func bindAction(_ reactor: ExploreListReactor) {
+        button.rx.tap
+            .map { Reactor.Action.load }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindState(_ reactor: ExploreListReactor) {
+        reactor.state
+            .map { $0.categoryList }
+            .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
+                cell.title.text = item.name
+                cell.title_kor.text = item.description
+            }.disposed(by: disposeBag)
     }
     
     func setup() {
@@ -35,6 +69,7 @@ class ExploreVC: UIViewController {
                 print("Explore - CategoryList Error", error.localizedDescription)
             }
         }
+        
 //        exploreViewModel.categoryObservable
 //            .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
 //                cell.title.text = item.name

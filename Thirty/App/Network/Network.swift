@@ -16,10 +16,10 @@ class Network<API: TargetType>: MoyaProvider<API> {
         super.init(session: session, plugins: plugins)
     }
     
-    func request(_ api: API) -> Single<Response> {
-        return self.rx.request(api)
-            .filterSuccessfulStatusCodes()
-    }
+//    func request(_ api: API) -> Single<Response> {
+//        return self.rx.request(api)
+//            .filterSuccessfulStatusCodes()
+//    }
 }
 
 enum ThirtyService {
@@ -28,23 +28,23 @@ enum ThirtyService {
 }
 
 extension Network {
-    func requestWithoutMapping(_ target: API) -> Single<Void> {
-        return request(target)
-            .map { _ in }
-    }
+//    func requestWithoutMapping(_ target: API) -> Single<Void> {
+//        return request(target)
+//            .map { _ in }
+//    }
     
-    func requestObject<T: Codable>(_ target: API, type: T.Type) -> Single<T> {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        return request(target)
-            .map(T.self, using: decoder)
-            .map(T.self, decoder)
-    }
-    
-    func requestArray<T: Codable>(_ target: API, type: T.Type) -> Single<[T]> {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        return request(target)
-            .map([T].self, using: decoder)
-    }
+//    func requestObject<T: Codable>(_ target: API, type: T.Type) -> Single<T> {
+//        let decoder = JSONDecoder()
+//        decoder.dateDecodingStrategy = .iso8601
+//        return request(target)
+//            .map(T.self, using: decoder)
+//            .map(T.self, decoder)
+//    }
+//
+//    func requestArray<T: Codable>(_ target: API, type: T.Type) -> Single<[T]> {
+//        let decoder = JSONDecoder()
+//        decoder.dateDecodingStrategy = .iso8601
+//        return request(target)
+//            .map([T].self, using: decoder)
+//    }
 }

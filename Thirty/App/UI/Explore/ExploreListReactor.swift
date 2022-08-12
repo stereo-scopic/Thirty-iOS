@@ -12,11 +12,13 @@ import RxRelay
 class ExploreListReactor: Reactor {
     enum Action {
         case refresh
+        case load
     }
     
     enum Mutation {
         case setLoading(loading: Bool)
         case setCategoryList([Category])
+        
     }
     
     struct State {
@@ -25,15 +27,20 @@ class ExploreListReactor: Reactor {
     }
     
     var categoryObservable = BehaviorRelay<[Category]>(value: [])
-    let initialState: State = State()
-    fileprivate let challengeService: ChallengeServiceType
+    var initialState: State = State()
+//    fileprivate let challengeService: ChallengeServiceType
     
-    init(challengeService: ChallengeServiceType) {
-        self.challengeService = challengeService
+//    init(challengeService: ChallengeServiceType) {
+//        self.challengeService = challengeService
+//    }
+    init() {
+        self.initialState = State(loading: false, categoryList: [])
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .load:
+            return requestCategoryListRx()
         case .refresh:
             return Observable.concat([
                 Observable.just(.setLoading(loading: true)),
@@ -57,10 +64,10 @@ class ExploreListReactor: Reactor {
     private func requestCategoryListRx() -> Observable<Mutation> {
         return Observable.create { observer in
             let dummyCategoryList = [
-                Category(category_id: 0, name: "자기계발", description: "눈누누누", image: URL(string: "")!),
-                Category(category_id: 1, name: "취미", description: "눈누누누", image: URL(string: "")!),
-                Category(category_id: 2, name: "힐링", description: "눈누누누", image: URL(string: "")!),
-                Category(category_id: 3, name: "피트니스", description: "눈누누누", image: URL(string: "")!),
+                Category(category_id: 0, name: "자기계발", description: "눈누누누"),
+                Category(category_id: 1, name: "취미", description: "눈누누누"),
+                Category(category_id: 2, name: "힐링", description: "눈누누누"),
+                Category(category_id: 3, name: "피트니스", description: "눈누누누")
             ].shuffled()
             
             observer.onNext(Mutation.setCategoryList(dummyCategoryList))
