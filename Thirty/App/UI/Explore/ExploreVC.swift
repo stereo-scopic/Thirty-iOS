@@ -24,19 +24,12 @@ class ExploreVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        Reactor.Action.load
-//            .bind(to: reactor?.action)
-//            .disposed(by: disposeBag)
-//        setup()
         self.reactor = ExploreListReactor()
     }
     
-//    init(reactor: Reactor) {
-//        defer {
-//            self.reactor = reactor
-//        }
-//        super.init(
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        reactor?.action.onNext(.viewWillAppear)
+    }
     
     func bind(reactor: ExploreListReactor) {
         bindAction(reactor)
@@ -59,16 +52,16 @@ class ExploreVC: UIViewController, StoryboardView {
             }.disposed(by: disposeBag)
     }
     
-    func setup() {
-        let provider = MoyaProvider<ChallengeAPI>()
-        provider.request(.categoryList) { result in
-            switch result {
-            case let .success(response):
-                let result = try? response.map([Category].self)
-            case let .failure(error):
-                print("Explore - CategoryList Error", error.localizedDescription)
-            }
-        }
+//    func setup() {
+//        let provider = MoyaProvider<ChallengeAPI>()
+//        provider.request(.categoryList) { result in
+//            switch result {
+//            case let .success(response):
+//                let result = try? response.map([Category].self)
+//            case let .failure(error):
+//                print("Explore - CategoryList Error", error.localizedDescription)
+//            }
+//        }
         
 //        exploreViewModel.categoryObservable
 //            .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
@@ -82,7 +75,7 @@ class ExploreVC: UIViewController, StoryboardView {
 //                self?.navigationController?.pushViewController(exploreListVC, animated: false)
 //
 //            }).disposed(by: disposeBag)
-    }
+//    }
     
     @IBAction func exploreButtonTouchUpInside(_ sender: Any) {
         if let createChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "createChallengeVC") as? CreateChallengeVC {        

@@ -8,17 +8,18 @@ import ReactorKit
 import Foundation
 import RxSwift
 import RxRelay
+import Moya
 
 class ExploreListReactor: Reactor {
     enum Action {
         case refresh
         case load
+        case viewWillAppear
     }
     
     enum Mutation {
         case setLoading(loading: Bool)
         case setCategoryList([Category])
-        
     }
     
     struct State {
@@ -28,11 +29,7 @@ class ExploreListReactor: Reactor {
     
     var categoryObservable = BehaviorRelay<[Category]>(value: [])
     var initialState: State = State()
-//    fileprivate let challengeService: ChallengeServiceType
-    
-//    init(challengeService: ChallengeServiceType) {
-//        self.challengeService = challengeService
-//    }
+
     init() {
         self.initialState = State(loading: false, categoryList: [])
     }
@@ -40,6 +37,8 @@ class ExploreListReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
+            return requestCategoryListRx()
+        case .viewWillAppear:
             return requestCategoryListRx()
         case .refresh:
             return Observable.concat([
@@ -74,5 +73,15 @@ class ExploreListReactor: Reactor {
             observer.onCompleted()
             return Disposables.create()
         }.delay(.seconds(1), scheduler: MainScheduler.instance)
+        
+//        let provider = MoyaProvider<ChallengeAPI>()
+//        provider.request(.categoryList) { result in
+//            switch result {
+//            case let .success(response):
+//                let result = try? response.map([Category].self)
+//            case let .failure(error):
+//                print("Explore - CategoryList Error", error.localizedDescription)
+//            }
+//        }
     }
 }
