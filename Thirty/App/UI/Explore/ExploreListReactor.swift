@@ -60,7 +60,7 @@ class ExploreListReactor: Reactor {
                 Category(category_id: 0, name: "자기계발", description: "눈누누누", image: URL(string: "")!),
                 Category(category_id: 1, name: "취미", description: "눈누누누", image: URL(string: "")!),
                 Category(category_id: 2, name: "힐링", description: "눈누누누", image: URL(string: "")!),
-                Category(category_id: 3, name: "피트니스", description: "눈누누누", image: URL(string: "")!),
+                Category(category_id: 3, name: "피트니스", description: "눈누누누", image: URL(string: "")!)
             ].shuffled()
             
             observer.onNext(Mutation.setCategoryList(dummyCategoryList))

@@ -23,16 +23,14 @@ class ExploreListVC: UIViewController, StoryboardView {
     }
     
     func bind(reactor: ExploreListReactor) {
-        //Action ( View -> Reactor )
-        //State ( Reactor -> View )
+        // Action ( View -> Reactor )
+        // State ( Reactor -> View )
         reactor.state
             .map { $0.categoryList }
-            .bind(to: self.exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier)) { collectionView, row, item in
-
+            .bind(to: self.exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier)) { _, _, _ in
                 
             }
     }
-    
     
 }
 
