@@ -15,7 +15,7 @@ enum ChallengeAPI {
 
 extension ChallengeAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "http://3.38.15.60:3000/api/v1")!
     }
     
     var path: String {

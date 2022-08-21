@@ -10,7 +10,6 @@ import UIKit
 class ExploreDetailVC: UIViewController {
 
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: false)
         self.popVC(animated: false, completion: nil)
     }
     

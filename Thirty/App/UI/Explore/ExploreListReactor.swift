@@ -61,27 +61,22 @@ class ExploreListReactor: Reactor {
     }
     
     private func requestCategoryListRx() -> Observable<Mutation> {
-        return Observable.create { observer in
-            let dummyCategoryList = [
-                Category(category_id: 0, name: "자기계발", description: "눈누누누"),
-                Category(category_id: 1, name: "취미", description: "눈누누누"),
-                Category(category_id: 2, name: "힐링", description: "눈누누누"),
-                Category(category_id: 3, name: "피트니스", description: "눈누누누")
-            ].shuffled()
-            
-            observer.onNext(Mutation.setCategoryList(dummyCategoryList))
-            observer.onCompleted()
+        let response = Observable<Mutation>.create { observer in
+
+            let provider = MoyaProvider<ChallengeAPI>()
+            provider.request(.categoryList) { result in
+                switch result {
+                case let .success(response):
+                    let result = try? response.map([Category].self)
+                    observer.onNext(Mutation.setCategoryList(result ?? []))
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
             return Disposables.create()
-        }.delay(.seconds(1), scheduler: MainScheduler.instance)
+        }
         
-//        let provider = MoyaProvider<ChallengeAPI>()
-//        provider.request(.categoryList) { result in
-//            switch result {
-//            case let .success(response):
-//                let result = try? response.map([Category].self)
-//            case let .failure(error):
-//                print("Explore - CategoryList Error", error.localizedDescription)
-//            }
-//        }
+        return response
     }
 }
