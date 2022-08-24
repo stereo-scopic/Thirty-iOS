@@ -277,10 +277,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="gYb-YH-jSi" id="nyD-8R-p6Q"/>
-                                    <outlet property="delegate" destination="gYb-YH-jSi" id="NkF-Ub-bJX"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="abe-HX-uKK"/>

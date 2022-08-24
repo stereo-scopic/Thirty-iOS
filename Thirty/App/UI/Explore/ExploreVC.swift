@@ -13,7 +13,7 @@ import ReactorKit
 
 class ExploreVC: UIViewController, StoryboardView {
     
-    typealias Reactor = ExploreListReactor
+    typealias Reactor = ExploreReactor
 
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var exploreTV: UITableView!
@@ -24,26 +24,35 @@ class ExploreVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.reactor = ExploreListReactor()
+        self.reactor = ExploreReactor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         reactor?.action.onNext(.viewWillAppear)
     }
     
-    func bind(reactor: ExploreListReactor) {
+    func bind(reactor: ExploreReactor) {
         bindAction(reactor)
         bindState(reactor)
     }
     
-    private func bindAction(_ reactor: ExploreListReactor) {
+    private func bindAction(_ reactor: ExploreReactor) {
         button.rx.tap
             .map { Reactor.Action.load }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        exploreTV.rx.modelSelected(Category.self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                if let exploreListVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreListVC") as? ExploreListVC {
+                    self?.navigationController?.pushViewController(exploreListVC, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
-    private func bindState(_ reactor: ExploreListReactor) {
+    private func bindState(_ reactor: ExploreReactor) {
         reactor.state
             .map { $0.categoryList }
             .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
@@ -51,31 +60,6 @@ class ExploreVC: UIViewController, StoryboardView {
                 cell.title_kor.text = item.description
             }.disposed(by: disposeBag)
     }
-    
-//    func setup() {
-//        let provider = MoyaProvider<ChallengeAPI>()
-//        provider.request(.categoryList) { result in
-//            switch result {
-//            case let .success(response):
-//                let result = try? response.map([Category].self)
-//            case let .failure(error):
-//                print("Explore - CategoryList Error", error.localizedDescription)
-//            }
-//        }
-        
-//        exploreViewModel.categoryObservable
-//            .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
-//                cell.title.text = item.name
-//                cell.title_kor.text = item.description
-//            }.disposed(by: disposeBag)
-//
-//        exploreTV.rx.itemSelected
-//            .subscribe(onNext: { [weak self] _ in
-//                let exploreListVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreListVC") as! ExploreListVC
-//                self?.navigationController?.pushViewController(exploreListVC, animated: false)
-//
-//            }).disposed(by: disposeBag)
-//    }
     
     @IBAction func exploreButtonTouchUpInside(_ sender: Any) {
         if let createChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "createChallengeVC") as? CreateChallengeVC {        

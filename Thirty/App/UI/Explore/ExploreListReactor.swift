@@ -2,73 +2,61 @@
 //  ExploreListReactor.swift
 //  Thirty
 //
-//  Created by hakyung on 2022/07/12.
+//  Created by hakyung on 2022/08/22.
 //
+
 import ReactorKit
 import Foundation
-import RxSwift
-import RxRelay
 import Moya
+import RxRelay
 
 class ExploreListReactor: Reactor {
     enum Action {
-        case refresh
-        case load
         case viewWillAppear
     }
     
     enum Mutation {
-        case setLoading(loading: Bool)
-        case setCategoryList([Category])
+        case setChallengeList([Challenge])
     }
     
     struct State {
-        var loading: Bool = false
-        var categoryList: [Category] = []
+        var challengeList: [Challenge] = []
     }
     
-    var categoryObservable = BehaviorRelay<[Category]>(value: [])
+    var challengeObservable = BehaviorRelay<[Challenge]>(value: [])
     var initialState: State = State()
-
+    
     init() {
-        self.initialState = State(loading: false, categoryList: [])
+        self.initialState = State(challengeList: [])
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .load:
-            return requestCategoryListRx()
         case .viewWillAppear:
-            return requestCategoryListRx()
-        case .refresh:
-            return Observable.concat([
-                Observable.just(.setLoading(loading: true)),
-                self.requestCategoryListRx(),
-                Observable.just(.setLoading(loading: false))
-            ])
+            return requestChallengeListRx()
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
+        
         switch mutation {
-        case .setCategoryList(let categoryList):
-            newState.categoryList = categoryList
-        case .setLoading(let loading):
-            newState.loading = loading
+        case .setChallengeList(let challengeList):
+            newState.challengeList = challengeList
         }
         return newState
     }
     
-    private func requestCategoryListRx() -> Observable<Mutation> {
+    private func requestChallengeListRx() -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
-
             let provider = MoyaProvider<ChallengeAPI>()
-            provider.request(.categoryList) { result in
+            provider.request(.challengeListInCategory("취미")) { result in
                 switch result {
                 case let .success(response):
-                    let result = try? response.map([Category].self)
-                    observer.onNext(Mutation.setCategoryList(result ?? []))
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    let result = try? response.map([Challenge].self)
+                    observer.onNext(Mutation.setChallengeList(result ?? []))
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onError(error)
@@ -76,7 +64,6 @@ class ExploreListReactor: Reactor {
             }
             return Disposables.create()
         }
-        
         return response
     }
 }
