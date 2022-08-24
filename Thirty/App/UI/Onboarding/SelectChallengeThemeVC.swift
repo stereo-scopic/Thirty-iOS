@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 class SelectChallengeThemeVC: UIViewController {
     @IBOutlet weak var hobbyButton: UIButton!
@@ -16,6 +18,9 @@ class SelectChallengeThemeVC: UIViewController {
     @IBOutlet weak var fitnessButton: UIButton!
     @IBOutlet weak var studyButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    
+    let selectedItem = BehaviorRelay<String>(value: "")
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +63,7 @@ class SelectChallengeThemeVC: UIViewController {
 extension SelectChallengeThemeVC {
     @IBAction func nextButtonTouchUpInside(_ sender: UIButton) {
         let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeVC") as! SelectChallengeVC
+        selectChallengeVC.selectedItem = selectedItem
         
         self.navigationController?.pushViewController(selectChallengeVC, animated: false)
     }
@@ -65,35 +71,42 @@ extension SelectChallengeThemeVC {
     @IBAction func hobbyButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         hobbyButton.isSelected = true
+        selectedItem.accept("취미")
     }
     
     @IBAction func fanButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         fanButton.isSelected = true
+        selectedItem.accept("덕질")
     }
     
     @IBAction func loveButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         loveButton.isSelected = true
+        selectedItem.accept("연애")
     }
     
     @IBAction func selfcareButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         selfCareButton.isSelected = true
+        selectedItem.accept("셀프케어")
     }
     
     @IBAction func dietButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         dietButton.isSelected = true
+        selectedItem.accept("다이어트")
     }
     
     @IBAction func studyButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         studyButton.isSelected = true
+        selectedItem.accept("공부")
     }
     
     @IBAction func fitnessButtonTouchUpInside(_ sender: UIButton) {
         disableAllButton()
         fitnessButton.isSelected = true
+        selectedItem.accept("피트니스")
     }
 }
