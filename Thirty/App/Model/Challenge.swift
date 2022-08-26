@@ -30,3 +30,14 @@ struct CommunityChallengeItem: Decodable {
     var original_image: String?
     var created_at: String?
 }
+
+struct ChallengeDetail: Codable {
+    var id: Int?
+    var created_at: String?
+    var updated_at: String?
+    var title: String?
+    var description: String?
+    var is_public: Bool?
+    var category: Category?
+    var missions: [Mission]?
+}

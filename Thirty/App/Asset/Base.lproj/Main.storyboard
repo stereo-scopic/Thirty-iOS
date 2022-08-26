@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v9F-ld-Cxj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v9F-ld-Cxj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -107,7 +107,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5l-Jv-Wwu">
-                                <rect key="frame" x="20" y="72" width="218.5" height="80"/>
+                                <rect key="frame" x="20" y="72" width="220.5" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="oOV-Hk-3wk"/>
                                 </constraints>
@@ -297,7 +297,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c53-8p-z4D">
-                                <rect key="frame" x="77.5" y="424.5" width="259" height="47"/>
+                                <rect key="frame" x="69" y="417.5" width="276.5" height="61"/>
                                 <fontDescription key="fontDescription" name="BlatantBold" family="Blatant" pointSize="52"/>
                                 <color key="textColor" name="THIRTY Red"/>
                                 <nil key="highlightedColor"/>
@@ -349,7 +349,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-dy-e3y">
-                                <rect key="frame" x="20" y="116" width="265.5" height="77"/>
+                                <rect key="frame" x="20" y="116" width="267" height="75"/>
                                 <string key="text">가볍게 한 가지 
 챌린지를 담아보세요.</string>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="32"/>
@@ -366,7 +366,7 @@
                                 <state key="normal" title="다음"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-vb-9Q2">
-                                <rect key="frame" x="20" y="267" width="374" height="447"/>
+                                <rect key="frame" x="20" y="265" width="374" height="449"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kpY-Iz-ZnO">
                                     <size key="itemSize" width="128" height="128"/>
@@ -376,14 +376,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="PRJ-d9-dua" customClass="OnboardingCollectionViewCell" customModule="Thirty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="133" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="133" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sQI-dV-vds">
-                                            <rect key="frame" x="0.0" y="0.0" width="133" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="133" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-Td-zdv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="32"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="31"/>
                                                     <color key="backgroundColor" name="THIRTY White"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                                     <state key="normal" title="# 최애 아이돌 챌린지">
