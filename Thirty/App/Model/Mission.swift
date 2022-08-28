@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Mission: Codable{
+struct Mission: Codable {
     let id: Int?
-    let challenge: String?
     let date: Int?
     let detail: String?
+    let challengeTitle: String?
 }

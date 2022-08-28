@@ -12,9 +12,9 @@ class ExploreListVC: UIViewController, StoryboardView {
     typealias Reactor = ExploreListReactor
     var disposeBag = DisposeBag()
     
-    let cellId = "ExploreListCell"
-    
+    @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var exploreCollectionView: UICollectionView!
+    var categoryName = ""
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -23,6 +23,7 @@ class ExploreListVC: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reactor = ExploreListReactor()
+        navigationTitleLabel.text = categoryName
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,14 +31,31 @@ class ExploreListVC: UIViewController, StoryboardView {
     }
     
     func bind(reactor: ExploreListReactor) {
-        // Action ( View -> Reactor )
-        // State ( Reactor -> View )
         bindAction(reactor)
         bindState(reactor)
     }
     
     private func bindAction(_ reactor: ExploreListReactor) {
+//        exploreCollectionView.rx.itemSelected
+//            .observe(on: MainScheduler.instance)
+//            .subscribe(onNext: { [weak self] index in
+//                if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
+//                    exploreDetailVC.categoryName = self?.categoryName ?? ""
+//                    self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
+//                }
+//            })
+//            .disposed(by: disposeBag)
         
+        exploreCollectionView.rx.modelSelected(Challenge.self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] item in
+                if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
+                    exploreDetailVC.categoryName = self?.categoryName ?? ""
+                    exploreDetailVC.challengeId = item.id ?? 0
+                    self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: ExploreListReactor) {

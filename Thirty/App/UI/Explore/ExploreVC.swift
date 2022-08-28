@@ -44,8 +44,9 @@ class ExploreVC: UIViewController, StoryboardView {
         
         exploreTV.rx.modelSelected(Category.self)
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { [weak self] item in
                 if let exploreListVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreListVC") as? ExploreListVC {
+                    exploreListVC.categoryName = item.name ?? ""
                     self?.navigationController?.pushViewController(exploreListVC, animated: true)
                 }
             })

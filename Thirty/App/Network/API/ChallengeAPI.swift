@@ -10,7 +10,7 @@ import Moya
 enum ChallengeAPI {
     case categoryList
     case challengeListInCategory(_ categoryName: String)
-    case challengeDetail(_ categoryName: String, _ challengeId: String)
+    case challengeDetail(_ categoryName: String, _ challengeId: Int)
 }
 
 extension ChallengeAPI: TargetType {
