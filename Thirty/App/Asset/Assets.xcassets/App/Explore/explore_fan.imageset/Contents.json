@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "Group 107.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Group 107@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
