@@ -65,6 +65,9 @@ extension SelectChallengeThemeVC {
         let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeVC") as! SelectChallengeVC
         selectChallengeVC.selectedItem = selectedItem
         
+        let selectChallengeReactor = SelectChallengeReactor()
+        selectChallengeReactor.selectedTheme = selectedItem
+        
         self.navigationController?.pushViewController(selectChallengeVC, animated: false)
     }
     

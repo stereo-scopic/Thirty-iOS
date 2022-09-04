@@ -14,10 +14,10 @@ class SelectChallengeVC: UIViewController, StoryboardView {
     typealias Reactor = SelectChallengeReactor
     var selectedItem = BehaviorRelay<String>(value: "")
     var disposeBag = DisposeBag()
-//    var selectedIndexPath = IndexPath(row: 0, section: 0)
-    var selectedIndexPath = PublishSubject<IndexPath>()
+    var selectedChallenge: Challenge?
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class SelectChallengeVC: UIViewController, StoryboardView {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reactor?.action.onNext(.viewWillAppear)
+        reactor?.action.onNext(.setChallengeByTheme(selectedItem.value))
     }
     
     func bind(reactor: SelectChallengeReactor) {
@@ -40,33 +40,21 @@ class SelectChallengeVC: UIViewController, StoryboardView {
                 cell.titleLabel.text = "#\(item.title ?? "")"
             }
             .disposed(by: disposeBag)
-        
-//        collectionView.rx.setDelegate(self)
-//            .disposed(by: disposeBag)
-        
-//        selectedIndexPath
-//            .bind(to: collectionView.rx.items(cellIdentifier: OnboardingCollectionViewCell.identifier, cellType: OnboardingCollectionViewCell.self)) { index, item, cell in
-//
-//                if index == item {
-//                    cell.titleLabel.backgroundColor = UIColor.red
-//                } else {
-//                    cell.titleLabel.backgroundColor = UIColor.blue
-//                }
-//            }
-//            .disposed(by: disposeBag)
     }
     
     func bindAction(_ reactor: SelectChallengeReactor) {
-        collectionView.rx.itemSelected
-            .subscribe(onNext: { _ in
-//                Reactor.Action.selectChallenge
-            })
-            .disposed(by: disposeBag)
-        
         collectionView.rx.modelSelected(Challenge.self)
             .subscribe(onNext: { challenge in
                 print(challenge)
-
+                self.selectedChallenge = challenge
+            })
+            .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .subscribe(onNext: {
+                reactor.action.onNext(.selectChallenge(self.selectedChallenge?.id ?? 0))
+                // response success오면 넘어가도록 처리해야함
+                self.performSegue(withIdentifier: "goMain", sender: self)
             })
             .disposed(by: disposeBag)
     }
