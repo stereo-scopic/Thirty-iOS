@@ -361,9 +361,6 @@
                                 </constraints>
                                 <color key="tintColor" name="Gray800"/>
                                 <state key="normal" title="다음"/>
-                                <connections>
-                                    <segue destination="yJx-cb-rfb" kind="presentation" modalPresentationStyle="fullScreen" id="q2C-KW-eA2"/>
-                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-vb-9Q2">
                                 <rect key="frame" x="20" y="267" width="374" height="447"/>
@@ -440,6 +437,8 @@
                     <navigationItem key="navigationItem" id="VHj-b6-SrE"/>
                     <connections>
                         <outlet property="collectionView" destination="PO5-vb-9Q2" id="49w-80-36l"/>
+                        <outlet property="nextButton" destination="JWI-PK-CWT" id="I21-Dt-8Qd"/>
+                        <segue destination="yJx-cb-rfb" kind="presentation" identifier="goMain" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="c04-QT-ido"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvb-s7-KqB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

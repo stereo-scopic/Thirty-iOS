@@ -7,6 +7,8 @@
 
 import UIKit
 import ReactorKit
+import RxSwift
+import RxCocoa
 
 class ExploreListVC: UIViewController, StoryboardView {
     typealias Reactor = ExploreListReactor
@@ -14,7 +16,8 @@ class ExploreListVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var exploreCollectionView: UICollectionView!
-    var categoryName = ""
+    var selectedTheme = ""
+//    var categoryName = ""
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -23,11 +26,11 @@ class ExploreListVC: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reactor = ExploreListReactor()
-        navigationTitleLabel.text = categoryName
+        navigationTitleLabel.text = selectedTheme
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reactor?.action.onNext(.viewWillAppear)
+        reactor?.action.onNext(.setChallengeByTheme(selectedTheme))
     }
     
     func bind(reactor: ExploreListReactor) {
@@ -36,21 +39,11 @@ class ExploreListVC: UIViewController, StoryboardView {
     }
     
     private func bindAction(_ reactor: ExploreListReactor) {
-//        exploreCollectionView.rx.itemSelected
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] index in
-//                if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
-//                    exploreDetailVC.categoryName = self?.categoryName ?? ""
-//                    self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
-//                }
-//            })
-//            .disposed(by: disposeBag)
-        
         exploreCollectionView.rx.modelSelected(Challenge.self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] item in
                 if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
-                    exploreDetailVC.categoryName = self?.categoryName ?? ""
+                    exploreDetailVC.categoryName = self?.selectedTheme ?? ""
                     exploreDetailVC.challengeId = item.id ?? 0
                     self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
                 }

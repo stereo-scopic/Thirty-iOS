@@ -12,7 +12,8 @@ import RxRelay
 
 class ExploreListReactor: Reactor {
     enum Action {
-        case viewWillAppear
+//        case viewWillAppear
+        case setChallengeByTheme(String)
     }
     
     enum Mutation {
@@ -32,8 +33,8 @@ class ExploreListReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .viewWillAppear:
-            return requestChallengeListRx()
+        case .setChallengeByTheme(let challengeTheme):
+            return requestChallengeListRx(challengeTheme)
         }
     }
     
@@ -47,10 +48,10 @@ class ExploreListReactor: Reactor {
         return newState
     }
     
-    private func requestChallengeListRx() -> Observable<Mutation> {
+    private func requestChallengeListRx(_ challengeTheme: String) -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<ChallengeAPI>()
-            provider.request(.challengeListInCategory("취미")) { result in
+            provider.request(.challengeListInCategory(challengeTheme)) { result in
                 switch result {
                 case let .success(response):
                     let str = String(decoding: response.data, as: UTF8.self)
