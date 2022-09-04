@@ -14,4 +14,5 @@ target 'Thirty' do
   pod 'SwiftLint'
   pod 'Moya'
   pod 'ReactorKit'
+  pod 'RxGesture'
 end
