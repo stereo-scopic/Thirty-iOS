@@ -13,10 +13,12 @@ import Moya
 class ExploreDetailReactor: Reactor {
     enum Action {
         case viewWillAppear
+        case addChallengeButtonTapped
     }
     
     enum Mutation {
         case setChallengeDetail(ChallengeDetail)
+        case addChallenge
     }
     
     struct State {
@@ -36,6 +38,8 @@ class ExploreDetailReactor: Reactor {
         switch action {
         case .viewWillAppear:
             return requestMissionListRx(category: initialState.category, challengeId: initialState.challengeId)
+        case .addChallengeButtonTapped:
+            return addBucket(challengeId: initialState.challengeId)
         }
     }
     
@@ -44,6 +48,8 @@ class ExploreDetailReactor: Reactor {
         switch mutation {
         case .setChallengeDetail(let challengeDetail):
             newState.challengeDetail = challengeDetail
+        case .addChallenge:
+            print("response 성공여부 처리")
         }
         return newState
     }
@@ -60,6 +66,27 @@ class ExploreDetailReactor: Reactor {
                     let result = try? response.map(ChallengeDetail.self)
                     observer.onNext(Mutation.setChallengeDetail(result ??
                                                                ChallengeDetail()))
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func addBucket(challengeId: Int) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<BucketAPI>()
+            provider.request(.addCurrent(challengeId)) { result in
+                switch result {
+                case let .success(response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+//                    let result = try? response.map(<#T##type: Decodable.Protocol##Decodable.Protocol#>)
+                    //{"id":"5d54b4c7b84b4c751c5e0771e44c6b","created_at":"2022-09-04T23:51:02.076Z","updated_at":"2022-09-04T23:51:02.076Z","userId":"3386eab155dbc76dd631"}
+                    observer.onNext(Mutation.addChallenge)
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onError(error)

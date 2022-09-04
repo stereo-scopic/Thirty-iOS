@@ -49,7 +49,7 @@ class ExploreDetailVC: UIViewController, StoryboardView {
     private func bindAction(_ reactor: ExploreDetailReactor) {
         challengeAddButton.rx.tap
             .subscribe(onNext: {
-                
+                reactor.action.onNext(.addChallengeButtonTapped)
             })
             .disposed(by: disposeBag)
     }

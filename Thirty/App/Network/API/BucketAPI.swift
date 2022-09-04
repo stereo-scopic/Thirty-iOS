@@ -59,6 +59,13 @@ extension BucketAPI: TargetType {
     }
     
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        switch self {
+        case .addCurrent:
+            return [
+                "Authorization": "Bearer \( UserDefaults.standard.string(forKey: "access_token") ?? "")"
+            ]
+        case .addNewbie:
+            return ["Content-Type": "application/json"]
+        }
     }
 }
