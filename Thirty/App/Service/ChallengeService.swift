@@ -21,7 +21,7 @@ final class ChallengeService: ChallengeServiceType {
     }
     
 //    func getCategoryList() -> Single<[Category]> {
-//
+//        return self.network.requestArray(.categoryList, type: Category.self)
 //    }
 //
 //    func getChallengeList(_ categoryName: String) -> Single<[Challenge]> {

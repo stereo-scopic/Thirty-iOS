@@ -6,39 +6,60 @@
 //
 
 import UIKit
+import ReactorKit
+import RxSwift
+import RxCocoa
 
-class ExploreListVC: UIViewController {
-
+class ExploreListVC: UIViewController, StoryboardView {
+    typealias Reactor = ExploreListReactor
+    var disposeBag = DisposeBag()
+    
+    @IBOutlet weak var navigationTitleLabel: UILabel!
+    @IBOutlet weak var exploreCollectionView: UICollectionView!
+    var selectedTheme = ""
+//    var categoryName = ""
+    
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: false)
         self.popVC(animated: false, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-}
-
-extension ExploreListVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        self.reactor = ExploreListReactor()
+        navigationTitleLabel.text = selectedTheme
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreListCell", for: indexPath) as? ExploreListCell else { return UICollectionViewCell() }
-        
-        return cell
+    override func viewWillAppear(_ animated: Bool) {
+        reactor?.action.onNext(.setChallengeByTheme(selectedTheme))
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let exploreDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as! ExploreDetailVC
-        self.navigationController?.pushViewController(exploreDetailVC, animated: false)
-        
+    func bind(reactor: ExploreListReactor) {
+        bindAction(reactor)
+        bindState(reactor)
     }
     
+    private func bindAction(_ reactor: ExploreListReactor) {
+        exploreCollectionView.rx.modelSelected(Challenge.self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] item in
+                if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
+                    exploreDetailVC.categoryName = self?.selectedTheme ?? ""
+                    exploreDetailVC.challengeId = item.id ?? 0
+                    self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindState(_ reactor: ExploreListReactor) {
+        reactor.state
+            .map { $0.challengeList }
+            .bind(to: exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier, cellType: ExploreListCell.self)) { _, item, cell in
+                cell.titleLabel.text = item.title
+                cell.descriptionLabel.text = item.description
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 class ExploreListCell: UICollectionViewCell {
@@ -47,7 +68,9 @@ class ExploreListCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
+    static var identifier = "ExploreListCell"
+    
     @IBAction func addButtonTouchUpInside(_ sender: Any) {
-        
+        self.addButton.isSelected = !self.addButton.isSelected
     }
 }
