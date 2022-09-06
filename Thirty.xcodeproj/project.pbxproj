@@ -80,6 +80,8 @@
 		F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */; };
 		F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */; };
 		F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */; };
+		F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */; };
+		F9DCE45628C6CFE50089E772 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCE45528C6CFE50089E772 /* AuthAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +164,8 @@
 		F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeVC.swift; sourceTree = "<group>"; };
 		F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppInfoVC.swift; sourceTree = "<group>"; };
 		F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeReactor.swift; sourceTree = "<group>"; };
+		F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
+		F9DCE45528C6CFE50089E772 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +321,7 @@
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
 				F91A250F27FC642B0037BDA7 /* LoginVC.swift */,
+				F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */,
 				F9727DFE2887F00300E9513B /* FindPwdVC.swift */,
 				F91A251127FC643B0037BDA7 /* SignUpVC.swift */,
 				F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */,
@@ -409,6 +414,7 @@
 				75E58EC627FE5E7500A87E73 /* BaseAPI.swift */,
 				75073B1B280F8080008814EE /* ChallengeAPI.swift */,
 				F98C9AE728C4CC66003A25CD /* BucketAPI.swift */,
+				F9DCE45528C6CFE50089E772 /* AuthAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -572,10 +578,12 @@
 				751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */,
 				75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */,
 				F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */,
+				F9DCE45628C6CFE50089E772 /* AuthAPI.swift in Sources */,
 				753B078D286BC82200B62F35 /* CommunityAllVC.swift in Sources */,
 				757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */,
 				753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */,
 				F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */,
+				F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */,
 				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,

@@ -38,10 +38,6 @@ extension ChallengeAPI: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-//        case let .explore(exploreIdx):
-//            return [
-//                "exploreIdx": exploreIdx
-//            ]
         default:
             return nil
         }
@@ -49,11 +45,6 @@ extension ChallengeAPI: TargetType {
     
     var task: Task {
         switch self {
-//        case .challengeList(categoryName):
-//            let params: [String: Any] = [
-//                "categoryName": ""
-//            ]
-//            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         default:
             if let parameters = parameters {
                 return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)

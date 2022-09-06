@@ -1,0 +1,61 @@
+//
+//  SignUpReactor.swift
+//  Thirty
+//
+//  Created by 송하경 on 2022/09/06.
+//
+
+import ReactorKit
+import Foundation
+import Moya
+
+class SignUpReactor: Reactor {
+    var initialState: State = State()
+    
+    enum Action {
+       case signupButtonTapped(String, String, String)
+    }
+    
+    enum Mutation {
+        case signUp
+    }
+    
+    struct State {
+        
+    }
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case let .signupButtonTapped(id, pwd, pwdRepeat):
+            return signUpRx(id, pwd, pwdRepeat)
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        
+        return newState
+    }
+    
+    private func signUpRx(_ id: String, _ pwd: String, _ pwdRepeat: String) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<AuthAPI>()
+            provider.request(.signUp(id, pwd)) { result in
+                switch result {
+                case let .success(response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    
+//                    let result = try? response.map(<#T##type: Decodable.Protocol##Decodable.Protocol#>)
+                    
+                    observer.onNext(Mutation.signUp)
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+}
