@@ -7,9 +7,14 @@
 
 import UIKit
 import RxSwift
+import ReactorKit
 
-class MyVC: UIViewController {
+class MyVC: UIViewController, StoryboardView {
     @IBOutlet weak var mainView: UIView!
+    
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var idCopyButton: UIButton!
     
     @IBOutlet weak var ampmLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -22,15 +27,25 @@ class MyVC: UIViewController {
     @IBOutlet weak var csButton: UIButton!
     
     var alarmTime: Date?
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    typealias Reactor = MyReactor
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUI()
+        self.reactor = MyReactor()
     }
     
-    func setUI() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reactor?.action.onNext(.getInfo)
+    }
+    
+    func bind(reactor: MyReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
+    
+    private func bindAction(_ reactor: MyReactor) {
         loginButton.rx.tap
             .bind {
                 guard let loginVC = self.storyboard?
@@ -51,6 +66,7 @@ class MyVC: UIViewController {
             .subscribe(onNext: { isOn in
                 print(isOn ? "On": "Off")
             })
+            .disposed(by: disposeBag)
         
         noticeButton.rx.tap
             .bind {
@@ -64,6 +80,22 @@ class MyVC: UIViewController {
             .bind {
                 
             }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindState(_ reactor: MyReactor) {
+        reactor.state
+            .subscribe(onNext: { state in
+                let notLogin = state.user.email?.isEmpty ?? true
+                
+                self.nicknameLabel.text = notLogin ? "나" : state.user.nickname
+                self.idLabel.text = state.user.id
+                
+                self.idLabel.isHidden = notLogin
+                self.idCopyButton.isHidden = notLogin
+                self.loginButton.isHidden = !notLogin
+                
+            })
             .disposed(by: disposeBag)
     }
     

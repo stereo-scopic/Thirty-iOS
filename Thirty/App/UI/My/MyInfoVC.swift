@@ -25,6 +25,17 @@ class MyInfoVC: UIViewController {
     }
     
     func setUI() {
+        emailLabel.text = UserService.shared.myProfile?.email
+        nicknameLabel.text = UserService.shared.myProfile?.nickname
+        
+        nickNameButton.rx.tap
+            .bind {
+                guard let changeNicknameVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "ChangeNicknameVC") as? ChangeNicknameVC else { return }
+                self.navigationController?.pushViewController(changeNicknameVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
         backButton.rx.tap
             .bind {
                 self.popVC(animated: false, completion: nil)

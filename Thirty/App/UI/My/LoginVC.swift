@@ -35,11 +35,27 @@ class LoginVC: UIViewController {
         setupUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let signUpVC = segue.destination as? SignUpVC else {
+            fatalError()
+        }
+        
+        signUpVC.signUpSuccessObservable
+            .subscribe(onNext: { flag in
+                if flag {
+                    guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
+                    welcomePopupVC.modalPresentationStyle = .fullScreen
+                    welcomePopupVC.modalTransitionStyle = .crossDissolve
+                    self.present(welcomePopupVC, animated: true, completion: nil)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func setupUI() {
         signUpButton.rx.tap
             .bind {
-                guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC else { return }
-                self.navigationController?.pushViewController(signUpVC, animated: false)
+                self.performSegue(withIdentifier: "moveSignUp", sender: self)
             }
             .disposed(by: disposeBag)
         
