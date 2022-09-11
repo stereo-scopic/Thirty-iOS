@@ -10,18 +10,18 @@ import Foundation
 import Moya
 
 class SignUpReactor: Reactor {
-    var initialState: State = State()
+    var initialState: State = State(signUpFlag: false)
     
     enum Action {
        case signupButtonTapped(String, String, String)
     }
     
     enum Mutation {
-        case signUp
+        case signUp(Bool)
     }
     
     struct State {
-        
+        var signUpFlag: Bool
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -33,6 +33,10 @@ class SignUpReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
+        switch mutation {
+        case .signUp(let flag):
+            newState.signUpFlag = flag
+        }
         
         return newState
     }
@@ -46,11 +50,15 @@ class SignUpReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
-//                    let result = try? response.map(<#T##type: Decodable.Protocol##Decodable.Protocol#>)
-                    
-                    observer.onNext(Mutation.signUp)
+                    let result = try? response.map(User.self)
+                    if let _ = result?.id {
+                        observer.onNext(Mutation.signUp(true))
+                    } else {
+                        observer.onNext(Mutation.signUp(false))
+                    }
                     observer.onCompleted()
                 case let .failure(error):
+                    observer.onNext(Mutation.signUp(false))
                     observer.onError(error)
                 }
             }
