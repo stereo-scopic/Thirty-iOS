@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        UIApplication.shared.statusBarStyle = .lightContent
+//        let viewController = UIApplication.shared.windows.first?.rootViewController as! ExploreVC
+//        viewController.reactor = ExploreListReactor()
         
         return true
     }

@@ -7,12 +7,17 @@
 
 import UIKit
 import ReactorKit
+import RxSwift
+import RxCocoa
 
 class ExploreListVC: UIViewController, StoryboardView {
     typealias Reactor = ExploreListReactor
     var disposeBag = DisposeBag()
     
+    @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var exploreCollectionView: UICollectionView!
+    var selectedTheme = ""
+//    var categoryName = ""
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -20,37 +25,48 @@ class ExploreListVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.reactor = ExploreListReactor()
+        navigationTitleLabel.text = selectedTheme
     }
     
-    func bind(reactor: ExploreListReactor) {
-        // Action ( View -> Reactor )
-        // State ( Reactor -> View )
-        reactor.state
-            .map { $0.categoryList }
-            .bind(to: self.exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier)) { _, _, _ in
-                
-            }
-    }
-    
-}
-
-extension ExploreListVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    override func viewWillAppear(_ animated: Bool) {
+        reactor?.action.onNext(.setChallengeByTheme(selectedTheme))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreListCell", for: indexPath) as? ExploreListCell else { return UICollectionViewCell() }
         
         return cell
+    func bind(reactor: ExploreListReactor) {
+        bindAction(reactor)
+        bindState(reactor)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let exploreDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as! ExploreDetailVC
-        self.navigationController?.pushViewController(exploreDetailVC, animated: false)
-        
+    private func bindAction(_ reactor: ExploreListReactor) {
+        exploreCollectionView.rx.modelSelected(Challenge.self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] item in
+                if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
+                    exploreDetailVC.categoryName = self?.selectedTheme ?? ""
+                    exploreDetailVC.challengeId = item.id ?? 0
+                    self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
+    private func bindState(_ reactor: ExploreListReactor) {
+        reactor.state
+            .map { $0.challengeList }
+            .bind(to: exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier, cellType: ExploreListCell.self)) { _, item, cell in
+                cell.titleLabel.text = item.title
+                cell.descriptionLabel.text = item.description
+                
+                let imageUrl = URL(string: item.thumbnail ?? "")
+                cell.img.load(url: imageUrl!)
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 class ExploreListCell: UICollectionViewCell {
@@ -62,6 +78,20 @@ class ExploreListCell: UICollectionViewCell {
     static var identifier = "ExploreListCell"
     
     @IBAction func addButtonTouchUpInside(_ sender: Any) {
-        
+        self.addButton.isSelected = !self.addButton.isSelected
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }

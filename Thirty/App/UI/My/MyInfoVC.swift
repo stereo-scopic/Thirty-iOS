@@ -6,26 +6,40 @@
 //
 
 import UIKit
+import RxSwift
 
 class MyInfoVC: UIViewController {
-
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var nickNameButton: UIButton!
+    @IBOutlet weak var changePwdButton: UIButton!
+    
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUI()
     }
     
-    @IBAction func backButtonTouchUpInside(_ sender: Any) {
-        self.popVC(animated: false, completion: nil)
+    func setUI() {
+        emailLabel.text = UserService.shared.myProfile?.email
+        nicknameLabel.text = UserService.shared.myProfile?.nickname
+        
+        nickNameButton.rx.tap
+            .bind {
+                guard let changeNicknameVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "ChangeNicknameVC") as? ChangeNicknameVC else { return }
+                self.navigationController?.pushViewController(changeNicknameVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        backButton.rx.tap
+            .bind {
+                self.popVC(animated: false, completion: nil)
+            }
+            .disposed(by: disposeBag)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

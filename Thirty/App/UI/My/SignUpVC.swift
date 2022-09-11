@@ -8,9 +8,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ReactorKit
 
-class SignUpVC: UINavigationController {
-
+class SignUpVC: UIViewController, StoryboardView {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var confirmPwdTextField: UITextField!
@@ -31,11 +31,17 @@ class SignUpVC: UINavigationController {
     let pwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let confirmPwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     
-    let emailValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    let emailValid: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     let pwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
-    let confirmPwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    var confirmPwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    
+    var signUpSuccess: PublishSubject<Bool> = PublishSubject<Bool>()
+    var signUpSuccessObservable: Observable<Bool> {
+        return signUpSuccess.asObservable()
+    }
     
     var disposeBag = DisposeBag()
+    typealias Reactor = SignUpReactor
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -44,8 +50,52 @@ class SignUpVC: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.reactor = SignUpReactor()
         bindInput()
         bindOutput()
+    }
+    
+    func bind(reactor: SignUpReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
+    
+    private func bindAction(_ reactor: SignUpReactor) {
+        signUpButton.rx.tap
+            .subscribe(onNext: {
+                let emailValue = try? self.emailInputText.value()
+                let pwd = try? self.pwdInputText.value()
+                if let emailValue = emailValue, let pwdValue = pwd {
+                    reactor.action.onNext(.signupButtonTapped(emailValue, pwdValue, pwdValue))
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindState(_ reactor: SignUpReactor) {
+        reactor.state
+            .map { $0.signUpFlag }
+//            .bind(to: { flag in
+//                signUpSuccess.onNext(flag)
+//            })
+            .subscribe(onNext: { flag in
+                if flag {
+                    self.dismiss(animated: true, completion: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            self.signUpSuccess.onNext(flag)
+                        }
+                    })
+                }
+            })
+            .disposed(by: disposeBag)
+        
+//        signUpSuccess
+//            .subscribe(onNext: { flag in
+//                if flag {
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            })
+//            .disposed(by: disposeBag)
     }
     
     private func bindInput() {
@@ -70,25 +120,34 @@ class SignUpVC: UINavigationController {
         confirmPwdTextField.rx.text.orEmpty
             .bind(to: confirmPwdInputText)
             .disposed(by: disposeBag)
-        
-        confirmPwdInputText
-            .map(checkConfirmPwdValid)
-            .bind(to: confirmPwdValid)
-            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
-        emailValid.subscribe(onNext: { b in self.emailValidImage.image = b ? self.successImage : self.warningImage })
-            .disposed(by: disposeBag)
+        emailValid.subscribe(onNext: { b in
+            self.emailValidImage.image = b ? self.successImage : self.warningImage
+            self.emailValidImage.isHidden = false
+        }).disposed(by: disposeBag)
         
-        pwdValid.subscribe(onNext: { b in self.pwdValidImage.image = b ? self.successImage : self.warningImage })
-            .disposed(by: disposeBag)
+        pwdValid.subscribe(onNext: { b in
+            self.pwdValidImage.image = b ? self.successImage : self.warningImage
+            self.pwdValidImage.isHidden = false
+            
+        }).disposed(by: disposeBag)
         
-        confirmPwdValid.subscribe(onNext: { b in self.confirmPwdValidImage.image = b ? self.successImage : self.warningImage })
+        Observable.combineLatest(pwdInputText, confirmPwdInputText, resultSelector: { $0 == $1})
+            .subscribe(onNext: { b in
+                self.confirmPwdValidImage.image = b ? self.successImage : self.warningImage
+                self.confirmPwdValidImage.isHidden = false
+                self.confirmPwdInfoLabel.isHidden = b
+                self.confirmPwdValid.onNext(b)
+            })
             .disposed(by: disposeBag)
         
         Observable.combineLatest(emailValid, pwdValid, confirmPwdValid, resultSelector: {$0 && $1 && $2})
-            .subscribe(onNext: { b in self.signUpButton.isEnabled = b })
+            .subscribe(onNext: { b in
+                self.signUpButton.isEnabled = b
+                self.signUpButton.backgroundColor = b ? UIColor.thirtyBlack : UIColor.gray300
+            })
             .disposed(by: disposeBag)
     }
     
@@ -97,16 +156,10 @@ class SignUpVC: UINavigationController {
     }
 
     func checkPwdValid(_ password: String) -> Bool {
-        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.\\d)(?=.*[$@$!%?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8}"
+        let passwordRegex = "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&]).{8,20}"
         let passwordTesting = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordTesting.evaluate(with: password)
-    }
-    
-    func checkConfirmPwdValid(_ confirmPwd: String) -> Bool {
-        _ = pwdInputText.subscribe(onNext: { v in
-            let boolValue = v == confirmPwd
-//            return boolValue
-        })
-        return true
+        let verification = passwordTesting.evaluate(with: password)
+        pwdInfoLabel.isHidden = verification
+        return verification
     }
 }

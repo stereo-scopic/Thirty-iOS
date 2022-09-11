@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v9F-ld-Cxj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v9F-ld-Cxj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,9 +16,6 @@
         </array>
         <array key="Pretendard-Bold.otf">
             <string>Pretendard-Bold</string>
-        </array>
-        <array key="Pretendard-Regular.otf">
-            <string>Pretendard-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -375,29 +372,43 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PRJ-d9-dua">
-                                        <rect key="frame" x="0.0" y="0.0" width="133" height="32"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="PRJ-d9-dua" customClass="OnboardingCollectionViewCell" customModule="Thirty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sQI-dV-vds">
-                                            <rect key="frame" x="0.0" y="0.0" width="133" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="177" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-Td-zdv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="32"/>
-                                                    <color key="backgroundColor" name="THIRTY White"/>
-                                                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                                    <state key="normal" title="# 최애 아이돌 챌린지">
-                                                        <color key="titleColor" name="THIRTY Black"/>
-                                                    </state>
-                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzN-vH-rSN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="51"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 최애 아이돌 챌린지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zek-eK-bZ9">
+                                                            <rect key="frame" x="18" y="15" width="141" height="21"/>
+                                                            <color key="backgroundColor" name="THIRTY White"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" name="THIRTY Black"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="zek-eK-bZ9" secondAttribute="bottom" constant="15" id="4yq-VG-rdz"/>
+                                                        <constraint firstItem="zek-eK-bZ9" firstAttribute="top" secondItem="pzN-vH-rSN" secondAttribute="top" constant="15" id="6pX-Vw-rYj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zek-eK-bZ9" secondAttribute="trailing" constant="18" id="cGP-yt-EEQ"/>
+                                                        <constraint firstItem="zek-eK-bZ9" firstAttribute="leading" secondItem="pzN-vH-rSN" secondAttribute="leading" constant="18" id="qt1-lx-lar"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wVh-Td-zdv" firstAttribute="top" secondItem="sQI-dV-vds" secondAttribute="top" id="E8V-BG-r1J"/>
-                                                <constraint firstAttribute="trailing" secondItem="wVh-Td-zdv" secondAttribute="trailing" id="FJY-RS-eMo"/>
-                                                <constraint firstAttribute="bottom" secondItem="wVh-Td-zdv" secondAttribute="bottom" id="oeu-hj-cMF"/>
-                                                <constraint firstItem="wVh-Td-zdv" firstAttribute="leading" secondItem="sQI-dV-vds" secondAttribute="leading" id="wCC-eH-FCl"/>
+                                                <constraint firstItem="pzN-vH-rSN" firstAttribute="top" secondItem="sQI-dV-vds" secondAttribute="top" id="69e-6N-Fqb"/>
+                                                <constraint firstAttribute="bottom" secondItem="pzN-vH-rSN" secondAttribute="bottom" id="KsJ-Or-hxV"/>
+                                                <constraint firstItem="pzN-vH-rSN" firstAttribute="leading" secondItem="sQI-dV-vds" secondAttribute="leading" id="jcN-LZ-gjb"/>
+                                                <constraint firstAttribute="trailing" secondItem="pzN-vH-rSN" secondAttribute="trailing" id="y56-N0-9wY"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="zek-eK-bZ9" id="r0Z-Ua-Z5J"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -424,6 +435,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VHj-b6-SrE"/>
+                    <connections>
+                        <outlet property="collectionView" destination="PO5-vb-9Q2" id="49w-80-36l"/>
+                        <outlet property="nextButton" destination="JWI-PK-CWT" id="I21-Dt-8Qd"/>
+                        <segue destination="yJx-cb-rfb" kind="presentation" identifier="goMain" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="c04-QT-ido"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvb-s7-KqB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -439,7 +455,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="yJx-cb-rfb" kind="relationship" relationship="rootViewController" id="mTs-tl-sjX"/>
+                        <segue destination="3hT-lV-UYq" kind="relationship" relationship="rootViewController" id="nAb-7T-mkD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNG-zo-JzN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

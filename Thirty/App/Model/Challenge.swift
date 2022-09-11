@@ -8,16 +8,14 @@
 import Foundation
 
 struct Challenge: Codable {
-    var challenge_id: String
-    var category: String
-    var title: String
-    var description: String
-    /// 공개여부
-    var is_public: Bool
-    /// null if no headers (authorization)
-    var is_this_user_had_already: Bool
-    var created_at: String
-    var updated_at: String
+    var id: Int?
+    var created_at: String?
+    var updated_at: String?
+    var title: String?
+    var description: String?
+    var is_public: Bool?
+    var category: Category?
+    var thumbnail: String?
 }
 
 struct CommunityChallengeItem: Decodable {
@@ -32,4 +30,15 @@ struct CommunityChallengeItem: Decodable {
     var detail: String?
     var original_image: String?
     var created_at: String?
+}
+
+struct ChallengeDetail: Codable {
+    var id: Int?
+    var created_at: String?
+    var updated_at: String?
+    var title: String?
+    var description: String?
+    var is_public: Bool?
+    var category: Category?
+    var missions: [Mission]?
 }

@@ -10,12 +10,12 @@ import Moya
 enum ChallengeAPI {
     case categoryList
     case challengeListInCategory(_ categoryName: String)
-    case challengeDetail(_ categoryName: String, _ challengeId: String)
+    case challengeDetail(_ categoryName: String, _ challengeId: Int)
 }
 
 extension ChallengeAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "http://15.165.64.36:3000/api/v1")!
     }
     
     var path: String {
@@ -38,10 +38,6 @@ extension ChallengeAPI: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-//        case let .explore(exploreIdx):
-//            return [
-//                "exploreIdx": exploreIdx
-//            ]
         default:
             return nil
         }
@@ -49,11 +45,6 @@ extension ChallengeAPI: TargetType {
     
     var task: Task {
         switch self {
-//        case .challengeList(categoryName):
-//            let params: [String: Any] = [
-//                "categoryName": ""
-//            ]
-//            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         default:
             if let parameters = parameters {
                 return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)

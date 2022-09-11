@@ -9,29 +9,67 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginVC: UINavigationController {
+class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var kakaoLoginButton: UIButton!
+    @IBOutlet weak var appleLoginButton: UIButton!
+    @IBOutlet weak var naverLoginButton: UIButton!
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var findPwdButton: UIButton!
+    
     let emailInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let pwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
+    let disposeBag = DisposeBag()
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
     }
     
-    @IBAction func loginButtonTouchUpInside(_ sender: Any) {
-    }
-    
-    @IBAction func signInButtonTouchUpInside(_ sender: Any) {
-    }
-    
-    @IBAction func findPwdButtonTouchUpInside(_ sender: Any) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupUI()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let signUpVC = segue.destination as? SignUpVC else {
+            fatalError()
+        }
+        
+        signUpVC.signUpSuccessObservable
+            .subscribe(onNext: { flag in
+                if flag {
+                    guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
+                    welcomePopupVC.modalPresentationStyle = .fullScreen
+                    welcomePopupVC.modalTransitionStyle = .crossDissolve
+                    self.present(welcomePopupVC, animated: true, completion: nil)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func setupUI() {
+        signUpButton.rx.tap
+            .bind {
+                self.performSegue(withIdentifier: "moveSignUp", sender: self)
+            }
+            .disposed(by: disposeBag)
+        
+        findPwdButton.rx.tap
+            .bind {
+                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
+                self.navigationController?.pushViewController(findPwdVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        kakaoLoginButton.rx.tap
+            .bind {
+                
+            }
+            .disposed(by: disposeBag)
     }
 }

@@ -1,8 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "전체보기 일러스트 - 유앤미.pdf",
-      "idiom" : "universal"
+      "filename" : "MY - 공유범위 설정3 1.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "MY - 공유범위 설정3 1@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
