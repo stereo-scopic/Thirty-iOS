@@ -17,7 +17,6 @@ class ExploreListVC: UIViewController, StoryboardView {
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var exploreCollectionView: UICollectionView!
     var selectedTheme = ""
-//    var categoryName = ""
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -37,6 +36,8 @@ class ExploreListVC: UIViewController, StoryboardView {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreListCell", for: indexPath) as? ExploreListCell else { return UICollectionViewCell() }
         
         return cell
+    }
+    
     func bind(reactor: ExploreListReactor) {
         bindAction(reactor)
         bindState(reactor)

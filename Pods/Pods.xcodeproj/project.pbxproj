@@ -15,7 +15,6 @@
 			dependencies = (
 			);
 			name = SwiftLint;
-			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -1969,7 +1968,7 @@
 			);
 			name = ReactorKit;
 			productName = ReactorKit;
-			productReference = B410DCBE90B3B7A03D73EA32F863D844 /* ReactorKit.framework */;
+			productReference = B410DCBE90B3B7A03D73EA32F863D844 /* ReactorKit */;
 			productType = "com.apple.product-type.framework";
 		};
 		D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */ = {
@@ -2061,7 +2060,7 @@
 			);
 			name = WeakMapTable;
 			productName = WeakMapTable;
-			productReference = FE92E7767620E6C25BB552C06593F692 /* WeakMapTable.framework */;
+			productReference = FE92E7767620E6C25BB552C06593F692 /* WeakMapTable */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
