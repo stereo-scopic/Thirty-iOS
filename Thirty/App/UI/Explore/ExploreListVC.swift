@@ -57,6 +57,9 @@ class ExploreListVC: UIViewController, StoryboardView {
             .bind(to: exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier, cellType: ExploreListCell.self)) { _, item, cell in
                 cell.titleLabel.text = item.title
                 cell.descriptionLabel.text = item.description
+                
+                let imageUrl = URL(string: item.thumbnail ?? "")
+                cell.img.load(url: imageUrl!)
             }
             .disposed(by: disposeBag)
     }
@@ -72,5 +75,19 @@ class ExploreListCell: UICollectionViewCell {
     
     @IBAction func addButtonTouchUpInside(_ sender: Any) {
         self.addButton.isSelected = !self.addButton.isSelected
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }

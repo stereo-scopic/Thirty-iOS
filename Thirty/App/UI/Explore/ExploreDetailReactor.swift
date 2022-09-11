@@ -85,7 +85,7 @@ class ExploreDetailReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
 //                    let result = try? response.map(<#T##type: Decodable.Protocol##Decodable.Protocol#>)
-                    //{"id":"5d54b4c7b84b4c751c5e0771e44c6b","created_at":"2022-09-04T23:51:02.076Z","updated_at":"2022-09-04T23:51:02.076Z","userId":"3386eab155dbc76dd631"}
+                    // {"id":"5d54b4c7b84b4c751c5e0771e44c6b","created_at":"2022-09-04T23:51:02.076Z","updated_at":"2022-09-04T23:51:02.076Z","userId":"3386eab155dbc76dd631"}
                     observer.onNext(Mutation.addChallenge)
                     observer.onCompleted()
                 case let .failure(error):
