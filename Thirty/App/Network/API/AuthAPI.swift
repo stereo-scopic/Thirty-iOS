@@ -11,28 +11,36 @@ enum AuthAPI {
     case signUp(_ email: String, _ pwd: String)
     case signOut
     case login(_ email: String, _ pwd: String)
+    case getProfile
+    case changeProfile(_ nickname: String)
 }
 
 extension AuthAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://3.38.15.60:3000/api/v1")!
+        return URL(string: "http://15.165.64.36:3000/api/v1")!
     }
     
     var path: String {
         switch self {
-        case .signUp(_, _):
+        case .signUp:
             return "auth/signup"
         case .signOut:
             return "auth/signout"
-        case .login(_, _):
+        case .login:
             return "auth/login"
+        case .getProfile, .changeProfile:
+            return "user/profile"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp(_, _), .signOut, .login(_, _):
+        case .signUp, .signOut, .login:
             return .post
+        case .getProfile:
+            return .get
+        case .changeProfile:
+            return .patch
         }
         
     }
@@ -50,16 +58,29 @@ extension AuthAPI: TargetType {
                 "email": email,
                 "password": pwd
             ]
-        case .signOut:
+        case .signOut, .getProfile:
             return nil
+        case .changeProfile(let nickname):
+            return [
+                "nickname": nickname
+            ]
         }
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        default:
+            if let parameters = parameters {
+                return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            }
+            return .requestPlain
+        }
     }
     
-    var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+    var headers: [String: String]? {
+        return [
+            "Authorization": "Bearer \( UserDefaults.standard.string(forKey: "access_token") ?? "")"
+        ]
+//        return ["Content-Type": "application/json"]
     }
 }
