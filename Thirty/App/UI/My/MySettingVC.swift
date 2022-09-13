@@ -109,7 +109,15 @@ class MySettingVC: UIViewController {
         
         withdrawalButton.rx.tap
             .bind {
+                let withDrawalAlert = UIAlertController(title: nil, message: "정말 써티를 떠나시겠어요?", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                let okAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { action in
+                    
+                }
+                withDrawalAlert.addAction(cancelAction)
+                withDrawalAlert.addAction(okAction)
                 
+                self.present(withDrawalAlert, animated: true)
             }
             .disposed(by: disposeBag)
     }

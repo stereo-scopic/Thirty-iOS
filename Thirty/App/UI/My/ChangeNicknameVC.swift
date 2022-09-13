@@ -32,6 +32,15 @@ class ChangeNicknameVC: UIViewController, StoryboardView {
         nicknameTF.rx.text.orEmpty
             .bind(to: nicknameInputText)
             .disposed(by: disposeBag)
+        
+        
+        nicknameInputText
+            .subscribe(onNext: { inputText in
+                let inputValid = !inputText.isEmpty
+                self.changeNicknameButton.isEnabled = inputValid
+                self.changeNicknameButton.backgroundColor = inputValid ? UIColor.thirtyBlack : UIColor.gray300
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: ChangeNicknameReactor) {
