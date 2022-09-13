@@ -49,6 +49,7 @@
 		759D328B27C8A45000A88C02 /* ChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D328A27C8A45000A88C02 /* ChallengeVC.swift */; };
 		759D328D27C8AC6E00A88C02 /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D328C27C8AC6E00A88C02 /* ChallengeModel.swift */; };
 		759D328F27C8AD2B00A88C02 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D328E27C8AD2B00A88C02 /* ChallengeListViewModel.swift */; };
+		759F12E028CFFCD0008D7947 /* MySettingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F12DF28CFFCD0008D7947 /* MySettingReactor.swift */; };
 		75A41CF927E409D2009AD9D0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A41CF827E409D2009AD9D0 /* UIViewController+Extension.swift */; };
 		75A41CFC27E45D03009AD9D0 /* UIView+IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A41CFB27E45D03009AD9D0 /* UIView+IBDesignable.swift */; };
 		75A41CFE27E45F10009AD9D0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A41CFD27E45F10009AD9D0 /* UIView+Extension.swift */; };
@@ -136,6 +137,7 @@
 		759D328A27C8A45000A88C02 /* ChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeVC.swift; sourceTree = "<group>"; };
 		759D328C27C8AC6E00A88C02 /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
 		759D328E27C8AD2B00A88C02 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
+		759F12DF28CFFCD0008D7947 /* MySettingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingReactor.swift; sourceTree = "<group>"; };
 		75A41CF827E409D2009AD9D0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		75A41CFB27E45D03009AD9D0 /* UIView+IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBDesignable.swift"; sourceTree = "<group>"; };
 		75A41CFD27E45F10009AD9D0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */,
 				753EB1DA27EB65A300D20579 /* MyInfoVC.swift */,
 				7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */,
+				759F12DF28CFFCD0008D7947 /* MySettingReactor.swift */,
 				7501A4FB27E239B500EB4EB0 /* MyNC.swift */,
 				7537B61027E00A9800A66F11 /* MyVC.swift */,
 				F9D9B63328CB472B004AF18D /* MyReactor.swift */,
@@ -582,6 +585,7 @@
 			files = (
 				757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */,
 				F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */,
+				759F12E028CFFCD0008D7947 /* MySettingReactor.swift in Sources */,
 				757C96762863E067005CCBA3 /* ChallengeDetailVC.swift in Sources */,
 				757D66C92874FEDF00E3C5DE /* SelectChallengeThemeVC.swift in Sources */,
 				F9D9B63628CB4867004AF18D /* User.swift in Sources */,
