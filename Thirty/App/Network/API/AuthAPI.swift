@@ -8,7 +8,7 @@
 import Moya
 
 enum AuthAPI {
-    case signUp(_ email: String, _ pwd: String)
+    case signUp(_ email: String, _ pwd: String, _ nickname: String)
     case signOut
     case login(_ email: String, _ pwd: String)
     case getProfile
@@ -47,11 +47,11 @@ extension AuthAPI: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-        case .signUp(let email, let pwd):
+        case .signUp(let email, let pwd, let nickname):
             return [
                 "email": email,
                 "password": pwd,
-                "password_repeat": pwd
+                "nickname": nickname
             ]
         case .login(let email, let pwd):
             return [

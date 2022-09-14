@@ -14,6 +14,7 @@ class SignUpVC: UIViewController, StoryboardView {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var confirmPwdTextField: UITextField!
+    @IBOutlet weak var nicknameTextField: UITextField!
     
     @IBOutlet weak var emailValidImage: UIImageView!
     @IBOutlet weak var pwdValidImage: UIImageView!
@@ -30,10 +31,12 @@ class SignUpVC: UIViewController, StoryboardView {
     let emailInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let pwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let confirmPwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
+    let nicknameInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     
     let emailValid: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     let pwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     var confirmPwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    let nicknameValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     var signUpSuccess: PublishSubject<Bool> = PublishSubject<Bool>()
     var signUpSuccessObservable: Observable<Bool> {
@@ -65,8 +68,9 @@ class SignUpVC: UIViewController, StoryboardView {
             .subscribe(onNext: {
                 let emailValue = try? self.emailInputText.value()
                 let pwd = try? self.pwdInputText.value()
-                if let emailValue = emailValue, let pwdValue = pwd {
-                    reactor.action.onNext(.signupButtonTapped(emailValue, pwdValue, pwdValue))
+                let nickname = try? self.nicknameInputText.value()
+                if let emailValue = emailValue, let pwdValue = pwd, let nickname = nickname {
+                    reactor.action.onNext(.signupButtonTapped(emailValue, pwdValue, nickname))
                 }
             })
             .disposed(by: disposeBag)
@@ -75,9 +79,6 @@ class SignUpVC: UIViewController, StoryboardView {
     private func bindState(_ reactor: SignUpReactor) {
         reactor.state
             .map { $0.signUpFlag }
-//            .bind(to: { flag in
-//                signUpSuccess.onNext(flag)
-//            })
             .subscribe(onNext: { flag in
                 if flag {
                     self.dismiss(animated: true, completion: {
@@ -88,14 +89,6 @@ class SignUpVC: UIViewController, StoryboardView {
                 }
             })
             .disposed(by: disposeBag)
-        
-//        signUpSuccess
-//            .subscribe(onNext: { flag in
-//                if flag {
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//            })
-//            .disposed(by: disposeBag)
     }
     
     private func bindInput() {
@@ -120,6 +113,15 @@ class SignUpVC: UIViewController, StoryboardView {
         confirmPwdTextField.rx.text.orEmpty
             .bind(to: confirmPwdInputText)
             .disposed(by: disposeBag)
+        
+        nicknameTextField.rx.text.orEmpty
+            .bind(to: nicknameInputText)
+            .disposed(by: disposeBag)
+        
+        nicknameInputText
+            .map(nicknameNotEmpty)
+            .bind(to: nicknameValid)
+            .disposed(by: disposeBag)
     }
     
     private func bindOutput() {
@@ -143,7 +145,7 @@ class SignUpVC: UIViewController, StoryboardView {
             })
             .disposed(by: disposeBag)
         
-        Observable.combineLatest(emailValid, pwdValid, confirmPwdValid, resultSelector: {$0 && $1 && $2})
+        Observable.combineLatest(emailValid, pwdValid, confirmPwdValid, nicknameValid, resultSelector: {$0 && $1 && $2 && $3})
             .subscribe(onNext: { b in
                 self.signUpButton.isEnabled = b
                 self.signUpButton.backgroundColor = b ? UIColor.thirtyBlack : UIColor.gray300
@@ -161,5 +163,9 @@ class SignUpVC: UIViewController, StoryboardView {
         let verification = passwordTesting.evaluate(with: password)
         pwdInfoLabel.isHidden = verification
         return verification
+    }
+    
+    func nicknameNotEmpty(_ nickname: String) -> Bool {
+        return !nickname.isEmpty
     }
 }

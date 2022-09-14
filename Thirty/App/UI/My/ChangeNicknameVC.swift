@@ -33,7 +33,6 @@ class ChangeNicknameVC: UIViewController, StoryboardView {
             .bind(to: nicknameInputText)
             .disposed(by: disposeBag)
         
-        
         nicknameInputText
             .subscribe(onNext: { inputText in
                 let inputValid = !inputText.isEmpty

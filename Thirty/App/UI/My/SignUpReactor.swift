@@ -26,8 +26,8 @@ class SignUpReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case let .signupButtonTapped(id, pwd, pwdRepeat):
-            return signUpRx(id, pwd, pwdRepeat)
+        case let .signupButtonTapped(id, pwd, nickname):
+            return signUpRx(id, pwd, nickname)
         }
     }
     
@@ -41,10 +41,10 @@ class SignUpReactor: Reactor {
         return newState
     }
     
-    private func signUpRx(_ id: String, _ pwd: String, _ pwdRepeat: String) -> Observable<Mutation> {
+    private func signUpRx(_ id: String, _ pwd: String, _ nickname: String) -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<AuthAPI>()
-            provider.request(.signUp(id, pwd)) { result in
+            provider.request(.signUp(id, pwd, nickname)) { result in
                 switch result {
                 case let .success(response):
                     let str = String(decoding: response.data, as: UTF8.self)

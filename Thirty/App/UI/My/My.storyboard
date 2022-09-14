@@ -1530,6 +1530,20 @@
                                 <color key="textColor" name="THIRTY Red"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojv-Pt-ey8">
+                                <rect key="frame" x="20" y="489" width="36.5" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" name="THIRTY Black"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kyi-fE-ifE">
+                                <rect key="frame" x="20" y="514" width="374" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="9i7-Dc-t85"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hxf-gO-yP1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1542,12 +1556,15 @@
                             <constraint firstItem="wlu-Fs-Ryr" firstAttribute="top" secondItem="8Qp-uZ-6cK" secondAttribute="bottom" constant="8" id="351-43-QHr"/>
                             <constraint firstItem="p5q-GX-Jf2" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" constant="20" id="3bQ-Pd-UsB"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="z2G-IM-dbE" secondAttribute="trailing" constant="20" id="5Kv-7D-EEj"/>
+                            <constraint firstItem="Kyi-fE-ifE" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" constant="20" id="CfS-gc-hRP"/>
                             <constraint firstItem="KyX-YZ-WiX" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" id="CyC-Hk-GIq"/>
                             <constraint firstItem="z2G-IM-dbE" firstAttribute="top" secondItem="p5q-GX-Jf2" secondAttribute="bottom" constant="8" id="DMT-eP-1fC"/>
                             <constraint firstItem="lSb-0a-UUP" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" constant="20" id="DWA-Jw-6x9"/>
                             <constraint firstItem="z2G-IM-dbE" firstAttribute="trailing" secondItem="ceC-Xt-aPE" secondAttribute="trailing" constant="12" id="EeZ-3X-Cd7"/>
+                            <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="Kyi-fE-ifE" secondAttribute="trailing" constant="20" id="Ewy-QS-cgG"/>
                             <constraint firstItem="KyX-YZ-WiX" firstAttribute="top" secondItem="hxf-gO-yP1" secondAttribute="top" id="Kzi-8X-AKY"/>
                             <constraint firstItem="lSb-0a-UUP" firstAttribute="top" secondItem="mNe-3A-rib" secondAttribute="bottom" constant="8" id="LSA-ed-hYo"/>
+                            <constraint firstItem="ojv-Pt-ey8" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" constant="20" id="NUy-jA-Sou"/>
                             <constraint firstItem="reI-Wk-zXk" firstAttribute="top" secondItem="z2G-IM-dbE" secondAttribute="bottom" constant="8" id="NzS-Vg-RUy"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="8Qp-uZ-6cK" secondAttribute="trailing" constant="20" id="OTb-3w-FUR"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="wlu-Fs-Ryr" secondAttribute="trailing" constant="20" id="Q5M-w3-Dri"/>
@@ -1555,12 +1572,14 @@
                             <constraint firstItem="p5q-GX-Jf2" firstAttribute="top" secondItem="wlu-Fs-Ryr" secondAttribute="bottom" constant="24" id="Shi-Vy-fuG"/>
                             <constraint firstItem="8Qp-uZ-6cK" firstAttribute="trailing" secondItem="JdH-4Y-qmh" secondAttribute="trailing" constant="12" id="VEm-OJ-iAI"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="L2v-yT-uny" secondAttribute="trailing" constant="20" id="VSL-js-XJe"/>
+                            <constraint firstItem="Kyi-fE-ifE" firstAttribute="top" secondItem="ojv-Pt-ey8" secondAttribute="bottom" constant="8" id="Xmw-go-kbH"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="C2d-3E-a3n" secondAttribute="trailing" constant="20" id="ZS2-cH-N3t"/>
                             <constraint firstItem="reI-Wk-zXk" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" constant="20" id="a2b-Sh-MV1"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="trailing" secondItem="lSb-0a-UUP" secondAttribute="trailing" constant="20" id="e5R-7K-NnI"/>
                             <constraint firstAttribute="trailing" secondItem="KyX-YZ-WiX" secondAttribute="trailing" id="eSf-h5-Wp5"/>
                             <constraint firstItem="mNe-3A-rib" firstAttribute="top" secondItem="KyX-YZ-WiX" secondAttribute="bottom" constant="40" id="gkG-gd-EOg"/>
                             <constraint firstItem="lxh-yp-cqR" firstAttribute="centerY" secondItem="lSb-0a-UUP" secondAttribute="centerY" id="jfZ-sD-5GQ"/>
+                            <constraint firstItem="ojv-Pt-ey8" firstAttribute="top" secondItem="reI-Wk-zXk" secondAttribute="bottom" constant="24" id="k9E-ys-CRy"/>
                             <constraint firstItem="hxf-gO-yP1" firstAttribute="bottom" secondItem="L2v-yT-uny" secondAttribute="bottom" constant="26" id="mzI-DQ-YJ7"/>
                             <constraint firstItem="C2d-3E-a3n" firstAttribute="leading" secondItem="hxf-gO-yP1" secondAttribute="leading" constant="20" id="oBM-bb-bQG"/>
                             <constraint firstItem="JdH-4Y-qmh" firstAttribute="centerY" secondItem="8Qp-uZ-6cK" secondAttribute="centerY" id="pha-1M-kDg"/>
@@ -1579,6 +1598,7 @@
                         <outlet property="confirmPwdValidImage" destination="ceC-Xt-aPE" id="89W-D3-iIS"/>
                         <outlet property="emailTextField" destination="lSb-0a-UUP" id="eGI-SX-MEK"/>
                         <outlet property="emailValidImage" destination="lxh-yp-cqR" id="29r-EO-URh"/>
+                        <outlet property="nicknameTextField" destination="Kyi-fE-ifE" id="EGX-ga-1uQ"/>
                         <outlet property="pwdInfoLabel" destination="wlu-Fs-Ryr" id="RPZ-ef-xVr"/>
                         <outlet property="pwdTextField" destination="8Qp-uZ-6cK" id="GPr-B0-nBQ"/>
                         <outlet property="pwdValidImage" destination="JdH-4Y-qmh" id="2ri-As-Gh4"/>
@@ -1897,138 +1917,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9U-k2-Ry6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1945" y="865"/>
-        </scene>
-        <!--내 정보-->
-        <scene sceneID="Cjr-aS-Rp2">
-            <objects>
-                <viewController id="N1r-dl-KEU" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="41u-VR-Hbf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4Y-c1-zmK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 변경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsB-hK-WuE">
-                                        <rect key="frame" x="153" y="11" width="108.5" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="EKc-dC-SUV"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
-                                        <color key="textColor" name="THIRTY Black"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vx-LE-Rc8">
-                                        <rect key="frame" x="12" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="arrow-left"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="5vx-LE-Rc8" firstAttribute="leading" secondItem="s4Y-c1-zmK" secondAttribute="leading" constant="12" id="0tp-n8-KFm"/>
-                                    <constraint firstItem="WsB-hK-WuE" firstAttribute="centerX" secondItem="s4Y-c1-zmK" secondAttribute="centerX" id="Di3-AW-yiP"/>
-                                    <constraint firstItem="5vx-LE-Rc8" firstAttribute="centerY" secondItem="s4Y-c1-zmK" secondAttribute="centerY" id="aJb-Gz-nPp"/>
-                                    <constraint firstAttribute="height" constant="44" id="akm-yI-z7w"/>
-                                    <constraint firstItem="WsB-hK-WuE" firstAttribute="centerY" secondItem="s4Y-c1-zmK" secondAttribute="centerY" id="fkU-Ie-n1u"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zx-gz-m44">
-                                <rect key="frame" x="20" y="128" width="64.5" height="17"/>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
-                                <color key="textColor" name="THIRTY Black"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="새 비밀번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CVc-z3-hi6">
-                                <rect key="frame" x="20" y="153" width="374" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="hZt-wq-HT8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP0-ra-cm8">
-                                <rect key="frame" x="20" y="229" width="92" height="17"/>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
-                                <color key="textColor" name="THIRTY Black"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="새 비밀번호를 다시 한 번 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DP-Ma-Uab">
-                                <rect key="frame" x="20" y="254" width="374" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="Ztq-eV-VQw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psm-14-54I">
-                                <rect key="frame" x="20" y="456" width="374" height="52"/>
-                                <color key="backgroundColor" name="Gray300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="ic5-Mb-BYb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
-                                <state key="normal" title="비밀번호 변경하기">
-                                    <color key="titleColor" name="THIRTY White"/>
-                                </state>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5wN-kF-0BO">
-                                <rect key="frame" x="20" y="330" width="374" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="Y1L-l7-cIZ"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yv1-ge-i6a">
-                                <rect key="frame" x="20" y="355" width="77" height="17"/>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
-                                <color key="textColor" name="THIRTY Black"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCs-sr-5XM">
-                                <rect key="frame" x="20" y="380" width="374" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="LT6-jS-ra0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ElM-Sc-Wrz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="4DP-Ma-Uab" firstAttribute="top" secondItem="KP0-ra-cm8" secondAttribute="bottom" constant="8" id="0EJ-r4-ktf"/>
-                            <constraint firstItem="ElM-Sc-Wrz" firstAttribute="trailing" secondItem="4DP-Ma-Uab" secondAttribute="trailing" constant="20" id="34z-ME-ANw"/>
-                            <constraint firstItem="2zx-gz-m44" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="Eah-nb-UoH"/>
-                            <constraint firstItem="ElM-Sc-Wrz" firstAttribute="trailing" secondItem="5wN-kF-0BO" secondAttribute="trailing" constant="20" id="J5m-Nn-CW9"/>
-                            <constraint firstItem="s4Y-c1-zmK" firstAttribute="top" secondItem="ElM-Sc-Wrz" secondAttribute="top" id="JiE-XP-Sj3"/>
-                            <constraint firstItem="psm-14-54I" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="MKT-qa-8bK"/>
-                            <constraint firstItem="yv1-ge-i6a" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="MZM-vK-0kQ"/>
-                            <constraint firstItem="5wN-kF-0BO" firstAttribute="top" secondItem="4DP-Ma-Uab" secondAttribute="bottom" constant="24" id="OYJ-FY-GPS"/>
-                            <constraint firstItem="FCs-sr-5XM" firstAttribute="top" secondItem="yv1-ge-i6a" secondAttribute="bottom" constant="8" id="OZT-eS-HSz"/>
-                            <constraint firstItem="ElM-Sc-Wrz" firstAttribute="trailing" secondItem="psm-14-54I" secondAttribute="trailing" constant="20" id="P24-iz-vzx"/>
-                            <constraint firstItem="CVc-z3-hi6" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="Uus-m1-qGg"/>
-                            <constraint firstItem="KP0-ra-cm8" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="dG3-gg-Yne"/>
-                            <constraint firstItem="yv1-ge-i6a" firstAttribute="top" secondItem="5wN-kF-0BO" secondAttribute="bottom" constant="24" id="eK5-z1-161"/>
-                            <constraint firstItem="ElM-Sc-Wrz" firstAttribute="trailing" secondItem="CVc-z3-hi6" secondAttribute="trailing" constant="20" id="fH4-HA-TTz"/>
-                            <constraint firstAttribute="trailing" secondItem="s4Y-c1-zmK" secondAttribute="trailing" id="gUT-UQ-wyy"/>
-                            <constraint firstItem="4DP-Ma-Uab" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="hOA-hW-gQ8"/>
-                            <constraint firstItem="FCs-sr-5XM" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="okf-Gq-P4Q"/>
-                            <constraint firstItem="psm-14-54I" firstAttribute="top" secondItem="FCs-sr-5XM" secondAttribute="bottom" constant="24" id="opo-FN-dB6"/>
-                            <constraint firstItem="KP0-ra-cm8" firstAttribute="top" secondItem="CVc-z3-hi6" secondAttribute="bottom" constant="24" id="pe1-d9-Vlf"/>
-                            <constraint firstItem="s4Y-c1-zmK" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" id="rAf-4U-zYU"/>
-                            <constraint firstItem="2zx-gz-m44" firstAttribute="top" secondItem="s4Y-c1-zmK" secondAttribute="bottom" constant="40" id="tEg-nI-MjA"/>
-                            <constraint firstItem="5wN-kF-0BO" firstAttribute="leading" secondItem="ElM-Sc-Wrz" secondAttribute="leading" constant="20" id="vmn-WK-BPL"/>
-                            <constraint firstItem="CVc-z3-hi6" firstAttribute="top" secondItem="2zx-gz-m44" secondAttribute="bottom" constant="8" id="vwD-Ix-MDg"/>
-                            <constraint firstItem="ElM-Sc-Wrz" firstAttribute="trailing" secondItem="FCs-sr-5XM" secondAttribute="trailing" constant="20" id="zKY-xS-Tne"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="내 정보" id="8BE-BP-nIF"/>
-                    <connections>
-                        <outlet property="backButton" destination="5vx-LE-Rc8" id="IZ3-cg-l9T"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hve-bV-X2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2802.898550724638" y="864.50892857142856"/>
         </scene>
         <!--로그인-->
         <scene sceneID="uCN-QI-DZS">

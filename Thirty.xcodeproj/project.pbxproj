@@ -37,6 +37,7 @@
 		757D66CD2875048900E3C5DE /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D66CC2875048900E3C5DE /* WelcomeVC.swift */; };
 		758B9FD628B83DF0001A40B5 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD528B83DF0001A40B5 /* Mission.swift */; };
 		758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */; };
+		759CD62F28D14B9F00BFFFC7 /* SendEmailPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CD62E28D14B9F00BFFFC7 /* SendEmailPopupVC.swift */; };
 		759D326827C879E900A88C02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D326727C879E900A88C02 /* AppDelegate.swift */; };
 		759D326C27C879E900A88C02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D326B27C879E900A88C02 /* ViewController.swift */; };
 		759D326F27C879E900A88C02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759D326D27C879E900A88C02 /* Main.storyboard */; };
@@ -123,6 +124,7 @@
 		757D66CC2875048900E3C5DE /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		758B9FD528B83DF0001A40B5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailReactor.swift; sourceTree = "<group>"; };
+		759CD62E28D14B9F00BFFFC7 /* SendEmailPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailPopupVC.swift; sourceTree = "<group>"; };
 		759D326427C879E900A88C02 /* Thirty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thirty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759D326727C879E900A88C02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759D326B27C879E900A88C02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
+				759CD62E28D14B9F00BFFFC7 /* SendEmailPopupVC.swift */,
 				F9E01FC028CE1A7D00649EC7 /* WelcomePopupVC.swift */,
 				F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */,
 				F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */,
@@ -647,6 +650,7 @@
 				757C96742863E051005CCBA3 /* ChallengeEnrollVC.swift in Sources */,
 				759D328D27C8AC6E00A88C02 /* ChallengeModel.swift in Sources */,
 				F9D9B63428CB472B004AF18D /* MyReactor.swift in Sources */,
+				759CD62F28D14B9F00BFFFC7 /* SendEmailPopupVC.swift in Sources */,
 				75E98C41287CEA8A009DBDC2 /* ExploreReactor.swift in Sources */,
 				758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */,
 				F91A251027FC642B0037BDA7 /* LoginVC.swift in Sources */,

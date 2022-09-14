@@ -12,15 +12,15 @@ import Moya
 class MySettingReactor: Reactor {
     var initialState: State = State()
     
-    enum Action{
+    enum Action {
         case signOutTapped
     }
     
-    enum Mutation{
+    enum Mutation {
         case signOut
     }
     
-    struct State{
+    struct State {
         
     }
     
