@@ -11,6 +11,7 @@ import Moya
 enum BucketAPI {
     case addNewbie(_ challengeId: Int)
     case addCurrent(_ challengeId: Int)
+    case getBucketList(_ status: String?)
 }
 
 extension BucketAPI: TargetType {
@@ -24,6 +25,12 @@ extension BucketAPI: TargetType {
             return "/buckets/add/newbie"
         case .addCurrent:
             return "/buckets/add/current"
+        case .getBucketList(let status):
+            if let status = status {
+                return "/buckets?status=\(status)"
+            } else {
+                return "/buckets"
+            }
         }
     }
     
@@ -31,6 +38,8 @@ extension BucketAPI: TargetType {
         switch self {
         case .addNewbie, .addCurrent:
             return .post
+        case .getBucketList:
+            return .get
         }
     }
     
@@ -45,6 +54,8 @@ extension BucketAPI: TargetType {
             return [
                 "challenge": challengeId
             ]
+        default:
+            return nil
         }
     }
     
@@ -60,9 +71,9 @@ extension BucketAPI: TargetType {
     
     var headers: [String: String]? {
         switch self {
-        case .addCurrent:
+        case .addCurrent, .getBucketList:
             return [
-                "Authorization": "Bearer \( UserDefaults.standard.string(forKey: "access_token") ?? "")"
+                "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
             ]
         case .addNewbie:
             return ["Content-Type": "application/json"]
