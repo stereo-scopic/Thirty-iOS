@@ -8,10 +8,6 @@
 import Foundation
 import Moya
 
-// protocol UserServiceType {
-//    var myProfile: User? { get set }
-// }
-
 public class UserService {
     static let shared = UserService()
     

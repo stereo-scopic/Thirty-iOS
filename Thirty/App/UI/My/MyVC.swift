@@ -26,6 +26,8 @@ class MyVC: UIViewController, StoryboardView {
     @IBOutlet weak var faqButton: UIButton!
     @IBOutlet weak var csButton: UIButton!
     
+    @IBOutlet weak var myBadgeButton: UIButton!
+    
     var alarmTime: Date?
     var disposeBag = DisposeBag()
     typealias Reactor = MyReactor
@@ -79,6 +81,14 @@ class MyVC: UIViewController, StoryboardView {
         faqButton.rx.tap
             .bind {
                 
+            }
+            .disposed(by: disposeBag)
+        
+        myBadgeButton.rx.tap
+            .bind {
+                guard let myNoticeVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "MyBadgeVC") as? MyBadgeVC else { return }
+                self.navigationController?.pushViewController(myNoticeVC, animated: false)
             }
             .disposed(by: disposeBag)
     }
