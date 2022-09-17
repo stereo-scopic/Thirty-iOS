@@ -79,8 +79,7 @@ extension AuthAPI: TargetType {
     
     var headers: [String: String]? {
         return [
-            "Authorization": "Bearer \( UserDefaults.standard.string(forKey: "access_token") ?? "")"
+            "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
         ]
-//        return ["Content-Type": "application/json"]
     }
 }

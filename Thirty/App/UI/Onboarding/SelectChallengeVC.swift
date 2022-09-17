@@ -55,6 +55,7 @@ class SelectChallengeVC: UIViewController, StoryboardView {
                 reactor.action.onNext(.selectChallenge(self.selectedChallenge?.id ?? 0))
                 // response success오면 넘어가도록 처리해야함
                 self.performSegue(withIdentifier: "goMain", sender: self)
+                UserDefaults.standard.setValue(true, forKey: "launched")
             })
             .disposed(by: disposeBag)
     }

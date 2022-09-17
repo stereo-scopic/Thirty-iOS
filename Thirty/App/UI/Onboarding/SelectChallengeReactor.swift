@@ -48,8 +48,8 @@ class SelectChallengeReactor: Reactor {
         case .setChallengeList(let challengeList):
             newState.challengeList = challengeList
         case .getToken(let token):
-            UserDefaults.standard.set(token.access_token, forKey: "access_token")
-            UserDefaults.standard.set(token.refresh_token, forKey: "refresh_token")
+            try? TokenManager.shared.saveAccessToken(token.access_token ?? "")
+            try? TokenManager.shared.saveRefreshToken(token.refresh_token ?? "")
         }
         return newState
     }
