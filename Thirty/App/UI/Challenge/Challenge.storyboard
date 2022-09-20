@@ -85,7 +85,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Oea-vH-BTD">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BucketCell" id="Oea-vH-BTD" customClass="BucketCell" customModule="Thirty" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hdU-X3-kkP">
@@ -120,6 +120,9 @@
                                                                 <constraint firstItem="hII-Fc-kuN" firstAttribute="leading" secondItem="hdU-X3-kkP" secondAttribute="leading" id="vrg-f7-OhP"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="titleLabel" destination="dEo-Os-OED" id="AwU-oz-Kha"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -356,6 +359,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="G4x-wc-LE6"/>
                     <connections>
+                        <outlet property="challengeCategoryLabel" destination="OFB-vW-gYp" id="SSa-Lv-5MS"/>
+                        <outlet property="challengeCreatedAtLabel" destination="RHV-4K-jvI" id="klA-6Z-7Rj"/>
+                        <outlet property="challengeListCollectionView" destination="KwS-5A-neX" id="ea9-bo-V5P"/>
+                        <outlet property="challengeTitleLabel" destination="dne-Uv-trm" id="9Ef-Vh-q8s"/>
                         <outlet property="infoNumber" destination="c27-Vg-LnV" id="whw-3c-xZr"/>
                         <outlet property="infoTitle" destination="du6-Ns-NhX" id="e3n-0v-cwd"/>
                         <outlet property="thirtyCollectionView" destination="djH-FE-Bcz" id="reE-C5-g4W"/>
@@ -838,20 +845,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PSq-ju-OPw">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PSq-ju-OPw" id="y5Y-xG-Hw3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님이 친구신청을 했어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neB-Rh-qdD">
-                                                    <rect key="frame" x="20" y="23" width="374" height="21.5"/>
+                                                    <rect key="frame" x="20" y="23" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="Gray700"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EI9-1W-iKn">
-                                                    <rect key="frame" x="20" y="52.5" width="60" height="30"/>
+                                                    <rect key="frame" x="20" y="52" width="60" height="30"/>
                                                     <color key="backgroundColor" name="Gray200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="0VM-Lu-hRh"/>
@@ -862,7 +869,7 @@
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-bX-ioY">
-                                                    <rect key="frame" x="88" y="52.5" width="60" height="30"/>
+                                                    <rect key="frame" x="88" y="52" width="60" height="30"/>
                                                     <color key="backgroundColor" name="THIRTY Black"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Sb6-X4-7iB"/>

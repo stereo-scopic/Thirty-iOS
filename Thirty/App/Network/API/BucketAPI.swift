@@ -26,11 +26,7 @@ extension BucketAPI: TargetType {
         case .addCurrent:
             return "/buckets/add/current"
         case .getBucketList(let status):
-            if let status = status {
-                return "/buckets?status=\(status)"
-            } else {
-                return "/buckets"
-            }
+            return "/buckets"
         }
     }
     
@@ -61,6 +57,8 @@ extension BucketAPI: TargetType {
     
     var task: Task {
         switch self {
+        case .getBucketList(let statusString):
+            return .requestParameters(parameters: ["status": statusString ?? ""], encoding: URLEncoding.default)
         default:
             if let parameters = parameters {
                 return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
@@ -68,7 +66,7 @@ extension BucketAPI: TargetType {
             return .requestPlain
         }
     }
-    
+
     var headers: [String: String]? {
         switch self {
         case .addCurrent, .getBucketList:
