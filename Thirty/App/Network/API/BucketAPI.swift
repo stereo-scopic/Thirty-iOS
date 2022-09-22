@@ -12,6 +12,7 @@ enum BucketAPI {
     case addNewbie(_ challengeId: Int)
     case addCurrent(_ challengeId: Int)
     case getBucketList(_ status: String?)
+    case getBucketDetail(_ bucketId: String)
 }
 
 extension BucketAPI: TargetType {
@@ -25,8 +26,10 @@ extension BucketAPI: TargetType {
             return "/buckets/add/newbie"
         case .addCurrent:
             return "/buckets/add/current"
-        case .getBucketList(let status):
+        case .getBucketList:
             return "/buckets"
+        case .getBucketDetail(let bucketId):
+            return "/buckets/\(bucketId)"
         }
     }
     
@@ -34,7 +37,7 @@ extension BucketAPI: TargetType {
         switch self {
         case .addNewbie, .addCurrent:
             return .post
-        case .getBucketList:
+        case .getBucketList, .getBucketDetail:
             return .get
         }
     }
@@ -69,7 +72,7 @@ extension BucketAPI: TargetType {
 
     var headers: [String: String]? {
         switch self {
-        case .addCurrent, .getBucketList:
+        case .addCurrent, .getBucketList, .getBucketDetail:
             return [
                 "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
             ]

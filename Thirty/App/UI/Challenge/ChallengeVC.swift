@@ -59,6 +59,15 @@ class ChallengeVC: UIViewController, StoryboardView {
                 cell.titleLabel.text = item.challenge.title
             }
             .disposed(by: disposeBag)
+        
+    }
+    
+    func setCollectionView() {
+        challengeListCollectionView.rx.modelSelected(Bucket.self)
+            .subscribe(onNext: { [weak self] bucket in
+                self?.reactor?.action.onNext(.selectBucket(bucket))
+            })
+            .disposed(by: disposeBag)
     }
     
     func setThirtyCollectionView() {

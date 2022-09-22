@@ -8,8 +8,8 @@
 import Foundation
 
 struct BucketDetail: Codable {
-    var bucket: Bucket
-    var answer: [BucketAnswer]
+    var bucket: Bucket?
+    var answer: [BucketAnswer]?
 }
 
 struct Bucket: Codable {
