@@ -14,18 +14,21 @@ import Moya
     enum Action {
         case viewWillAppear
         case selectBucket(Bucket)
+        case selectBucketAnswer(Int)
     }
 
     enum Mutation {
         case getBucketList([Bucket])
         case selectBucketChanged(Bucket)
         case selectBucektDetailChanged(BucketDetail)
+        case selectBucketAnswer(Int)
     }
 
     struct State {
         var bucketList: [Bucket]
         var selectedBucket: Bucket?
         var selectedBucketDetail: BucketDetail?
+        var selectedBucketAnswer: BucketAnswer?
     }
 
      func mutate(action: Action) -> Observable<Mutation> {
@@ -37,6 +40,8 @@ import Moya
                 Observable.just(.selectBucketChanged(bucket)),
                 getBucketDetailRx(bucket)
              ])
+         case .selectBucketAnswer(let index):
+             return Observable.just(.selectBucketAnswer(index))
          }
      }
      
@@ -49,6 +54,8 @@ import Moya
             newState.selectedBucket = bucket
         case .selectBucektDetailChanged(let bucket):
             newState.selectedBucketDetail = bucket
+        case .selectBucketAnswer(let index):
+            newState.selectedBucketAnswer = state.selectedBucketDetail?.answers?[index]
         }
         return newState
     }
@@ -84,7 +91,7 @@ import Moya
                      print(str)
                      
                      let result = try? response.map(BucketDetail.self)
-                     observer.onNext(Mutation.selectBucektDetailChanged(result ?? BucketDetail(bucket: nil, answer: [])))
+                     observer.onNext(Mutation.selectBucektDetailChanged(result ?? BucketDetail(bucket: nil, answers: [])))
                      observer.onCompleted()
                  case let .failure(error):
                      observer.onError(error)

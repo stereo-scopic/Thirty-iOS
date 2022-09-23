@@ -18,10 +18,13 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var challengeListCollectionView: UICollectionView!
     @IBOutlet weak var thirtyCollectionView: UICollectionView!
     
-    @IBOutlet weak var infoNumber: UILabel!
-    @IBOutlet weak var infoTitle: UILabel!
+    @IBOutlet weak var bucketAnswerDate: UILabel!
+    @IBOutlet weak var bucketAnswerTitle: UILabel!
+    @IBOutlet weak var bucketAnswerDetail: UILabel!
+    @IBOutlet weak var bucketAnswerMusic: UILabel!
+    @IBOutlet weak var bucketAnswerUpdatedDate: UILabel!
+    @IBOutlet weak var bucketAnswerImage: UIImageView!
     
-//    let viewModel = ChallengeListViewModel()
     typealias Reactor = ChallengeReactor
     var disposeBag = DisposeBag()
     
@@ -30,12 +33,10 @@ class ChallengeVC: UIViewController, StoryboardView {
         
         self.reactor = ChallengeReactor()
         challengeListCollectionView.delegate = self
-//        challengeListCollectionView.dataSource = self
-        
         thirtyCollectionView.delegate = self
-//        thirtyCollectionView.dataSource = self
         
         setThirtyCollectionView()
+        setCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,14 +61,31 @@ class ChallengeVC: UIViewController, StoryboardView {
             }
             .disposed(by: disposeBag)
         
+        reactor.state
+            .map { $0.selectedBucketAnswer }
+            .subscribe(onNext: { [weak self] bucketAnswer in
+                self?.bucketAnswerDate.text = "#\(bucketAnswer?.date ?? 0)"
+//                self?.bucketAnswerTitle.text = bucketAnswer.
+                self?.bucketAnswerDetail.text = bucketAnswer?.detail
+                self?.bucketAnswerMusic.text = bucketAnswer?.music
+                self?.bucketAnswerUpdatedDate.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
+                
+                if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
+                    self?.bucketAnswerImage.load(url: bucketImageURL)
+                }
+            }).disposed(by: disposeBag)
     }
     
     func setCollectionView() {
         challengeListCollectionView.rx.modelSelected(Bucket.self)
             .subscribe(onNext: { [weak self] bucket in
                 self?.reactor?.action.onNext(.selectBucket(bucket))
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
+        
+        thirtyCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.reactor?.action.onNext(.selectBucketAnswer(indexPath.row))
+            }).disposed(by: disposeBag)
     }
     
     func setThirtyCollectionView() {
@@ -91,11 +109,11 @@ class ChallengeVC: UIViewController, StoryboardView {
             return UICollectionViewCell()
         }.disposed(by: disposeBag)
         
-        thirtyCollectionView.rx.itemSelected
-            .subscribe(onNext: { [weak self] index in
-                self?.infoNumber.text = "#\(index.row + 1)"
-            })
-            .disposed(by: disposeBag)
+//        thirtyCollectionView.rx.itemSelected
+//            .subscribe(onNext: { [weak self] index in
+//                self?.infoNumber.text = "#\(index.row + 1)"
+//            })
+//            .disposed(by: disposeBag)
         
     }
 }

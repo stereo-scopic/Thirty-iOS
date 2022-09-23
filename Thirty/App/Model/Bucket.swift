@@ -9,7 +9,7 @@ import Foundation
 
 struct BucketDetail: Codable {
     var bucket: Bucket?
-    var answer: [BucketAnswer]?
+    var answers: [BucketAnswer]?
 }
 
 struct Bucket: Codable {
