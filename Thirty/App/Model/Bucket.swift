@@ -24,13 +24,26 @@ struct Bucket: Codable {
 
 struct BucketAnswer: Codable {
     var id: Int?
-    var created_at: String
+    var created_at: String?
     var updated_at: String?
     var music: String?
     var date: Int
     var detail: String?
     var image: String?
-    var stamp: Int?
+    var stamp: Int
+    var mission: String?
+    
+    init(id: Int? = nil, created_at: String = "", updated_at: String? = "", music: String? = "", date: Int = 0, detail: String? = "", image: String? = "", stamp: Int, mission: String? = "") {
+        self.id = id
+        self.created_at = created_at
+        self.updated_at = updated_at
+        self.music = music
+        self.date = date
+        self.detail = detail
+        self.image = image
+        self.stamp = stamp
+        self.mission = mission
+    }
 }
 
 enum BucketStatus: String, Codable {

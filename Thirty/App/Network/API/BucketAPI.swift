@@ -13,6 +13,7 @@ enum BucketAPI {
     case addCurrent(_ challengeId: Int)
     case getBucketList(_ status: String?)
     case getBucketDetail(_ bucketId: String)
+    case enrollBucketAnswer(_ bucketId: String, _ bucketAnswer: BucketAnswer)
 }
 
 extension BucketAPI: TargetType {
@@ -30,12 +31,15 @@ extension BucketAPI: TargetType {
             return "/buckets"
         case .getBucketDetail(let bucketId):
             return "/buckets/\(bucketId)"
+        case .enrollBucketAnswer(let bucketId, _):
+            return "/buckets/\(bucketId)"
+            
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .addNewbie, .addCurrent:
+        case .addNewbie, .addCurrent, .enrollBucketAnswer:
             return .post
         case .getBucketList, .getBucketDetail:
             return .get
@@ -52,6 +56,14 @@ extension BucketAPI: TargetType {
         case .addCurrent(let challengeId):
             return [
                 "challenge": challengeId
+            ]
+        case .enrollBucketAnswer(_, let bucketAnswer):
+            return [
+                "date": bucketAnswer.date,
+                "stamp": bucketAnswer.stamp,
+                "image": bucketAnswer.image ?? "",
+                "music": bucketAnswer.music ?? "",
+                "detail": bucketAnswer.detail ?? ""
             ]
         default:
             return nil
@@ -72,7 +84,7 @@ extension BucketAPI: TargetType {
 
     var headers: [String: String]? {
         switch self {
-        case .addCurrent, .getBucketList, .getBucketDetail:
+        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer:
             return [
                 "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
             ]

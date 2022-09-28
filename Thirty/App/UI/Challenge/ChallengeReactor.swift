@@ -55,7 +55,11 @@ import Moya
         case .selectBucektDetailChanged(let bucket):
             newState.selectedBucketDetail = bucket
         case .selectBucketAnswer(let index):
-            newState.selectedBucketAnswer = state.selectedBucketDetail?.answers?[index]
+            if index < state.selectedBucketDetail?.answers?.count ?? 0 {
+                newState.selectedBucketAnswer = state.selectedBucketDetail?.answers?[index]
+            } else {
+                newState.selectedBucketAnswer = BucketAnswer(id: nil, created_at: "아직 답변 전이에요.", updated_at: nil, music: nil, date: index, detail: "", image: nil, stamp: 0)
+            }
         }
         return newState
     }

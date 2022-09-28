@@ -25,8 +25,12 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketAnswerUpdatedDate: UILabel!
     @IBOutlet weak var bucketAnswerImage: UIImageView!
     
+    @IBOutlet weak var bucketAnswerEditButton: UIButton!
+    
     typealias Reactor = ChallengeReactor
     var disposeBag = DisposeBag()
+    var selectedBucketId: String = ""
+    var selectedBucketAnswer = BucketAnswer(stamp: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +54,21 @@ class ChallengeVC: UIViewController, StoryboardView {
     }
     
     private func bindAction(_ reactor: ChallengeReactor) {
-        
+        bucketAnswerEditButton.rx.tap
+            .bind {
+//                if self.bucketAnswerEditButton.titleLabel?.text == "작성하기" {
+                    guard let bucketAnswerEnrollVC = self.storyboard?
+                            .instantiateViewController(withIdentifier: "BucketAnswerEnrollVC") as? BucketAnswerEnrollVC else { return }
+                    bucketAnswerEnrollVC.bucketId = self.selectedBucketId
+                    bucketAnswerEnrollVC.bucketAnswer = self.selectedBucketAnswer
+                    self.navigationController?.pushViewController(bucketAnswerEnrollVC, animated: false)
+//                } else {
+//                    guard let bucketDetailVC = self.storyboard?
+//                            .instantiateViewController(withIdentifier: "BucketDetailVC") as? BucketDetailVC else { return }
+//                    bucketDetailVC.bucketAnswer = self.selectedBucketAnswer
+//                    self.navigationController?.pushViewController(bucketDetailVC, animated: false)
+//                }
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: ChallengeReactor) {
@@ -62,17 +80,34 @@ class ChallengeVC: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         reactor.state
+            .map { $0.selectedBucket }
+            .subscribe(onNext: { [weak self] bucket in
+                self?.challengeCategoryLabel.text = bucket?.challenge.category?.name
+                self?.challengeTitleLabel.text = bucket?.challenge.title
+                self?.challengeCreatedAtLabel.text = "\(bucket?.challenge.created_at?.iSO8601Date() ?? Date()) ~ing"
+                
+                self?.selectedBucketId = bucket?.id ?? ""
+            }).disposed(by: disposeBag)
+        
+        reactor.state
             .map { $0.selectedBucketAnswer }
             .subscribe(onNext: { [weak self] bucketAnswer in
                 self?.bucketAnswerDate.text = "#\(bucketAnswer?.date ?? 0)"
-//                self?.bucketAnswerTitle.text = bucketAnswer.
+                self?.bucketAnswerTitle.text = bucketAnswer?.mission ?? ""
                 self?.bucketAnswerDetail.text = bucketAnswer?.detail
                 self?.bucketAnswerMusic.text = bucketAnswer?.music
                 self?.bucketAnswerUpdatedDate.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
                 
                 if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
                     self?.bucketAnswerImage.load(url: bucketImageURL)
+                } else {
+                    self?.bucketAnswerImage.image = nil
                 }
+                
+                self?.selectedBucketAnswer = bucketAnswer ?? BucketAnswer(stamp: 0)
+                
+                let answered = bucketAnswer?.stamp != 0
+                self?.bucketAnswerEditButton.setTitle(answered ? "더보기" : "작성하기", for: .normal)
             }).disposed(by: disposeBag)
     }
     
@@ -108,13 +143,6 @@ class ChallengeVC: UIViewController, StoryboardView {
             }
             return UICollectionViewCell()
         }.disposed(by: disposeBag)
-        
-//        thirtyCollectionView.rx.itemSelected
-//            .subscribe(onNext: { [weak self] index in
-//                self?.infoNumber.text = "#\(index.row + 1)"
-//            })
-//            .disposed(by: disposeBag)
-        
     }
 }
 
