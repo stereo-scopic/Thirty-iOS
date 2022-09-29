@@ -22,6 +22,8 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketImgView: UIView!
     @IBOutlet weak var bucketImageView: UIImageView!
     
+    @IBOutlet weak var galleryButton: UIButton!
+    
     var bucketId: String = ""
     var bucketAnswer: BucketAnswer = BucketAnswer(stamp: 0)
     
@@ -60,6 +62,15 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 
                 reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer))
             }.disposed(by: disposeBag)
+        
+        galleryButton.rx.tap
+            .bind {
+                let vc = UIImagePickerController()
+                vc.sourceType = .photoLibrary
+                vc.delegate = self
+                vc.allowsEditing = true
+                self.present(vc, animated: true)
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: BucketAnswerEnrollReactor) {
@@ -83,4 +94,19 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
             }).disposed(by: disposeBag)
     }
 
+}
+
+extension BucketAnswerEnrollVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            bucketImageView.isHidden = false
+            bucketImageView.image = image
+        }
+                
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
+        }
 }

@@ -21,7 +21,6 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketAnswerDate: UILabel!
     @IBOutlet weak var bucketAnswerTitle: UILabel!
     @IBOutlet weak var bucketAnswerDetail: UILabel!
-    @IBOutlet weak var bucketAnswerMusic: UILabel!
     @IBOutlet weak var bucketAnswerUpdatedDate: UILabel!
     @IBOutlet weak var bucketAnswerImage: UIImageView!
     
@@ -84,7 +83,7 @@ class ChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] bucket in
                 self?.challengeCategoryLabel.text = bucket?.challenge.category?.name
                 self?.challengeTitleLabel.text = bucket?.challenge.title
-                self?.challengeCreatedAtLabel.text = "\(bucket?.challenge.created_at?.iSO8601Date() ?? Date()) ~ing"
+                self?.challengeCreatedAtLabel.text = "\(bucket?.challenge.created_at?.iSO8601Date().dateToString()) ~ing"
                 
                 self?.selectedBucketId = bucket?.id ?? ""
             }).disposed(by: disposeBag)
@@ -95,7 +94,6 @@ class ChallengeVC: UIViewController, StoryboardView {
                 self?.bucketAnswerDate.text = "#\(bucketAnswer?.date ?? 0)"
                 self?.bucketAnswerTitle.text = bucketAnswer?.mission ?? ""
                 self?.bucketAnswerDetail.text = bucketAnswer?.detail
-                self?.bucketAnswerMusic.text = bucketAnswer?.music
                 self?.bucketAnswerUpdatedDate.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
                 
                 if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
