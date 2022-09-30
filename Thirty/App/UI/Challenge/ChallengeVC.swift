@@ -55,18 +55,18 @@ class ChallengeVC: UIViewController, StoryboardView {
     private func bindAction(_ reactor: ChallengeReactor) {
         bucketAnswerEditButton.rx.tap
             .bind {
-//                if self.bucketAnswerEditButton.titleLabel?.text == "작성하기" {
+                if self.bucketAnswerEditButton.titleLabel?.text == "작성하기" {
                     guard let bucketAnswerEnrollVC = self.storyboard?
                             .instantiateViewController(withIdentifier: "BucketAnswerEnrollVC") as? BucketAnswerEnrollVC else { return }
                     bucketAnswerEnrollVC.bucketId = self.selectedBucketId
                     bucketAnswerEnrollVC.bucketAnswer = self.selectedBucketAnswer
                     self.navigationController?.pushViewController(bucketAnswerEnrollVC, animated: false)
-//                } else {
-//                    guard let bucketDetailVC = self.storyboard?
-//                            .instantiateViewController(withIdentifier: "BucketDetailVC") as? BucketDetailVC else { return }
-//                    bucketDetailVC.bucketAnswer = self.selectedBucketAnswer
-//                    self.navigationController?.pushViewController(bucketDetailVC, animated: false)
-//                }
+                } else {
+                    guard let bucketDetailVC = self.storyboard?
+                            .instantiateViewController(withIdentifier: "BucketDetailVC") as? BucketDetailVC else { return }
+                    bucketDetailVC.bucketAnswer = self.selectedBucketAnswer
+                    self.navigationController?.pushViewController(bucketDetailVC, animated: false)
+                }
             }.disposed(by: disposeBag)
     }
     
@@ -83,7 +83,7 @@ class ChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] bucket in
                 self?.challengeCategoryLabel.text = bucket?.challenge.category?.name
                 self?.challengeTitleLabel.text = bucket?.challenge.title
-                self?.challengeCreatedAtLabel.text = "\(bucket?.challenge.created_at?.iSO8601Date().dateToString()) ~ing"
+                self?.challengeCreatedAtLabel.text = "\(bucket?.challenge.created_at?.iSO8601Date().dateToString() ?? "") ~ing"
                 
                 self?.selectedBucketId = bucket?.id ?? ""
             }).disposed(by: disposeBag)

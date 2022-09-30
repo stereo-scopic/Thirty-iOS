@@ -308,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				759D328627C8935C00A88C02 /* Challenge.storyboard */,
-				75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */,
 				757C967F2863E0E3005CCBA3 /* ChallengeShareVC.swift */,
 				757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */,
 				757C96812863E169005CCBA3 /* ChallengeExportVC.swift */,
@@ -318,6 +317,7 @@
 				75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */,
 				759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */,
 				759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */,
+				75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */,
 				757C96792863E090005CCBA3 /* NoticeVC.swift */,
 			);
 			path = Challenge;
