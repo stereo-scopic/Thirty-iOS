@@ -48,8 +48,11 @@ class ExploreDetailVC: UIViewController, StoryboardView {
     
     private func bindAction(_ reactor: ExploreDetailReactor) {
         challengeAddButton.rx.tap
-            .subscribe(onNext: {
+            .subscribe(onNext: { [weak self] in
                 reactor.action.onNext(.addChallengeButtonTapped)
+                self?.challengeAddButton.backgroundColor = UIColor.gray300
+                self?.challengeAddButton.setTitle("추가됨", for: .normal)
+                self?.challengeAddButton.setImage(UIImage(named: "icon_check"), for: .normal)
             })
             .disposed(by: disposeBag)
     }
