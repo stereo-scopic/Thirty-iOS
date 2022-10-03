@@ -8,12 +8,12 @@
 import ReactorKit
 import Moya
 
- class ChallengeReactor: Reactor {
+class ChallengeReactor: Reactor {
     var initialState: State = State(bucketList: [])
 
     enum Action {
         case viewWillAppear
-        case selectBucket(Bucket)
+        case selectBucket(Bucket?)
         case selectBucketAnswer(Int)
     }
 
@@ -22,6 +22,7 @@ import Moya
         case selectBucketChanged(Bucket)
         case selectBucektDetailChanged(BucketDetail)
         case selectBucketAnswer(Int)
+        case empty
     }
 
     struct State {
@@ -36,10 +37,14 @@ import Moya
          case .viewWillAppear:
              return requestBucketListRx()
          case .selectBucket(let bucket):
-             return Observable.concat([
-                Observable.just(.selectBucketChanged(bucket)),
-                getBucketDetailRx(bucket)
-             ])
+             if let bucket = bucket {
+                 return Observable.concat([
+                    Observable.just(.selectBucketChanged(bucket)),
+                    getBucketDetailRx(bucket)
+                 ])
+             } else {
+                 return Observable.just(.empty)
+             }
          case .selectBucketAnswer(let index):
              return Observable.just(.selectBucketAnswer(index))
          }
@@ -50,6 +55,11 @@ import Moya
         switch mutation {
         case .getBucketList(let bucketList):
             newState.bucketList = bucketList
+            newState.selectedBucket = bucketList.first
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.action.onNext(.selectBucket(bucketList.first))
+            }
         case .selectBucketChanged(let bucket):
             newState.selectedBucket = bucket
         case .selectBucektDetailChanged(let bucket):
@@ -58,8 +68,11 @@ import Moya
             if index < state.selectedBucketDetail?.answers?.count ?? 0 {
                 newState.selectedBucketAnswer = state.selectedBucketDetail?.answers?[index]
             } else {
-                newState.selectedBucketAnswer = BucketAnswer(id: nil, created_at: "아직 답변 전이에요.", updated_at: nil, music: nil, date: index, detail: "", image: nil, stamp: 0)
+                newState.selectedBucketAnswer = BucketAnswer(answerid: nil, created_at: "아직 답변 전이에요.", updated_at: nil, music: nil, date: index, detail: "", image: nil, stamp: 0)
             }
+        default:
+            return newState
+            
         }
         return newState
     }

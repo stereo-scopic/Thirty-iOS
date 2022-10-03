@@ -19,6 +19,7 @@ class BucketAnswerEnrollReactor: Reactor {
     enum Action {
 //        case viewWillAppear(BucketAnswer)
         case enrollAnswer(String, BucketAnswer)
+        case editAnswer(String, Int, BucketAnswer)
 //        case imageSelected
 //        case linkSelected
 //        case badgeSelected
@@ -41,6 +42,8 @@ class BucketAnswerEnrollReactor: Reactor {
 //            return Observable.just(.setBucketAnswer(bucketAnswer))
         case .enrollAnswer(let bucketId, let bucketAnswer):
             return enrollBucketAnswerRx(bucketId, bucketAnswer)
+        case .editAnswer(let bucketId, let answerDate, let bucketAnswer):
+            return editBucketAnswerRx(bucketId, answerDate, bucketAnswer)
         }
     }
     
@@ -64,6 +67,29 @@ class BucketAnswerEnrollReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
+                    if let _ = try? response.map(Bucket.self) {
+                        observer.onNext(.enrollSuccess(true))
+                    } else {
+                        observer.onNext(.enrollSuccess(false))
+                    }
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func editBucketAnswerRx(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<BucketAPI>()
+            provider.request(.editBucketAnswer(bucketId, answerDate, bucketAnswer)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
                     if let _ = try? response.map(Bucket.self) {
                         observer.onNext(.enrollSuccess(true))
                     } else {

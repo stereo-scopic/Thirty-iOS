@@ -22,10 +22,15 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketImgView: UIView!
     @IBOutlet weak var bucketImageView: UIImageView!
     
+    @IBOutlet weak var badgeView: UIView!
+    @IBOutlet weak var badgeImageView: UIImageView!
+    
     @IBOutlet weak var galleryButton: UIButton!
     
     var bucketId: String = ""
     var bucketAnswer: BucketAnswer = BucketAnswer(stamp: 0)
+    var selectedStamp: Int = 0
+    var editFlag = false
     
     typealias Reactor = BucketAnswerEnrollReactor
     var disposeBag = DisposeBag()
@@ -40,6 +45,17 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
         self.view.endEditing(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let stampPopupVC = segue.destination as? BucketStampPopupVC {
+            stampPopupVC.selectedStamp
+                .subscribe(onNext: { stampNum in
+                    self.badgeView.isHidden = false
+                    self.badgeImageView.image = UIImage(named: "badge_\(stampNum)")
+                    self.selectedStamp = stampNum
+                }).disposed(by: disposeBag)
+        }
+    }
+    
     func bind(reactor: BucketAnswerEnrollReactor) {
         bindAction(reactor)
         bindState(reactor)
@@ -48,19 +64,34 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     private func bindAction(_ reactor: BucketAnswerEnrollReactor) {
         backButton.rx.tap
             .bind {
-                self.navigationController?.popViewController(animated: true)
+                let alert = UIAlertController(title: "", message: "작성 중인 내용은 사라집니다.\n나가시겠습니까?", preferredStyle: .alert)
+                let backAction = UIAlertAction(title: "나가기", style: .cancel) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                let cancelAction = UIAlertAction(title: "계속 작성하기", style: .default) { _ in
+                    
+                }
+                alert.addAction(cancelAction)
+                alert.addAction(backAction)
+                
+                self.present(alert, animated: true)
             }.disposed(by: disposeBag)
         
         completeButton.rx.tap
             .bind {
-                let bucketAnswer = BucketAnswer(id: self.bucketAnswer.id,
+                let bucketAnswer = BucketAnswer(answerid: self.bucketAnswer.answerid,
                                                 music: "",
                                                 date: self.bucketAnswer.date,
                                                 detail: self.bucketAnswerTextView.text,
                                                 image: "",
-                                                stamp: 1)
+                                                stamp: self.selectedStamp)
                 
-                reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer))
+                if self.editFlag {
+                    reactor.action.onNext(.editAnswer(self.bucketId, self.bucketAnswer.date, bucketAnswer))
+                } else {
+                    reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer))
+                }
+                self.navigationController?.popViewController(animated: true)
             }.disposed(by: disposeBag)
         
         galleryButton.rx.tap
@@ -80,7 +111,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 self?.bucketAnswerDateLabel.text = "#\(bucketAnswer.date)"
                 self?.bucketAnswerTitleLabel.text = bucketAnswer.mission
                 
-                if let bucketImage = bucketAnswer.image {
+                if let bucketImage = bucketAnswer.image, !bucketImage.isEmpty {
                     self?.bucketImgView.isHidden = false
                     if let imageUrl = URL(string: bucketImage) {
                         self?.bucketImageView.load(url: imageUrl)
@@ -89,7 +120,15 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                     self?.bucketImgView.isHidden = true
                 }
                 
-//                if let linkImage = bucketAnswer.
+                if let stampNum = bucketAnswer.stamp, stampNum != 0 {
+                    self?.badgeView.isHidden = false
+                    self?.badgeImageView.image = UIImage(named: "badge_\(stampNum)")
+                    self?.selectedStamp = stampNum
+                } else {
+                    self?.badgeView.isHidden = true
+                }
+                
+                self?.bucketAnswerTextView.text = bucketAnswer.detail
                 
             }).disposed(by: disposeBag)
     }

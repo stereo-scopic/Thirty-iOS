@@ -25,11 +25,13 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketAnswerImage: UIImageView!
     
     @IBOutlet weak var bucketAnswerEditButton: UIButton!
+//    @IBOutlet weak var notiButton: UIButton!
     
     typealias Reactor = ChallengeReactor
     var disposeBag = DisposeBag()
     var selectedBucketId: String = ""
     var selectedBucketAnswer = BucketAnswer(stamp: 0)
+    var selectedBucketIndex: IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,6 @@ class ChallengeVC: UIViewController, StoryboardView {
         challengeListCollectionView.delegate = self
         thirtyCollectionView.delegate = self
         
-        setThirtyCollectionView()
         setCollectionView()
     }
     
@@ -64,19 +65,62 @@ class ChallengeVC: UIViewController, StoryboardView {
                 } else {
                     guard let bucketDetailVC = self.storyboard?
                             .instantiateViewController(withIdentifier: "BucketDetailVC") as? BucketDetailVC else { return }
+                    bucketDetailVC.bucketId = self.selectedBucketId
                     bucketDetailVC.bucketAnswer = self.selectedBucketAnswer
                     self.navigationController?.pushViewController(bucketDetailVC, animated: false)
                 }
             }.disposed(by: disposeBag)
+        
+//        notiButton.rx.tap
+//            .bind {
+//                guard let noticeVC = self.storyboard?
+//                        .instantiateViewController(withIdentifier: "NoticeVC") as? NoticeVC else { return }
+//                self.navigationController?.pushViewController(noticeVC, animated: false)
+//            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: ChallengeReactor) {
         reactor.state
             .map { $0.bucketList }
-            .bind(to: challengeListCollectionView.rx.items(cellIdentifier: BucketCell.identifier, cellType: BucketCell.self)) { _, item, cell in
+            .bind(to: challengeListCollectionView.rx.items(cellIdentifier: BucketCell.identifier, cellType: BucketCell.self)) { index, item, cell in
                 cell.titleLabel.text = item.challenge.title
+                
+                cell.backgroundSelectView.backgroundColor = index == self.selectedBucketIndex.row ? UIColor.black : UIColor.white
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.selectedBucketDetail?.answers ?? [] }
+            .bind(to: thirtyCollectionView.rx.items(cellIdentifier: ThirtyCell.identifier, cellType: ThirtyCell.self)) { index, item, cell in
+
+                cell.number.text = "\(index + 1)"
+
+                if (index / 6) % 2 == 0 {
+                    cell.view.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.thirtyBlack
+                    cell.number.textColor = index % 2 == 0 ? UIColor.thirtyBlack : UIColor.white
+                } else {
+                    cell.view.backgroundColor = index % 2 == 0 ? UIColor.thirtyBlack : UIColor.gray50
+                    cell.number.textColor = index % 2 == 0 ? UIColor.white : UIColor.thirtyBlack
+                }
+                
+                if let bucketImage = item.image, !bucketImage.isEmpty {
+                    if let imageUrl = URL(string: bucketImage) {
+                        cell.bucketAnswerImage.load(url: imageUrl)
+                        cell.number.isHidden = true
+                    }
+                } else {
+                    cell.bucketAnswerImage.image = UIImage()
+                    cell.number.isHidden = false
+                    
+                    if let stamp = item.stamp, stamp != 0 {
+                        cell.badgeImage.image = UIImage(named: "badge_trans_\(stamp)")
+                        cell.number.isHidden = true
+                    } else {
+                        cell.badgeImage.image = UIImage()
+                    }
+                }
+                
+            }.disposed(by: disposeBag)
         
         reactor.state
             .map { $0.selectedBucket }
@@ -91,6 +135,8 @@ class ChallengeVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.selectedBucketAnswer }
             .subscribe(onNext: { [weak self] bucketAnswer in
+                guard let _ = bucketAnswer?.updated_at else { return }
+                
                 self?.bucketAnswerDate.text = "#\(bucketAnswer?.date ?? 0)"
                 self?.bucketAnswerTitle.text = bucketAnswer?.mission ?? ""
                 self?.bucketAnswerDetail.text = bucketAnswer?.detail
@@ -104,16 +150,26 @@ class ChallengeVC: UIViewController, StoryboardView {
                 
                 self?.selectedBucketAnswer = bucketAnswer ?? BucketAnswer(stamp: 0)
                 
-                let answered = bucketAnswer?.stamp != 0
-                self?.bucketAnswerEditButton.setTitle(answered ? "더보기" : "작성하기", for: .normal)
+                if let _ = bucketAnswer?.updated_at {
+                    self?.bucketAnswerEditButton.setTitle("더보기", for: .normal)
+                } else {
+                    self?.bucketAnswerEditButton.setTitle("작성하기", for: .normal)
+                }
             }).disposed(by: disposeBag)
     }
     
     func setCollectionView() {
-        challengeListCollectionView.rx.modelSelected(Bucket.self)
-            .subscribe(onNext: { [weak self] bucket in
+//        challengeListCollectionView.rx.modelSelected(Bucket.self)
+//            .subscribe(onNext: { [weak self] bucket in
+//                self?.reactor?.action.onNext(.selectBucket(bucket))
+//            }).disposed(by: disposeBag)
+        
+        Observable.zip(challengeListCollectionView.rx.modelSelected(Bucket.self), challengeListCollectionView.rx.itemSelected)
+            .bind { [weak self] (bucket, indexPath) in
+                self?.selectedBucketIndex = indexPath
                 self?.reactor?.action.onNext(.selectBucket(bucket))
-            }).disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
         
         thirtyCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
@@ -121,27 +177,6 @@ class ChallengeVC: UIViewController, StoryboardView {
             }).disposed(by: disposeBag)
     }
     
-    func setThirtyCollectionView() {
-        let dayArr = [Int](1...30)
-        
-        let dataSource = BehaviorSubject<[Int]>(value: dayArr)
-        
-        dataSource.bind(to: thirtyCollectionView.rx.items) { (collectionView, row, element) in
-            let indexPath = IndexPath(row: row, section: 0)
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThirtyCell", for: indexPath) as? ThirtyCell {
-                cell.number.text = "\(element)"
-                
-                if (indexPath.row / 6) % 2 == 0 {
-                    cell.view.backgroundColor = indexPath.row % 2 == 0 ? UIColor.gray50 : UIColor.gray200
-                } else {
-                    cell.view.backgroundColor = indexPath.row % 2 == 0 ? UIColor.gray200 : UIColor.gray50
-                }
-                
-                return cell
-            }
-            return UICollectionViewCell()
-        }.disposed(by: disposeBag)
-    }
 }
 
 extension ChallengeVC: UICollectionViewDelegateFlowLayout {
@@ -164,17 +199,27 @@ extension ChallengeVC: UICollectionViewDelegateFlowLayout {
 class ThirtyCell: UICollectionViewCell {
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var badgeImage: UIImageView!
+    @IBOutlet weak var bucketAnswerImage: UIImageView!
+    @IBOutlet weak var cellWidth: NSLayoutConstraint!
+    
+    static var identifier = "ThirtyCell"
     
     override func awakeFromNib() {
+    }
+    
+    override func prepareForReuse() {
+        cellWidth.constant = UIScreen.main.bounds.width / 6
     }
 }
 
 class BucketCell: UICollectionViewCell {
+    @IBOutlet weak var backgroundSelectView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
     static var identifier = "BucketCell"
     
     override func prepareForReuse() {
-        
+        backgroundSelectView.backgroundColor = UIColor.white
     }
 }

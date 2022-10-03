@@ -14,6 +14,8 @@ enum BucketAPI {
     case getBucketList(_ status: String?)
     case getBucketDetail(_ bucketId: String)
     case enrollBucketAnswer(_ bucketId: String, _ bucketAnswer: BucketAnswer)
+    case getBucketAnswerDetail(_ bucketId: String, _ answerDate: Int)
+    case editBucketAnswer(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer)
 }
 
 extension BucketAPI: TargetType {
@@ -23,17 +25,20 @@ extension BucketAPI: TargetType {
     
     var path: String {
         switch self {
+        case .getBucketList:
+            return "/buckets"
         case .addNewbie:
             return "/buckets/add/newbie"
         case .addCurrent:
             return "/buckets/add/current"
-        case .getBucketList:
-            return "/buckets"
         case .getBucketDetail(let bucketId):
             return "/buckets/\(bucketId)"
         case .enrollBucketAnswer(let bucketId, _):
             return "/buckets/\(bucketId)"
-            
+        case .getBucketAnswerDetail(let bucketId, let answerDate):
+            return "/buckets/\(bucketId)/date/\(answerDate)"
+        case .editBucketAnswer(let bucketId, let answerDate, _):
+            return "/buckets/\(bucketId)/date/\(answerDate)"
         }
     }
     
@@ -41,8 +46,10 @@ extension BucketAPI: TargetType {
         switch self {
         case .addNewbie, .addCurrent, .enrollBucketAnswer:
             return .post
-        case .getBucketList, .getBucketDetail:
+        case .getBucketList, .getBucketDetail, .getBucketAnswerDetail:
             return .get
+        case .editBucketAnswer:
+            return .patch
         }
     }
     
@@ -60,7 +67,15 @@ extension BucketAPI: TargetType {
         case .enrollBucketAnswer(_, let bucketAnswer):
             return [
                 "date": bucketAnswer.date,
-                "stamp": bucketAnswer.stamp,
+                "stamp": bucketAnswer.stamp ?? 0,
+                "image": bucketAnswer.image ?? "",
+                "music": bucketAnswer.music ?? "",
+                "detail": bucketAnswer.detail ?? ""
+            ]
+        case .editBucketAnswer(_, _, let bucketAnswer):
+            return [
+                "date": bucketAnswer.date,
+                "stamp": bucketAnswer.stamp ?? 0,
                 "image": bucketAnswer.image ?? "",
                 "music": bucketAnswer.music ?? "",
                 "detail": bucketAnswer.detail ?? ""
@@ -84,7 +99,7 @@ extension BucketAPI: TargetType {
 
     var headers: [String: String]? {
         switch self {
-        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer:
+        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer, .getBucketAnswerDetail, .editBucketAnswer:
             return [
                 "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
             ]
