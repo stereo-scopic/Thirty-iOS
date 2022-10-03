@@ -9,18 +9,18 @@ import ReactorKit
 import Moya
 
 class MyReactor: Reactor {
-    var initialState: State = State(user: User())
+    var initialState: State = State(userInfo: UserInfo())
     
     enum Action {
         case getInfo
     }
     
     enum Mutation {
-        case getAuthInfo(User)
+        case getAuthInfo(UserInfo)
     }
     
     struct State {
-        var user: User
+        var userInfo: UserInfo
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -34,8 +34,8 @@ class MyReactor: Reactor {
         var newState = state
         
         switch mutation {
-        case .getAuthInfo(let user):
-            newState.user = user
+        case .getAuthInfo(let userInfo):
+            newState.userInfo = userInfo
         }
         return newState
     }
@@ -54,8 +54,8 @@ class MyReactor: Reactor {
                 case .success(let response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
-                    let result = try? response.map(User.self)
-                    observer.onNext(Mutation.getAuthInfo(result ?? User()))
+                    let result = try? response.map(UserInfo.self)
+                    observer.onNext(Mutation.getAuthInfo(result ?? UserInfo()))
                     observer.onCompleted()
                 case .failure(let error):
                     observer.onError(error)

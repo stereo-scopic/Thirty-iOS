@@ -28,6 +28,10 @@ class MyVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var myBadgeButton: UIButton!
     
+    @IBOutlet weak var completeChallengeCountLabel: UILabel!
+    @IBOutlet weak var myBadgeCountLabel: UILabel!
+    @IBOutlet weak var friendCountLabel: UILabel!
+    
     var alarmTime: Date?
     var disposeBag = DisposeBag()
     typealias Reactor = MyReactor
@@ -96,10 +100,14 @@ class MyVC: UIViewController, StoryboardView {
     private func bindState(_ reactor: MyReactor) {
         reactor.state
             .subscribe(onNext: { state in
-                let notLogin = state.user.email?.isEmpty ?? true
+                let notLogin = state.userInfo.user.email?.isEmpty ?? true
                 
-                self.nicknameLabel.text = notLogin ? "나" : state.user.nickname
-                self.idLabel.text = state.user.id
+                self.nicknameLabel.text = notLogin ? "나" : state.userInfo.user.nickname
+                self.idLabel.text = state.userInfo.user.id
+                
+                self.completeChallengeCountLabel.text = "\(state.userInfo.completedChallengeCount ?? 0)"
+                self.myBadgeCountLabel.text = "\(state.userInfo.rewardCount ?? 0)"
+                self.friendCountLabel.text = "\(state.userInfo.relationCount ?? 0)"
                 
                 self.idLabel.isHidden = notLogin
                 self.idCopyButton.isHidden = notLogin

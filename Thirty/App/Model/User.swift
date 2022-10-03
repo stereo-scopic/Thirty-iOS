@@ -7,6 +7,20 @@
 
 import Foundation
 
+struct UserInfo: Decodable {
+    var user: User
+    var rewardCount: Int?
+    var completedChallengeCount: Int?
+    var relationCount: Int?
+    
+    init() {
+        user = User()
+        rewardCount = 0
+        completedChallengeCount = 0
+        relationCount = 0
+    }
+}
+
 struct User: Codable {
     var id: String?
     var uuid: String?

@@ -345,13 +345,16 @@
                     <connections>
                         <outlet property="alarmSwitch" destination="CHl-CE-CwP" id="aRa-AS-jDN"/>
                         <outlet property="ampmLabel" destination="Z3w-d5-3HJ" id="bR6-q0-5Hj"/>
+                        <outlet property="completeChallengeCountLabel" destination="Wrb-Eb-vUN" id="BXP-bX-QcB"/>
                         <outlet property="csButton" destination="Tmn-Eb-R6s" id="e19-dx-jrP"/>
                         <outlet property="faqButton" destination="r07-Pq-lwc" id="5KR-j9-Wih"/>
+                        <outlet property="friendCountLabel" destination="cbe-mC-z96" id="dWu-7b-UXq"/>
                         <outlet property="idCopyButton" destination="tBH-R4-E34" id="yTb-mR-o7p"/>
                         <outlet property="idLabel" destination="WD9-yM-wvM" id="yo6-vG-Iwm"/>
                         <outlet property="loginButton" destination="gjo-yT-Mz4" id="leO-sE-ddr"/>
                         <outlet property="mainView" destination="ujh-UB-E3K" id="JQz-El-EYH"/>
                         <outlet property="myBadgeButton" destination="NNv-ff-bz8" id="I3v-py-Wrn"/>
+                        <outlet property="myBadgeCountLabel" destination="hTN-JS-UTB" id="DdO-dc-P1o"/>
                         <outlet property="nicknameLabel" destination="r0s-OD-KUq" id="pOf-6u-oTT"/>
                         <outlet property="noticeButton" destination="plX-tk-5fe" id="KLu-7t-f0i"/>
                         <outlet property="settingButton" destination="FtI-mZ-2Zz" id="JhM-9o-YgA"/>

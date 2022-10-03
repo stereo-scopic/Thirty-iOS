@@ -359,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
+				7537B61027E00A9800A66F11 /* MyVC.swift */,
+				F9D9B63328CB472B004AF18D /* MyReactor.swift */,
 				F96EBBBF28D5BDD200FECD00 /* MyBadgeVC.swift */,
 				F96EBBC128D5BDE000FECD00 /* MyBadgeReactor.swift */,
 				759CD62E28D14B9F00BFFFC7 /* SendEmailPopupVC.swift */,
@@ -377,8 +379,6 @@
 				7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */,
 				759F12DF28CFFCD0008D7947 /* MySettingReactor.swift */,
 				7501A4FB27E239B500EB4EB0 /* MyNC.swift */,
-				7537B61027E00A9800A66F11 /* MyVC.swift */,
-				F9D9B63328CB472B004AF18D /* MyReactor.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
