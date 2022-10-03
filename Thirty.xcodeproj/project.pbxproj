@@ -71,6 +71,10 @@
 		F91A251227FC643B0037BDA7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A251127FC643B0037BDA7 /* SignUpVC.swift */; };
 		F92028D928D9E8CA00B7714C /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92028D828D9E8CA00B7714C /* Bucket.swift */; };
 		F92F4A4A28CE2624005CF5AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92F4A4928CE2624005CF5AC /* UserService.swift */; };
+		F9377F1228EB204200B99027 /* NoticeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1128EB204200B99027 /* NoticeReactor.swift */; };
+		F9377F1428EB20B700B99027 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1328EB20B700B99027 /* Notice.swift */; };
+		F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1528EB20FB00B99027 /* NoticeAPI.swift */; };
+		F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */; };
 		F96EBBB828D5AE2100FECD00 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBB728D5AE2100FECD00 /* KeyChain.swift */; };
 		F96EBBBC28D5B59800FECD00 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBB28D5B59800FECD00 /* TokenManager.swift */; };
 		F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */; };
@@ -94,6 +98,7 @@
 		F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */; };
 		F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */; };
 		F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */; };
+		F9D3DBEA28EA995000E0C5A7 /* BucketStampPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */; };
 		F9D9B63028CB3970004AF18D /* ChangeNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */; };
 		F9D9B63228CB3A77004AF18D /* ChangeNicknameReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */; };
 		F9D9B63428CB472B004AF18D /* MyReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9B63328CB472B004AF18D /* MyReactor.swift */; };
@@ -172,6 +177,10 @@
 		F91A251127FC643B0037BDA7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		F92028D828D9E8CA00B7714C /* Bucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket.swift; sourceTree = "<group>"; };
 		F92F4A4928CE2624005CF5AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F9377F1128EB204200B99027 /* NoticeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeReactor.swift; sourceTree = "<group>"; };
+		F9377F1328EB20B700B99027 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		F9377F1528EB20FB00B99027 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
+		F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailReactor.swift; sourceTree = "<group>"; };
 		F96EBBB728D5AE2100FECD00 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		F96EBBBB28D5B59800FECD00 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeReactor.swift; sourceTree = "<group>"; };
@@ -197,6 +206,7 @@
 		F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeVC.swift; sourceTree = "<group>"; };
 		F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppInfoVC.swift; sourceTree = "<group>"; };
 		F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeReactor.swift; sourceTree = "<group>"; };
+		F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStampPopupVC.swift; sourceTree = "<group>"; };
 		F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameVC.swift; sourceTree = "<group>"; };
 		F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameReactor.swift; sourceTree = "<group>"; };
 		F9D9B63328CB472B004AF18D /* MyReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReactor.swift; sourceTree = "<group>"; };
@@ -308,17 +318,20 @@
 			isa = PBXGroup;
 			children = (
 				759D328627C8935C00A88C02 /* Challenge.storyboard */,
-				757C967F2863E0E3005CCBA3 /* ChallengeShareVC.swift */,
-				757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */,
-				757C96812863E169005CCBA3 /* ChallengeExportVC.swift */,
-				757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */,
 				759D328A27C8A45000A88C02 /* ChallengeVC.swift */,
 				F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */,
 				75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */,
 				759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */,
-				759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */,
 				75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */,
+				F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */,
+				757C967F2863E0E3005CCBA3 /* ChallengeShareVC.swift */,
+				757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */,
+				757C96812863E169005CCBA3 /* ChallengeExportVC.swift */,
+				757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */,
+				759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */,
+				F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */,
 				757C96792863E090005CCBA3 /* NoticeVC.swift */,
+				F9377F1128EB204200B99027 /* NoticeReactor.swift */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -460,6 +473,7 @@
 				F9D9B63528CB4867004AF18D /* User.swift */,
 				F96EBBC328D5C15100FECD00 /* Badge.swift */,
 				F92028D828D9E8CA00B7714C /* Bucket.swift */,
+				F9377F1328EB20B700B99027 /* Notice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,6 +486,7 @@
 				F98C9AE728C4CC66003A25CD /* BucketAPI.swift */,
 				F9DCE45528C6CFE50089E772 /* AuthAPI.swift */,
 				F96EBBC528D5C22700FECD00 /* RewardAPI.swift */,
+				F9377F1528EB20FB00B99027 /* NoticeAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -660,9 +675,11 @@
 				75D4EF932810D346001E531D /* ChallengeService.swift in Sources */,
 				753B0789286BC7E700B62F35 /* CommunityVC.swift in Sources */,
 				75FB568D28E3BEE0004BB16A /* BucketDetailVC.swift in Sources */,
+				F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */,
 				F96EBBB828D5AE2100FECD00 /* KeyChain.swift in Sources */,
 				75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */,
 				753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */,
+				F9377F1428EB20B700B99027 /* Notice.swift in Sources */,
 				F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */,
 				F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */,
 				757D45B028DBD837004DBC5A /* SplashVC.swift in Sources */,
@@ -679,7 +696,9 @@
 				759D326827C879E900A88C02 /* AppDelegate.swift in Sources */,
 				75A7741928DD2BAA00B7775C /* String+Extension.swift in Sources */,
 				759BE93C28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift in Sources */,
+				F9D3DBEA28EA995000E0C5A7 /* BucketStampPopupVC.swift in Sources */,
 				F92F4A4A28CE2624005CF5AC /* UserService.swift in Sources */,
+				F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */,
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
 				753B078B286BC80200B62F35 /* CommunityFriendVC.swift in Sources */,
 				F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */,
@@ -688,6 +707,7 @@
 				757C96802863E0E3005CCBA3 /* ChallengeShareVC.swift in Sources */,
 				F9D9B63228CB3A77004AF18D /* ChangeNicknameReactor.swift in Sources */,
 				F96EBBC028D5BDD200FECD00 /* MyBadgeVC.swift in Sources */,
+				F9377F1228EB204200B99027 /* NoticeReactor.swift in Sources */,
 				75E58EC427FE5DE100A87E73 /* Network.swift in Sources */,
 				F92028D928D9E8CA00B7714C /* Bucket.swift in Sources */,
 				75C8C3EA28E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift in Sources */,

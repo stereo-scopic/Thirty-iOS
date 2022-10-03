@@ -23,18 +23,18 @@ struct Bucket: Codable {
 }
 
 struct BucketAnswer: Codable {
-    var id: Int?
-    var created_at: String?
-    var updated_at: String?
-    var music: String?
     var date: Int
+    var mission: String?
+    var answerid: Int?
+    var music: String?
     var detail: String?
     var image: String?
-    var stamp: Int
-    var mission: String?
+    var stamp: Int?
+    var created_at: String?
+    var updated_at: String?
     
-    init(id: Int? = nil, created_at: String = "", updated_at: String? = "", music: String? = "", date: Int = 0, detail: String? = "", image: String? = "", stamp: Int, mission: String? = "") {
-        self.id = id
+    init(answerid: Int? = nil, created_at: String = "", updated_at: String? = "", music: String? = "", date: Int = 0, detail: String? = "", image: String? = "", stamp: Int, mission: String? = "") {
+        self.answerid = answerid
         self.created_at = created_at
         self.updated_at = updated_at
         self.music = music
