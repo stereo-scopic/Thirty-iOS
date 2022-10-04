@@ -36,9 +36,18 @@ class MyInfoVC: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        changePwdButton.rx.tap
+            .bind {
+                guard let sendEmailPopupVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "SendEmailPopupVC") as? SendEmailPopupVC else { return }
+                sendEmailPopupVC.modalTransitionStyle = .crossDissolve
+                sendEmailPopupVC.modalPresentationStyle = .overFullScreen
+                self.present(sendEmailPopupVC, animated: true, completion: nil)
+            }.disposed(by: disposeBag)
+        
         backButton.rx.tap
             .bind {
-                self.popVC(animated: false, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
     }

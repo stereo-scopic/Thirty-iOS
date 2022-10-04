@@ -42,7 +42,7 @@ class MySettingVC: UIViewController {
                         .instantiateViewController(withIdentifier: "MyInfoVC") as? MyInfoVC else {
                             return
                         }
-                self.navigationController?.pushViewController(myInfoVC, animated: false)
+                self.navigationController?.pushViewController(myInfoVC, animated: true)
             }
             .disposed(by: disposeBag)
         

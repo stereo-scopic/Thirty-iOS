@@ -1779,7 +1779,7 @@
         <!--로그인-->
         <scene sceneID="4kV-cL-2Pg">
             <objects>
-                <viewController id="qcV-PF-aFW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendEmailPopupVC" id="qcV-PF-aFW" customClass="SendEmailPopupVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vbd-Ya-W7Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1790,6 +1790,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-2t-eUv">
                                         <rect key="frame" x="12" y="0.0" width="44" height="44"/>
                                         <state key="normal" image="icon_x"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="qcV-PF-aFW" eventType="touchUpInside" id="fkL-NG-wBl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="THIRTY Black"/>
