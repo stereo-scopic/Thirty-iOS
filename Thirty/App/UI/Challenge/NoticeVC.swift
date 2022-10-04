@@ -22,10 +22,6 @@ class NoticeVC: UIViewController, StoryboardView {
         super.viewDidLoad()
         
         self.reactor = NoticeReactor()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.viewWillAppear(animated)
         reactor?.action.onNext(.viewWillAppear)
     }
     

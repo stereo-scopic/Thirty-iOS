@@ -25,7 +25,8 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketAnswerImage: UIImageView!
     
     @IBOutlet weak var bucketAnswerEditButton: UIButton!
-//    @IBOutlet weak var notiButton: UIButton!
+    @IBOutlet weak var notiButton: UIButton!
+    //    @IBOutlet weak var notiButton: UIButton!
     
     typealias Reactor = ChallengeReactor
     var disposeBag = DisposeBag()
@@ -71,12 +72,11 @@ class ChallengeVC: UIViewController, StoryboardView {
                 }
             }.disposed(by: disposeBag)
         
-//        notiButton.rx.tap
-//            .bind {
-//                guard let noticeVC = self.storyboard?
-//                        .instantiateViewController(withIdentifier: "NoticeVC") as? NoticeVC else { return }
-//                self.navigationController?.pushViewController(noticeVC, animated: false)
-//            }.disposed(by: disposeBag)
+        notiButton.rx.tap
+            .bind {
+                guard let noticeVC = self.storyboard?.instantiateViewController(withIdentifier: "NoticeVC") as? NoticeVC else { return }
+                self.navigationController?.pushViewController(noticeVC, animated: false)
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: ChallengeReactor) {
@@ -135,7 +135,7 @@ class ChallengeVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.selectedBucketAnswer }
             .subscribe(onNext: { [weak self] bucketAnswer in
-                guard let _ = bucketAnswer?.updated_at else { return }
+                guard let _ = bucketAnswer?.mission else { return }
                 
                 self?.bucketAnswerDate.text = "#\(bucketAnswer?.date ?? 0)"
                 self?.bucketAnswerTitle.text = bucketAnswer?.mission ?? ""
