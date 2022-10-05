@@ -9,6 +9,7 @@ import Moya
 
 enum NoticeAPI {
     case getNotification
+    case responseRelation(_ friendId: String, status: ResponseFriedType)
 }
 
 extension NoticeAPI: TargetType {
@@ -20,6 +21,8 @@ extension NoticeAPI: TargetType {
         switch self {
         case .getNotification:
             return "/notification"
+        case .responseRelation:
+            return "/relation/RSVP"
         }
     }
     
@@ -27,11 +30,21 @@ extension NoticeAPI: TargetType {
         switch self {
         case .getNotification:
             return .get
+        case .responseRelation:
+            return .post
         }
     }
     
     var parameters: [String: Any]? {
-        return nil
+        switch self {
+        case .responseRelation(let friendId, let responseFriedType):
+            return [
+                "friendId": friendId,
+                "status": responseFriedType.rawValue
+            ]
+        default:
+            return nil
+        }
     }
     
     var task: Task {

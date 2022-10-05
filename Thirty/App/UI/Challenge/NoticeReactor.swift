@@ -13,20 +13,28 @@ class NoticeReactor: Reactor {
     
     enum Action {
         case viewWillAppear
+        case friendAcceptButtonClicked(String)
+        case friendRefuseButtonClicked(String)
     }
     
     enum Mutation {
         case getNoticeList([Notice])
+        case friendResponse(Bool)
     }
     
     struct State {
         var noticeList: [Notice]?
+        var friendResponseSuccess: Bool?
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .viewWillAppear:
             return getNoticeList()
+        case .friendAcceptButtonClicked(let friendId):
+            return responseToFriendRelation(friendId: friendId, type: ResponseFriedType.confirmed)
+        case .friendRefuseButtonClicked(let friendId):
+            return responseToFriendRelation(friendId: friendId, type: ResponseFriedType.denied)
         }
     }
     
@@ -35,6 +43,8 @@ class NoticeReactor: Reactor {
         switch mutation {
         case .getNoticeList(let noticeList):
             newState.noticeList = noticeList
+        case .friendResponse(let bool):
+            newState.friendResponseSuccess = bool
         }
         return newState
     }
@@ -52,6 +62,26 @@ class NoticeReactor: Reactor {
                     observer.onNext(Mutation.getNoticeList(result ?? []))
                     observer.onCompleted()
                 case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func responseToFriendRelation(friendId: String, type: ResponseFriedType) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<NoticeAPI>()
+            provider.request(.responseRelation(friendId, status: type)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    
+                    observer.onNext(Mutation.friendResponse(true))
+                    observer.onCompleted()
+                case let .failure(error):
                     observer.onError(error)
                 }
             }

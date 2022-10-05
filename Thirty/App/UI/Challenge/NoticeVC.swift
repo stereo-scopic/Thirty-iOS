@@ -34,10 +34,17 @@ class NoticeVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.noticeList ?? [] }
             .bind(to: noticeTableView.rx.items(cellIdentifier: "NoticeCell", cellType: NoticeCell.self)) { _, item, cell in
-                
                 cell.descriptionLabel.text = item.message
-                
                 cell.buttonView.isHidden = item.type != "RR0"
+                
+                cell.acceptFriendHandler = {
+                    reactor.action.onNext(.friendAcceptButtonClicked(item.relatedUserId ?? ""))
+                }
+                
+                cell.refuseFriendHandler = {
+                    reactor.action.onNext(.friendRefuseButtonClicked(item.relatedUserId ?? ""))
+                }
+                
             }.disposed(by: disposeBag)
     }
     
@@ -52,6 +59,17 @@ class NoticeCell: UITableViewCell {
     @IBOutlet weak var refuseButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var buttonView: UIView!
+    
+    var acceptFriendHandler: (() -> Void)?
+    var refuseFriendHandler: (() -> Void)?
+    
+    @IBAction func acceptButtonTouchUpInside(_ sender: Any) {
+        if let handler = acceptFriendHandler { handler() }
+    }
+    
+    @IBAction func refuseButtonTouchUpInside(_ sender: Any) {
+        if let handler = refuseFriendHandler { handler() }
+    }
     
     override func prepareForReuse() {
         

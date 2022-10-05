@@ -1174,6 +1174,9 @@
                                                                     <state key="normal" title="거절">
                                                                         <color key="titleColor" name="Gray700"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="refuseButtonTouchUpInside:" destination="PSq-ju-OPw" eventType="touchUpInside" id="ZXM-ih-CNL"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-bX-ioY">
                                                                     <rect key="frame" x="68" y="0.0" width="60" height="30"/>
@@ -1185,6 +1188,9 @@
                                                                     <state key="normal" title="수락">
                                                                         <color key="titleColor" name="THIRTY White"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="acceptButtonTouchUpInside:" destination="PSq-ju-OPw" eventType="touchUpInside" id="scC-oi-iZi"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -44,3 +44,8 @@ struct User: Codable {
         deleted_at = ""
     }
 }
+
+enum ResponseFriedType: String {
+    case confirmed
+    case denied
+}
