@@ -62,6 +62,15 @@ class ChallengeVC: UIViewController, StoryboardView {
                             .instantiateViewController(withIdentifier: "BucketAnswerEnrollVC") as? BucketAnswerEnrollVC else { return }
                     bucketAnswerEnrollVC.bucketId = self.selectedBucketId
                     bucketAnswerEnrollVC.bucketAnswer = self.selectedBucketAnswer
+                    bucketAnswerEnrollVC.bucketCompleteFlag
+                        .subscribe(onNext: { [weak self] successFlag in
+                            if successFlag {
+                                guard let challengeCompleteVC = self?.storyboard?
+                                        .instantiateViewController(withIdentifier: "ChallengeCompleteVC") as? ChallengeCompleteVC else { return }
+                                challengeCompleteVC.bucketId = self?.selectedBucketId ?? ""
+                                self?.present(challengeCompleteVC, animated: true, completion: nil)
+                            }
+                        }).disposed(by: self.disposeBag)
                     self.navigationController?.pushViewController(bucketAnswerEnrollVC, animated: false)
                 } else {
                     guard let bucketDetailVC = self.storyboard?

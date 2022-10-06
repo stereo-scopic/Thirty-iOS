@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class ChallengeCompleteVC: UIViewController {
-
+    var bucketId: String = ""
+    
+    var disposeBag = DisposeBag()
+    
+    @IBOutlet weak var completeButton: UIButton!
+    
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -16,6 +22,12 @@ class ChallengeCompleteVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        completeButton.rx.tap
+            .bind {
+                guard let challengeExportVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "ChallengeExportVC") as? ChallengeExportVC else { return }
+                challengeExportVC.bucketId = self.bucketId
+                self.present(challengeExportVC, animated: true, completion: nil)
+            }.disposed(by: disposeBag)
     }
 }

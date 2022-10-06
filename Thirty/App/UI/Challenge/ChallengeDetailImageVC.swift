@@ -8,7 +8,10 @@
 import UIKit
 
 class ChallengeDetailImageVC: UIViewController {
-
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var imageString = ""
+    
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -16,6 +19,8 @@ class ChallengeDetailImageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let imageStringUrl = URL(string: imageString) {
+            imageView.load(url: imageStringUrl)
+        }
     }
 }

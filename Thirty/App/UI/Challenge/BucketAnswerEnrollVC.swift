@@ -7,6 +7,7 @@
 
 import UIKit
 import ReactorKit
+import RxRelay
 
 class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var backButton: UIButton!
@@ -34,6 +35,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     
     typealias Reactor = BucketAnswerEnrollReactor
     var disposeBag = DisposeBag()
+    var bucketCompleteFlag = BehaviorRelay<Bool>(value: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +67,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
         backButton.rx.tap
             .bind {
                 let alert = UIAlertController(title: "", message: "작성 중인 내용은 사라집니다.\n나가시겠습니까?", preferredStyle: .alert)
-                let backAction = UIAlertAction(title: "나가기", style: .cancel) { _ in
+                let backAction = UIAlertAction(title: "나가기", style: .default) { _ in
                     self.navigationController?.popViewController(animated: true)
                 }
                 let cancelAction = UIAlertAction(title: "계속 작성하기", style: .default) { _ in
@@ -91,7 +93,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 } else {
                     reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer))
                 }
-                self.navigationController?.popViewController(animated: true)
+//                self.navigationController?.popViewController(animated: true)
             }.disposed(by: disposeBag)
         
         galleryButton.rx.tap
@@ -130,6 +132,21 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 
                 self?.bucketAnswerTextView.text = bucketAnswer.detail
                 
+            }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.enrollStatus }
+            .subscribe(onNext: { success in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.bucketCompleted }
+            .subscribe(onNext: { success in
+                self.bucketCompleteFlag.accept(success)
+                self.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
     }
 

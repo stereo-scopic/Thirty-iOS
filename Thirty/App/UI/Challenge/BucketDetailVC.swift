@@ -22,6 +22,7 @@ class BucketDetailVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var detailImageView: UIView!
     @IBOutlet weak var detailImage: UIImageView!
+    @IBOutlet weak var detailImageButton: UIButton!
     @IBOutlet weak var detailTextLabel: UILabel!
 
     @IBOutlet weak var stampImageView: UIView!
@@ -69,6 +70,13 @@ class BucketDetailVC: UIViewController, StoryboardView {
                 self.navigationController?.pushViewController(bucketAnswerEnrollVC, animated: true)
             }.disposed(by: disposeBag)
         
+        detailImageButton.rx.tap
+            .bind {
+                guard let challengeDetailImageVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "ChallengeDetailImageVC") as? ChallengeDetailImageVC else { return }
+                challengeDetailImageVC.imageString = self.bucketAnswer.image ?? ""
+                self.present(challengeDetailImageVC, animated: true, completion: nil)
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: BucketDetailReactor) {

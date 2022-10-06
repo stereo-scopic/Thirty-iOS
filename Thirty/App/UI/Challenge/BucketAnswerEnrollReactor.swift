@@ -26,20 +26,18 @@ class BucketAnswerEnrollReactor: Reactor {
     }
     
     enum Mutation {
-//        case setBucketAnswer(BucketAnswer)
         case enrollSuccess(Bool)
+        case bucketCompleted(Bool)
     }
     
     struct State {
         var bucketAnswer: BucketAnswer
         var enrollStatus: Bool = false
-//        var changedImage:
+        var bucketCompleted: Bool = false
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-//        case .viewWillAppear(let bucketAnswer):
-//            return Observable.just(.setBucketAnswer(bucketAnswer))
         case .enrollAnswer(let bucketId, let bucketAnswer):
             return enrollBucketAnswerRx(bucketId, bucketAnswer)
         case .editAnswer(let bucketId, let answerDate, let bucketAnswer):
@@ -50,10 +48,10 @@ class BucketAnswerEnrollReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-//        case .setBucketAnswer(let bucketAnswer):
-//            newState.bucketAnswer = bucketAnswer
         case .enrollSuccess(let successFlag):
             newState.enrollStatus = successFlag
+        case .bucketCompleted(let endFlag):
+            newState.bucketCompleted = endFlag
         }
         return newState
     }
@@ -67,10 +65,11 @@ class BucketAnswerEnrollReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
-                    if let _ = try? response.map(Bucket.self) {
-                        observer.onNext(.enrollSuccess(true))
+                    let result = try? response.map(BucketStatus.self)
+                    if result == BucketStatus.CMP {
+                        observer.onNext(.bucketCompleted(true))
                     } else {
-                        observer.onNext(.enrollSuccess(false))
+                        observer.onNext(.bucketCompleted(false))
                     }
                     observer.onCompleted()
                 case let .failure(error):
