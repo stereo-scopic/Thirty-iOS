@@ -13,6 +13,8 @@ enum AuthAPI {
     case login(_ email: String, _ pwd: String)
     case getProfile
     case changeProfile(_ nickname: String)
+    case findUser(_ userId: String)
+    case requestFriend(_ userId: String)
 }
 
 extension AuthAPI: TargetType {
@@ -30,14 +32,18 @@ extension AuthAPI: TargetType {
             return "auth/login"
         case .getProfile, .changeProfile:
             return "user/profile"
+        case .findUser(let userId):
+            return "user/\(userId)"
+        case .requestFriend:
+            return "/relation"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp, .signOut, .login:
+        case .signUp, .signOut, .login, .requestFriend:
             return .post
-        case .getProfile:
+        case .getProfile, .findUser:
             return .get
         case .changeProfile:
             return .patch
@@ -64,6 +70,12 @@ extension AuthAPI: TargetType {
             return [
                 "nickname": nickname
             ]
+        case .requestFriend(let userId):
+            return [
+                "friend": userId
+            ]
+        default:
+            return nil
         }
     }
     

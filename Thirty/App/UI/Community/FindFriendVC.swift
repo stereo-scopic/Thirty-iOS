@@ -6,23 +6,59 @@
 //
 
 import UIKit
+import ReactorKit
 
-class FindFriendVC: UIViewController {
-
+class FindFriendVC: UIViewController, StoryboardView {
+    typealias Reactor = FindFriendReactor
+    var disposeBag = DisposeBag()
+    
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var resultTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    func bind(reactor: FindFriendReactor) {
+        bindState(reactor)
+        bindAction(reactor)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func bindState(_ reactor: FindFriendReactor) {
+        reactor.state
+            .map { $0.resultUsers ?? [] }
+            .bind(to: resultTableView.rx.items(cellIdentifier: FindFriendCell.identifier, cellType: FindFriendCell.self)) { index, item, cell in
+                
+                cell.userNameLabel.text = item.nickname
+                cell.addFriendButton.rx.tap
+                    .bind {
+                        if let friendId = item.id {
+                            self.reactor?.action.onNext(.requestFriend(friendId))
+                        }
+                    }.disposed(by: self.disposeBag)
+                
+            }.disposed(by: disposeBag)
     }
-    */
+    
+    private func bindAction(_ reactor: FindFriendReactor) {
+        searchButton.rx.tap
+            .bind {
+                let searchText = self.searchTextField.text
+                
+                reactor.action.onNext(.searchButtonTapped(searchText ?? ""))
+            }.disposed(by: disposeBag)
+    }
+}
 
+class FindFriendCell: UITableViewCell {
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var addFriendButton: UIButton!
+    
+    static let identifier = "FindFriendCell"
+    
+    override func prepareForReuse() {
+        
+    }
 }

@@ -19,17 +19,19 @@ struct Challenge: Codable {
 }
 
 struct CommunityChallengeItem: Decodable {
-    var challenge_id: Int
-    var challenge_title: String?
-    var user_id: Int
-    var user_nickname: String?
-    var answer_id: Int
-    var date: Int
-    var music: String?
-    var stamp: String?
+    var answerId: Int
+    var bucketId: Int?
+    var userId: String
+    var nickname: String?
+    var challenge: String?
+    var mission: String?
+    var date: Int?
+    var image: String?
     var detail: String?
-    var original_image: String?
+    var music: String?
+    var stamp: Int?
     var created_at: String?
+    var isFriend: Bool
 }
 
 struct ChallengeDetail: Codable {

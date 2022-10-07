@@ -16,6 +16,7 @@
 		7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */; };
 		75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75073B1B280F8080008814EE /* ChallengeAPI.swift */; };
 		751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A19F327E8A8890025812D /* UIColor+Extension.swift */; };
+		75340CF928EF9CCB004DF0E5 /* FindFriendReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75340CF828EF9CCB004DF0E5 /* FindFriendReactor.swift */; };
 		7537B61127E00A9800A66F11 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537B61027E00A9800A66F11 /* MyVC.swift */; };
 		753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B0786286BC7CA00B62F35 /* CommunityTabBarController.swift */; };
 		753B0789286BC7E700B62F35 /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B0788286BC7E700B62F35 /* CommunityVC.swift */; };
@@ -115,6 +116,7 @@
 		7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingVC.swift; sourceTree = "<group>"; };
 		75073B1B280F8080008814EE /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
 		751A19F327E8A8890025812D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		75340CF828EF9CCB004DF0E5 /* FindFriendReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendReactor.swift; sourceTree = "<group>"; };
 		7537B61027E00A9800A66F11 /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		7537B61327E00D8300A66F11 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		7537B61427E00D8300A66F11 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				753B0786286BC7CA00B62F35 /* CommunityTabBarController.swift */,
 				F9B0D46727EF67210092F2B8 /* CommunityNC.swift */,
 				753B078E286BC84500B62F35 /* FindFriendVC.swift */,
+				75340CF828EF9CCB004DF0E5 /* FindFriendReactor.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				757D66CB2874FEFB00E3C5DE /* SelectChallengeVC.swift in Sources */,
 				75A41CFE27E45F10009AD9D0 /* UIView+Extension.swift in Sources */,
 				F91A251227FC643B0037BDA7 /* SignUpVC.swift in Sources */,
+				75340CF928EF9CCB004DF0E5 /* FindFriendReactor.swift in Sources */,
 				75E2AF7D28B2F9D70036DEA5 /* ExploreListReactor.swift in Sources */,
 				759D326C27C879E900A88C02 /* ViewController.swift in Sources */,
 				F98C9AE828C4CC66003A25CD /* BucketAPI.swift in Sources */,
