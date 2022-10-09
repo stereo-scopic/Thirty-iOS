@@ -15,4 +15,5 @@ target 'Thirty' do
   pod 'Moya'
   pod 'ReactorKit'
   pod 'RxGesture'
+  pod 'lottie-ios'
 end

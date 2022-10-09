@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Blatant-Bold.otf">
-            <string>BlatantBold</string>
-        </array>
         <array key="Pretendard-Bold.otf">
             <string>Pretendard-Bold</string>
         </array>
@@ -281,22 +278,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nochallenge_illust" translatesAutoresizingMaskIntoConstraints="NO" id="r6P-Ab-db6">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ai-mn-UE2">
+                                <rect key="frame" x="77" y="318" width="260" height="260"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="8F6-31-v7B"/>
-                                    <constraint firstAttribute="width" constant="240" id="Mbn-NG-wJ7"/>
+                                    <constraint firstAttribute="height" constant="260" id="PhV-2q-4sz"/>
+                                    <constraint firstAttribute="width" constant="260" id="RN1-IU-H0E"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gJy-N4-SZf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="r6P-Ab-db6" firstAttribute="centerY" secondItem="3bw-Gd-jbr" secondAttribute="centerY" id="Kn4-f1-FjK"/>
-                            <constraint firstItem="r6P-Ab-db6" firstAttribute="centerX" secondItem="3bw-Gd-jbr" secondAttribute="centerX" id="Pn4-SI-cxC"/>
+                            <constraint firstItem="7ai-mn-UE2" firstAttribute="centerY" secondItem="3bw-Gd-jbr" secondAttribute="centerY" id="EZD-oe-Xh9"/>
+                            <constraint firstItem="7ai-mn-UE2" firstAttribute="centerX" secondItem="3bw-Gd-jbr" secondAttribute="centerX" id="W0l-0t-JBo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="7ai-mn-UE2" id="xua-K0-dmQ"/>
                         <segue destination="v9F-ld-Cxj" kind="presentation" identifier="goOnboarding" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="aSs-Be-CTb"/>
                         <segue destination="yJx-cb-rfb" kind="presentation" identifier="goMain" modalPresentationStyle="fullScreen" id="NTW-M9-KPf"/>
                     </connections>
@@ -315,34 +314,43 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebD-r1-8Xc">
                                 <rect key="frame" x="20" y="750" width="374" height="52"/>
-                                <color key="backgroundColor" name="THIRTY White"/>
+                                <color key="backgroundColor" name="THIRTY Black"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="syP-Ms-CNS"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                 <color key="tintColor" name="Gray800"/>
-                                <state key="normal" title="다음"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" name="THIRTY White"/>
+                                </state>
                                 <connections>
                                     <action selector="nextButtonTouchUpInside:" destination="3hT-lV-UYq" eventType="touchUpInside" id="yPr-Ma-utx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c53-8p-z4D">
-                                <rect key="frame" x="77.5" y="424.5" width="259" height="47"/>
-                                <fontDescription key="fontDescription" name="BlatantBold" family="Blatant" pointSize="52"/>
-                                <color key="textColor" name="THIRTY Red"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDJ-Xj-cEZ">
+                                <rect key="frame" x="83" y="324" width="248" height="248"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="CiR-ky-ITi"/>
+                                    <constraint firstAttribute="width" constant="248" id="jAl-Qa-zuG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oFN-Ah-cVZ"/>
-                        <color key="backgroundColor" name="THIRTY Pink"/>
+                        <color key="backgroundColor" name="THIRTY White"/>
                         <constraints>
                             <constraint firstItem="oFN-Ah-cVZ" firstAttribute="trailing" secondItem="ebD-r1-8Xc" secondAttribute="trailing" constant="20" id="0Yw-Pp-ubr"/>
                             <constraint firstItem="oFN-Ah-cVZ" firstAttribute="bottom" secondItem="ebD-r1-8Xc" secondAttribute="bottom" constant="60" id="FAI-5T-eZx"/>
-                            <constraint firstItem="c53-8p-z4D" firstAttribute="centerX" secondItem="gMM-F9-siD" secondAttribute="centerX" id="gSq-ZC-1er"/>
-                            <constraint firstItem="c53-8p-z4D" firstAttribute="centerY" secondItem="gMM-F9-siD" secondAttribute="centerY" id="hja-Ds-BOV"/>
+                            <constraint firstItem="SDJ-Xj-cEZ" firstAttribute="centerY" secondItem="gMM-F9-siD" secondAttribute="centerY" id="MZT-lA-rjl"/>
+                            <constraint firstItem="SDJ-Xj-cEZ" firstAttribute="centerX" secondItem="gMM-F9-siD" secondAttribute="centerX" id="OjV-Zy-Qlh"/>
                             <constraint firstItem="ebD-r1-8Xc" firstAttribute="leading" secondItem="oFN-Ah-cVZ" secondAttribute="leading" constant="20" id="jhO-UP-yb7"/>
+                            <constraint firstItem="ebD-r1-8Xc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SDJ-Xj-cEZ" secondAttribute="bottom" constant="150" id="pFz-Kp-jM0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XCV-ng-dcl"/>
+                    <connections>
+                        <outlet property="loadingView" destination="SDJ-Xj-cEZ" id="A4a-K8-c9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkN-jf-L84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -516,7 +524,6 @@
         <image name="love_off" width="200" height="112"/>
         <image name="love_on" width="200" height="112"/>
         <image name="my_background" width="375" height="812"/>
-        <image name="nochallenge_illust" width="247" height="225"/>
         <image name="selfcare_highlight" width="230" height="128.5"/>
         <image name="selfcare_off" width="230" height="113.5"/>
         <image name="selfcare_on" width="230" height="113.5"/>
@@ -531,12 +538,6 @@
         </namedColor>
         <namedColor name="THIRTY Black">
             <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="THIRTY Pink">
-            <color red="0.94499999284744263" green="0.68999999761581421" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="THIRTY Red">
-            <color red="0.79600000381469727" green="0.25900000333786011" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="THIRTY White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

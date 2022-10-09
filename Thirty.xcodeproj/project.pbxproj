@@ -69,6 +69,8 @@
 		75E98C43287CEB03009DBDC2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E98C42287CEB03009DBDC2 /* Category.swift */; };
 		75FB568D28E3BEE0004BB16A /* BucketDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */; };
 		DCBE380F2BCEEBBA85A7E593 /* Pods_Thirty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */; };
+		F913CD9028F3100E001AA913 /* welcome_motion.json in Resources */ = {isa = PBXBuildFile; fileRef = F913CD8E28F3100E001AA913 /* welcome_motion.json */; };
+		F913CD9128F3100E001AA913 /* splash_motion.json in Resources */ = {isa = PBXBuildFile; fileRef = F913CD8F28F3100E001AA913 /* splash_motion.json */; };
 		F91A251027FC642B0037BDA7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A250F27FC642B0037BDA7 /* LoginVC.swift */; };
 		F91A251227FC643B0037BDA7 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A251127FC643B0037BDA7 /* SignUpVC.swift */; };
 		F92028D928D9E8CA00B7714C /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92028D828D9E8CA00B7714C /* Bucket.swift */; };
@@ -89,6 +91,7 @@
 		F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC2.swift */; };
 		F98C9AE828C4CC66003A25CD /* BucketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE728C4CC66003A25CD /* BucketAPI.swift */; };
 		F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE928C4CEC9003A25CD /* Token.swift */; };
+		F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */; };
 		F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65626288D02B300544D83 /* CommunityListCell.swift */; };
 		F9A65629288D07AB00544D83 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65628288D07AB00544D83 /* Community.swift */; };
 		F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */; };
@@ -177,6 +180,8 @@
 		75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailVC.swift; sourceTree = "<group>"; };
 		A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thirty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD038CDF5D2D1A6BE620AA3 /* Pods-Thirty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.release.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.release.xcconfig"; sourceTree = "<group>"; };
+		F913CD8E28F3100E001AA913 /* welcome_motion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welcome_motion.json; sourceTree = "<group>"; };
+		F913CD8F28F3100E001AA913 /* splash_motion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_motion.json; sourceTree = "<group>"; };
 		F91A250F27FC642B0037BDA7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F91A251127FC643B0037BDA7 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		F92028D828D9E8CA00B7714C /* Bucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket.swift; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		F98C9AE528C4C225003A25CD /* ExploreVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC2.swift; sourceTree = "<group>"; };
 		F98C9AE728C4CC66003A25CD /* BucketAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPI.swift; sourceTree = "<group>"; };
 		F98C9AE928C4CEC9003A25CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		F9A65626288D02B300544D83 /* CommunityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCell.swift; sourceTree = "<group>"; };
 		F9A65628288D07AB00544D83 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListViewModel.swift; sourceTree = "<group>"; };
@@ -415,6 +421,8 @@
 		759D328927C893F500A88C02 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				F913CD8F28F3100E001AA913 /* splash_motion.json */,
+				F913CD8E28F3100E001AA913 /* welcome_motion.json */,
 				7537B61227E00D6D00A66F11 /* Font */,
 				759D327027C879EA00A88C02 /* Assets.xcassets */,
 				759D326D27C879E900A88C02 /* Main.storyboard */,
@@ -493,6 +501,7 @@
 				F9DCE45528C6CFE50089E772 /* AuthAPI.swift */,
 				F96EBBC528D5C22700FECD00 /* RewardAPI.swift */,
 				F9377F1528EB20FB00B99027 /* NoticeAPI.swift */,
+				F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -559,6 +568,7 @@
 			files = (
 				F984DE4D27F1D4C90049EA83 /* .swiftlint.yml in Resources */,
 				7501A4FA27E20D4C00EB4EB0 /* Blatant-Regular.otf in Resources */,
+				F913CD9028F3100E001AA913 /* welcome_motion.json in Resources */,
 				7501A4F927E20D4800EB4EB0 /* Blatant-Bold.otf in Resources */,
 				759D327427C879EA00A88C02 /* LaunchScreen.storyboard in Resources */,
 				7501A4F827E20D4500EB4EB0 /* Pretendard-Medium.otf in Resources */,
@@ -566,6 +576,7 @@
 				759D327127C879EA00A88C02 /* Assets.xcassets in Resources */,
 				759D328127C8933000A88C02 /* My.storyboard in Resources */,
 				759D328327C8933700A88C02 /* Community.storyboard in Resources */,
+				F913CD9128F3100E001AA913 /* splash_motion.json in Resources */,
 				759D326F27C879E900A88C02 /* Main.storyboard in Resources */,
 				759D328527C8934500A88C02 /* Explore.storyboard in Resources */,
 				759D328727C8935C00A88C02 /* Challenge.storyboard in Resources */,
@@ -691,6 +702,7 @@
 				F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */,
 				757D45B028DBD837004DBC5A /* SplashVC.swift in Sources */,
 				F96EBBC428D5C15100FECD00 /* Badge.swift in Sources */,
+				F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */,
 				753B078F286BC84500B62F35 /* FindFriendVC.swift in Sources */,
 				758B9FD628B83DF0001A40B5 /* Mission.swift in Sources */,
 				F9B4859427FC8926003A129B /* Challenge.swift in Sources */,
@@ -874,14 +886,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SBTM3U9GU4;
+				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hakyung.Thirty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.Thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -895,14 +907,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SBTM3U9GU4;
+				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hakyung.Thirty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.Thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
