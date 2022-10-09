@@ -15,31 +15,41 @@ class FindFriendVC: UIViewController, StoryboardView {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var resultTableView: UITableView!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var resultView: UIView!
+    @IBOutlet weak var resultNameLabel: UILabel!
+    @IBOutlet weak var addFriendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.reactor = FindFriendReactor()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func bind(reactor: FindFriendReactor) {
         bindState(reactor)
         bindAction(reactor)
     }
-
+    
     private func bindState(_ reactor: FindFriendReactor) {
         reactor.state
-            .map { $0.resultUsers ?? [] }
-            .bind(to: resultTableView.rx.items(cellIdentifier: FindFriendCell.identifier, cellType: FindFriendCell.self)) { index, item, cell in
-                
-                cell.userNameLabel.text = item.nickname
-                cell.addFriendButton.rx.tap
-                    .bind {
-                        if let friendId = item.id {
-                            self.reactor?.action.onNext(.requestFriend(friendId))
-                        }
-                    }.disposed(by: self.disposeBag)
-                
-            }.disposed(by: disposeBag)
+            .map { $0.resultUsers }
+            .subscribe(onNext: { [weak self] user in
+                if let friendId = user?.id, !friendId.isEmpty {
+                    self?.resultView.isHidden = false
+                    self?.resultNameLabel.text = user?.nickname
+                    self?.addFriendButton.rx.tap
+                        .bind {
+                            self?.reactor?.action.onNext(.requestFriend(friendId))
+                        }.disposed(by: self!.disposeBag)
+                } else {
+                    self?.resultView.isHidden = true
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: FindFriendReactor) {
@@ -48,6 +58,11 @@ class FindFriendVC: UIViewController, StoryboardView {
                 let searchText = self.searchTextField.text
                 
                 reactor.action.onNext(.searchButtonTapped(searchText ?? ""))
+            }.disposed(by: disposeBag)
+        
+        backButton.rx.tap
+            .bind {
+                self.navigationController?.popViewController(animated: true)
             }.disposed(by: disposeBag)
     }
 }

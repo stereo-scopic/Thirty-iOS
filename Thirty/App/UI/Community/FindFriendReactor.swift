@@ -17,11 +17,11 @@ class FindFriendReactor: Reactor {
     }
     
     enum Mutation {
-        case getUserResult([User])
+        case getUserResult(User)
     }
     
     struct State {
-        var resultUsers: [User]?
+        var resultUsers: User?
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -36,8 +36,8 @@ class FindFriendReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .getUserResult(let users):
-            newState.resultUsers = users
+        case .getUserResult(let user):
+            newState.resultUsers = user
         }
         return newState
     }
@@ -51,10 +51,11 @@ class FindFriendReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
-                    let result = try? response.map([User].self)
-                    observer.onNext(Mutation.getUserResult(result ?? []))
+                    let result = try? response.map(User.self)
+                    observer.onNext(Mutation.getUserResult(result ?? User()))
                     observer.onCompleted()
                 case .failure(let error):
+                    observer.onNext(Mutation.getUserResult(User()))
                     observer.onError(error)
                 }
             }
@@ -63,7 +64,7 @@ class FindFriendReactor: Reactor {
         return response
     }
     
-    private func requestFriendRx(_ userId: String) -> Observable<Mutation>{
+    private func requestFriendRx(_ userId: String) -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<AuthAPI>()
             provider.request(.requestFriend(userId)) { result in
