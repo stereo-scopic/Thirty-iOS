@@ -40,6 +40,12 @@ class SelectChallengeVC: UIViewController, StoryboardView {
                 cell.titleLabel.text = "#\(item.title ?? "")"
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.challengeList.first }
+            .subscribe(onNext: { challenge in
+                self.selectedChallenge = challenge
+            }).disposed(by: disposeBag)
     }
     
     func bindAction(_ reactor: SelectChallengeReactor) {
