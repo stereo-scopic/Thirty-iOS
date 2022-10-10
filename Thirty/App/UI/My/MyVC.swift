@@ -129,7 +129,11 @@ class MyVC: UIViewController, StoryboardView {
     @IBAction func timeButtonTouchUpInside(_ sender: Any) {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
-        datePicker.preferredDatePickerStyle = .wheels
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            
+        }
         datePicker.locale = NSLocale(localeIdentifier: "ko_KR") as Locale
         
         let dateChooserAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

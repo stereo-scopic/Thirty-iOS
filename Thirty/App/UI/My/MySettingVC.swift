@@ -37,11 +37,11 @@ class MySettingVC: UIViewController, StoryboardView {
         bindAction(reactor)
     }
     
-    private func bindState(_ reactor: MySettingReactor){
+    private func bindState(_ reactor: MySettingReactor) {
         
     }
     
-    private func bindAction(_ reactor: MySettingReactor){
+    private func bindAction(_ reactor: MySettingReactor) {
         backButton.rx.tap
             .bind {
                 self.popVC(animated: false, completion: nil)

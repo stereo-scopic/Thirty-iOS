@@ -20,8 +20,8 @@ public class UserService {
             case .success(let response):
                 let str = String(decoding: response.data, as: UTF8.self)
                 print(str)
-                let result = try? response.map(User.self)
-                self.myProfile = result
+                let result = try? response.map(UserInfo.self)
+                self.myProfile = result?.user
             case .failure(let error):
                 self.myProfile = nil
             }

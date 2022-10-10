@@ -91,10 +91,11 @@ class ChallengeVC: UIViewController, StoryboardView {
         
         tempExportButton.rx.tap
             .bind {
-                guard let challengeCompleteVC = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeCompleteVC") as? ChallengeCompleteVC else { return }
-                challengeCompleteVC.modalPresentationStyle = .fullScreen
-                challengeCompleteVC.modalTransitionStyle = .crossDissolve
-                self.present(challengeCompleteVC, animated: true)
+//                guard let challengeCompleteVC = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeCompleteVC") as? ChallengeCompleteVC else { return }
+//                challengeCompleteVC.modalPresentationStyle = .fullScreen
+//                challengeCompleteVC.modalTransitionStyle = .crossDissolve
+//                self.present(challengeCompleteVC, animated: true)
+                self.tabBarController?.selectedIndex = 1
             }.disposed(by: disposeBag)
     }
     

@@ -79,6 +79,7 @@
 		F9377F1428EB20B700B99027 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1328EB20B700B99027 /* Notice.swift */; };
 		F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1528EB20FB00B99027 /* NoticeAPI.swift */; };
 		F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */; };
+		F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94CCC2928F46B01002B05F5 /* LoginReactor.swift */; };
 		F96EBBB828D5AE2100FECD00 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBB728D5AE2100FECD00 /* KeyChain.swift */; };
 		F96EBBBC28D5B59800FECD00 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBB28D5B59800FECD00 /* TokenManager.swift */; };
 		F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */; };
@@ -191,6 +192,7 @@
 		F9377F1328EB20B700B99027 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		F9377F1528EB20FB00B99027 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
 		F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailReactor.swift; sourceTree = "<group>"; };
+		F94CCC2928F46B01002B05F5 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		F96EBBB728D5AE2100FECD00 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		F96EBBBB28D5B59800FECD00 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeReactor.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */,
 				F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */,
 				F91A250F27FC642B0037BDA7 /* LoginVC.swift */,
+				F94CCC2928F46B01002B05F5 /* LoginReactor.swift */,
 				F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */,
 				F9727DFE2887F00300E9513B /* FindPwdVC.swift */,
 				F91A251127FC643B0037BDA7 /* SignUpVC.swift */,
@@ -685,6 +688,7 @@
 				F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */,
 				F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */,
 				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
+				F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
 				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
@@ -889,18 +893,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.Thirty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -910,18 +917,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.Thirty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

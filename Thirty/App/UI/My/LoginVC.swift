@@ -8,8 +8,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ReactorKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, StoryboardView {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -23,7 +24,9 @@ class LoginVC: UIViewController {
     
     let emailInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let pwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
-    let disposeBag = DisposeBag()
+    
+    var disposeBag = DisposeBag()
+    typealias Reactor = LoginReactor
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -31,8 +34,49 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        reactor = LoginReactor()
         setupUI()
+    }
+    
+    func bind(reactor: LoginReactor) {
+        bindState(reactor)
+        bindAction(reactor)
+    }
+    
+    private func bindState(_ reactor: LoginReactor) {
+        reactor.state
+            .map { $0.loginFlag }
+            .bind { flag in
+                if flag {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }.disposed(by: disposeBag)
+    }
+    
+    private func bindAction(_ reactor: LoginReactor) {
+        signUpButton.rx.tap
+            .bind {
+                self.performSegue(withIdentifier: "moveSignUp", sender: self)
+            }
+            .disposed(by: disposeBag)
+        
+        findPwdButton.rx.tap
+            .bind {
+                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
+                self.navigationController?.pushViewController(findPwdVC, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        loginButton.rx.tap
+            .bind {
+                if let email = self.emailTextField.text,
+                   let pwd = self.pwdTextField.text,
+                   !email.isEmpty,
+                   !pwd.isEmpty {
+                    reactor.action.onNext(.loginButtonTapped(email, pwd))
+                }
+                
+            }.disposed(by: disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,25 +90,15 @@ class LoginVC: UIViewController {
                     guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
                     welcomePopupVC.modalPresentationStyle = .fullScreen
                     welcomePopupVC.modalTransitionStyle = .crossDissolve
-                    self.present(welcomePopupVC, animated: true, completion: nil)
+                    self.present(welcomePopupVC, animated: true, completion: {
+                        self.navigationController?.popViewController(animated: true)
+                    })
                 }
             })
             .disposed(by: disposeBag)
     }
     
     func setupUI() {
-        signUpButton.rx.tap
-            .bind {
-                self.performSegue(withIdentifier: "moveSignUp", sender: self)
-            }
-            .disposed(by: disposeBag)
-        
-        findPwdButton.rx.tap
-            .bind {
-                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
-                self.navigationController?.pushViewController(findPwdVC, animated: false)
-            }
-            .disposed(by: disposeBag)
         
         kakaoLoginButton.rx.tap
             .bind {
