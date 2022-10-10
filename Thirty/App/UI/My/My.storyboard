@@ -1301,7 +1301,7 @@
                                     <color key="titleColor" name="THIRTY White"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-HE-rnU">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-HE-rnU">
                                 <rect key="frame" x="20" y="438" width="374" height="29"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <state key="normal" title="SNS 계정으로 로그인하기">
@@ -1333,7 +1333,7 @@
                                     <constraint firstAttribute="width" constant="1" id="oZH-Af-22e"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Vmv-To-JiS">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Vmv-To-JiS">
                                 <rect key="frame" x="96" y="501" width="222" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lQ-MO-4MW">

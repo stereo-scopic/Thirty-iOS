@@ -7,8 +7,9 @@
 
 import UIKit
 import RxSwift
+import ReactorKit
 
-class MySettingVC: UIViewController {
+class MySettingVC: UIViewController, StoryboardView {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var myInfoButton: UIButton!
     @IBOutlet weak var noticeButton: UIButton!
@@ -21,15 +22,26 @@ class MySettingVC: UIViewController {
     
     @IBOutlet weak var appVersionLabel: UILabel!
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    typealias Reactor = MySettingReactor
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUI()
+        reactor = MySettingReactor()
     }
     
-    func setUI() {
+    func bind(reactor: MySettingReactor) {
+        bindState(reactor)
+        bindAction(reactor)
+    }
+    
+    private func bindState(_ reactor: MySettingReactor){
+        
+    }
+    
+    private func bindAction(_ reactor: MySettingReactor){
         backButton.rx.tap
             .bind {
                 self.popVC(animated: false, completion: nil)
@@ -66,6 +78,36 @@ class MySettingVC: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        logoutButton.rx.tap
+            .bind {
+                
+            }
+            .disposed(by: disposeBag)
+        
+        withdrawalButton.rx.tap
+            .bind {
+                let withDrawalAlert = UIAlertController(title: nil, message: "정말 써티를 떠나시겠어요?", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                let okAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { _ in
+                    reactor.action.onNext(.signOutTapped)
+                    UserDefaults.standard.set(false, forKey: "launched")
+                    
+                    self.dismiss(animated: true, completion: nil)
+                }
+                withDrawalAlert.addAction(cancelAction)
+                withDrawalAlert.addAction(okAction)
+                
+                self.present(withDrawalAlert, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        if let dictionary = Bundle.main.infoDictionary,
+           let appVersion = dictionary["CFBundleShortVersion"] as? String {
+            appVersionLabel.text = appVersion
+        }
+    }
+    
+    func setUI() {
 //        termsOfServiceButton.rx.tap
 //            .bind {
 //                guard let myShareSettingVC = self.storyboard?
@@ -96,29 +138,5 @@ class MySettingVC: UIViewController {
 //            }
 //            .disposed(by: disposeBag)
         
-        if let dictionary = Bundle.main.infoDictionary,
-           let appVersion = dictionary["CFBundleShortVersion"] as? String {
-            appVersionLabel.text = appVersion
-        }
-        
-        logoutButton.rx.tap
-            .bind {
-                
-            }
-            .disposed(by: disposeBag)
-        
-        withdrawalButton.rx.tap
-            .bind {
-                let withDrawalAlert = UIAlertController(title: nil, message: "정말 써티를 떠나시겠어요?", preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-                let okAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { _ in
-                    
-                }
-                withDrawalAlert.addAction(cancelAction)
-                withDrawalAlert.addAction(okAction)
-                
-                self.present(withDrawalAlert, animated: true)
-            }
-            .disposed(by: disposeBag)
     }
 }

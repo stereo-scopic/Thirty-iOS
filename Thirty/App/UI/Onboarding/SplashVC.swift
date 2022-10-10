@@ -13,7 +13,9 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let animationView: AnimationView = .init(name: "splash_motion")
         loadingView.addSubview(animationView)
         
@@ -27,7 +29,7 @@ class SplashVC: UIViewController {
         super.viewDidAppear(animated)
         
         let launchedFlag = UserDefaults.standard.bool(forKey: "launched")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             if launchedFlag {
                 self.performSegue(withIdentifier: "goMain", sender: self)
             } else {

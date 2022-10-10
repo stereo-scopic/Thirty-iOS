@@ -95,6 +95,11 @@ class MyVC: UIViewController, StoryboardView {
                 self.navigationController?.pushViewController(myNoticeVC, animated: false)
             }
             .disposed(by: disposeBag)
+        
+        idCopyButton.rx.tap
+            .bind {
+                UIPasteboard.general.string = self.idLabel.text
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: MyReactor) {

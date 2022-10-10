@@ -14,6 +14,9 @@ class WelcomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let animationView: AnimationView = .init(name: "welcome_motion")
         loadingView.addSubview(animationView)
         

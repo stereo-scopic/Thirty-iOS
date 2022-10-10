@@ -54,7 +54,10 @@ class SelectChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: {
                 reactor.action.onNext(.selectChallenge(self.selectedChallenge?.id ?? 0))
                 // response success오면 넘어가도록 처리해야함
+                
                 self.performSegue(withIdentifier: "goMain", sender: self)
+                let viewControllers = self.navigationController?.viewControllers
+                self.navigationController?.popToViewController((viewControllers?[viewControllers!.count - 3])!, animated: true)
                 UserDefaults.standard.setValue(true, forKey: "launched")
             })
             .disposed(by: disposeBag)
