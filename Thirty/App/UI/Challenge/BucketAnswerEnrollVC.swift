@@ -91,7 +91,11 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 if self.editFlag {
                     reactor.action.onNext(.editAnswer(self.bucketId, self.bucketAnswer.date, bucketAnswer))
                 } else {
-                    reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer))
+                    if !self.bucketImgView.isHidden {
+                        reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer, self.bucketImageView.image))
+                    } else {
+                        reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer, nil))
+                    }
                 }
 //                self.navigationController?.popViewController(animated: true)
             }.disposed(by: disposeBag)
@@ -112,26 +116,27 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] bucketAnswer in
                 self?.bucketAnswerDateLabel.text = "#\(bucketAnswer.date)"
                 self?.bucketAnswerTitleLabel.text = bucketAnswer.mission
-                
-                if let bucketImage = bucketAnswer.image, !bucketImage.isEmpty {
-                    self?.bucketImgView.isHidden = false
-                    if let imageUrl = URL(string: bucketImage) {
-                        self?.bucketImageView.load(url: imageUrl)
+                if let edit = self?.editFlag, edit {
+                    
+                    if let bucketImage = bucketAnswer.image, !bucketImage.isEmpty {
+                        self?.bucketImgView.isHidden = false
+                        if let imageUrl = URL(string: bucketImage) {
+                            self?.bucketImageView.load(url: imageUrl)
+                        }
+                    } else {
+                        self?.bucketImgView.isHidden = true
                     }
-                } else {
-                    self?.bucketImgView.isHidden = true
+                    
+                    if let stampNum = bucketAnswer.stamp, stampNum != 0 {
+                        self?.badgeView.isHidden = false
+                        self?.badgeImageView.image = UIImage(named: "badge_\(stampNum)")
+                        self?.selectedStamp = stampNum
+                    } else {
+                        self?.badgeView.isHidden = true
+                    }
+                    
+                    self?.bucketAnswerTextView.text = bucketAnswer.detail
                 }
-                
-                if let stampNum = bucketAnswer.stamp, stampNum != 0 {
-                    self?.badgeView.isHidden = false
-                    self?.badgeImageView.image = UIImage(named: "badge_\(stampNum)")
-                    self?.selectedStamp = stampNum
-                } else {
-                    self?.badgeView.isHidden = true
-                }
-                
-                self?.bucketAnswerTextView.text = bucketAnswer.detail
-                
             }).disposed(by: disposeBag)
         
         reactor.state
@@ -143,10 +148,19 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
             }).disposed(by: disposeBag)
         
         reactor.state
+            .map { $0.bucketStatus }
+            .subscribe(onNext: { status in
+                if status == .CMP {
+                    self.bucketCompleteFlag.accept(true)
+                }
+            }).disposed(by: disposeBag)
+        
+        reactor.state
             .map { $0.bucketCompleted }
-            .subscribe(onNext: { success in
-                self.bucketCompleteFlag.accept(success)
-                self.navigationController?.popViewController(animated: true)
+            .subscribe(onNext: { completeFlag in
+                if completeFlag {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }).disposed(by: disposeBag)
     }
 
@@ -155,7 +169,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
 extension BucketAnswerEnrollVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-            bucketImageView.isHidden = false
+            bucketImgView.isHidden = false
             bucketImageView.image = image
         }
                 

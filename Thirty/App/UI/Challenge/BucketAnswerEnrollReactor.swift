@@ -18,7 +18,7 @@ class BucketAnswerEnrollReactor: Reactor {
     
     enum Action {
 //        case viewWillAppear(BucketAnswer)
-        case enrollAnswer(String, BucketAnswer)
+        case enrollAnswer(String, BucketAnswer, UIImage?)
         case editAnswer(String, Int, BucketAnswer)
 //        case imageSelected
 //        case linkSelected
@@ -27,19 +27,20 @@ class BucketAnswerEnrollReactor: Reactor {
     
     enum Mutation {
         case enrollSuccess(Bool)
-        case bucketCompleted(Bool)
+        case bucketCompleted(Bool, BucketStatus)
     }
     
     struct State {
         var bucketAnswer: BucketAnswer
         var enrollStatus: Bool = false
         var bucketCompleted: Bool = false
+        var bucketStatus: BucketStatus = .WRK
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .enrollAnswer(let bucketId, let bucketAnswer):
-            return enrollBucketAnswerRx(bucketId, bucketAnswer)
+        case .enrollAnswer(let bucketId, let bucketAnswer, let coverImage):
+            return enrollBucketAnswerRx(bucketId, bucketAnswer, coverImage)
         case .editAnswer(let bucketId, let answerDate, let bucketAnswer):
             return editBucketAnswerRx(bucketId, answerDate, bucketAnswer)
         }
@@ -50,27 +51,24 @@ class BucketAnswerEnrollReactor: Reactor {
         switch mutation {
         case .enrollSuccess(let successFlag):
             newState.enrollStatus = successFlag
-        case .bucketCompleted(let endFlag):
+        case .bucketCompleted(let endFlag, let bucketStatus):
             newState.bucketCompleted = endFlag
+            newState.bucketStatus = bucketStatus
         }
         return newState
     }
     
-    private func enrollBucketAnswerRx(_ bucketId: String, _ bucketAnswer: BucketAnswer) -> Observable<Mutation> {
+    private func enrollBucketAnswerRx(_ bucketId: String, _ bucketAnswer: BucketAnswer, _ cover_image: UIImage?) -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<BucketAPI>()
-            provider.request(.enrollBucketAnswer(bucketId, bucketAnswer)) { result in
+            provider.request(.enrollBucketAnswer(bucketId, bucketAnswer, cover_image)) { result in
                 switch result {
                 case .success(let response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
                     let result = try? response.map(BucketStatus.self)
-                    if result == BucketStatus.CMP {
-                        observer.onNext(.bucketCompleted(true))
-                    } else {
-                        observer.onNext(.bucketCompleted(false))
-                    }
+                    observer.onNext(.bucketCompleted(true, result ?? BucketStatus.WRK))
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onError(error)

@@ -102,6 +102,7 @@
 		F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */; };
 		F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */; };
 		F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */; };
+		F9BF9EE028F3AB6900F95CE5 /* CommunityReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */; };
 		F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */; };
 		F9D3DBEA28EA995000E0C5A7 /* BucketStampPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */; };
 		F9D9B63028CB3970004AF18D /* ChangeNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */; };
@@ -215,6 +216,7 @@
 		F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShareSettingVC.swift; sourceTree = "<group>"; };
 		F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeVC.swift; sourceTree = "<group>"; };
 		F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppInfoVC.swift; sourceTree = "<group>"; };
+		F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityReactor.swift; sourceTree = "<group>"; };
 		F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeReactor.swift; sourceTree = "<group>"; };
 		F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStampPopupVC.swift; sourceTree = "<group>"; };
 		F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameVC.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			children = (
 				759D328227C8933700A88C02 /* Community.storyboard */,
 				F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */,
+				F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */,
 				753B078C286BC82200B62F35 /* CommunityAllVC.swift */,
 				753B078A286BC80200B62F35 /* CommunityFriendVC.swift */,
 				F9A65626288D02B300544D83 /* CommunityListCell.swift */,
@@ -729,6 +732,7 @@
 				F96EBBC028D5BDD200FECD00 /* MyBadgeVC.swift in Sources */,
 				F9377F1228EB204200B99027 /* NoticeReactor.swift in Sources */,
 				75E58EC427FE5DE100A87E73 /* Network.swift in Sources */,
+				F9BF9EE028F3AB6900F95CE5 /* CommunityReactor.swift in Sources */,
 				F92028D928D9E8CA00B7714C /* Bucket.swift in Sources */,
 				75C8C3EA28E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift in Sources */,
 				75A41CFC27E45D03009AD9D0 /* UIView+IBDesignable.swift in Sources */,
