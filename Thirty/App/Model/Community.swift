@@ -18,3 +18,19 @@ struct CommunityChallenge {
     var challengeImage: UIImage?
     var isExpanded: Bool
 }
+
+struct CommunityChallenge2: Decodable {
+    var answerId: Int?
+    var bucketId: Int?
+    var userId: String?
+    var nickname: String?
+    var challenge: String?
+    var mission: String?
+    var date: Int
+    var image: String?
+    var detail: String?
+    var music: String?
+    var stamp: Int?
+    var created_at: String?
+    var isFriend: Bool?
+}

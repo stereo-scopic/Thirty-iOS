@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CommunityVC: UIViewController {
     var communityTabBarController: CommunityTabBarController?
@@ -14,6 +15,9 @@ class CommunityVC: UIViewController {
     @IBOutlet weak var friendUnderBarView: UIView!
     @IBOutlet weak var allUnderBarView: UIView!
     @IBOutlet weak var seperatorView: UIView!
+    @IBOutlet weak var findFriendButton: UIButton!
+    
+    var disposeBag = DisposeBag()
     
     private enum PageType {
         case friend
@@ -54,5 +58,12 @@ class CommunityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        findFriendButton.rx.tap
+            .bind {
+                guard let findFriendVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "FindFriendVC") as? FindFriendVC else { return }
+                self.navigationController?.pushViewController(findFriendVC, animated: false)
+            }.disposed(by: disposeBag)
     }
 }

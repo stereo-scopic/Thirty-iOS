@@ -17,10 +17,12 @@ class CommunityListCell: UITableViewCell {
     @IBOutlet weak var challengeImage: UIImageView!
     @IBOutlet weak var challengeImageStackView: UIStackView!
     @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var addFriendButton: UIButton!
     
     static var identifier = "CommunityListCell"
     
     var makeExpand: ((Bool) -> Void)?
+    var addFriend: ((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,5 +35,8 @@ class CommunityListCell: UITableViewCell {
     @IBAction func expandCell() {
         makeExpand?(true)
     }
-
+    
+    @IBAction func addFriendButtonClicked(_ sender: Any) {
+        addFriend?(true)
+    }
 }
