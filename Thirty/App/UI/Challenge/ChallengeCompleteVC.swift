@@ -24,10 +24,11 @@ class ChallengeCompleteVC: UIViewController {
 
         completeButton.rx.tap
             .bind {
-                guard let challengeExportVC = self.storyboard?
-                        .instantiateViewController(withIdentifier: "ChallengeExportVC") as? ChallengeExportVC else { return }
-                challengeExportVC.bucketId = self.bucketId
-                self.present(challengeExportVC, animated: true, completion: nil)
+//                guard let challengeExportVC = self.storyboard?
+//                        .instantiateViewController(withIdentifier: "ChallengeExportVC") as? ChallengeExportVC else { return }
+//                challengeExportVC.bucketId = self.bucketId
+//                self.present(challengeExportVC, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "goExport", sender: self)
             }.disposed(by: disposeBag)
     }
 }

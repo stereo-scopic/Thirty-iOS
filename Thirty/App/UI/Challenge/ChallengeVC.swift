@@ -26,6 +26,8 @@ class ChallengeVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var bucketAnswerEditButton: UIButton!
     @IBOutlet weak var notiButton: UIButton!
+    
+    @IBOutlet weak var tempExportButton: UIButton!
     //    @IBOutlet weak var notiButton: UIButton!
     
     typealias Reactor = ChallengeReactor
@@ -86,6 +88,14 @@ class ChallengeVC: UIViewController, StoryboardView {
                 guard let noticeVC = self.storyboard?.instantiateViewController(withIdentifier: "NoticeVC") as? NoticeVC else { return }
                 self.navigationController?.pushViewController(noticeVC, animated: false)
             }.disposed(by: disposeBag)
+        
+        tempExportButton.rx.tap
+            .bind {
+                guard let challengeCompleteVC = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeCompleteVC") as? ChallengeCompleteVC else { return }
+                challengeCompleteVC.modalPresentationStyle = .fullScreen
+                challengeCompleteVC.modalTransitionStyle = .crossDissolve
+                self.present(challengeCompleteVC, animated: true)
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: ChallengeReactor) {
@@ -116,6 +126,9 @@ class ChallengeVC: UIViewController, StoryboardView {
                     if let imageUrl = URL(string: bucketImage) {
                         cell.bucketAnswerImage.load(url: imageUrl)
                         cell.number.isHidden = true
+                    } else {
+                        cell.bucketAnswerImage.image = UIImage()
+                        cell.number.isHidden = false
                     }
                 } else {
                     cell.bucketAnswerImage.image = UIImage()

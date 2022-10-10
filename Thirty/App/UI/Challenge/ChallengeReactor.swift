@@ -57,7 +57,7 @@ class ChallengeReactor: Reactor {
             newState.bucketList = bucketList
             newState.selectedBucket = bucketList.first
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.action.onNext(.selectBucket(bucketList.first))
             }
         case .selectBucketChanged(let bucket):
