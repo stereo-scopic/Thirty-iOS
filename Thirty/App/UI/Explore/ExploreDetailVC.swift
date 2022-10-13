@@ -36,10 +36,6 @@ class ExploreDetailVC: UIViewController, StoryboardView {
     override func viewWillAppear(_ animated: Bool) {
         reactor?.action.onNext(.viewWillAppear)
     }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     func bind(reactor: ExploreDetailReactor) {
         bindAction(reactor)
@@ -63,7 +59,13 @@ class ExploreDetailVC: UIViewController, StoryboardView {
             .bind(to: challengeCollectionView.rx.items(cellIdentifier: ExploreDetailCollectionViewCell.identifier, cellType: ExploreDetailCollectionViewCell.self)) { index, item, cell in
                 cell.dateLabel.text = "\(item.date ?? 0)"
                 cell.descriptionLabel.text = item.detail
-                cell.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.gray200
+//                cell.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.gray200
+                
+                if (index / 6) % 2 == 0 {
+                    cell.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.gray200
+                } else {
+                    cell.backgroundColor = index % 2 == 0 ? UIColor.gray200 : UIColor.gray50
+                }
             }
             .disposed(by: disposeBag)
         

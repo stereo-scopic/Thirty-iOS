@@ -309,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CcB-0b-VWB">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="986"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="978"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLh-k9-Bw9">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="405"/>
@@ -325,20 +325,20 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ExploreDetailCollectionViewCell" reuseIdentifier="ExploreDetailCollectionViewCell" id="CGH-WP-7Id" customClass="ExploreDetailCollectionViewCell" customModule="Thirty" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="62" height="84"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="62" height="81"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IYI-M4-TGt">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="84"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="81"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hT-nr-avx">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="84"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="81"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="84" id="XR1-CD-1UO"/>
+                                                                                <constraint firstAttribute="height" constant="81" id="XR1-CD-1UO"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8x-KY-eqc">
-                                                                            <rect key="frame" x="12" y="8" width="38" height="68"/>
+                                                                            <rect key="frame" x="12" y="8" width="38" height="65"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHr-mZ-MSs">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="8" height="20"/>
@@ -350,8 +350,8 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대통령이이이이이이" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAk-sa-0Ui">
-                                                                                    <rect key="frame" x="0.0" y="24" width="38" height="44"/>
-                                                                                    <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
+                                                                                    <rect key="frame" x="0.0" y="24" width="38" height="41"/>
+                                                                                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
                                                                                     <color key="textColor" name="THIRTY Black"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -410,7 +410,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOr-eM-QOg">
-                                                <rect key="frame" x="0.0" y="413" width="390" height="573"/>
+                                                <rect key="frame" x="0.0" y="405" width="390" height="573"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krx-eo-foE">
                                                         <rect key="frame" x="274" y="28" width="96" height="44"/>
@@ -431,7 +431,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25명이 이 챌린지를 하고 있어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7U-dQ-Tvr">
-                                                        <rect key="frame" x="20" y="60.333333333333371" width="244" height="17"/>
+                                                        <rect key="frame" x="20" y="60.333333333333314" width="244" height="17"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="14"/>
                                                         <color key="textColor" name="Gray400"/>
                                                         <nil key="highlightedColor"/>
@@ -442,7 +442,7 @@
                                                         <color key="textColor" name="THIRTY Black"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tTg-h2-btS">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tTg-h2-btS">
                                                         <rect key="frame" x="20" y="156" width="350" height="397"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
@@ -527,7 +527,7 @@
                                         </subviews>
                                         <color key="backgroundColor" name="THIRTY Black"/>
                                         <constraints>
-                                            <constraint firstItem="jOr-eM-QOg" firstAttribute="top" secondItem="ZLh-k9-Bw9" secondAttribute="bottom" constant="8" id="710-ZR-mfg"/>
+                                            <constraint firstItem="jOr-eM-QOg" firstAttribute="top" secondItem="ZLh-k9-Bw9" secondAttribute="bottom" id="710-ZR-mfg"/>
                                             <constraint firstAttribute="trailing" secondItem="ZLh-k9-Bw9" secondAttribute="trailing" id="HTl-gj-815"/>
                                             <constraint firstItem="ZLh-k9-Bw9" firstAttribute="leading" secondItem="CcB-0b-VWB" secondAttribute="leading" id="Hwk-cg-L4L"/>
                                             <constraint firstItem="jOr-eM-QOg" firstAttribute="leading" secondItem="CcB-0b-VWB" secondAttribute="leading" id="Qql-AO-bmA"/>
