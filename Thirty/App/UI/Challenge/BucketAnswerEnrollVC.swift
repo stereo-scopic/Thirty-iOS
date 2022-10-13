@@ -89,7 +89,11 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                                                 stamp: self.selectedStamp)
                 
                 if self.editFlag {
-                    reactor.action.onNext(.editAnswer(self.bucketId, self.bucketAnswer.date, bucketAnswer))
+                    if !self.bucketImgView.isHidden {
+                        reactor.action.onNext(.editAnswer(self.bucketId, self.bucketAnswer.date, bucketAnswer, self.bucketImageView.image))
+                    } else {
+                        reactor.action.onNext(.editAnswer(self.bucketId, self.bucketAnswer.date, bucketAnswer, nil))
+                    }
                 } else {
                     if !self.bucketImgView.isHidden {
                         reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer, self.bucketImageView.image))
@@ -97,7 +101,6 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                         reactor.action.onNext(.enrollAnswer(self.bucketId, bucketAnswer, nil))
                     }
                 }
-//                self.navigationController?.popViewController(animated: true)
             }.disposed(by: disposeBag)
         
         galleryButton.rx.tap

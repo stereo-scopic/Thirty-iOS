@@ -74,6 +74,8 @@ class BucketDetailVC: UIViewController, StoryboardView {
             .bind {
                 guard let challengeDetailImageVC = self.storyboard?
                         .instantiateViewController(withIdentifier: "ChallengeDetailImageVC") as? ChallengeDetailImageVC else { return }
+                challengeDetailImageVC.modalPresentationStyle = .fullScreen
+                challengeDetailImageVC.modalTransitionStyle = .crossDissolve
                 challengeDetailImageVC.imageString = self.bucketAnswer.image ?? ""
                 self.present(challengeDetailImageVC, animated: true, completion: nil)
             }.disposed(by: disposeBag)
@@ -105,7 +107,7 @@ class BucketDetailVC: UIViewController, StoryboardView {
                     self.linkImageView.isHidden = true
                 }
                 
-                if let stamp = answer?.stamp {
+                if let stamp = answer?.stamp, stamp != 0 {
                     self.stampImageView.isHidden = false
                     self.stampImage.image = UIImage(named: "badge_\(stamp)")
                 } else {

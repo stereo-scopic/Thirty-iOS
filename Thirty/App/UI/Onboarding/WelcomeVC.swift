@@ -24,6 +24,8 @@ class WelcomeVC: UIViewController {
         animationView.contentMode = .scaleAspectFit
         animationView.play()
         animationView.loopMode = .loop
+        
+        TokenManager.shared.deleteToken()
     }
     
     @IBAction func nextButtonTouchUpInside(_ sender: Any) {

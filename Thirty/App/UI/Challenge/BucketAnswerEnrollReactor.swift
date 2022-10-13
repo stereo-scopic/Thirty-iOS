@@ -19,7 +19,7 @@ class BucketAnswerEnrollReactor: Reactor {
     enum Action {
 //        case viewWillAppear(BucketAnswer)
         case enrollAnswer(String, BucketAnswer, UIImage?)
-        case editAnswer(String, Int, BucketAnswer)
+        case editAnswer(String, Int, BucketAnswer, UIImage?)
 //        case imageSelected
 //        case linkSelected
 //        case badgeSelected
@@ -41,8 +41,8 @@ class BucketAnswerEnrollReactor: Reactor {
         switch action {
         case .enrollAnswer(let bucketId, let bucketAnswer, let coverImage):
             return enrollBucketAnswerRx(bucketId, bucketAnswer, coverImage)
-        case .editAnswer(let bucketId, let answerDate, let bucketAnswer):
-            return editBucketAnswerRx(bucketId, answerDate, bucketAnswer)
+        case .editAnswer(let bucketId, let answerDate, let bucketAnswer, let coverImage):
+            return editBucketAnswerRx(bucketId, answerDate, bucketAnswer, coverImage)
         }
     }
     
@@ -79,19 +79,19 @@ class BucketAnswerEnrollReactor: Reactor {
         return response
     }
     
-    private func editBucketAnswerRx(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer) -> Observable<Mutation> {
+    private func editBucketAnswerRx(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer, _ cover_image: UIImage?) -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<BucketAPI>()
-            provider.request(.editBucketAnswer(bucketId, answerDate, bucketAnswer)) { result in
+            provider.request(.editBucketAnswer(bucketId, answerDate, bucketAnswer, cover_image)) { result in
                 switch result {
                 case .success(let response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
-                    if let _ = try? response.map(Bucket.self) {
-                        observer.onNext(.enrollSuccess(true))
-                    } else {
-                        observer.onNext(.enrollSuccess(false))
-                    }
+                    observer.onNext(.enrollSuccess(true))
+//                    if let _ = try? response.map(Bucket.self) {
+//                    } else {
+//                        observer.onNext(.enrollSuccess(false))
+//                    }
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onError(error)
