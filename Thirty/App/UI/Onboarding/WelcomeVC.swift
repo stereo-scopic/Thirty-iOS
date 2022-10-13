@@ -28,6 +28,12 @@ class WelcomeVC: UIViewController {
         TokenManager.shared.deleteToken()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        for v in loadingView.subviews {
+            v.removeFromSuperview()
+        }
+    }
+    
     @IBAction func nextButtonTouchUpInside(_ sender: Any) {
         let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeThemeVC") as! SelectChallengeThemeVC
         

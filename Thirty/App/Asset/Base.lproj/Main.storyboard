@@ -238,6 +238,7 @@
                             <constraint firstItem="P1I-J5-Zvb" firstAttribute="top" secondItem="uWY-aU-V7O" secondAttribute="top" id="cg7-3J-YxW"/>
                             <constraint firstItem="GXk-R7-PAU" firstAttribute="leading" secondItem="Pza-9F-H5O" secondAttribute="trailing" constant="15" id="cqA-JV-cMa"/>
                             <constraint firstItem="y5l-Jv-Wwu" firstAttribute="leading" secondItem="cJO-re-tai" secondAttribute="leading" constant="20" id="ewk-Xl-ApI"/>
+                            <constraint firstItem="puS-kT-s7t" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y5l-Jv-Wwu" secondAttribute="bottom" constant="10" id="hR2-Em-hDI"/>
                             <constraint firstItem="DG1-yb-k7H" firstAttribute="top" secondItem="GXk-R7-PAU" secondAttribute="bottom" constant="30" id="iOI-OO-nD1"/>
                             <constraint firstItem="K6d-nb-tUB" firstAttribute="leading" secondItem="cJO-re-tai" secondAttribute="leading" constant="-40" id="jGg-mp-IOE"/>
                             <constraint firstItem="hLB-U6-S7X" firstAttribute="bottom" secondItem="K6d-nb-tUB" secondAttribute="bottom" id="k6z-3U-FjG"/>
@@ -413,32 +414,45 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="PRJ-d9-dua" customClass="OnboardingCollectionViewCell" customModule="Thirty" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sQI-dV-vds">
-                                            <rect key="frame" x="0.0" y="0.0" width="177" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzN-vH-rSN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="51"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="45"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 최애 아이돌 챌린지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zek-eK-bZ9">
-                                                            <rect key="frame" x="18" y="15" width="141" height="21"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYM-2V-STZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="45"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 최애 아이돌 챌린지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zek-eK-bZ9">
+                                                                    <rect key="frame" x="20" y="12" width="141" height="21"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" name="THIRTY Black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" name="THIRTY White"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" name="THIRTY Black"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <constraints>
+                                                                <constraint firstItem="zek-eK-bZ9" firstAttribute="top" secondItem="ZYM-2V-STZ" secondAttribute="top" constant="12" id="FHJ-CB-y8I"/>
+                                                                <constraint firstAttribute="bottom" secondItem="zek-eK-bZ9" secondAttribute="bottom" constant="12" id="bo1-q9-2m8"/>
+                                                                <constraint firstItem="zek-eK-bZ9" firstAttribute="leading" secondItem="ZYM-2V-STZ" secondAttribute="leading" constant="20" id="rpi-BI-5u9"/>
+                                                                <constraint firstAttribute="trailing" secondItem="zek-eK-bZ9" secondAttribute="trailing" constant="20" id="zRy-lH-1QF"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="zek-eK-bZ9" secondAttribute="bottom" constant="15" id="4yq-VG-rdz"/>
-                                                        <constraint firstItem="zek-eK-bZ9" firstAttribute="top" secondItem="pzN-vH-rSN" secondAttribute="top" constant="15" id="6pX-Vw-rYj"/>
-                                                        <constraint firstAttribute="trailing" secondItem="zek-eK-bZ9" secondAttribute="trailing" constant="18" id="cGP-yt-EEQ"/>
-                                                        <constraint firstItem="zek-eK-bZ9" firstAttribute="leading" secondItem="pzN-vH-rSN" secondAttribute="leading" constant="18" id="qt1-lx-lar"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZYM-2V-STZ" secondAttribute="bottom" id="Bzd-UA-2M8"/>
+                                                        <constraint firstItem="ZYM-2V-STZ" firstAttribute="leading" secondItem="pzN-vH-rSN" secondAttribute="leading" id="nub-Th-TQS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZYM-2V-STZ" secondAttribute="trailing" id="rSb-Ys-flq"/>
+                                                        <constraint firstItem="ZYM-2V-STZ" firstAttribute="top" secondItem="pzN-vH-rSN" secondAttribute="top" id="w9o-nb-osm"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="pzN-vH-rSN" firstAttribute="top" secondItem="sQI-dV-vds" secondAttribute="top" id="69e-6N-Fqb"/>
                                                 <constraint firstAttribute="bottom" secondItem="pzN-vH-rSN" secondAttribute="bottom" id="KsJ-Or-hxV"/>
@@ -447,6 +461,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="colorView" destination="ZYM-2V-STZ" id="mjh-AJ-sBP"/>
                                             <outlet property="titleLabel" destination="zek-eK-bZ9" id="r0Z-Ua-Z5J"/>
                                         </connections>
                                     </collectionViewCell>

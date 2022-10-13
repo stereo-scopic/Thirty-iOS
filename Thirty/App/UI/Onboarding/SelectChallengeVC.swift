@@ -15,6 +15,7 @@ class SelectChallengeVC: UIViewController, StoryboardView {
     var selectedItem = BehaviorRelay<String>(value: "")
     var disposeBag = DisposeBag()
     var selectedChallenge: Challenge?
+    var challgeList: [Challenge]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
@@ -46,6 +47,12 @@ class SelectChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { challenge in
                 self.selectedChallenge = challenge
             }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.challengeList }
+            .subscribe(onNext: { challengeList in
+                self.challgeList = challengeList
+            }).disposed(by: disposeBag)
     }
     
     func bindAction(_ reactor: SelectChallengeReactor) {
@@ -55,6 +62,18 @@ class SelectChallengeVC: UIViewController, StoryboardView {
                 self.selectedChallenge = challenge
             })
             .disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.collectionView.visibleCells.forEach {
+                    let onboardingCell = $0 as! OnboardingCollectionViewCell
+                    onboardingCell.colorView.backgroundColor = .gray600
+                }
+                
+                let cell = self?.collectionView.cellForItem(at: indexPath) as! OnboardingCollectionViewCell
+                cell.colorView?.backgroundColor = .white
+                
+            }).disposed(by: disposeBag)
         
         nextButton.rx.tap
             .subscribe(onNext: {
@@ -79,6 +98,7 @@ extension SelectChallengeVC {
 
 class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
     
     static var identifier = "OnboardingCollectionViewCell"
 }
