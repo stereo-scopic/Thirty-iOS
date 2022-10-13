@@ -11,6 +11,8 @@ import ReactorKit
 
 class CommunityFriendVC: UIViewController, StoryboardView {
     @IBOutlet weak var communityFriendTableView: UITableView!
+    @IBOutlet weak var noFriendView: UIView!
+    @IBOutlet weak var loginButton: UIButton!
     
     let viewModel = CommunityListViewModel()
     var disposeBag = DisposeBag()
@@ -20,31 +22,6 @@ class CommunityFriendVC: UIViewController, StoryboardView {
         super.viewDidLoad()
         
         reactor = CommunityReactor()
-//        viewModel.friendChallengeObservable
-//            .bind(to: communityFriendTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { _, item, cell in
-//
-//                cell.nicknameLabel.text = item.userNickname
-//                cell.challengeTitleLabel.text = item.challengeTitle
-//                cell.challengeOrderLabel.text = "#\(item.challengeOrder + 1)"
-//                cell.challengeNameLabel.text = item.challengeName
-//                cell.detailLabel.text = item.challengeDetail
-//                cell.challengeCreatedAtLabel.text = item.challengeDate
-////                cell.detailLabel.numberOfLines = 1
-//
-//                if let image = item.challengeImage {
-//                    cell.challengeImage.isHidden = false
-//                    cell.challengeImage.image = image
-//                } else {
-//                    cell.challengeImage.isHidden = true
-//                }
-//
-//                cell.makeExpand = { [weak self] _ in
-//                    cell.detailLabel.numberOfLines = 0
-//                    self?.communityFriendTableView.reloadData()
-//                }
-//
-//            }
-//            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,10 +38,10 @@ class CommunityFriendVC: UIViewController, StoryboardView {
             .map { $0.friendCommunityList ?? [] }
             .bind(to: communityFriendTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { _, item, cell in
 
-                cell.nicknameLabel.text = item.nickname
-                cell.challengeTitleLabel.text = item.mission
+                cell.nicknameLabel.text = item.usernickname
+                cell.challengeTitleLabel.text = item.challenge
                 cell.challengeOrderLabel.text = "#\(item.date)"
-                cell.challengeNameLabel.text = item.challenge
+                cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
                 cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString()
 //                cell.detailLabel.numberOfLines = 1
@@ -86,10 +63,17 @@ class CommunityFriendVC: UIViewController, StoryboardView {
 
             }
             .disposed(by: disposeBag)
+        
+        if let email = UserService.shared.myProfile?.email, !email.isEmpty {
+            self.noFriendView.isHidden = true
+        }
     }
     
     private func bindAction(_ reactor: CommunityReactor) {
-        
+        loginButton.rx.tap
+            .bind {
+                self.navigationController?.tabBarController?.selectedIndex = 3
+            }.disposed(by: disposeBag)
     }
     
 }

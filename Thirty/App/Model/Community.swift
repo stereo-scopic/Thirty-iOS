@@ -23,7 +23,7 @@ struct CommunityChallenge2: Decodable {
     var answerId: Int?
     var bucketId: Int?
     var userId: String?
-    var nickname: String?
+    var usernickname: String?
     var challenge: String?
     var mission: String?
     var date: Int

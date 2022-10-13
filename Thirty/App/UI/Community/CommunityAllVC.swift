@@ -34,10 +34,10 @@ class CommunityAllVC: UIViewController, StoryboardView {
             .map { $0.allCommunityList ?? [] }
             .bind(to: communityEveryOneTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { _, item, cell in
 
-                cell.nicknameLabel.text = item.nickname
-                cell.challengeTitleLabel.text = item.mission
+                cell.nicknameLabel.text = item.usernickname
+                cell.challengeTitleLabel.text = item.challenge
                 cell.challengeOrderLabel.text = "#\(item.date)"
-                cell.challengeNameLabel.text = item.challenge
+                cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
                 cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString()
 //                cell.detailLabel.numberOfLines = 1
