@@ -42,7 +42,7 @@ class MyBadgeReactor: Reactor {
         case .setBadgeList(let badgeList):
             newState.badgeList = badgeList
             
-            let isOwnedCount = badgeList.filter { $0.isOwned }.count
+            let isOwnedCount = badgeList.filter { $0.isowned }.count
             newState.ownedCount = isOwnedCount
             newState.allCount = badgeList.count
         }

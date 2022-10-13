@@ -49,3 +49,9 @@ enum ResponseFriedType: String {
     case confirmed
     case denied
 }
+
+struct Friend: Codable {
+    var friendId: String?
+    var status: String?
+    var created_at: String?
+}

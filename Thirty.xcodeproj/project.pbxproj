@@ -14,6 +14,9 @@
 		7501A4FA27E20D4C00EB4EB0 /* Blatant-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61627E00E2100A66F11 /* Blatant-Regular.otf */; };
 		7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FB27E239B500EB4EB0 /* MyNC.swift */; };
 		7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */; };
+		7504D90728F707BE0033A27F /* MyShareSettingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D90628F707BE0033A27F /* MyShareSettingReactor.swift */; };
+		7504D90928F70E0D0033A27F /* MyNoticeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D90828F70E0D0033A27F /* MyNoticeReactor.swift */; };
+		7504D90B28F70EF30033A27F /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D90A28F70EF30033A27F /* Announcement.swift */; };
 		75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75073B1B280F8080008814EE /* ChallengeAPI.swift */; };
 		751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A19F327E8A8890025812D /* UIColor+Extension.swift */; };
 		75340CF928EF9CCB004DF0E5 /* FindFriendReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75340CF828EF9CCB004DF0E5 /* FindFriendReactor.swift */; };
@@ -68,6 +71,8 @@
 		75E98C41287CEA8A009DBDC2 /* ExploreReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E98C40287CEA8A009DBDC2 /* ExploreReactor.swift */; };
 		75E98C43287CEB03009DBDC2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E98C42287CEB03009DBDC2 /* Category.swift */; };
 		75FB568D28E3BEE0004BB16A /* BucketDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */; };
+		75FFF4CC28F787C300FD62BD /* MyFriendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFF4CB28F787C300FD62BD /* MyFriendListVC.swift */; };
+		75FFF4CE28F787D800FD62BD /* MyFriendListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFF4CD28F787D800FD62BD /* MyFriendListReactor.swift */; };
 		DCBE380F2BCEEBBA85A7E593 /* Pods_Thirty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */; };
 		F913CD9028F3100E001AA913 /* welcome_motion.json in Resources */ = {isa = PBXBuildFile; fileRef = F913CD8E28F3100E001AA913 /* welcome_motion.json */; };
 		F913CD9128F3100E001AA913 /* splash_motion.json in Resources */ = {isa = PBXBuildFile; fileRef = F913CD8F28F3100E001AA913 /* splash_motion.json */; };
@@ -119,6 +124,9 @@
 		71BEF133679519B33BEE5990 /* Pods-Thirty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.debug.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.debug.xcconfig"; sourceTree = "<group>"; };
 		7501A4FB27E239B500EB4EB0 /* MyNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNC.swift; sourceTree = "<group>"; };
 		7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingVC.swift; sourceTree = "<group>"; };
+		7504D90628F707BE0033A27F /* MyShareSettingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShareSettingReactor.swift; sourceTree = "<group>"; };
+		7504D90828F70E0D0033A27F /* MyNoticeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeReactor.swift; sourceTree = "<group>"; };
+		7504D90A28F70EF30033A27F /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		75073B1B280F8080008814EE /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
 		751A19F327E8A8890025812D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		75340CF828EF9CCB004DF0E5 /* FindFriendReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendReactor.swift; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 		757D66CC2875048900E3C5DE /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		758B9FD528B83DF0001A40B5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailReactor.swift; sourceTree = "<group>"; };
+		759BE13128F59A23006B75AE /* Thirty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thirty.entitlements; sourceTree = "<group>"; };
 		759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAnswerEnrollReactor.swift; sourceTree = "<group>"; };
 		759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketLinkPopupVC.swift; sourceTree = "<group>"; };
 		759CD62E28D14B9F00BFFFC7 /* SendEmailPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailPopupVC.swift; sourceTree = "<group>"; };
@@ -180,6 +189,8 @@
 		75E98C40287CEA8A009DBDC2 /* ExploreReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreReactor.swift; sourceTree = "<group>"; };
 		75E98C42287CEB03009DBDC2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailVC.swift; sourceTree = "<group>"; };
+		75FFF4CB28F787C300FD62BD /* MyFriendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendListVC.swift; sourceTree = "<group>"; };
+		75FFF4CD28F787D800FD62BD /* MyFriendListReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendListReactor.swift; sourceTree = "<group>"; };
 		A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thirty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD038CDF5D2D1A6BE620AA3 /* Pods-Thirty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.release.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.release.xcconfig"; sourceTree = "<group>"; };
 		F913CD8E28F3100E001AA913 /* welcome_motion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welcome_motion.json; sourceTree = "<group>"; };
@@ -307,6 +318,7 @@
 		759D326627C879E900A88C02 /* Thirty */ = {
 			isa = PBXGroup;
 			children = (
+				759BE13128F59A23006B75AE /* Thirty.entitlements */,
 				759D328827C893DB00A88C02 /* Util */,
 				759D327B27C8913200A88C02 /* App */,
 				759D326B27C879E900A88C02 /* ViewController.swift */,
@@ -404,11 +416,15 @@
 				F91A251127FC643B0037BDA7 /* SignUpVC.swift */,
 				F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */,
 				F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */,
+				7504D90828F70E0D0033A27F /* MyNoticeReactor.swift */,
 				F9BC339F27EC9FD700F0C722 /* MyShareSettingVC.swift */,
+				7504D90628F707BE0033A27F /* MyShareSettingReactor.swift */,
 				F9BC339C27EC9FB600F0C722 /* MyAlertVC.swift */,
 				753EB1DA27EB65A300D20579 /* MyInfoVC.swift */,
 				7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */,
 				759F12DF28CFFCD0008D7947 /* MySettingReactor.swift */,
+				75FFF4CB28F787C300FD62BD /* MyFriendListVC.swift */,
+				75FFF4CD28F787D800FD62BD /* MyFriendListReactor.swift */,
 				7501A4FB27E239B500EB4EB0 /* MyNC.swift */,
 			);
 			path = My;
@@ -494,6 +510,7 @@
 				F96EBBC328D5C15100FECD00 /* Badge.swift */,
 				F92028D828D9E8CA00B7714C /* Bucket.swift */,
 				F9377F1328EB20B700B99027 /* Notice.swift */,
+				7504D90A28F70EF30033A27F /* Announcement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -668,6 +685,7 @@
 				75A7741D28DD2D0600B7775C /* UIImageView+Extension.swift in Sources */,
 				F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */,
 				757D66CD2875048900E3C5DE /* WelcomeVC.swift in Sources */,
+				7504D90B28F70EF30033A27F /* Announcement.swift in Sources */,
 				F9E01FC128CE1A7D00649EC7 /* WelcomePopupVC.swift in Sources */,
 				75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */,
 				F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */,
@@ -685,6 +703,7 @@
 				753B078D286BC82200B62F35 /* CommunityAllVC.swift in Sources */,
 				757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */,
 				753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */,
+				75FFF4CC28F787C300FD62BD /* MyFriendListVC.swift in Sources */,
 				F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */,
 				F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */,
 				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
@@ -696,6 +715,7 @@
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
 				75E98C43287CEB03009DBDC2 /* Category.swift in Sources */,
 				F9A65629288D07AB00544D83 /* Community.swift in Sources */,
+				7504D90928F70E0D0033A27F /* MyNoticeReactor.swift in Sources */,
 				75E58EC727FE5E7500A87E73 /* BaseAPI.swift in Sources */,
 				75D4EF932810D346001E531D /* ChallengeService.swift in Sources */,
 				753B0789286BC7E700B62F35 /* CommunityVC.swift in Sources */,
@@ -705,6 +725,7 @@
 				75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */,
 				753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */,
 				F9377F1428EB20B700B99027 /* Notice.swift in Sources */,
+				7504D90728F707BE0033A27F /* MyShareSettingReactor.swift in Sources */,
 				F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */,
 				F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */,
 				757D45B028DBD837004DBC5A /* SplashVC.swift in Sources */,
@@ -731,6 +752,7 @@
 				F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */,
 				F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */,
 				F9727DFF2887F00300E9513B /* FindPwdVC.swift in Sources */,
+				75FFF4CE28F787D800FD62BD /* MyFriendListReactor.swift in Sources */,
 				757C96802863E0E3005CCBA3 /* ChallengeShareVC.swift in Sources */,
 				F9D9B63228CB3A77004AF18D /* ChangeNicknameReactor.swift in Sources */,
 				F96EBBC028D5BDD200FECD00 /* MyBadgeVC.swift in Sources */,
@@ -893,9 +915,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -917,9 +940,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

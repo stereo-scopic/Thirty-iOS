@@ -14,7 +14,10 @@ enum AuthAPI {
     case getProfile
     case changeProfile(_ nickname: String)
     case findUser(_ userId: String)
+    case changeVisibility(_ visibility: String)
     case requestFriend(_ userId: String)
+    case getFriendList
+    case deleteFriend(_ friendId: String)
 }
 
 extension AuthAPI: TargetType {
@@ -30,11 +33,11 @@ extension AuthAPI: TargetType {
             return "auth/signout"
         case .login:
             return "auth/login"
-        case .getProfile, .changeProfile:
+        case .getProfile, .changeProfile, .changeVisibility:
             return "user/profile"
         case .findUser(let userId):
             return "user/\(userId)"
-        case .requestFriend:
+        case .requestFriend, .getFriendList, .deleteFriend:
             return "/relation"
         }
     }
@@ -43,10 +46,12 @@ extension AuthAPI: TargetType {
         switch self {
         case .signUp, .signOut, .login, .requestFriend:
             return .post
-        case .getProfile, .findUser:
+        case .getProfile, .findUser, .getFriendList:
             return .get
-        case .changeProfile:
+        case .changeProfile, .changeVisibility:
             return .patch
+        case .deleteFriend:
+            return .delete
         }
         
     }
@@ -73,6 +78,14 @@ extension AuthAPI: TargetType {
         case .requestFriend(let userId):
             return [
                 "friend": userId
+            ]
+        case .changeVisibility(let visibility):
+            return [
+                "visibility": visibility
+            ]
+        case .deleteFriend(let friendId):
+            return [
+                "friend": friendId
             ]
         default:
             return nil

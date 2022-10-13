@@ -43,7 +43,7 @@ class MyBadgeVC: UIViewController, StoryboardView {
             .bind(to: collectionView.rx.items(cellIdentifier: BadgeCell.identifier, cellType: BadgeCell.self)) { _, item, cell in
                 cell.titleLabel.text = item.name
                 
-                if item.isOwned {
+                if item.isowned {
                     if let imageUrl = URL(string: item.illust ?? "") {
                         cell.img.load(url: imageUrl)
                     }

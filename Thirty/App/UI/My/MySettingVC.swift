@@ -80,7 +80,9 @@ class MySettingVC: UIViewController, StoryboardView {
         
         logoutButton.rx.tap
             .bind {
+                UserDefaults.standard.set(false, forKey: "launched")
                 
+                self.dismiss(animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
         

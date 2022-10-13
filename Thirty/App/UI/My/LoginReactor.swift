@@ -49,12 +49,13 @@ class LoginReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
-//                    let result = try? response.map(User.self)
-//                    if let _ = result?.id {
+                    let result = try? response.map(Token.self)
+                    if let access_token = result?.access_token {
+                        try? TokenManager.shared.saveAccessToken(access_token)
                         observer.onNext(Mutation.login(true))
-//                    } else {
-//                        observer.onNext(Mutation.login(false))
-//                    }
+                    } else {
+                        observer.onNext(Mutation.login(false))
+                    }
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onNext(Mutation.login(false))

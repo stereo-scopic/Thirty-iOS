@@ -10,7 +10,8 @@ import Foundation
 struct Badge: Codable {
     var prize_code: String?
     var name: String?
-    var illust: String?
     var created_at: String?
-    var isOwned: Bool
+    var illust: String?
+    var description: String?
+    var isowned: Bool
 }

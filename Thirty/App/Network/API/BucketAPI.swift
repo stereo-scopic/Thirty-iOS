@@ -17,7 +17,7 @@ enum BucketAPI {
     case getBucketDetail(_ bucketId: String)
     case enrollBucketAnswer(_ bucketId: String, _ bucketAnswer: BucketAnswer, _ cover_image: UIImage?)
     case getBucketAnswerDetail(_ bucketId: String, _ answerDate: Int)
-    case editBucketAnswer(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer)
+    case editBucketAnswer(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer, _ coverImage: UIImage?)
 }
 
 extension BucketAPI: TargetType {
@@ -39,7 +39,7 @@ extension BucketAPI: TargetType {
             return "/buckets/\(bucketId)"
         case .getBucketAnswerDetail(let bucketId, let answerDate):
             return "/buckets/\(bucketId)/date/\(answerDate)"
-        case .editBucketAnswer(let bucketId, let answerDate, _):
+        case .editBucketAnswer(let bucketId, let answerDate, _, _):
             return "/buckets/\(bucketId)/date/\(answerDate)"
         }
     }
@@ -74,14 +74,14 @@ extension BucketAPI: TargetType {
 //                "music": bucketAnswer.music ?? "",
 //                "detail": bucketAnswer.detail ?? ""
 //            ]
-        case .editBucketAnswer(_, _, let bucketAnswer):
-            return [
-                "date": bucketAnswer.date,
-                "stamp": bucketAnswer.stamp ?? 0,
-                "image": bucketAnswer.image ?? "",
-                "music": bucketAnswer.music ?? "",
-                "detail": bucketAnswer.detail ?? ""
-            ]
+//        case .editBucketAnswer(_, _, let bucketAnswer):
+//            return [
+//                "date": bucketAnswer.date,
+//                "stamp": bucketAnswer.stamp ?? 0,
+//                "image": bucketAnswer.image ?? "",
+//                "music": bucketAnswer.music ?? "",
+//                "detail": bucketAnswer.detail ?? ""
+//            ]
         default:
             return nil
         }
@@ -92,6 +92,29 @@ extension BucketAPI: TargetType {
         case .getBucketList(let statusString):
             return .requestParameters(parameters: ["status": statusString ?? ""], encoding: URLEncoding.default)
         case .enrollBucketAnswer(_, let bucketAnswer, let cover_image):
+            var formData = MultipartFormData(provider: .data(Data()), name: "")
+            if let cover_image = cover_image {
+                let imageData = cover_image.jpegData(compressionQuality: 1.0)!
+                formData = MultipartFormData(provider: .data(imageData), name: "image", fileName: "cover_image.png", mimeType: "image/jpeg")
+            }
+            
+            let date = "\(bucketAnswer.date)".data(using: String.Encoding.utf8) ?? Data()
+            let stamp = "\(bucketAnswer.stamp ?? 0)".data(using: String.Encoding.utf8) ?? Data()
+            let music = "".data(using: String.Encoding.utf8) ?? Data()
+            let detail = "\(bucketAnswer.detail ?? "")".data(using: String.Encoding.utf8) ?? Data()
+            
+            let dateData = MultipartFormData(provider: .data(date), name: "date")
+            let stampData = MultipartFormData(provider: .data(stamp), name: "stamp")
+            let musicData = MultipartFormData(provider: .data(music), name: "music")
+            let detailData = MultipartFormData(provider: .data(detail), name: "detail")
+            
+            var multipartData = [dateData, stampData, musicData, detailData]
+            if let _ = cover_image {
+                multipartData = [formData, dateData, stampData, musicData, detailData]
+            }
+            
+            return .uploadMultipart(multipartData)
+        case .editBucketAnswer(_, _, let bucketAnswer, let cover_image):
             var formData = MultipartFormData(provider: .data(Data()), name: "")
             if let cover_image = cover_image {
                 let imageData = cover_image.jpegData(compressionQuality: 1.0)!
