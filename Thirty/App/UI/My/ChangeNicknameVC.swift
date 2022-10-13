@@ -29,6 +29,8 @@ class ChangeNicknameVC: UIViewController, StoryboardView {
     }
     
     private func bindState(_ reactor: ChangeNicknameReactor) {
+        nicknameTF.text = UserService.shared.myProfile?.nickname
+        
         nicknameTF.rx.text.orEmpty
             .bind(to: nicknameInputText)
             .disposed(by: disposeBag)

@@ -33,9 +33,9 @@ class SignUpVC: UIViewController, StoryboardView {
     let confirmPwdInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     let nicknameInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     
-    let emailValid: BehaviorRelay<Bool> = BehaviorRelay(value: false)
-    let pwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
-    var confirmPwdValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    let emailValid: PublishSubject<Bool> = PublishSubject<Bool>()
+    let pwdValid: PublishSubject<Bool> = PublishSubject<Bool>()
+    var confirmPwdValid: PublishSubject<Bool> = PublishSubject<Bool>()
     let nicknameValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     var signUpSuccess: PublishSubject<Bool> = PublishSubject<Bool>()
@@ -48,6 +48,10 @@ class SignUpVC: UIViewController, StoryboardView {
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -139,7 +143,7 @@ class SignUpVC: UIViewController, StoryboardView {
         Observable.combineLatest(pwdInputText, confirmPwdInputText, resultSelector: { $0 == $1})
             .subscribe(onNext: { b in
                 self.confirmPwdValidImage.image = b ? self.successImage : self.warningImage
-                self.confirmPwdValidImage.isHidden = false
+                self.confirmPwdValidImage.isHidden = b
                 self.confirmPwdInfoLabel.isHidden = b
                 self.confirmPwdValid.onNext(b)
             })

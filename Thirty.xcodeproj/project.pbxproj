@@ -39,6 +39,7 @@
 		757D66CD2875048900E3C5DE /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D66CC2875048900E3C5DE /* WelcomeVC.swift */; };
 		758B9FD628B83DF0001A40B5 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD528B83DF0001A40B5 /* Mission.swift */; };
 		758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */; };
+		759A93E028F841AE007731E2 /* MyBadgeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */; };
 		759BE93C28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */; };
 		759BE93E28E327E70072C9D8 /* BucketLinkPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */; };
 		759CD62F28D14B9F00BFFFC7 /* SendEmailPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CD62E28D14B9F00BFFFC7 /* SendEmailPopupVC.swift */; };
@@ -154,6 +155,7 @@
 		757D66CC2875048900E3C5DE /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		758B9FD528B83DF0001A40B5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailReactor.swift; sourceTree = "<group>"; };
+		759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeDetailVC.swift; sourceTree = "<group>"; };
 		759BE13128F59A23006B75AE /* Thirty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thirty.entitlements; sourceTree = "<group>"; };
 		759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAnswerEnrollReactor.swift; sourceTree = "<group>"; };
 		759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketLinkPopupVC.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
+				759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */,
 				7537B61027E00A9800A66F11 /* MyVC.swift */,
 				F9D9B63328CB472B004AF18D /* MyReactor.swift */,
 				F96EBBBF28D5BDD200FECD00 /* MyBadgeVC.swift */,
@@ -726,6 +729,7 @@
 				753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */,
 				F9377F1428EB20B700B99027 /* Notice.swift in Sources */,
 				7504D90728F707BE0033A27F /* MyShareSettingReactor.swift in Sources */,
+				759A93E028F841AE007731E2 /* MyBadgeDetailVC.swift in Sources */,
 				F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */,
 				F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */,
 				757D45B028DBD837004DBC5A /* SplashVC.swift in Sources */,
@@ -918,7 +922,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -926,6 +930,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -943,7 +948,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -951,6 +956,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

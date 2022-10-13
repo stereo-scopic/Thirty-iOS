@@ -65,7 +65,18 @@ class MyBadgeVC: UIViewController, StoryboardView {
     }
     
     private func bindAction(_ reactor: MyBadgeReactor) {
-        
+        collectionView.rx.modelSelected(Badge.self)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] item in
+                if let myBadgeDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "MyBadgeDetailVC") as? MyBadgeDetailVC {
+                    myBadgeDetailVC.badgeInfo = item
+                    
+                    myBadgeDetailVC.modalPresentationStyle = .overFullScreen
+                    myBadgeDetailVC.modalTransitionStyle = .crossDissolve
+                    self?.present(myBadgeDetailVC, animated: true, completion: nil)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
