@@ -91,10 +91,6 @@ class ChallengeVC: UIViewController, StoryboardView {
         
         tempExportButton.rx.tap
             .bind {
-//                guard let challengeCompleteVC = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeCompleteVC") as? ChallengeCompleteVC else { return }
-//                challengeCompleteVC.modalPresentationStyle = .fullScreen
-//                challengeCompleteVC.modalTransitionStyle = .crossDissolve
-//                self.present(challengeCompleteVC, animated: true)
                 self.tabBarController?.selectedIndex = 1
             }.disposed(by: disposeBag)
     }
@@ -150,7 +146,7 @@ class ChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] bucket in
                 self?.challengeCategoryLabel.text = bucket?.challenge.category?.name
                 self?.challengeTitleLabel.text = bucket?.challenge.title
-                self?.challengeCreatedAtLabel.text = "\(bucket?.challenge.created_at?.iSO8601Date().dateToString() ?? "") ~ing"
+                self?.challengeCreatedAtLabel.text = "\(bucket?.created_at?.iSO8601Date().dateToString() ?? "") ~ing"
                 
                 self?.selectedBucketId = bucket?.id ?? ""
             }).disposed(by: disposeBag)

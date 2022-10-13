@@ -12,6 +12,7 @@ import RxRelay
 class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var bucketAnswerDateLabel: UILabel!
     @IBOutlet weak var bucketAnswerTitleLabel: UILabel!
@@ -21,6 +22,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var linkImageView: UIImageView!
     
     @IBOutlet weak var bucketImgView: UIView!
+    @IBOutlet weak var bucketImageDeleteButton: UIButton!
     @IBOutlet weak var bucketImageView: UIImageView!
     
     @IBOutlet weak var badgeView: UIView!
@@ -32,6 +34,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     var bucketAnswer: BucketAnswer = BucketAnswer(stamp: 0)
     var selectedStamp: Int = 0
     var editFlag = false
+    var textViewPlaceHolder = "내용을 입력하세요."
     
     typealias Reactor = BucketAnswerEnrollReactor
     var disposeBag = DisposeBag()
@@ -39,8 +42,15 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bucketAnswerTextView.delegate = self
+        let scrollTapGesture = UITapGestureRecognizer(target: self, action: #selector(tapScrollView))
+        scrollView.addGestureRecognizer(scrollTapGesture)
         
         self.reactor = BucketAnswerEnrollReactor(bucketAnswer)
+    }
+    
+    @objc func tapScrollView() {
+        self.view.endEditing(true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,9 +61,11 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
         if let stampPopupVC = segue.destination as? BucketStampPopupVC {
             stampPopupVC.selectedStamp
                 .subscribe(onNext: { stampNum in
-                    self.badgeView.isHidden = false
-                    self.badgeImageView.image = UIImage(named: "badge_\(stampNum)")
-                    self.selectedStamp = stampNum
+                    if stampNum != 0 {
+                        self.badgeView.isHidden = false
+                        self.badgeImageView.image = UIImage(named: "badge_\(stampNum)")
+                        self.selectedStamp = stampNum
+                    }
                 }).disposed(by: disposeBag)
         }
     }
@@ -111,6 +123,12 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 vc.allowsEditing = true
                 self.present(vc, animated: true)
             }.disposed(by: disposeBag)
+        
+        bucketImageDeleteButton.rx.tap
+            .bind {
+                self.bucketImgView.isHidden = true
+                self.bucketImageView.image = UIImage()
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: BucketAnswerEnrollReactor) {
@@ -165,8 +183,38 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                     self.navigationController?.popViewController(animated: true)
                 }
             }).disposed(by: disposeBag)
+        
+        if editFlag, !bucketAnswerTextView.text.isEmpty {
+            bucketAnswerTextView.textColor = .black
+        }
+    }
+}
+
+extension BucketAnswerEnrollVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == textViewPlaceHolder {
+            textView.text = nil
+            textView.textColor = .black
+        }
     }
 
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = textViewPlaceHolder
+            textView.textColor = .gray300
+        }
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let inputString = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let oldString = textView.text, let newRange = Range(range, in: oldString) else { return true }
+        let newString = oldString.replacingCharacters(in: newRange, with: inputString).trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let characterCount = newString.count
+        guard characterCount <= 700 else { return false }
+
+        return true
+    }
 }
 
 extension BucketAnswerEnrollVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
