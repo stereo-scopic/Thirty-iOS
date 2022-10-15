@@ -104,7 +104,7 @@ class MySettingVC: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         if let dictionary = Bundle.main.infoDictionary,
-           let appVersion = dictionary["CFBundleShortVersion"] as? String {
+           let appVersion = dictionary["CFBundleShortVersionString"] as? String {
             appVersionLabel.text = appVersion
         }
     }

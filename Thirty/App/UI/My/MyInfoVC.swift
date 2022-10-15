@@ -25,7 +25,13 @@ class MyInfoVC: UIViewController {
     }
     
     func setUI() {
-        emailLabel.text = UserService.shared.myProfile?.email
+        if let userEmail = UserService.shared.myProfile?.email, !userEmail.isEmpty {
+            emailLabel.text = userEmail
+        } else {
+            emailLabel.text = "연동된 이메일이 없습니다."
+            emailLabel.textColor = UIColor.gray300
+        }
+        
         nicknameLabel.text = UserService.shared.myProfile?.nickname
         
         nickNameButton.rx.tap
