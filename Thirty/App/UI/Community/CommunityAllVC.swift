@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import ReactorKit
+import Kingfisher
 
 class CommunityAllVC: UIViewController, StoryboardView {
     @IBOutlet weak var communityEveryOneTableView: UITableView!
@@ -39,18 +40,22 @@ class CommunityAllVC: UIViewController, StoryboardView {
                 cell.challengeOrderLabel.text = "#\(item.date)"
                 cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
-                cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString()
+                cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString().dateMMDD()
 //                cell.detailLabel.numberOfLines = 1
                 
                 cell.addFriendButton.isHidden = item.isFriend ?? true
                     
                 cell.addFriend = { _ in
                     // 친구신청API
+                    self.reactor?.action.onNext(.requestFriend(item.userId ?? ""))
+                    cell.addFriendButton.setTitle("추가 완료", for: .normal)
+                    cell.addFriendButton.setTitleColor(.thirtyBlack, for: .normal)
                 }
 
                 if let imageUrl = URL(string: item.image ?? "") {
                     cell.challengeImage.isHidden = false
-                    cell.challengeImage.load(url: imageUrl)
+//                    cell.challengeImage.load(url: imageUrl)
+                    cell.challengeImage.kf.setImage(with: imageUrl)
                 } else {
                     cell.challengeImage.isHidden = true
                 }

@@ -43,7 +43,7 @@ class CommunityFriendVC: UIViewController, StoryboardView {
                 cell.challengeOrderLabel.text = "#\(item.date)"
                 cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
-                cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString()
+                cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString().dateMMDD()
 //                cell.detailLabel.numberOfLines = 1
                 cell.addFriend = { _ in
                     

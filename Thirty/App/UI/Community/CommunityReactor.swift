@@ -14,6 +14,7 @@ class CommunityReactor: Reactor {
     enum Action {
         case allCommunityDidAppear
         case friendCommunityDidAppear
+        case requestFriend(String)
     }
     
     enum Mutation {
@@ -32,6 +33,8 @@ class CommunityReactor: Reactor {
             return getAllCommunityListRx()
         case .friendCommunityDidAppear:
             return getFriendCommunityListRx()
+        case .requestFriend(let userId):
+            return requestFriendRx(userId)
         }
     }
     
@@ -88,4 +91,22 @@ class CommunityReactor: Reactor {
         return response
     }
     
+    private func requestFriendRx(_ userId: String) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<AuthAPI>()
+            provider.request(.requestFriend(userId)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    observer.onCompleted()
+                case .failure(let error):
+                    print(error)
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
 }
