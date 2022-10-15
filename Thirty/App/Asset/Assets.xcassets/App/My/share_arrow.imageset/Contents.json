@@ -1,8 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "화살표유 3.png",
-      "idiom" : "universal"
+      "filename" : "MY - 공유 범위 설정 - 화살표 2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "MY - 공유 범위 설정 - 화살표 2@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

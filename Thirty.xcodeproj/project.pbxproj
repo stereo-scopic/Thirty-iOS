@@ -111,6 +111,7 @@
 		F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */; };
 		F9BF9EE028F3AB6900F95CE5 /* CommunityReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */; };
 		F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */; };
+		F9CFD70328FAD8ED0019344B /* SignUpConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CFD70228FAD8ED0019344B /* SignUpConfirmVC.swift */; };
 		F9D3DBEA28EA995000E0C5A7 /* BucketStampPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */; };
 		F9D9B63028CB3970004AF18D /* ChangeNicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */; };
 		F9D9B63228CB3A77004AF18D /* ChangeNicknameReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */; };
@@ -233,6 +234,7 @@
 		F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppInfoVC.swift; sourceTree = "<group>"; };
 		F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityReactor.swift; sourceTree = "<group>"; };
 		F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeReactor.swift; sourceTree = "<group>"; };
+		F9CFD70228FAD8ED0019344B /* SignUpConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConfirmVC.swift; sourceTree = "<group>"; };
 		F9D3DBE928EA995000E0C5A7 /* BucketStampPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketStampPopupVC.swift; sourceTree = "<group>"; };
 		F9D9B62F28CB3970004AF18D /* ChangeNicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameVC.swift; sourceTree = "<group>"; };
 		F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameReactor.swift; sourceTree = "<group>"; };
@@ -414,9 +416,10 @@
 				F9D9B63128CB3A77004AF18D /* ChangeNicknameReactor.swift */,
 				F91A250F27FC642B0037BDA7 /* LoginVC.swift */,
 				F94CCC2928F46B01002B05F5 /* LoginReactor.swift */,
-				F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */,
-				F9727DFE2887F00300E9513B /* FindPwdVC.swift */,
 				F91A251127FC643B0037BDA7 /* SignUpVC.swift */,
+				F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */,
+				F9CFD70228FAD8ED0019344B /* SignUpConfirmVC.swift */,
+				F9727DFE2887F00300E9513B /* FindPwdVC.swift */,
 				F9BC33A527ECA02700F0C722 /* MyAppInfoVC.swift */,
 				F9BC33A227EC9FFD00F0C722 /* MyNoticeVC.swift */,
 				7504D90828F70E0D0033A27F /* MyNoticeReactor.swift */,
@@ -754,6 +757,7 @@
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
 				753B078B286BC80200B62F35 /* CommunityFriendVC.swift in Sources */,
 				F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */,
+				F9CFD70328FAD8ED0019344B /* SignUpConfirmVC.swift in Sources */,
 				F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */,
 				F9727DFF2887F00300E9513B /* FindPwdVC.swift in Sources */,
 				75FFF4CE28F787D800FD62BD /* MyFriendListReactor.swift in Sources */,
@@ -922,7 +926,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -948,7 +952,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

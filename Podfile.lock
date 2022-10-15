@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.5.0)
+  - Kingfisher (7.2.2)
   - lottie-ios (3.3.0)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher
   - lottie-ios
   - Moya
   - ReactorKit
@@ -35,6 +37,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - lottie-ios
     - Moya
     - ReactorKit
@@ -48,6 +51,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Kingfisher: 184d4d1a8c36666e663caf8e08abe87898595c53
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
@@ -59,6 +63,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 36e0c45eae018ca9c3a50cc4c52c4dce1db668d3
+PODFILE CHECKSUM: 7f5da024a4a0aab0981a215cb9a580946a6c6a40
 
 COCOAPODS: 1.11.2

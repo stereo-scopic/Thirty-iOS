@@ -20,6 +20,7 @@ class MyShareSettingVC: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = MyShareSettingReactor()
+        slider.setThumbImage(UIImage(named: "share_arrow"), for: .normal)
     }
     
     func bind(reactor: MyShareSettingReactor) {
@@ -66,4 +67,13 @@ class MyShareSettingVC: UIViewController, StoryboardView {
         self.popVC(animated: false, completion: nil)
     }
     
+}
+
+class CustomSlider: UISlider {
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        var rect = super.trackRect(forBounds: bounds)
+        rect.size.height = 10
+        
+        return rect
+    }
 }

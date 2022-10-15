@@ -16,4 +16,5 @@ target 'Thirty' do
   pod 'ReactorKit'
   pod 'RxGesture'
   pod 'lottie-ios'
+  pod 'Kingfisher'
 end
