@@ -23,6 +23,9 @@
         <array key="Pretendard-Light.otf">
             <string>Pretendard-Light</string>
         </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
         <array key="Pretendard-Regular.otf">
             <string>Pretendard-Regular</string>
         </array>
@@ -174,11 +177,11 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXTRA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0h-ut-hQW">
-                                        <rect key="frame" x="166.66666666666666" y="11" width="56.666666666666657" height="22"/>
+                                        <rect key="frame" x="163.66666666666666" y="11" width="62.666666666666657" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="3Cc-lW-hDB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="BlatantRegular" family="Blatant" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
                                         <color key="textColor" name="THIRTY Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -784,7 +787,7 @@
                                                 <color key="textColor" name="THIRTY Black"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na5-gX-HLs">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na5-gX-HLs">
                                                 <rect key="frame" x="330" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="1KJ-CK-DXI"/>

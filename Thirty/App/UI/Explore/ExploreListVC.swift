@@ -9,6 +9,7 @@ import UIKit
 import ReactorKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ExploreListVC: UIViewController, StoryboardView {
     typealias Reactor = ExploreListReactor
@@ -64,7 +65,7 @@ class ExploreListVC: UIViewController, StoryboardView {
                 cell.descriptionLabel.text = item.description
                 
                 let imageUrl = URL(string: item.thumbnail ?? "")
-                cell.img.load(url: imageUrl!)
+                cell.img.kf.setImage(with: imageUrl!)
             }
             .disposed(by: disposeBag)
     }
