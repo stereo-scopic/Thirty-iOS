@@ -14,6 +14,7 @@ class NoticeVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var noticeTableView: UITableView!
     
+    @IBOutlet weak var noResultView: UIView!
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -34,6 +35,7 @@ class NoticeVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.noticeList ?? [] }
             .bind(to: noticeTableView.rx.items(cellIdentifier: "NoticeCell", cellType: NoticeCell.self)) { _, item, cell in
+                cell.nameLabel.text = item.relatedUserNickname
                 cell.descriptionLabel.text = item.message
                 cell.buttonView.isHidden = item.type != "RR0"
                 
@@ -46,6 +48,12 @@ class NoticeVC: UIViewController, StoryboardView {
                 }
                 
             }.disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.noticeList ?? [] }
+            .subscribe(onNext: { noticeList in
+                self.noResultView.isHidden = !noticeList.isEmpty
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: NoticeReactor) {
