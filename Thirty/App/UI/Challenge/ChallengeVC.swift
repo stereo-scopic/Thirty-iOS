@@ -9,8 +9,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 import ReactorKit
+import Kingfisher
 
 class ChallengeVC: UIViewController, StoryboardView {
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var challengeCategoryLabel: UILabel!
     @IBOutlet weak var challengeTitleLabel: UILabel!
     @IBOutlet weak var challengeCreatedAtLabel: UILabel!
@@ -28,13 +31,13 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var notiButton: UIButton!
     
     @IBOutlet weak var tempExportButton: UIButton!
-    //    @IBOutlet weak var notiButton: UIButton!
     
     typealias Reactor = ChallengeReactor
     var disposeBag = DisposeBag()
     var selectedBucketId: String = ""
     var selectedBucketAnswer = BucketAnswer(stamp: 0)
     var selectedBucketIndex: IndexPath = IndexPath(row: 0, section: 0)
+    var bucketAnswerEnrollFlag: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +51,12 @@ class ChallengeVC: UIViewController, StoryboardView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reactor?.action.onNext(.viewWillAppear)
+        reactor?.action.onNext(.viewWillAppear( selectedBucketIndex.row))
+        
+//        if bucketAnswerEnrollFlag {
+//            self?.reactor?.action.onNext(.selectBucket(self.selectedBucketIndex))
+//            bucketAnswerEnrollFlag = false
+//        }
     }
     
     func bind(reactor: ChallengeReactor) {
@@ -59,6 +67,9 @@ class ChallengeVC: UIViewController, StoryboardView {
     private func bindAction(_ reactor: ChallengeReactor) {
         bucketAnswerEditButton.rx.tap
             .bind {
+//                self.reactor?.action.onNext(.selectBucketAnswer(31))
+                self.bucketAnswerEnrollFlag = true
+                
                 if self.bucketAnswerEditButton.titleLabel?.text == "작성하기" {
                     guard let bucketAnswerEnrollVC = self.storyboard?
                             .instantiateViewController(withIdentifier: "BucketAnswerEnrollVC") as? BucketAnswerEnrollVC else { return }
@@ -73,24 +84,31 @@ class ChallengeVC: UIViewController, StoryboardView {
                                 self?.present(challengeCompleteVC, animated: true, completion: nil)
                             }
                         }).disposed(by: self.disposeBag)
-                    self.navigationController?.pushViewController(bucketAnswerEnrollVC, animated: false)
+                    self.navigationController?.pushViewController(bucketAnswerEnrollVC, animated: true)
                 } else {
                     guard let bucketDetailVC = self.storyboard?
                             .instantiateViewController(withIdentifier: "BucketDetailVC") as? BucketDetailVC else { return }
                     bucketDetailVC.bucketId = self.selectedBucketId
                     bucketDetailVC.bucketAnswer = self.selectedBucketAnswer
-                    self.navigationController?.pushViewController(bucketDetailVC, animated: false)
+                    self.navigationController?.pushViewController(bucketDetailVC, animated: true)
                 }
             }.disposed(by: disposeBag)
         
         notiButton.rx.tap
             .bind {
                 guard let noticeVC = self.storyboard?.instantiateViewController(withIdentifier: "NoticeVC") as? NoticeVC else { return }
-                self.navigationController?.pushViewController(noticeVC, animated: false)
+                self.navigationController?.pushViewController(noticeVC, animated: true)
             }.disposed(by: disposeBag)
         
         tempExportButton.rx.tap
             .bind {
+//                guard let challengeExportVC = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeExportVC") as? ChallengeExportVC else { return }
+//
+//                challengeExportVC.bucketId = self.selectedBucketId
+//                challengeExportVC.modalTransitionStyle = .crossDissolve
+//                challengeExportVC.modalPresentationStyle = .overFullScreen
+//                self.present(challengeExportVC, animated: true, completion: nil)
+                
                 self.tabBarController?.selectedIndex = 1
             }.disposed(by: disposeBag)
     }
@@ -121,7 +139,8 @@ class ChallengeVC: UIViewController, StoryboardView {
                 
                 if let bucketImage = item.image, !bucketImage.isEmpty {
                     if let imageUrl = URL(string: bucketImage) {
-                        cell.bucketAnswerImage.load(url: imageUrl)
+//                        cell.bucketAnswerImage.load(url: imageUrl)
+                        cell.bucketAnswerImage.kf.setImage(with: imageUrl)
                         cell.number.isHidden = true
                     } else {
                         cell.bucketAnswerImage.image = UIImage()
@@ -146,7 +165,7 @@ class ChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { [weak self] bucket in
                 self?.challengeCategoryLabel.text = bucket?.challenge.category?.name
                 self?.challengeTitleLabel.text = bucket?.challenge.title
-                self?.challengeCreatedAtLabel.text = "\(bucket?.created_at?.iSO8601Date().dateToString() ?? "") ~ing"
+                self?.challengeCreatedAtLabel.text = "\(bucket?.created_at?.iSO8601Date().dateToString().dateYYMMDD() ?? "") ~ing"
                 
                 self?.selectedBucketId = bucket?.id ?? ""
             }).disposed(by: disposeBag)
@@ -154,15 +173,29 @@ class ChallengeVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.selectedBucketAnswer }
             .subscribe(onNext: { [weak self] bucketAnswer in
-                guard let _ = bucketAnswer?.mission else { return }
+                guard let mission = bucketAnswer?.mission, !mission.isEmpty else {
+                    self?.bucketAnswerDate.text = ""
+                    self?.bucketAnswerTitle.text = ""
+                    self?.bucketAnswerDetail.text = ""
+                    self?.bucketAnswerUpdatedDate.text = ""
+                    self?.bucketAnswerEditButton.isHidden = true
+                    self?.bucketAnswerImage.image = UIImage()
+                    
+                    // 스크롤 맨 위로
+                    let scrollviewTopOffset = CGPoint(x: 0, y: 0)
+                    self?.scrollView.setContentOffset(scrollviewTopOffset, animated: true)
+                    return
+                }
                 
+                self?.bucketAnswerEditButton.isHidden = false
                 self?.bucketAnswerDate.text = "#\(bucketAnswer?.date ?? 0)"
                 self?.bucketAnswerTitle.text = bucketAnswer?.mission ?? ""
                 self?.bucketAnswerDetail.text = bucketAnswer?.detail
                 self?.bucketAnswerUpdatedDate.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
                 
                 if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
-                    self?.bucketAnswerImage.load(url: bucketImageURL)
+//                    self?.bucketAnswerImage.load(url: bucketImageURL)
+                    self?.bucketAnswerImage.kf.setImage(with: bucketImageURL)
                 } else {
                     self?.bucketAnswerImage.image = nil
                 }
@@ -174,6 +207,9 @@ class ChallengeVC: UIViewController, StoryboardView {
                 } else {
                     self?.bucketAnswerEditButton.setTitle("작성하기", for: .normal)
                 }
+                
+                let scrollviewBottomOffset = CGPoint(x: 0, y: (self?.scrollView.contentSize.height)! - (self?.scrollView.bounds.height)!)
+                self?.scrollView.setContentOffset(scrollviewBottomOffset, animated: true)
             }).disposed(by: disposeBag)
     }
     
@@ -229,6 +265,7 @@ class ThirtyCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         cellWidth.constant = UIScreen.main.bounds.width / 6
+        bucketAnswerImage.image = UIImage()
     }
 }
 

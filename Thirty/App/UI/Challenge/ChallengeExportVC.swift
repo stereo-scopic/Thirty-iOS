@@ -9,6 +9,7 @@ import UIKit
 import ReactorKit
 import RxRelay
 import RxGesture
+import Kingfisher
 
 class ChallengeExportVC: UIViewController, StoryboardView {
     typealias Reactor = ChallengeExportReactor
@@ -38,16 +39,22 @@ class ChallengeExportVC: UIViewController, StoryboardView {
     @IBOutlet weak var colorButton2Up: UIButton!
     @IBOutlet weak var colorButton3Up: UIButton!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var challengeExportcollectionView: UICollectionView!
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reactor = ChallengeExportReactor()
         reactor?.action.onNext(.viewWillAppear(bucketId))
+        self.challengeExportcollectionView.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? ChallengeShareVC {
+            dest.challengeImage = self.frameView.asImage()
+        }
     }
     
     func bind(reactor: ChallengeExportReactor) {
@@ -80,6 +87,43 @@ class ChallengeExportVC: UIViewController, StoryboardView {
                 self.frameImageView.image = self.themeImages[index]
                 self.backgroundView.backgroundColor = self.themeColors[index]
             }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.bucketDetail?.answers ?? [] }
+            .bind(to: challengeExportcollectionView.rx.items(cellIdentifier: ThirtyExportCell.identifier, cellType: ThirtyExportCell.self)) { index, item, cell in
+                
+                cell.number.text = "\(index + 1)"
+                
+                if (index / 6) % 2 == 0 {
+                    cell.view.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.thirtyBlack
+                    cell.number.textColor = index % 2 == 0 ? UIColor.thirtyBlack : UIColor.white
+                } else {
+                    cell.view.backgroundColor = index % 2 == 0 ? UIColor.thirtyBlack : UIColor.gray50
+                    cell.number.textColor = index % 2 == 0 ? UIColor.white : UIColor.thirtyBlack
+                }
+                
+                if let bucketImage = item.image, !bucketImage.isEmpty {
+                    if let imageUrl = URL(string: bucketImage) {
+//                        cell.bucketAnswerImage.load(url: imageUrl)
+                        cell.bucketAnswerImage.kf.setImage(with: imageUrl)
+                        cell.number.isHidden = true
+                    } else {
+                        cell.bucketAnswerImage.image = UIImage()
+                        cell.number.isHidden = false
+                    }
+                } else {
+                    cell.bucketAnswerImage.image = UIImage()
+                    cell.number.isHidden = false
+                    
+                    if let stamp = item.stamp, stamp != 0 {
+                        cell.badgeImage.image = UIImage(named: "badge_trans_\(stamp)")
+                        cell.number.isHidden = true
+                    } else {
+                        cell.badgeImage.image = UIImage()
+                    }
+                }
+                
+            }.disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: ChallengeExportReactor) {
@@ -133,12 +177,29 @@ class ChallengeExportVC: UIViewController, StoryboardView {
             print(error)
         }else {
             print("success")
-//            guard let challengeShareVC = self.storyboard?
-//                    .instantiateViewController(withIdentifier: "ChallengeShareVC") as? ChallengeShareVC else { return }
-//            self.navigationController?.pushViewController(challengeShareVC, animated: false)
-//
+            //            guard let challengeShareVC = self.storyboard?
+            //                    .instantiateViewController(withIdentifier: "ChallengeShareVC") as? ChallengeShareVC else { return }
+            //            self.navigationController?.pushViewController(challengeShareVC, animated: false)
+            //
             self.performSegue(withIdentifier: "goCompletePopup", sender: self)
         }
+    }
+}
+
+extension ChallengeExportVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = (collectionView.bounds.width) / 6
+        let height: CGFloat = (collectionView.bounds.height) / 5
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
@@ -174,4 +235,22 @@ enum ExportTheme: String {
         }
     }
     
+}
+
+class ThirtyExportCell: UICollectionViewCell {
+    @IBOutlet weak var number: UILabel!
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var badgeImage: UIImageView!
+    @IBOutlet weak var bucketAnswerImage: UIImageView!
+    @IBOutlet weak var cellWidth: NSLayoutConstraint!
+    
+    static var identifier = "ThirtyExportCell"
+    
+    override func awakeFromNib() {
+    }
+    
+    override func prepareForReuse() {
+        cellWidth.constant = (UIScreen.main.bounds.width - 53) / 6
+        bucketAnswerImage.image = UIImage()
+    }
 }

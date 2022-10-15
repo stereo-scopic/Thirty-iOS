@@ -29,6 +29,8 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var badgeImageView: UIImageView!
     
     @IBOutlet weak var galleryButton: UIButton!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var bucketId: String = ""
     var bucketAnswer: BucketAnswer = BucketAnswer(stamp: 0)
@@ -93,10 +95,17 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
         
         completeButton.rx.tap
             .bind {
+                self.loadingView.isHidden = false
+                self.loadingIndicator.startAnimating()
+                var bucketAnswerText = ""
+                if self.bucketAnswerTextView.text != self.textViewPlaceHolder {
+                    bucketAnswerText = self.bucketAnswerTextView.text
+                }
+                
                 let bucketAnswer = BucketAnswer(answerid: self.bucketAnswer.answerid,
                                                 music: "",
                                                 date: self.bucketAnswer.date,
-                                                detail: self.bucketAnswerTextView.text,
+                                                detail: bucketAnswerText,
                                                 image: "",
                                                 stamp: self.selectedStamp)
                 
@@ -164,6 +173,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
             .map { $0.enrollStatus }
             .subscribe(onNext: { success in
                 if success {
+                    self.loadingIndicator.stopAnimating()
                     self.navigationController?.popViewController(animated: true)
                 }
             }).disposed(by: disposeBag)
@@ -180,6 +190,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
             .map { $0.bucketCompleted }
             .subscribe(onNext: { completeFlag in
                 if completeFlag {
+                    self.loadingIndicator.stopAnimating()
                     self.navigationController?.popViewController(animated: true)
                 }
             }).disposed(by: disposeBag)

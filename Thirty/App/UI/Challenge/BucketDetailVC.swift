@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import ReactorKit
+import Kingfisher
 
 class BucketDetailVC: UIViewController, StoryboardView {
     @IBOutlet weak var backButton: UIButton!
@@ -96,7 +97,8 @@ class BucketDetailVC: UIViewController, StoryboardView {
                 
                 if let bucketImage = answer?.image, let bucketImageUrl = URL(string: bucketImage) {
                     self.detailImageView.isHidden = false
-                    self.detailImage.load(url: bucketImageUrl)
+//                    self.detailImage.load(url: bucketImageUrl)
+                    self.detailImage.kf.setImage(with: bucketImageUrl)
                 } else {
                     self.detailImageView.isHidden = true
                 }

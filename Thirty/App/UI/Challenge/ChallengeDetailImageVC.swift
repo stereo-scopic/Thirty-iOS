@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ChallengeDetailImageVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -20,7 +21,7 @@ class ChallengeDetailImageVC: UIViewController {
         super.viewDidLoad()
 
         if let imageStringUrl = URL(string: imageString) {
-            imageView.load(url: imageStringUrl)
+            imageView.kf.setImage(with: imageStringUrl)
         }
     }
 }

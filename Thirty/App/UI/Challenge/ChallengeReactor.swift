@@ -12,13 +12,13 @@ class ChallengeReactor: Reactor {
     var initialState: State = State(bucketList: [])
 
     enum Action {
-        case viewWillAppear
+        case viewWillAppear(Int)
         case selectBucket(Bucket?)
         case selectBucketAnswer(Int)
     }
 
     enum Mutation {
-        case getBucketList([Bucket])
+        case getBucketList([Bucket], Int)
         case selectBucketChanged(Bucket)
         case selectBucektDetailChanged(BucketDetail)
         case selectBucketAnswer(Int)
@@ -34,8 +34,8 @@ class ChallengeReactor: Reactor {
 
      func mutate(action: Action) -> Observable<Mutation> {
          switch action {
-         case .viewWillAppear:
-             return requestBucketListRx()
+         case .viewWillAppear(let selectedIndex):
+             return requestBucketListRx(selectedIndex)
          case .selectBucket(let bucket):
              if let bucket = bucket {
                  return Observable.concat([
@@ -53,15 +53,18 @@ class ChallengeReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .getBucketList(let bucketList):
+        case .getBucketList(let bucketList, let selectedIndex):
             newState.bucketList = bucketList
-            newState.selectedBucket = bucketList.first
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.action.onNext(.selectBucket(bucketList.first))
+            if !bucketList.isEmpty {
+                newState.selectedBucket = bucketList[selectedIndex]
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.action.onNext(.selectBucket(bucketList[selectedIndex]))
+                }
             }
+
         case .selectBucketChanged(let bucket):
             newState.selectedBucket = bucket
+            newState.selectedBucketAnswer = BucketAnswer(stamp: 0)
         case .selectBucektDetailChanged(let bucket):
             newState.selectedBucketDetail = bucket
         case .selectBucketAnswer(let index):
@@ -77,7 +80,7 @@ class ChallengeReactor: Reactor {
         return newState
     }
     
-     private func requestBucketListRx() -> Observable<Mutation> {
+    private func requestBucketListRx(_  selectedIndex: Int) -> Observable<Mutation> {
          let response = Observable<Mutation>.create { observer in
              let provider = MoyaProvider<BucketAPI>()
              provider.request(.getBucketList(BucketStatus.WRK.rawValue)) { result in
@@ -87,7 +90,7 @@ class ChallengeReactor: Reactor {
                      print(str)
                      
                      let result = try? response.map([Bucket].self)
-                     observer.onNext(Mutation.getBucketList(result ?? []))
+                     observer.onNext(Mutation.getBucketList(result ?? [], selectedIndex))
                      observer.onCompleted()
                  case let .failure(error):
                      observer.onError(error)
