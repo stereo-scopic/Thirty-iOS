@@ -17,3 +17,7 @@ struct Notice: Codable {
     var message: String?
     var is_read: Bool?
 }
+
+struct NoticeUnreadResponse: Codable {
+    var isLeft: Bool?
+}

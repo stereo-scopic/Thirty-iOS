@@ -11,6 +11,8 @@ enum NoticeAPI {
     case getNotification
     case responseRelation(_ friendId: String, status: ResponseFriedType)
     case getAnnouncement
+    case getUnreadFlag
+    case readAllNotice
 }
 
 extension NoticeAPI: TargetType {
@@ -26,14 +28,18 @@ extension NoticeAPI: TargetType {
             return "/relation/RSVP"
         case .getAnnouncement:
             return "/notice"
+        case .getUnreadFlag:
+            return "/notification/unread"
+        case .readAllNotice:
+            return "/notification"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getNotification, .getAnnouncement:
+        case .getNotification, .getAnnouncement, .getUnreadFlag:
             return .get
-        case .responseRelation:
+        case .responseRelation, .readAllNotice:
             return .post
         }
     }

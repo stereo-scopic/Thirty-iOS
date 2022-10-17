@@ -30,7 +30,10 @@ class NoticeReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .viewWillAppear:
-            return getNoticeList()
+            return Observable.concat([
+                getNoticeList(),
+                readAllNoticeRx()
+            ])
         case .friendAcceptButtonClicked(let friendId):
             return responseToFriendRelation(friendId: friendId, type: ResponseFriedType.confirmed)
         case .friendRefuseButtonClicked(let friendId):
@@ -90,4 +93,21 @@ class NoticeReactor: Reactor {
         return response
     }
     
+    private func readAllNoticeRx() -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<NoticeAPI>()
+            provider.request(.readAllNotice) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
 }
