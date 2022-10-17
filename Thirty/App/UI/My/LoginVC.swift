@@ -52,27 +52,43 @@ class LoginVC: UIViewController, StoryboardView {
             .map { $0.loginFlag }
             .bind { flag in
                 if flag {
-                    self.navigationController?.popViewController(animated: true)
+//                    self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }.disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.loginMessage ?? "" }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: LoginReactor) {
         signUpButton.rx.tap
             .bind {
-                self.performSegue(withIdentifier: "moveSignUp", sender: self)
+//                self.performSegue(withIdentifier: "moveSignUp", sender: self)
+                guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC else { return }
+                signUpVC.modalTransitionStyle = .crossDissolve
+                signUpVC.modalPresentationStyle = .fullScreen
+                self.present(signUpVC, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
         
         findPwdButton.rx.tap
             .bind {
-                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
-                self.navigationController?.pushViewController(findPwdVC, animated: false)
+                guard let sendEmailPopupVC = self.storyboard?.instantiateViewController(withIdentifier: "SendEmailPopupVC") as? SendEmailPopupVC else { return }
+                sendEmailPopupVC.modalTransitionStyle = .crossDissolve
+                sendEmailPopupVC.modalPresentationStyle = .fullScreen
+                self.present(sendEmailPopupVC, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
         
         loginButton.rx.tap
             .bind {
+                self.view.endEditing(true)
                 if let email = self.emailTextField.text,
                    let pwd = self.pwdTextField.text,
                    !email.isEmpty,
@@ -88,22 +104,21 @@ class LoginVC: UIViewController, StoryboardView {
             fatalError()
         }
         
-        signUpVC.signUpSuccessObservable
-            .subscribe(onNext: { flag in
-                if flag {
-                    guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
-                    welcomePopupVC.modalPresentationStyle = .fullScreen
-                    welcomePopupVC.modalTransitionStyle = .crossDissolve
-                    self.present(welcomePopupVC, animated: true, completion: {
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                }
-            })
-            .disposed(by: disposeBag)
+//        signUpVC.signUpSuccessObservable
+//            .subscribe(onNext: { flag in
+//                if flag {
+//                    guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
+//                    welcomePopupVC.modalPresentationStyle = .fullScreen
+//                    welcomePopupVC.modalTransitionStyle = .crossDissolve
+//                    self.present(welcomePopupVC, animated: true, completion: {
+//                        self.navigationController?.popViewController(animated: true)
+//                    })
+//                }
+//            })
+//            .disposed(by: disposeBag)
     }
     
     func setupUI() {
-        
         kakaoLoginButton.rx.tap
             .bind {
                 

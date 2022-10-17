@@ -2394,7 +2394,7 @@
                                     <constraint firstItem="gc7-21-MyB" firstAttribute="centerY" secondItem="IZQ-pq-sOP" secondAttribute="centerY" id="otx-kC-leE"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OtC-QP-DD3">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증코드를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OtC-QP-DD3">
                                 <rect key="frame" x="20" y="153" width="335" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="jdT-2b-yfs"/>
@@ -2441,8 +2441,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="회원가입" id="L5m-Jm-R9S"/>
                     <connections>
+                        <outlet property="backButton" destination="bCh-67-tan" id="1yc-SE-FG4"/>
+                        <outlet property="codeTextField" destination="OtC-QP-DD3" id="96R-fd-Lcv"/>
                         <outlet property="emailTextField" destination="OtC-QP-DD3" id="nxO-RW-dnT"/>
                         <outlet property="signUpButton" destination="znw-8B-dkn" id="5cd-FE-QeY"/>
+                        <outlet property="signUpCompleteButton" destination="znw-8B-dkn" id="Byb-6c-9gZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQv-vX-oGW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

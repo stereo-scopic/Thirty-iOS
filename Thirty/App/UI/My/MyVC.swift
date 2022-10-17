@@ -57,7 +57,10 @@ class MyVC: UIViewController, StoryboardView {
             .bind {
                 guard let loginVC = self.storyboard?
                         .instantiateViewController(withIdentifier: "LoginVC") as? LoginVC else { return }
-                self.navigationController?.pushViewController(loginVC, animated: false)
+                loginVC.modalTransitionStyle = .crossDissolve
+                loginVC.modalPresentationStyle = .fullScreen
+                self.present(loginVC, animated: true, completion: nil)
+//                self.navigationController?.pushViewController(loginVC, animated: false)
             }
             .disposed(by: disposeBag)
         
@@ -79,7 +82,7 @@ class MyVC: UIViewController, StoryboardView {
             .bind {
                 guard let myNoticeVC = self.storyboard?
                         .instantiateViewController(withIdentifier: "MyNoticeVC") as? MyNoticeVC else { return }
-                self.navigationController?.pushViewController(myNoticeVC, animated: false)
+                self.navigationController?.pushViewController(myNoticeVC, animated: true)
             }
             .disposed(by: disposeBag)
         

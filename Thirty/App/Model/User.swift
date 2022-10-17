@@ -55,3 +55,14 @@ struct Friend: Codable {
     var status: String?
     var created_at: String?
 }
+
+struct LoginResponse: Codable {
+    var access_token: String?
+    var statusCode: Int?
+    var message: String?
+}
+
+struct CommonResponse: Codable {
+    var statusCode: Int?
+    var message: String?
+}
