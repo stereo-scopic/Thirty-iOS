@@ -47,7 +47,8 @@ class SignUpVC: UIViewController, StoryboardView {
     typealias Reactor = SignUpReactor
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-        self.popVC(animated: false, completion: nil)
+//        self.popVC(animated: false, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -84,15 +85,30 @@ class SignUpVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.signUpFlag }
             .subscribe(onNext: { flag in
+//                if flag {
+//                    self.dismiss(animated: true, completion: {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//                            self.signUpSuccess.onNext(flag)
+//                        }
+//                    })
+//                }
                 if flag {
-                    self.dismiss(animated: true, completion: {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            self.signUpSuccess.onNext(flag)
-                        }
-                    })
+                    guard let signUpConfirmVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpConfirmVC") as? SignUpConfirmVC else { return }
+                    signUpConfirmVC.modalTransitionStyle = .crossDissolve
+                    signUpConfirmVC.modalPresentationStyle = .fullScreen
+                    signUpConfirmVC.email = self.emailTextField.text
+                    self.present(signUpConfirmVC, animated: true, completion: nil)
                 }
             })
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.signUpMessage ?? "" }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindInput() {

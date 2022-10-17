@@ -13,7 +13,12 @@ class WelcomePopupVC: UIViewController {
     }
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.presentingViewController?
+            .presentingViewController?
+            .presentingViewController?
+            .presentingViewController?
+            .dismiss(animated: false, completion: nil)
     }
     
 }

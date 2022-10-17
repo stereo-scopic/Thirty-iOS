@@ -9,6 +9,7 @@ import Moya
 
 enum AuthAPI {
     case signUp(_ email: String, _ pwd: String, _ nickname: String)
+    case signUpConfirm(_ email: String, _ code: Int)
     case signOut
     case login(_ email: String, _ pwd: String)
     case getProfile
@@ -29,6 +30,8 @@ extension AuthAPI: TargetType {
         switch self {
         case .signUp:
             return "auth/signup"
+        case .signUpConfirm:
+            return "auth/activate"
         case .signOut:
             return "auth/signout"
         case .login:
@@ -44,7 +47,7 @@ extension AuthAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .signUp, .signOut, .login, .requestFriend:
+        case .signUp, .signUpConfirm, .signOut, .login, .requestFriend:
             return .post
         case .getProfile, .findUser, .getFriendList:
             return .get
@@ -63,6 +66,11 @@ extension AuthAPI: TargetType {
                 "email": email,
                 "password": pwd,
                 "nickname": nickname
+            ]
+        case .signUpConfirm(let email, let code):
+            return [
+                "email": email,
+                "code": code
             ]
         case .login(let email, let pwd):
             return [
