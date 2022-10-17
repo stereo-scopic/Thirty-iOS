@@ -46,6 +46,10 @@ struct BucketAnswer: Codable {
     }
 }
 
+struct BucketStatusResponse: Codable {
+    var bucketStatus: String?
+}
+
 enum BucketStatus: String, Codable {
     case none = ""
     /// 진행중

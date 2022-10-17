@@ -18,6 +18,7 @@ enum BucketAPI {
     case enrollBucketAnswer(_ bucketId: String, _ bucketAnswer: BucketAnswer, _ cover_image: UIImage?)
     case getBucketAnswerDetail(_ bucketId: String, _ answerDate: Int)
     case editBucketAnswer(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer, _ coverImage: UIImage?)
+    case stopChallengeByStatus(_ bucketId: String)
 }
 
 extension BucketAPI: TargetType {
@@ -41,6 +42,8 @@ extension BucketAPI: TargetType {
             return "/buckets/\(bucketId)/date/\(answerDate)"
         case .editBucketAnswer(let bucketId, let answerDate, _, _):
             return "/buckets/\(bucketId)/date/\(answerDate)"
+        case .stopChallengeByStatus(let bucketId):
+            return "/buckets/\(bucketId)/status"
         }
     }
     
@@ -50,7 +53,7 @@ extension BucketAPI: TargetType {
             return .post
         case .getBucketList, .getBucketDetail, .getBucketAnswerDetail:
             return .get
-        case .editBucketAnswer:
+        case .editBucketAnswer, .stopChallengeByStatus:
             return .patch
         }
     }
@@ -65,6 +68,10 @@ extension BucketAPI: TargetType {
         case .addCurrent(let challengeId):
             return [
                 "challenge": challengeId
+            ]
+        case .stopChallengeByStatus:
+            return [
+                "status": "ABD"
             ]
 //        case .enrollBucketAnswer(_, let bucketAnswer, _):
 //            return [
@@ -147,7 +154,7 @@ extension BucketAPI: TargetType {
 
     var headers: [String: String]? {
         switch self {
-        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer, .getBucketAnswerDetail, .editBucketAnswer:
+        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer, .getBucketAnswerDetail, .editBucketAnswer, .stopChallengeByStatus:
             return [
                 "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
             ]

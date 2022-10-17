@@ -67,8 +67,10 @@ class BucketAnswerEnrollReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
-                    let result = try? response.map(BucketStatus.self)
-                    observer.onNext(.bucketCompleted(true, result ?? BucketStatus.WRK))
+                    let result = try? response.map(BucketStatusResponse.self)
+                    var bucketStatus = BucketStatus.WRK
+                    if result?.bucketStatus == "CMP" { bucketStatus = BucketStatus.CMP }
+                    observer.onNext(.bucketCompleted(true, bucketStatus))
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onError(error)

@@ -15,6 +15,7 @@ class ChallengeReactor: Reactor {
         case viewWillAppear(Int)
         case selectBucket(Bucket?)
         case selectBucketAnswer(Int)
+        case stopChallenge(String)
     }
 
     enum Mutation {
@@ -22,20 +23,26 @@ class ChallengeReactor: Reactor {
         case selectBucketChanged(Bucket)
         case selectBucektDetailChanged(BucketDetail)
         case selectBucketAnswer(Int)
+        case unreadNoticeFlag(Bool)
+        case stopChallengeAfter(Bool)
         case empty
     }
 
     struct State {
-        var bucketList: [Bucket]
+        var bucketList: [Bucket]?
         var selectedBucket: Bucket?
         var selectedBucketDetail: BucketDetail?
         var selectedBucketAnswer: BucketAnswer?
+        var unreadNoticeFlag: Bool?
+        var stopChallenge: Bool = false
     }
 
      func mutate(action: Action) -> Observable<Mutation> {
          switch action {
          case .viewWillAppear(let selectedIndex):
-             return requestBucketListRx(selectedIndex)
+             return Observable.concat([
+                requestBucketListRx(selectedIndex)
+             ])
          case .selectBucket(let bucket):
              if let bucket = bucket {
                  return Observable.concat([
@@ -47,6 +54,8 @@ class ChallengeReactor: Reactor {
              }
          case .selectBucketAnswer(let index):
              return Observable.just(.selectBucketAnswer(index))
+         case .stopChallenge(let challegeId):
+             return stopChallengeRx(challegeId)
          }
      }
      
@@ -55,6 +64,7 @@ class ChallengeReactor: Reactor {
         switch mutation {
         case .getBucketList(let bucketList, let selectedIndex):
             newState.bucketList = bucketList
+            newState.stopChallenge = false
             if !bucketList.isEmpty {
                 newState.selectedBucket = bucketList[selectedIndex]
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -73,6 +83,10 @@ class ChallengeReactor: Reactor {
             } else {
                 newState.selectedBucketAnswer = BucketAnswer(answerid: nil, created_at: "아직 답변 전이에요.", updated_at: nil, music: nil, date: index, detail: "", image: nil, stamp: 0)
             }
+        case .unreadNoticeFlag(let isLeft):
+            newState.unreadNoticeFlag = isLeft
+        case .stopChallengeAfter(let bool):
+            newState.stopChallenge = bool
         default:
             return newState
             
@@ -121,4 +135,48 @@ class ChallengeReactor: Reactor {
          }
          return response
      }
+    
+    private func stopChallengeRx(_ bucketId: String) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<BucketAPI>()
+            provider.request(.stopChallengeByStatus(bucketId)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    observer.onNext(Mutation.stopChallengeAfter(true))
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func unreadNotiRx() -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<NoticeAPI>()
+            provider.request(.getUnreadFlag) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    
+                    let result = try? response.map(NoticeUnreadResponse.self)
+                    if let isLeft = result?.isLeft {
+                        observer.onNext(Mutation.unreadNoticeFlag(isLeft))
+                    } else {
+                        observer.onNext(Mutation.unreadNoticeFlag(false))
+                    }
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
  }

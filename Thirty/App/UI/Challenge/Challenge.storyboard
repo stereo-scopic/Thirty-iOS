@@ -327,6 +327,13 @@
                                                 </constraints>
                                                 <state key="normal" image="icon_dot"/>
                                             </button>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noti_red" translatesAutoresizingMaskIntoConstraints="NO" id="EjD-mK-9jL">
+                                                <rect key="frame" x="383" y="8" width="6" height="6"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="6" id="mVA-q6-mqv"/>
+                                                    <constraint firstAttribute="width" constant="6" id="tWr-gj-Hin"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -350,7 +357,9 @@
                                             <constraint firstItem="Ska-4g-x0W" firstAttribute="centerY" secondItem="KwS-5A-neX" secondAttribute="centerY" id="eKW-Ga-xjj"/>
                                             <constraint firstItem="vFr-By-Jh8" firstAttribute="top" secondItem="5EY-tS-b2H" secondAttribute="top" constant="10.5" id="gpw-23-8pe"/>
                                             <constraint firstItem="djH-FE-Bcz" firstAttribute="top" secondItem="792-VI-vla" secondAttribute="bottom" constant="16" id="hEq-cj-2pK"/>
+                                            <constraint firstItem="EjD-mK-9jL" firstAttribute="top" secondItem="5EY-tS-b2H" secondAttribute="top" constant="8" id="keM-35-H6t"/>
                                             <constraint firstAttribute="trailing" secondItem="DXL-aE-GMg" secondAttribute="trailing" constant="20" id="l3o-MG-z7T"/>
+                                            <constraint firstItem="A92-Xa-Pqr" firstAttribute="trailing" secondItem="EjD-mK-9jL" secondAttribute="trailing" constant="9" id="muz-nB-CCf"/>
                                             <constraint firstItem="DXL-aE-GMg" firstAttribute="leading" secondItem="5EY-tS-b2H" secondAttribute="leading" constant="20" id="njD-wA-s4s"/>
                                             <constraint firstItem="c27-Vg-LnV" firstAttribute="top" secondItem="djH-FE-Bcz" secondAttribute="bottom" constant="30" id="pd1-mP-1eE"/>
                                             <constraint firstAttribute="trailing" secondItem="792-VI-vla" secondAttribute="trailing" constant="12" id="qaO-01-vrM"/>
@@ -363,12 +372,57 @@
                                             <constraint firstItem="A92-Xa-Pqr" firstAttribute="top" secondItem="5EY-tS-b2H" secondAttribute="top" id="znP-lq-EuG"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQQ-Ml-guM">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="725"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nochallenge_illust" translatesAutoresizingMaskIntoConstraints="NO" id="2k2-Kq-Ft1">
+                                                <rect key="frame" x="77.5" y="132" width="259" height="238"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="238" id="ElM-5s-NkO"/>
+                                                    <constraint firstAttribute="width" constant="259" id="n9a-kf-yFh"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFK-pb-WWn">
+                                                <rect key="frame" x="130.5" y="388" width="153.5" height="48.5"/>
+                                                <string key="text">챌린지가 없어요! 
+둘러보러 가볼까요?</string>
+                                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
+                                                <color key="textColor" name="THIRTY Black"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxU-BW-hNt">
+                                                <rect key="frame" x="20" y="456.5" width="374" height="52"/>
+                                                <color key="backgroundColor" name="Gray200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="fSX-Ae-CEX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
+                                                <state key="normal" title="다른 챌린지 보러가기">
+                                                    <color key="titleColor" name="Gray700"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="2k2-Kq-Ft1" firstAttribute="centerX" secondItem="yQQ-Ml-guM" secondAttribute="centerX" id="0PE-98-CBm"/>
+                                            <constraint firstItem="YFK-pb-WWn" firstAttribute="centerX" secondItem="yQQ-Ml-guM" secondAttribute="centerX" id="Avl-LO-SW0"/>
+                                            <constraint firstItem="VxU-BW-hNt" firstAttribute="leading" secondItem="yQQ-Ml-guM" secondAttribute="leading" constant="20" symbolic="YES" id="Jjs-9S-N0Q"/>
+                                            <constraint firstItem="YFK-pb-WWn" firstAttribute="top" secondItem="2k2-Kq-Ft1" secondAttribute="bottom" constant="18" id="UMs-Pj-VKl"/>
+                                            <constraint firstItem="VxU-BW-hNt" firstAttribute="top" secondItem="YFK-pb-WWn" secondAttribute="bottom" constant="20" id="XTz-CZ-Zvc"/>
+                                            <constraint firstItem="2k2-Kq-Ft1" firstAttribute="top" secondItem="yQQ-Ml-guM" secondAttribute="top" constant="132" id="jLU-aw-fA5"/>
+                                            <constraint firstAttribute="trailing" secondItem="VxU-BW-hNt" secondAttribute="trailing" constant="20" symbolic="YES" id="rwl-Mj-aoW"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5EY-tS-b2H" firstAttribute="top" secondItem="fiQ-HX-aCf" secondAttribute="top" id="2D9-5m-1IG"/>
+                                    <constraint firstItem="yQQ-Ml-guM" firstAttribute="leading" secondItem="v4q-ne-Liv" secondAttribute="leading" id="4XV-ai-JPf"/>
+                                    <constraint firstItem="yQQ-Ml-guM" firstAttribute="top" secondItem="v4q-ne-Liv" secondAttribute="top" constant="44" id="CeR-RO-8UN"/>
+                                    <constraint firstItem="yQQ-Ml-guM" firstAttribute="trailing" secondItem="v4q-ne-Liv" secondAttribute="trailing" id="HPk-6Q-YpT"/>
                                     <constraint firstItem="5EY-tS-b2H" firstAttribute="width" secondItem="MYQ-qW-fim" secondAttribute="width" id="ITo-rc-M09"/>
                                     <constraint firstItem="5EY-tS-b2H" firstAttribute="leading" secondItem="fiQ-HX-aCf" secondAttribute="leading" id="OpL-76-aM2"/>
                                     <constraint firstItem="fiQ-HX-aCf" firstAttribute="bottom" secondItem="5EY-tS-b2H" secondAttribute="bottom" id="eff-jf-B0K"/>
+                                    <constraint firstItem="v4q-ne-Liv" firstAttribute="bottom" secondItem="yQQ-Ml-guM" secondAttribute="bottom" id="waZ-xo-dx8"/>
                                     <constraint firstItem="fiQ-HX-aCf" firstAttribute="trailing" secondItem="5EY-tS-b2H" secondAttribute="trailing" id="ybj-9D-jie"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="fiQ-HX-aCf"/>
@@ -394,9 +448,13 @@
                         <outlet property="bucketAnswerUpdatedDate" destination="gzx-SH-yYw" id="Lfl-zV-tCs"/>
                         <outlet property="challengeCategoryLabel" destination="OFB-vW-gYp" id="SSa-Lv-5MS"/>
                         <outlet property="challengeCreatedAtLabel" destination="RHV-4K-jvI" id="klA-6Z-7Rj"/>
+                        <outlet property="challengeEditButton" destination="792-VI-vla" id="Ycb-b4-5Le"/>
                         <outlet property="challengeListCollectionView" destination="KwS-5A-neX" id="ea9-bo-V5P"/>
                         <outlet property="challengeTitleLabel" destination="dne-Uv-trm" id="9Ef-Vh-q8s"/>
+                        <outlet property="noChallengeButton" destination="VxU-BW-hNt" id="pAD-PS-CLJ"/>
+                        <outlet property="noChallengeView" destination="yQQ-Ml-guM" id="tte-Bg-wt7"/>
                         <outlet property="notiButton" destination="A92-Xa-Pqr" id="8RQ-id-sWt"/>
+                        <outlet property="notiNotReadImage" destination="EjD-mK-9jL" id="Frs-x1-Fe6"/>
                         <outlet property="scrollView" destination="MYQ-qW-fim" id="dcp-hU-wjg"/>
                         <outlet property="tempExportButton" destination="Ska-4g-x0W" id="KIC-nk-9Fm"/>
                         <outlet property="thirtyCollectionView" destination="djH-FE-Bcz" id="reE-C5-g4W"/>
@@ -1848,6 +1906,8 @@
         <image name="icon_x_black" width="36" height="36"/>
         <image name="kitch_mini" width="56" height="56"/>
         <image name="meyou_mini" width="56" height="56"/>
+        <image name="nochallenge_illust" width="247" height="225"/>
+        <image name="noti_red" width="6" height="6"/>
         <image name="simple_1" width="375" height="419.5"/>
         <image name="simple_color_1" width="28" height="28"/>
         <image name="simple_mini" width="56" height="56"/>

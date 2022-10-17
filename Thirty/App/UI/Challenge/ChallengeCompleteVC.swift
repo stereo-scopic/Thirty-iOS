@@ -19,6 +19,12 @@ class ChallengeCompleteVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let exportVC = segue.destination as? ChallengeExportVC {
+            exportVC.bucketId = bucketId
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

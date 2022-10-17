@@ -17,6 +17,7 @@ class ChallengeVC: UIViewController, StoryboardView {
     @IBOutlet weak var challengeCategoryLabel: UILabel!
     @IBOutlet weak var challengeTitleLabel: UILabel!
     @IBOutlet weak var challengeCreatedAtLabel: UILabel!
+    @IBOutlet weak var challengeEditButton: UIButton!
     
     @IBOutlet weak var challengeListCollectionView: UICollectionView!
     @IBOutlet weak var thirtyCollectionView: UICollectionView!
@@ -29,8 +30,12 @@ class ChallengeVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var bucketAnswerEditButton: UIButton!
     @IBOutlet weak var notiButton: UIButton!
+    @IBOutlet weak var notiNotReadImage: UIImageView!
     
     @IBOutlet weak var tempExportButton: UIButton!
+    
+    @IBOutlet weak var noChallengeView: UIView!
+    @IBOutlet weak var noChallengeButton: UIButton!
     
     typealias Reactor = ChallengeReactor
     var disposeBag = DisposeBag()
@@ -51,12 +56,7 @@ class ChallengeVC: UIViewController, StoryboardView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reactor?.action.onNext(.viewWillAppear( selectedBucketIndex.row))
-        
-//        if bucketAnswerEnrollFlag {
-//            self?.reactor?.action.onNext(.selectBucket(self.selectedBucketIndex))
-//            bucketAnswerEnrollFlag = false
-//        }
+        reactor?.action.onNext(.viewWillAppear(selectedBucketIndex.row))
     }
     
     func bind(reactor: ChallengeReactor) {
@@ -81,6 +81,8 @@ class ChallengeVC: UIViewController, StoryboardView {
                                 guard let challengeCompleteVC = self?.storyboard?
                                         .instantiateViewController(withIdentifier: "ChallengeCompleteVC") as? ChallengeCompleteVC else { return }
                                 challengeCompleteVC.bucketId = self?.selectedBucketId ?? ""
+                                challengeCompleteVC.modalPresentationStyle = .overFullScreen
+                                challengeCompleteVC.modalTransitionStyle = .crossDissolve
                                 self?.present(challengeCompleteVC, animated: true, completion: nil)
                             }
                         }).disposed(by: self.disposeBag)
@@ -102,26 +104,55 @@ class ChallengeVC: UIViewController, StoryboardView {
         
         tempExportButton.rx.tap
             .bind {
-//                guard let challengeExportVC = self.storyboard?.instantiateViewController(withIdentifier: "ChallengeExportVC") as? ChallengeExportVC else { return }
-//
-//                challengeExportVC.bucketId = self.selectedBucketId
-//                challengeExportVC.modalTransitionStyle = .crossDissolve
-//                challengeExportVC.modalPresentationStyle = .overFullScreen
-//                self.present(challengeExportVC, animated: true, completion: nil)
-                
                 self.tabBarController?.selectedIndex = 1
+            }.disposed(by: disposeBag)
+        
+        noChallengeButton.rx.tap
+            .bind {
+                self.tabBarController?.selectedIndex = 1
+            }.disposed(by: disposeBag)
+        
+        challengeEditButton.rx.tap
+            .bind {
+                let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                let deleteAllAction = UIAlertAction(title: "챌린지 포기", style: .default) { _ in
+                    reactor.action.onNext(.stopChallenge(self.selectedBucketId))
+                }
+//                let deleteContentAction = UIAlertAction(title: "챌린지 내용 모두 지우기", style: .default) { _ in
+//
+//                }
+                
+                alertVC.addAction(cancelAction)
+                alertVC.addAction(deleteAllAction)
+//                alertVC.addAction(deleteContentAction)
+                
+                self.present(alertVC, animated: true, completion: nil)
             }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: ChallengeReactor) {
         reactor.state
-            .map { $0.bucketList }
+            .map { $0.bucketList ?? [] }
             .bind(to: challengeListCollectionView.rx.items(cellIdentifier: BucketCell.identifier, cellType: BucketCell.self)) { index, item, cell in
                 cell.titleLabel.text = item.challenge.title
                 
                 cell.backgroundSelectView.backgroundColor = index == self.selectedBucketIndex.row ? UIColor.black : UIColor.white
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.bucketList ?? [] }
+            .subscribe(onNext: { bucketList in
+                self.noChallengeView.isHidden = !bucketList.isEmpty
+                self.scrollView.isScrollEnabled = !bucketList.isEmpty
+                if bucketList.isEmpty {
+                    // 스크롤 맨 위로
+                    let scrollviewTopOffset = CGPoint(x: 0, y: 0)
+                    self.scrollView.setContentOffset(scrollviewTopOffset, animated: true)
+                }
+            }).disposed(by: disposeBag)
         
         reactor.state
             .map { $0.selectedBucketDetail?.answers ?? [] }
@@ -210,6 +241,20 @@ class ChallengeVC: UIViewController, StoryboardView {
                 
                 let scrollviewBottomOffset = CGPoint(x: 0, y: (self?.scrollView.contentSize.height)! - (self?.scrollView.bounds.height)!)
                 self?.scrollView.setContentOffset(scrollviewBottomOffset, animated: true)
+            }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.unreadNoticeFlag ?? false }
+            .subscribe(onNext: { isLeft in
+                self.notiNotReadImage.isHidden = !isLeft
+            }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.stopChallenge }
+            .subscribe(onNext: { flag in
+                if flag {
+                    self.reactor?.action.onNext(.viewWillAppear(0))
+                }
             }).disposed(by: disposeBag)
     }
     
