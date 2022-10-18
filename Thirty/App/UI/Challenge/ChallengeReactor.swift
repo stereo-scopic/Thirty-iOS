@@ -16,6 +16,7 @@ class ChallengeReactor: Reactor {
         case selectBucket(Bucket?)
         case selectBucketAnswer(Int)
         case stopChallenge(String)
+        case initChallenge(String)
     }
 
     enum Mutation {
@@ -25,6 +26,7 @@ class ChallengeReactor: Reactor {
         case selectBucketAnswer(Int)
         case unreadNoticeFlag(Bool)
         case stopChallengeAfter(Bool)
+        case initChallengeAfter(Bool, String?)
         case empty
     }
 
@@ -35,6 +37,8 @@ class ChallengeReactor: Reactor {
         var selectedBucketAnswer: BucketAnswer?
         var unreadNoticeFlag: Bool?
         var stopChallenge: Bool = false
+        var initChallenge: Bool = false
+        var deleteMessage: String = ""
     }
 
      func mutate(action: Action) -> Observable<Mutation> {
@@ -56,6 +60,8 @@ class ChallengeReactor: Reactor {
              return Observable.just(.selectBucketAnswer(index))
          case .stopChallenge(let challegeId):
              return stopChallengeRx(challegeId)
+         case .initChallenge(let challengeId):
+             return initChallengeRx(challengeId)
          }
      }
      
@@ -65,6 +71,8 @@ class ChallengeReactor: Reactor {
         case .getBucketList(let bucketList, let selectedIndex):
             newState.bucketList = bucketList
             newState.stopChallenge = false
+            newState.initChallenge = false
+            newState.deleteMessage = ""
             if !bucketList.isEmpty {
                 newState.selectedBucket = bucketList[selectedIndex]
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -87,6 +95,9 @@ class ChallengeReactor: Reactor {
             newState.unreadNoticeFlag = isLeft
         case .stopChallengeAfter(let bool):
             newState.stopChallenge = bool
+        case .initChallengeAfter(let bool, let message):
+            newState.initChallenge = bool
+            newState.deleteMessage = message ?? ""
         default:
             return newState
             
@@ -145,6 +156,30 @@ class ChallengeReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     observer.onNext(Mutation.stopChallengeAfter(true))
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func initChallengeRx(_ bucketId: String) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<BucketAPI>()
+            provider.request(.initChallenge(bucketId)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    let result = try? response.map(CommonResponse.self)
+                    if let message = result?.message {
+                        observer.onNext(Mutation.initChallengeAfter(true, message))
+                    } else {
+                        observer.onNext(Mutation.initChallengeAfter(false, ""))
+                    }
                     observer.onCompleted()
                 case .failure(let error):
                     observer.onError(error)

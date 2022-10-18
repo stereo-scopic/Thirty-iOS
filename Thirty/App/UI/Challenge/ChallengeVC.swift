@@ -120,13 +120,13 @@ class ChallengeVC: UIViewController, StoryboardView {
                 let deleteAllAction = UIAlertAction(title: "챌린지 포기", style: .default) { _ in
                     reactor.action.onNext(.stopChallenge(self.selectedBucketId))
                 }
-//                let deleteContentAction = UIAlertAction(title: "챌린지 내용 모두 지우기", style: .default) { _ in
-//
-//                }
+                let deleteContentAction = UIAlertAction(title: "챌린지 내용 모두 지우기", style: .default) { _ in
+                    reactor.action.onNext(.initChallenge(self.selectedBucketId))
+                }
                 
                 alertVC.addAction(cancelAction)
                 alertVC.addAction(deleteAllAction)
-//                alertVC.addAction(deleteContentAction)
+                alertVC.addAction(deleteContentAction)
                 
                 self.present(alertVC, animated: true, completion: nil)
             }.disposed(by: disposeBag)
@@ -254,6 +254,22 @@ class ChallengeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { flag in
                 if flag {
                     self.reactor?.action.onNext(.viewWillAppear(0))
+                }
+            }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.initChallenge }
+            .subscribe(onNext: { flag in
+                if flag {
+                    self.reactor?.action.onNext(.viewWillAppear(0))
+                }
+            }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.deleteMessage }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
                 }
             }).disposed(by: disposeBag)
     }

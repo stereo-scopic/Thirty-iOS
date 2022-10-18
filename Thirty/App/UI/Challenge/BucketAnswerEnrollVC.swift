@@ -95,13 +95,18 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
         
         completeButton.rx.tap
             .bind {
-                self.loadingView.isHidden = false
-                self.loadingIndicator.startAnimating()
                 var bucketAnswerText = ""
                 if self.bucketAnswerTextView.text != self.textViewPlaceHolder {
                     bucketAnswerText = self.bucketAnswerTextView.text
                 }
                 
+                if bucketAnswerText.isEmpty && self.selectedStamp == 0 && self.bucketImgView.isHidden {
+                    self.view.showToast(message: "내용 또는 스탬프를 입력해주세요.")
+                    return
+                }
+                
+                self.loadingView.isHidden = false
+                self.loadingIndicator.startAnimating()
                 let bucketAnswer = BucketAnswer(answerid: self.bucketAnswer.answerid,
                                                 music: "",
                                                 date: self.bucketAnswer.date,

@@ -19,6 +19,7 @@ enum BucketAPI {
     case getBucketAnswerDetail(_ bucketId: String, _ answerDate: Int)
     case editBucketAnswer(_ bucketId: String, _ answerDate: Int, _ bucketAnswer: BucketAnswer, _ coverImage: UIImage?)
     case stopChallengeByStatus(_ bucketId: String)
+    case initChallenge(_ bucketId: String)
 }
 
 extension BucketAPI: TargetType {
@@ -34,7 +35,7 @@ extension BucketAPI: TargetType {
             return "/buckets/add/newbie"
         case .addCurrent:
             return "/buckets/add/current"
-        case .getBucketDetail(let bucketId):
+        case .getBucketDetail(let bucketId), .initChallenge(let bucketId):
             return "/buckets/\(bucketId)"
         case .enrollBucketAnswer(let bucketId, _, _):
             return "/buckets/\(bucketId)"
@@ -55,6 +56,8 @@ extension BucketAPI: TargetType {
             return .get
         case .editBucketAnswer, .stopChallengeByStatus:
             return .patch
+        case .initChallenge:
+            return .delete
         }
     }
     
@@ -154,7 +157,7 @@ extension BucketAPI: TargetType {
 
     var headers: [String: String]? {
         switch self {
-        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer, .getBucketAnswerDetail, .editBucketAnswer, .stopChallengeByStatus:
+        case .addCurrent, .getBucketList, .getBucketDetail, .enrollBucketAnswer, .getBucketAnswerDetail, .editBucketAnswer, .stopChallengeByStatus, .initChallenge:
             return [
                 "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
             ]
