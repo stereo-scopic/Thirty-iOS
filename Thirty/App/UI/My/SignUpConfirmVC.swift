@@ -23,6 +23,10 @@ class SignUpConfirmVC: UIViewController, StoryboardView {
         self.reactor = SignUpConfirmReactor()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func bind(reactor: SignUpConfirmReactor) {
         bindAction(reactor)
         bindState(reactor)

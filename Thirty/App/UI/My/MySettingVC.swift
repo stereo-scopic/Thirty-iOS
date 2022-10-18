@@ -20,6 +20,7 @@ class MySettingVC: UIViewController, StoryboardView {
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var withdrawalButton: UIButton!
     
+    @IBOutlet weak var appStoreButton: UIButton!
     @IBOutlet weak var appVersionLabel: UILabel!
     
     var disposeBag = DisposeBag()
@@ -27,7 +28,7 @@ class MySettingVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUI()
         reactor = MySettingReactor()
     }
@@ -105,40 +106,55 @@ class MySettingVC: UIViewController, StoryboardView {
         
         if let dictionary = Bundle.main.infoDictionary,
            let appVersion = dictionary["CFBundleShortVersionString"] as? String {
-            appVersionLabel.text = appVersion
+            appVersionLabel.text = "V \(appVersion)"
         }
+        
+        privateInfoButton.rx.tap
+            .bind {
+                if let url = URL(string: "https://shunnyjang.notion.site/26fd7a95eb4e4151abd4e3e2a93fb55d") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }.disposed(by: disposeBag)
+        
+        appStoreButton.rx.tap
+            .bind {
+                let url = "itms-apps://itunes.apple.com/app/6443761411"
+                if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }.disposed(by: disposeBag)
     }
     
     func setUI() {
-//        termsOfServiceButton.rx.tap
-//            .bind {
-//                guard let myShareSettingVC = self.storyboard?
-//                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
-//                            return
-//                        }
-//                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
-//            }
-//            .disposed(by: disposeBag)
+        //        termsOfServiceButton.rx.tap
+        //            .bind {
+        //                guard let myShareSettingVC = self.storyboard?
+        //                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
+        //                            return
+        //                        }
+        //                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
+        //            }
+        //            .disposed(by: disposeBag)
         
-//        privateInfoButton.rx.tap
-//            .bind {
-//                guard let myShareSettingVC = self.storyboard?
-//                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
-//                            return
-//                        }
-//                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
-//            }
-//            .disposed(by: disposeBag)
+        //        privateInfoButton.rx.tap
+        //            .bind {
+        //
+        //            }
+        //            .disposed(by: disposeBag)
         
-//        openSourceButton.rx.tap
-//            .bind {
-//                guard let myShareSettingVC = self.storyboard?
-//                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
-//                            return
-//                        }
-//                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
-//            }
-//            .disposed(by: disposeBag)
+        //        openSourceButton.rx.tap
+        //            .bind {
+        //                guard let myShareSettingVC = self.storyboard?
+        //                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
+        //                            return
+        //                        }
+        //                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
+        //            }
+        //            .disposed(by: disposeBag)
         
     }
 }

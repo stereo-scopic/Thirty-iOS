@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import ReactorKit
+import MessageUI
 
 class MyVC: UIViewController, StoryboardView {
     @IBOutlet weak var mainView: UIView!
@@ -60,7 +61,7 @@ class MyVC: UIViewController, StoryboardView {
                 loginVC.modalTransitionStyle = .crossDissolve
                 loginVC.modalPresentationStyle = .fullScreen
                 self.present(loginVC, animated: true, completion: nil)
-//                self.navigationController?.pushViewController(loginVC, animated: false)
+                //                self.navigationController?.pushViewController(loginVC, animated: false)
             }
             .disposed(by: disposeBag)
         
@@ -111,6 +112,25 @@ class MyVC: UIViewController, StoryboardView {
         idCopyButton.rx.tap
             .bind {
                 UIPasteboard.general.string = self.idLabel.text
+            }.disposed(by: disposeBag)
+        
+        csButton.rx.tap
+            .bind {
+                // 이메일 사용가능한지 체크하는 if문
+                if MFMailComposeViewController.canSendMail() {
+                    
+                    let compseVC = MFMailComposeViewController()
+                    compseVC.mailComposeDelegate = self
+                    
+                    compseVC.setToRecipients(["thir03ty@gmail.com"])
+                    compseVC.setSubject("써티 사용 의견 보내기")
+//                    compseVC.setMessageBody("메시지컨텐츠", isHTML: false)
+                    
+                    self.present(compseVC, animated: true, completion: nil)
+                    
+                } else {
+                    self.showSendMailErrorAlert()
+                }
             }.disposed(by: disposeBag)
     }
     
@@ -171,5 +191,21 @@ class MyVC: UIViewController, StoryboardView {
         dateChooserAlert.view.addConstraint(height)
         
         present(dateChooserAlert, animated: true, completion: nil)
+    }
+}
+
+extension MyVC: MFMailComposeViewControllerDelegate {
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) {
+            (_) in
+            print("확인")
+        }
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

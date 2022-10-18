@@ -53,8 +53,7 @@ class SignUpReactor: Reactor {
                     print(str)
                     
                     let result = try? response.map(CommonResponse.self)
-                    
-                    if result?.statusCode == 201 {
+                    if response.statusCode == 201 {
                         observer.onNext(Mutation.signUp(true, result?.message))
                     } else {
                         observer.onNext(Mutation.signUp(false, result?.message))

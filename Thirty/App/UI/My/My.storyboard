@@ -375,233 +375,6 @@
             </objects>
             <point key="canvasLocation" x="382.60869565217394" y="146.65178571428569"/>
         </scene>
-        <!--설정-->
-        <scene sceneID="XKp-3L-NcH">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Ngy-qM-T3K" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="71D-2k-tQM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfv-uV-08u">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGV-aF-XA7">
-                                        <rect key="frame" x="170.33333333333334" y="11" width="34.666666666666657" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="ak8-45-VfE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
-                                        <color key="textColor" name="THIRTY Black"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5y-yY-qdo">
-                                        <rect key="frame" x="12" y="0.0" width="44" height="44"/>
-                                        <state key="normal" image="arrow-left"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="jGV-aF-XA7" firstAttribute="centerY" secondItem="Cfv-uV-08u" secondAttribute="centerY" id="7ZB-DL-2O3"/>
-                                    <constraint firstItem="v5y-yY-qdo" firstAttribute="leading" secondItem="Cfv-uV-08u" secondAttribute="leading" constant="12" id="ERE-ch-nEE"/>
-                                    <constraint firstItem="jGV-aF-XA7" firstAttribute="centerX" secondItem="Cfv-uV-08u" secondAttribute="centerX" id="GyJ-5o-shy"/>
-                                    <constraint firstItem="v5y-yY-qdo" firstAttribute="centerY" secondItem="Cfv-uV-08u" secondAttribute="centerY" id="qqS-1Z-6Lb"/>
-                                    <constraint firstAttribute="height" constant="44" id="qtF-AO-j57"/>
-                                </constraints>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pap-Vf-HDV">
-                                <rect key="frame" x="20" y="88" width="335" height="189"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fy-ia-V41">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="GcP-pm-MQ9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="내 정보">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyo-Zj-125">
-                                        <rect key="frame" x="0.0" y="63" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="rcU-nN-U7P"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="알림">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THj-1o-pjK">
-                                        <rect key="frame" x="0.0" y="126" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="Iau-ZP-YGL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="공유범위 설정">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k37-9u-fcg">
-                                <rect key="frame" x="20" y="278" width="335" height="379"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyG-rS-ZL8">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="755-jU-WFa"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="이용약관">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P95-SU-78A">
-                                        <rect key="frame" x="0.0" y="63" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="Sdl-bT-KHU"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="개인정보 처리 방침">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFW-AZ-eCo">
-                                        <rect key="frame" x="0.0" y="126" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="VTY-eD-6cS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="오픈소스 라이센스">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cc-4n-rx6">
-                                        <rect key="frame" x="0.0" y="189" width="335" height="1"/>
-                                        <color key="backgroundColor" name="Gray200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="rBK-bk-a3P"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAk-rI-DId">
-                                        <rect key="frame" x="0.0" y="190" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="UrI-gE-yXp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="앱 평가하기">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-1V-TJ3">
-                                        <rect key="frame" x="0.0" y="253" width="335" height="63"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIc-ED-7sn">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="63"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="63" id="hXO-kf-DXE"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                                <state key="normal" title="버전">
-                                                    <color key="titleColor" name="THIRTY Black"/>
-                                                </state>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V 1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2e-Kw-bXJ">
-                                                <rect key="frame" x="272.33333333333331" y="22.333333333333371" width="62.666666666666686" height="18.333333333333329"/>
-                                                <fontDescription key="fontDescription" name="BlatantBold" family="Blatant" pointSize="20"/>
-                                                <color key="textColor" name="THIRTY Blue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="wIc-ED-7sn" firstAttribute="top" secondItem="VIc-1V-TJ3" secondAttribute="top" id="6Wm-Je-Z2F"/>
-                                            <constraint firstAttribute="height" constant="63" id="Cd8-v6-cRn"/>
-                                            <constraint firstItem="k2e-Kw-bXJ" firstAttribute="centerY" secondItem="VIc-1V-TJ3" secondAttribute="centerY" id="NIG-Tt-vaj"/>
-                                            <constraint firstAttribute="trailing" secondItem="k2e-Kw-bXJ" secondAttribute="trailing" id="Tz5-iB-SCI"/>
-                                            <constraint firstItem="wIc-ED-7sn" firstAttribute="leading" secondItem="VIc-1V-TJ3" secondAttribute="leading" id="l4y-My-aFz"/>
-                                            <constraint firstAttribute="bottom" secondItem="wIc-ED-7sn" secondAttribute="bottom" id="xOX-8g-3Pu"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dds-Ib-LNq">
-                                        <rect key="frame" x="0.0" y="316" width="335" height="63"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="63" id="eeo-6j-HPw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                        <state key="normal" title="로그아웃">
-                                            <color key="titleColor" name="THIRTY Black"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3t-9P-qen">
-                                <rect key="frame" x="20" y="277" width="335" height="1"/>
-                                <color key="backgroundColor" name="Gray200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="ZzG-zu-P3i"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5x-k5-FF4">
-                                <rect key="frame" x="0.0" y="657" width="375" height="6"/>
-                                <color key="backgroundColor" name="Gray200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="6" id="UsV-Gn-s3Z"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jj-pa-VEk">
-                                <rect key="frame" x="20" y="663" width="335" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="w9t-yY-T1F"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
-                                <state key="normal" title="탈퇴하기">
-                                    <color key="titleColor" name="THIRTY Red"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="FMt-bU-vy7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="pap-Vf-HDV" firstAttribute="top" secondItem="FMt-bU-vy7" secondAttribute="top" constant="44" id="2mV-hk-xJO"/>
-                            <constraint firstItem="w5x-k5-FF4" firstAttribute="leading" secondItem="FMt-bU-vy7" secondAttribute="leading" id="4vP-An-JVX"/>
-                            <constraint firstItem="9Jj-pa-VEk" firstAttribute="leading" secondItem="FMt-bU-vy7" secondAttribute="leading" constant="20" id="6sB-F3-yiq"/>
-                            <constraint firstAttribute="trailing" secondItem="v3t-9P-qen" secondAttribute="trailing" constant="20" id="7li-fn-mGV"/>
-                            <constraint firstItem="FMt-bU-vy7" firstAttribute="trailing" secondItem="k37-9u-fcg" secondAttribute="trailing" constant="20" id="KLx-bu-c8f"/>
-                            <constraint firstItem="FMt-bU-vy7" firstAttribute="trailing" secondItem="Cfv-uV-08u" secondAttribute="trailing" id="Ke5-Tc-lXJ"/>
-                            <constraint firstAttribute="trailing" secondItem="w5x-k5-FF4" secondAttribute="trailing" id="Lpd-Vb-nDm"/>
-                            <constraint firstItem="w5x-k5-FF4" firstAttribute="top" secondItem="k37-9u-fcg" secondAttribute="bottom" id="Se1-Qq-BNq"/>
-                            <constraint firstItem="v3t-9P-qen" firstAttribute="leading" secondItem="71D-2k-tQM" secondAttribute="leading" constant="20" id="VLn-p9-rbe"/>
-                            <constraint firstItem="pap-Vf-HDV" firstAttribute="leading" secondItem="FMt-bU-vy7" secondAttribute="leading" constant="20" id="cmB-MM-7DQ"/>
-                            <constraint firstItem="FMt-bU-vy7" firstAttribute="trailing" secondItem="pap-Vf-HDV" secondAttribute="trailing" constant="20" id="dkk-HT-ziE"/>
-                            <constraint firstItem="9Jj-pa-VEk" firstAttribute="top" secondItem="w5x-k5-FF4" secondAttribute="bottom" id="ezT-CL-lIA"/>
-                            <constraint firstItem="Cfv-uV-08u" firstAttribute="top" secondItem="FMt-bU-vy7" secondAttribute="top" id="iGh-dI-LfU"/>
-                            <constraint firstItem="k37-9u-fcg" firstAttribute="leading" secondItem="FMt-bU-vy7" secondAttribute="leading" constant="20" id="iMN-AF-UIV"/>
-                            <constraint firstItem="k37-9u-fcg" firstAttribute="top" secondItem="v3t-9P-qen" secondAttribute="bottom" id="jxX-Aw-83M"/>
-                            <constraint firstItem="Cfv-uV-08u" firstAttribute="leading" secondItem="FMt-bU-vy7" secondAttribute="leading" id="pL3-VL-X6K"/>
-                            <constraint firstItem="FMt-bU-vy7" firstAttribute="trailing" secondItem="9Jj-pa-VEk" secondAttribute="trailing" constant="20" id="vzQ-ZV-YAa"/>
-                            <constraint firstItem="v3t-9P-qen" firstAttribute="top" secondItem="pap-Vf-HDV" secondAttribute="bottom" id="ypf-W2-gtW"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="설정" id="F7r-wN-O4t"/>
-                    <connections>
-                        <outlet property="appVersionLabel" destination="k2e-Kw-bXJ" id="dx6-Om-lSh"/>
-                        <outlet property="backButton" destination="v5y-yY-qdo" id="ivg-2t-Kon"/>
-                        <outlet property="logoutButton" destination="dds-Ib-LNq" id="Vra-D1-LjB"/>
-                        <outlet property="myInfoButton" destination="7fy-ia-V41" id="Una-96-fhc"/>
-                        <outlet property="myShareButton" destination="THj-1o-pjK" id="Tu1-fh-EH3"/>
-                        <outlet property="noticeButton" destination="tyo-Zj-125" id="FI0-TI-jo6"/>
-                        <outlet property="openSourceButton" destination="KFW-AZ-eCo" id="p7M-cN-xLr"/>
-                        <outlet property="privateInfoButton" destination="P95-SU-78A" id="XYC-BG-hxq"/>
-                        <outlet property="termsOfServiceButton" destination="nyG-rS-ZL8" id="sHV-QP-vBA"/>
-                        <outlet property="withdrawalButton" destination="9Jj-pa-VEk" id="8gR-GY-Nbq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tfH-MJ-O1Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1159" y="147"/>
-        </scene>
         <!--내 정보-->
         <scene sceneID="BtO-jC-EHF">
             <objects>
@@ -2380,9 +2153,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCh-67-tan">
                                         <rect key="frame" x="12" y="0.0" width="44" height="44"/>
                                         <state key="normal" image="arrow-left"/>
-                                        <connections>
-                                            <action selector="backButtonTouchUpInside:" destination="ITj-6n-lf7" eventType="touchUpInside" id="I72-kt-QG7"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2443,9 +2213,7 @@
                     <connections>
                         <outlet property="backButton" destination="bCh-67-tan" id="1yc-SE-FG4"/>
                         <outlet property="codeTextField" destination="OtC-QP-DD3" id="96R-fd-Lcv"/>
-                        <outlet property="emailTextField" destination="OtC-QP-DD3" id="nxO-RW-dnT"/>
-                        <outlet property="signUpButton" destination="znw-8B-dkn" id="5cd-FE-QeY"/>
-                        <outlet property="signUpCompleteButton" destination="znw-8B-dkn" id="Byb-6c-9gZ"/>
+                        <outlet property="signUpCompleteButton" destination="znw-8B-dkn" id="Qba-Mf-GEs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQv-vX-oGW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2690,6 +2458,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="설정" id="2ke-cG-qrR"/>
                     <connections>
+                        <outlet property="appStoreButton" destination="jop-pt-zu4" id="v1R-CQ-xLw"/>
                         <outlet property="appVersionLabel" destination="XAI-9X-1QT" id="KOs-aC-JjD"/>
                         <outlet property="backButton" destination="FHk-7m-wN1" id="8jw-3Q-1m5"/>
                         <outlet property="logoutButton" destination="Vlh-d1-3G6" id="Kzg-7l-qNo"/>
@@ -2704,7 +2473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfJ-G4-gz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.9710144927537" y="-548.4375"/>
+            <point key="canvasLocation" x="1158" y="146"/>
         </scene>
     </scenes>
     <resources>

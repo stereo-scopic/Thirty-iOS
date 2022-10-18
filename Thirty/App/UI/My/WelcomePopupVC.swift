@@ -17,7 +17,6 @@ class WelcomePopupVC: UIViewController {
         self.presentingViewController?
             .presentingViewController?
             .presentingViewController?
-            .presentingViewController?
             .dismiss(animated: false, completion: nil)
     }
     
