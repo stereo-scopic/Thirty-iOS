@@ -20,7 +20,7 @@ class ExploreListVC: UIViewController, StoryboardView {
     var selectedTheme = ""
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
-        self.popVC(animated: false, completion: nil)
+        self.popVC(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -63,11 +63,23 @@ class ExploreListVC: UIViewController, StoryboardView {
             .bind(to: exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier, cellType: ExploreListCell.self)) { _, item, cell in
                 cell.titleLabel.text = item.title
                 cell.descriptionLabel.text = item.description
+                cell.addButtonClicked = { bool in
+//                    cell.addButton.isSelected = bool
+                    reactor.action.onNext(.addChallenge(item.id ?? 0))
+                }
                 
                 let imageUrl = URL(string: item.thumbnail ?? "")
                 cell.img.kf.setImage(with: imageUrl!)
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.addChallengeMessage }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -76,10 +88,14 @@ class ExploreListCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    var addButtonClicked: ((Bool) -> Void)?
     
     static var identifier = "ExploreListCell"
     
-    @IBAction func addButtonTouchUpInside(_ sender: Any) {
-        self.addButton.isSelected = !self.addButton.isSelected
+    @IBAction func addButtonTouchUpInside(_ sender: UIButton) {
+        self.addButton.isSelected = !sender.isSelected
+        if let handler = addButtonClicked {
+            handler(self.addButton.isSelected)
+        }
     }
 }

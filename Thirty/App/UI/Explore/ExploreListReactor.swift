@@ -12,16 +12,18 @@ import RxRelay
 
 class ExploreListReactor: Reactor {
     enum Action {
-//        case viewWillAppear
         case setChallengeByTheme(String)
+        case addChallenge(Int)
     }
     
     enum Mutation {
         case setChallengeList([Challenge])
+        case addChallenge(String)
     }
     
     struct State {
         var challengeList: [Challenge] = []
+        var addChallengeMessage = ""
     }
     
     var challengeObservable = BehaviorRelay<[Challenge]>(value: [])
@@ -35,6 +37,8 @@ class ExploreListReactor: Reactor {
         switch action {
         case .setChallengeByTheme(let challengeTheme):
             return requestChallengeListRx(challengeTheme)
+        case .addChallenge(let challengeId):
+            return addBucketRx(challengeId)
         }
     }
     
@@ -44,6 +48,8 @@ class ExploreListReactor: Reactor {
         switch mutation {
         case .setChallengeList(let challengeList):
             newState.challengeList = challengeList
+        case .addChallenge(let message):
+            newState.addChallengeMessage = message
         }
         return newState
     }
@@ -58,6 +64,26 @@ class ExploreListReactor: Reactor {
                     print(str)
                     let result = try? response.map([Challenge].self)
                     observer.onNext(Mutation.setChallengeList(result ?? []))
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func addBucketRx(_ challengeId: Int) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<BucketAPI>()
+            provider.request(.addCurrent(challengeId)) { result in
+                switch result {
+                case let .success(response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    let result = try? response.map(CommonResponse.self)
+                    observer.onNext(Mutation.addChallenge(result?.message ?? ""))
                     observer.onCompleted()
                 case let .failure(error):
                     observer.onError(error)
