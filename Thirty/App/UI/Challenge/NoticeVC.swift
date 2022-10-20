@@ -38,11 +38,11 @@ class NoticeVC: UIViewController, StoryboardView {
                 cell.nameLabel.text = item.relatedUserNickname
                 cell.descriptionLabel.text = item.message
                 cell.buttonView.isHidden = item.type != "RR0"
-                
+                cell.selectionStyle = .none
                 cell.acceptFriendHandler = {
                     reactor.action.onNext(.friendAcceptButtonClicked(item.relatedUserId ?? ""))
                 }
-                
+
                 cell.refuseFriendHandler = {
                     reactor.action.onNext(.friendRefuseButtonClicked(item.relatedUserId ?? ""))
                 }
@@ -54,6 +54,14 @@ class NoticeVC: UIViewController, StoryboardView {
             .subscribe(onNext: { noticeList in
                 self.noResultView.isHidden = !noticeList.isEmpty
             }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.friendResponseSuccess ?? false }
+            .subscribe(onNext: { flag in
+                if flag {
+                    reactor.action.onNext(.viewWillAppear)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: NoticeReactor) {
@@ -64,22 +72,15 @@ class NoticeVC: UIViewController, StoryboardView {
 class NoticeCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var refuseButton: UIButton!
-    @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var buttonView: UIView!
     
     var acceptFriendHandler: (() -> Void)?
     var refuseFriendHandler: (() -> Void)?
     
-    @IBAction func acceptButtonTouchUpInside(_ sender: Any) {
-        if let handler = acceptFriendHandler { handler() }
-    }
-    
-    @IBAction func refuseButtonTouchUpInside(_ sender: Any) {
+    @IBAction func clickAction(_ sender: Any) {
         if let handler = refuseFriendHandler { handler() }
     }
-    
-    override func prepareForReuse() {
-        
+    @IBAction func clickAction2(_ sender: Any) {
+        if let handler = acceptFriendHandler { handler() }
     }
 }
