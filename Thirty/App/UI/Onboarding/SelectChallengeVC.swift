@@ -23,6 +23,11 @@ class SelectChallengeVC: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reactor = SelectChallengeReactor()
+        collectionView.collectionViewLayout = CollectionViewLeftAlignFlowLayout()
+        
+        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

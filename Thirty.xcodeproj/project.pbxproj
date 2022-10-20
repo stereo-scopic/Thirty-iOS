@@ -37,6 +37,7 @@
 		757D66C92874FEDF00E3C5DE /* SelectChallengeThemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D66C82874FEDF00E3C5DE /* SelectChallengeThemeVC.swift */; };
 		757D66CB2874FEFB00E3C5DE /* SelectChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D66CA2874FEFB00E3C5DE /* SelectChallengeVC.swift */; };
 		757D66CD2875048900E3C5DE /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D66CC2875048900E3C5DE /* WelcomeVC.swift */; };
+		758B0F092900C47800FEDBEF /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */; };
 		758B9FD628B83DF0001A40B5 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD528B83DF0001A40B5 /* Mission.swift */; };
 		758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */; };
 		759A93E028F841AE007731E2 /* MyBadgeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */; };
@@ -155,6 +156,7 @@
 		757D66C82874FEDF00E3C5DE /* SelectChallengeThemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeThemeVC.swift; sourceTree = "<group>"; };
 		757D66CA2874FEFB00E3C5DE /* SelectChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectChallengeVC.swift; path = Thirty/App/UI/Onboarding/SelectChallengeVC.swift; sourceTree = SOURCE_ROOT; };
 		757D66CC2875048900E3C5DE /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		758B9FD528B83DF0001A40B5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailReactor.swift; sourceTree = "<group>"; };
 		759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeDetailVC.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 				75A7741828DD2BAA00B7775C /* String+Extension.swift */,
 				75A7741A28DD2C5000B7775C /* Date+Extension.swift */,
 				75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */,
+				758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				7504D90928F70E0D0033A27F /* MyNoticeReactor.swift in Sources */,
 				75E58EC727FE5E7500A87E73 /* BaseAPI.swift in Sources */,
 				75D4EF932810D346001E531D /* ChallengeService.swift in Sources */,
+				758B0F092900C47800FEDBEF /* UICollectionView+Extension.swift in Sources */,
 				753B0789286BC7E700B62F35 /* CommunityVC.swift in Sources */,
 				75FB568D28E3BEE0004BB16A /* BucketDetailVC.swift in Sources */,
 				F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */,
