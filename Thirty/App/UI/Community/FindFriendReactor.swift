@@ -18,10 +18,12 @@ class FindFriendReactor: Reactor {
     
     enum Mutation {
         case getUserResult(User)
+        case requestFriendResponse(String)
     }
     
     struct State {
         var resultUsers: User?
+        var responseMessage: String?
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -38,6 +40,8 @@ class FindFriendReactor: Reactor {
         switch mutation {
         case .getUserResult(let user):
             newState.resultUsers = user
+        case .requestFriendResponse(let message):
+            newState.responseMessage = message
         }
         return newState
     }
@@ -72,6 +76,8 @@ class FindFriendReactor: Reactor {
                 case .success(let response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
+                    let result = try? response.map(CommonResponse.self)
+                    observer.onNext(Mutation.requestFriendResponse(result?.message ?? "친구 신청이 완료되었습니다."))
                     observer.onCompleted()
                 case .failure(let error):
                     print(error)

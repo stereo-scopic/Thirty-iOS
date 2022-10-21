@@ -380,7 +380,7 @@
             <objects>
                 <viewController storyboardIdentifier="CommunityFriendVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8AI-Hq-bEc" customClass="CommunityFriendVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hng-kk-AJD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="673.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-S6-bea">
@@ -609,7 +609,7 @@
             <objects>
                 <viewController storyboardIdentifier="CommunityAllVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BOJ-sT-Mh2" customClass="CommunityAllVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6X8-sE-uqY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="673.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bR-dL-KIx">
