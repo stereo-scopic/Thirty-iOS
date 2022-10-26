@@ -1234,7 +1234,7 @@
                                     <constraint firstItem="5uA-Wd-bGr" firstAttribute="centerY" secondItem="ynD-Ww-ZKY" secondAttribute="centerY" id="plk-9M-uFC"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aLy-0k-Fuo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aLy-0k-Fuo">
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -1265,45 +1265,50 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSp-ej-NlN">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asJ-wh-CRU">
                                                             <rect key="frame" x="0.0" y="62" width="128" height="30"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EI9-1W-iKn">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09H-0N-Mbw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
-                                                                    <color key="backgroundColor" name="Gray200"/>
+                                                                    <color key="backgroundColor" name="Gray100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="0VM-Lu-hRh"/>
-                                                                        <constraint firstAttribute="height" constant="30" id="o5C-Gx-Cb9"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="Hkv-JD-WZq"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="거절">
-                                                                        <color key="titleColor" name="Gray700"/>
-                                                                    </state>
+                                                                    <color key="tintColor" name="Gray700"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="거절">
+                                                                        <fontDescription key="titleFontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                                                    </buttonConfiguration>
                                                                     <connections>
-                                                                        <action selector="refuseButtonTouchUpInside:" destination="PSq-ju-OPw" eventType="touchUpInside" id="ZXM-ih-CNL"/>
+                                                                        <action selector="clickAction:" destination="PSq-ju-OPw" eventType="touchUpInside" id="iyz-cS-ra8"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-bX-ioY">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9f-oK-wqN">
                                                                     <rect key="frame" x="68" y="0.0" width="60" height="30"/>
                                                                     <color key="backgroundColor" name="THIRTY Black"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="Sb6-X4-7iB"/>
-                                                                        <constraint firstAttribute="height" constant="30" id="e5b-57-4fW"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="KIY-yw-Tzp"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="수락">
-                                                                        <color key="titleColor" name="THIRTY White"/>
-                                                                    </state>
+                                                                    <color key="tintColor" name="THIRTY White"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="수락">
+                                                                        <fontDescription key="titleFontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                                                                    </buttonConfiguration>
                                                                     <connections>
-                                                                        <action selector="acceptButtonTouchUpInside:" destination="PSq-ju-OPw" eventType="touchUpInside" id="scC-oi-iZi"/>
+                                                                        <action selector="clickAction2:" destination="PSq-ju-OPw" eventType="touchUpInside" id="06g-ym-NNb"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="8y5-Wm-Bp3"/>
-                                                                <constraint firstItem="EI9-1W-iKn" firstAttribute="leading" secondItem="BSp-ej-NlN" secondAttribute="leadingMargin" id="Pnv-aU-TXj"/>
-                                                                <constraint firstItem="zlv-bX-ioY" firstAttribute="centerY" secondItem="EI9-1W-iKn" secondAttribute="centerY" id="cgH-fo-Bdv"/>
-                                                                <constraint firstItem="EI9-1W-iKn" firstAttribute="bottom" secondItem="BSp-ej-NlN" secondAttribute="bottomMargin" id="tod-Sj-Xgw"/>
-                                                                <constraint firstItem="zlv-bX-ioY" firstAttribute="leading" secondItem="EI9-1W-iKn" secondAttribute="trailing" constant="8" id="u0q-SY-apZ"/>
+                                                                <constraint firstItem="R9f-oK-wqN" firstAttribute="top" secondItem="asJ-wh-CRU" secondAttribute="top" id="3d2-LP-eMc"/>
+                                                                <constraint firstItem="09H-0N-Mbw" firstAttribute="leading" secondItem="asJ-wh-CRU" secondAttribute="leading" id="I0U-cY-0lz"/>
+                                                                <constraint firstAttribute="bottom" secondItem="R9f-oK-wqN" secondAttribute="bottom" id="Ktf-Vc-LhS"/>
+                                                                <constraint firstAttribute="bottom" secondItem="09H-0N-Mbw" secondAttribute="bottom" id="YYr-hz-6DJ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="R9f-oK-wqN" secondAttribute="trailing" id="hJ7-iS-odV"/>
+                                                                <constraint firstItem="09H-0N-Mbw" firstAttribute="top" secondItem="asJ-wh-CRU" secondAttribute="top" id="l8Q-R7-kJI"/>
+                                                                <constraint firstAttribute="width" constant="128" id="xGs-Nr-plo"/>
+                                                                <constraint firstAttribute="height" constant="30" id="yts-P1-PlB"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -1317,11 +1322,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="acceptButton" destination="zlv-bX-ioY" id="ktf-0n-GiE"/>
-                                            <outlet property="buttonView" destination="BSp-ej-NlN" id="rMt-j7-QMw"/>
+                                            <outlet property="buttonView" destination="asJ-wh-CRU" id="cSr-pl-C70"/>
                                             <outlet property="descriptionLabel" destination="neB-Rh-qdD" id="CKg-GY-rHN"/>
                                             <outlet property="nameLabel" destination="bR2-Mx-5ME" id="9lL-dV-w5h"/>
-                                            <outlet property="refuseButton" destination="EI9-1W-iKn" id="RM3-fJ-zwf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

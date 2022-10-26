@@ -45,6 +45,7 @@ class NoticeReactor: Reactor {
         var newState = state
         switch mutation {
         case .getNoticeList(let noticeList):
+            newState.friendResponseSuccess = false
             newState.noticeList = noticeList
         case .friendResponse(let bool):
             newState.friendResponseSuccess = bool

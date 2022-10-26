@@ -23,6 +23,8 @@ class SplashVC: UIViewController {
         animationView.contentMode = .scaleAspectFit
         animationView.play()
         animationView.loopMode = .loop
+        
+        UserService.shared.getProfile()
     }
     
     override func viewDidAppear(_ animated: Bool) {

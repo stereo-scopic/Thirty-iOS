@@ -219,8 +219,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qja-sS-cHh">
                                         <rect key="frame" x="64" y="0.0" width="330" height="44"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-fW-ra0">
-                                                <rect key="frame" x="0.0" y="0.0" width="286" height="44"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-fW-ra0">
+                                                <rect key="frame" x="12" y="0.0" width="274" height="44"/>
                                                 <fontDescription key="fontDescription" name="BlatantRegular" family="Blatant" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -233,11 +233,11 @@
                                                 <state key="normal" image="icon_search"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="Gray100"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="28i-9J-oQj" secondAttribute="bottom" id="03m-U6-4tQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Mny-fW-ra0" secondAttribute="trailing" constant="44" id="3Ka-SB-e7m"/>
-                                            <constraint firstItem="Mny-fW-ra0" firstAttribute="leading" secondItem="Qja-sS-cHh" secondAttribute="leading" id="9Ah-Dz-4tF"/>
+                                            <constraint firstItem="Mny-fW-ra0" firstAttribute="leading" secondItem="Qja-sS-cHh" secondAttribute="leading" constant="12" id="9Ah-Dz-4tF"/>
                                             <constraint firstAttribute="trailing" secondItem="28i-9J-oQj" secondAttribute="trailing" id="D26-Yp-oHC"/>
                                             <constraint firstItem="Mny-fW-ra0" firstAttribute="top" secondItem="Qja-sS-cHh" secondAttribute="top" id="DFb-Mh-OZS"/>
                                             <constraint firstAttribute="bottom" secondItem="Mny-fW-ra0" secondAttribute="bottom" id="ctS-Qq-2uP"/>
@@ -380,7 +380,7 @@
             <objects>
                 <viewController storyboardIdentifier="CommunityFriendVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8AI-Hq-bEc" customClass="CommunityFriendVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hng-kk-AJD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="673.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTC-S6-bea">
@@ -609,7 +609,7 @@
             <objects>
                 <viewController storyboardIdentifier="CommunityAllVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BOJ-sT-Mh2" customClass="CommunityAllVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6X8-sE-uqY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="673.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bR-dL-KIx">

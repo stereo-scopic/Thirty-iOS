@@ -55,6 +55,14 @@ class FindFriendVC: UIViewController, StoryboardView {
                     self?.resultView.isHidden = true
                 }
             }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.responseMessage ?? "" }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: FindFriendReactor) {

@@ -42,11 +42,20 @@ class ChangeNicknameVC: UIViewController, StoryboardView {
                 self.changeNicknameButton.backgroundColor = inputValid ? UIColor.thirtyBlack : UIColor.gray300
             })
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.nicknameSuccessMessage }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: ChangeNicknameReactor) {
         changeNicknameButton.rx.tap
             .subscribe(onNext: {
+                self.view.endEditing(true)
                 let nickname = try? self.nicknameInputText.value()
                 reactor.action.onNext(.changeNicknameButtonTapped(nickname ?? ""))
                 UserService.shared.getProfile()

@@ -26,6 +26,12 @@ class CommunityFriendVC: UIViewController, StoryboardView {
     
     override func viewDidAppear(_ animated: Bool) {
         reactor?.action.onNext(.friendCommunityDidAppear)
+        
+        if let email = UserService.shared.myProfile?.email, !email.isEmpty {
+            self.noFriendView.isHidden = true
+        } else {
+            self.noFriendView.isHidden = false
+        }
     }
     
     func bind(reactor: CommunityReactor) {
@@ -63,10 +69,7 @@ class CommunityFriendVC: UIViewController, StoryboardView {
 
             }
             .disposed(by: disposeBag)
-        
-        if let email = UserService.shared.myProfile?.email, !email.isEmpty {
-            self.noFriendView.isHidden = true
-        }
+
     }
     
     private func bindAction(_ reactor: CommunityReactor) {

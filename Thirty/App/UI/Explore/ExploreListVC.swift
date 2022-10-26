@@ -63,8 +63,10 @@ class ExploreListVC: UIViewController, StoryboardView {
             .bind(to: exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier, cellType: ExploreListCell.self)) { _, item, cell in
                 cell.titleLabel.text = item.title
                 cell.descriptionLabel.text = item.description
-                cell.addButtonClicked = { bool in
+                cell.addButton.isSelected = false
+                cell.addButtonClicked = { _ in
 //                    cell.addButton.isSelected = bool
+                    cell.addButton.isSelected = true
                     reactor.action.onNext(.addChallenge(item.id ?? 0))
                 }
                 

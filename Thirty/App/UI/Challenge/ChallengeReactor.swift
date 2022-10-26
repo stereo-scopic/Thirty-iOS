@@ -45,7 +45,8 @@ class ChallengeReactor: Reactor {
          switch action {
          case .viewWillAppear(let selectedIndex):
              return Observable.concat([
-                requestBucketListRx(selectedIndex)
+                requestBucketListRx(selectedIndex),
+                unreadNotiRx()
              ])
          case .selectBucket(let bucket):
              if let bucket = bucket {
