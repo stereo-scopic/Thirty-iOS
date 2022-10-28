@@ -54,6 +54,7 @@ struct Friend: Codable {
     var friendId: String?
     var status: String?
     var created_at: String?
+    var friendNickname: String?
 }
 
 struct LoginResponse: Codable {

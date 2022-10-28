@@ -18,6 +18,7 @@ class ExploreVC2: UIViewController {
     @IBOutlet weak var dietView: UIView!
     @IBOutlet weak var fitnessView: UIView!
     @IBOutlet weak var studyView: UIView!
+    @IBOutlet weak var createExploreButton: UIButton!
     
     let disposeBag = DisposeBag()
     
@@ -97,5 +98,11 @@ class ExploreVC2: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        createExploreButton.rx.tap
+            .bind { [weak self] _ in
+                guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "CreateChallengeVC") as? CreateChallengeVC else { return }
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }.disposed(by: disposeBag)
     }
 }

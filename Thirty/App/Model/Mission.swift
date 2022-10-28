@@ -8,8 +8,15 @@
 import Foundation
 
 struct Mission: Codable {
-    let id: Int?
-    let date: Int?
-    let detail: String?
-    let challengeTitle: String?
+    var id: Int?
+    var date: Int
+    var detail: String?
+    var challengeTitle: String?
+    
+    init(id: Int? = nil, date: Int, detail: String, challengeTitle: String? = nil) {
+        self.id = id
+        self.date = date
+        self.detail = detail
+        self.challengeTitle = challengeTitle
+    }
 }
