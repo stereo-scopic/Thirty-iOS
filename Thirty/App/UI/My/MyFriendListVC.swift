@@ -31,7 +31,7 @@ class MyFriendListVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.friendList ?? [] }
             .bind(to: friendListTableView.rx.items(cellIdentifier: MyFriendCell.identifier, cellType: MyFriendCell.self)) { _, item, cell in
-                cell.friendNicknameLabel.text = item.friendId
+                cell.friendNicknameLabel.text = item.friendNickname
                 cell.deletefriendButton.rx.tap
                     .bind {
                         self.reactor?.action.onNext(.deleteFriend(item.friendId ?? ""))
