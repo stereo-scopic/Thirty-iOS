@@ -34,10 +34,21 @@ class WelcomeVC: UIViewController {
         }
     }
     
-    @IBAction func nextButtonTouchUpInside(_ sender: Any) {
+    @IBAction func guestButtonTouchUpInside(_ sender: Any) {
         let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeThemeVC") as! SelectChallengeThemeVC
         
         self.navigationController?.pushViewController(selectChallengeVC, animated: false)
     }
     
+    @IBAction func loginButtonTouchUpInside(_ sender: Any) {
+        let welcomeLoginVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeLoginVC") as! WelcomeLoginVC
+        
+        self.navigationController?.pushViewController(welcomeLoginVC, animated: false)
+    }
+    
+    @IBAction func signUpButtonTouchUpInside(_ sender: Any) {
+        let welcomeSignUpVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeSignUpVC") as! WelcomeSignUpVC
+        
+        self.navigationController?.pushViewController(welcomeSignUpVC, animated: false)
+    }
 }
