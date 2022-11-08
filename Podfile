@@ -17,4 +17,7 @@ target 'Thirty' do
   pod 'RxGesture'
   pod 'lottie-ios'
   pod 'Kingfisher'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Crashlytics'
 end
