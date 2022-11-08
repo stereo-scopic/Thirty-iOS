@@ -25,7 +25,38 @@ class CreateChallengeReactor: Reactor {
     struct State {
         var enrollMessage: String = ""
 //        var inputMissions = BehaviorRelay<[Mission]>(value: [])
-        var inputMissions: [Mission]
+        var inputMissions: [Mission] = [
+            Mission(date: 0, detail: ""),
+            Mission(date: 1, detail: ""),
+            Mission(date: 2, detail: ""),
+            Mission(date: 3, detail: ""),
+            Mission(date: 4, detail: ""),
+            Mission(date: 5, detail: ""),
+            Mission(date: 6, detail: ""),
+            Mission(date: 7, detail: ""),
+            Mission(date: 8, detail: ""),
+            Mission(date: 9, detail: ""),
+            Mission(date: 10, detail: ""),
+            Mission(date: 11, detail: ""),
+            Mission(date: 12, detail: ""),
+            Mission(date: 13, detail: ""),
+            Mission(date: 14, detail: ""),
+            Mission(date: 15, detail: ""),
+            Mission(date: 16, detail: ""),
+            Mission(date: 17, detail: ""),
+            Mission(date: 18, detail: ""),
+            Mission(date: 19, detail: ""),
+            Mission(date: 20, detail: ""),
+            Mission(date: 21, detail: ""),
+            Mission(date: 22, detail: ""),
+            Mission(date: 23, detail: ""),
+            Mission(date: 24, detail: ""),
+            Mission(date: 25, detail: ""),
+            Mission(date: 26, detail: ""),
+            Mission(date: 27, detail: ""),
+            Mission(date: 28, detail: ""),
+            Mission(date: 29, detail: "")
+        ]
     }
     
     func mutate(action: Action) -> Observable<Mutation> {

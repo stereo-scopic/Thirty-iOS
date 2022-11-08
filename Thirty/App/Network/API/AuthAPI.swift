@@ -9,6 +9,8 @@ import Moya
 
 enum AuthAPI {
     case signUp(_ email: String, _ pwd: String, _ nickname: String)
+    case signUpNewbie(_ email: String, _ pwd: String, _ nickname: String)
+    case signUpNotAuthorized(_ email: String, _ pwd: String, _ nickname: String)
     case signUpConfirm(_ email: String, _ code: Int)
     case signOut
     case login(_ email: String, _ pwd: String)
@@ -28,8 +30,10 @@ extension AuthAPI: TargetType {
     
     var path: String {
         switch self {
-        case .signUp:
+        case .signUp, .signUpNotAuthorized:
             return "auth/signup"
+        case .signUpNewbie:
+            return "auth/signup/newbie"
         case .signUpConfirm:
             return "auth/activate"
         case .signOut:
@@ -47,7 +51,7 @@ extension AuthAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .signUp, .signUpConfirm, .signOut, .login, .requestFriend:
+        case .signUp, .signUpNewbie, .signUpNotAuthorized, .signUpConfirm, .signOut, .login, .requestFriend:
             return .post
         case .getProfile, .findUser, .getFriendList:
             return .get
@@ -61,8 +65,15 @@ extension AuthAPI: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-        case .signUp(let email, let pwd, let nickname):
+        case .signUp(let email, let pwd, let nickname), .signUpNotAuthorized(let email, let pwd, let nickname):
             return [
+                "email": email,
+                "password": pwd,
+                "nickname": nickname
+            ]
+        case .signUpNewbie(let email, let pwd, let nickname):
+            return [
+                "uuid": UUID().uuidString,
                 "email": email,
                 "password": pwd,
                 "nickname": nickname
@@ -111,8 +122,13 @@ extension AuthAPI: TargetType {
     }
     
     var headers: [String: String]? {
-        return [
-            "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
-        ]
+        switch self {
+        case .signUpNotAuthorized:
+            return [:]
+        default:
+            return [
+                "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
+            ]
+        }
     }
 }
