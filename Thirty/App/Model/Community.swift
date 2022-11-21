@@ -22,7 +22,7 @@ struct CommunityChallenge {
 struct CommunityChallenge2: Decodable {
     var answerId: Int?
     var bucketId: Int?
-    var userId: String?
+    var userid: String?
     var usernickname: String?
     var challenge: String?
     var mission: String?

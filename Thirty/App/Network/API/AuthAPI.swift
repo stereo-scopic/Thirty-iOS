@@ -21,6 +21,10 @@ enum AuthAPI {
     case requestFriend(_ userId: String)
     case getFriendList
     case deleteFriend(_ friendId: String)
+    case reportUser(_ targetUserId: String)
+    case blockUser(_ targetUserId: String)
+    case unblockUser(_ targetUserId: String)
+    case getblockUserList
 }
 
 extension AuthAPI: TargetType {
@@ -46,14 +50,22 @@ extension AuthAPI: TargetType {
             return "user/\(userId)"
         case .requestFriend, .getFriendList, .deleteFriend:
             return "/relation"
+        case .reportUser:
+            return "user/report"
+        case .blockUser:
+            return "user/block"
+        case .unblockUser:
+            return "user/unblock"
+        case .getblockUserList:
+            return "block"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp, .signUpNewbie, .signUpNotAuthorized, .signUpConfirm, .signOut, .login, .requestFriend:
+        case .signUp, .signUpNewbie, .signUpNotAuthorized, .signUpConfirm, .signOut, .login, .requestFriend, .reportUser, .blockUser, .unblockUser:
             return .post
-        case .getProfile, .findUser, .getFriendList:
+        case .getProfile, .findUser, .getFriendList, .getblockUserList:
             return .get
         case .changeProfile, .changeVisibility:
             return .patch
@@ -105,6 +117,10 @@ extension AuthAPI: TargetType {
         case .deleteFriend(let friendId):
             return [
                 "friend": friendId
+            ]
+        case .reportUser(let targetUserId), .blockUser(let targetUserId), .unblockUser(let targetUserId):
+            return [
+                "targetUserId": targetUserId
             ]
         default:
             return nil
