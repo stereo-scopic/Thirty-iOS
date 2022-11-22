@@ -57,13 +57,6 @@ class CreateChallengeVC: UIViewController, StoryboardView {
     }
     
     private func bindState(_ reactor: CreateChallengeReactor) {
-//        self.missions
-//            .bind(to: challengeCollectionView.rx.items){ [weak self] collectionView, row, item in
-//                let cell = self?.challengeCollectionView.dequeueReusableCell(withReuseIdentifier: "", for: IndexPath(row: row, section: 0))
-//                
-//                return cell
-//            }.disposed(by: disposeBag)
-        
         reactor.state
             .map { $0.inputMissions }
             .bind(to: challengeCollectionView.rx.items(cellIdentifier: CreateChallengeCell.identifier, cellType: CreateChallengeCell.self)) { _, item, cell in
@@ -145,6 +138,7 @@ extension CreateChallengeVC: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == challengeMissionTextField {
             self.reactor?.action.onNext(.addMissions(self.selectedIndex, textField.text ?? ""))
+            self.challengeMissionTextField.text = ""
         }
     }
 }
