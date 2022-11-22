@@ -88,6 +88,10 @@
 		F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1528EB20FB00B99027 /* NoticeAPI.swift */; };
 		F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */; };
 		F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94CCC2928F46B01002B05F5 /* LoginReactor.swift */; };
+		F96039142915F58100F296DA /* WelcomeLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039132915F58100F296DA /* WelcomeLoginVC.swift */; };
+		F96039162915F66500F296DA /* WelcomeSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039152915F66500F296DA /* WelcomeSignUpVC.swift */; };
+		F96039182915F7D500F296DA /* WelcomeLoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039172915F7D500F296DA /* WelcomeLoginReactor.swift */; };
+		F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039192915F7E100F296DA /* WelcomeSignUpReactor.swift */; };
 		F96EBBB828D5AE2100FECD00 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBB728D5AE2100FECD00 /* KeyChain.swift */; };
 		F96EBBBC28D5B59800FECD00 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBB28D5B59800FECD00 /* TokenManager.swift */; };
 		F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */; };
@@ -123,6 +127,7 @@
 		F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */; };
 		F9DCE45628C6CFE50089E772 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCE45528C6CFE50089E772 /* AuthAPI.swift */; };
 		F9E01FC128CE1A7D00649EC7 /* WelcomePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01FC028CE1A7D00649EC7 /* WelcomePopupVC.swift */; };
+		F9FDDBFC291A88F7004AB780 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9FDDBFB291A88F7004AB780 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +217,10 @@
 		F9377F1528EB20FB00B99027 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
 		F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailReactor.swift; sourceTree = "<group>"; };
 		F94CCC2928F46B01002B05F5 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
+		F96039132915F58100F296DA /* WelcomeLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLoginVC.swift; sourceTree = "<group>"; };
+		F96039152915F66500F296DA /* WelcomeSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSignUpVC.swift; sourceTree = "<group>"; };
+		F96039172915F7D500F296DA /* WelcomeLoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLoginReactor.swift; sourceTree = "<group>"; };
+		F96039192915F7E100F296DA /* WelcomeSignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSignUpReactor.swift; sourceTree = "<group>"; };
 		F96EBBB728D5AE2100FECD00 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		F96EBBBB28D5B59800FECD00 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeReactor.swift; sourceTree = "<group>"; };
@@ -249,6 +258,7 @@
 		F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
 		F9DCE45528C6CFE50089E772 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		F9E01FC028CE1A7D00649EC7 /* WelcomePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePopupVC.swift; sourceTree = "<group>"; };
+		F9FDDBFB291A88F7004AB780 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +312,10 @@
 				757D66CA2874FEFB00E3C5DE /* SelectChallengeVC.swift */,
 				F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */,
 				757D66CC2875048900E3C5DE /* WelcomeVC.swift */,
+				F96039132915F58100F296DA /* WelcomeLoginVC.swift */,
+				F96039152915F66500F296DA /* WelcomeSignUpVC.swift */,
+				F96039172915F7D500F296DA /* WelcomeLoginReactor.swift */,
+				F96039192915F7E100F296DA /* WelcomeSignUpReactor.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -333,6 +347,7 @@
 				759D327B27C8913200A88C02 /* App */,
 				759D326B27C879E900A88C02 /* ViewController.swift */,
 				759D327527C879EA00A88C02 /* Info.plist */,
+				F9FDDBFB291A88F7004AB780 /* GoogleService-Info.plist */,
 			);
 			path = Thirty;
 			sourceTree = "<group>";
@@ -613,6 +628,7 @@
 				7501A4F627E20D3E00EB4EB0 /* Pretendard-Bold.otf in Resources */,
 				759D327127C879EA00A88C02 /* Assets.xcassets in Resources */,
 				759D328127C8933000A88C02 /* My.storyboard in Resources */,
+				F9FDDBFC291A88F7004AB780 /* GoogleService-Info.plist in Resources */,
 				759D328327C8933700A88C02 /* Community.storyboard in Resources */,
 				F913CD9128F3100E001AA913 /* splash_motion.json in Resources */,
 				759D326F27C879E900A88C02 /* Main.storyboard in Resources */,
@@ -695,6 +711,7 @@
 				757D66C92874FEDF00E3C5DE /* SelectChallengeThemeVC.swift in Sources */,
 				F9D9B63628CB4867004AF18D /* User.swift in Sources */,
 				F9D9B63028CB3970004AF18D /* ChangeNicknameVC.swift in Sources */,
+				F96039162915F66500F296DA /* WelcomeSignUpVC.swift in Sources */,
 				75A41CF927E409D2009AD9D0 /* UIViewController+Extension.swift in Sources */,
 				F96EBBC628D5C22700FECD00 /* RewardAPI.swift in Sources */,
 				75A7741D28DD2D0600B7775C /* UIImageView+Extension.swift in Sources */,
@@ -714,6 +731,7 @@
 				75B6B3C128EEF2E10081AA36 /* ChallengeExportReactor.swift in Sources */,
 				75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */,
 				F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */,
+				F96039182915F7D500F296DA /* WelcomeLoginReactor.swift in Sources */,
 				F9DCE45628C6CFE50089E772 /* AuthAPI.swift in Sources */,
 				753B078D286BC82200B62F35 /* CommunityAllVC.swift in Sources */,
 				757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */,
@@ -725,6 +743,7 @@
 				F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
+				F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */,
 				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
 				F96EBBC228D5BDE000FECD00 /* MyBadgeReactor.swift in Sources */,
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
@@ -765,6 +784,7 @@
 				759BE93C28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift in Sources */,
 				F9D3DBEA28EA995000E0C5A7 /* BucketStampPopupVC.swift in Sources */,
 				F92F4A4A28CE2624005CF5AC /* UserService.swift in Sources */,
+				F96039142915F58100F296DA /* WelcomeLoginVC.swift in Sources */,
 				F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */,
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
 				753B078B286BC80200B62F35 /* CommunityFriendVC.swift in Sources */,
@@ -946,7 +966,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -972,7 +992,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

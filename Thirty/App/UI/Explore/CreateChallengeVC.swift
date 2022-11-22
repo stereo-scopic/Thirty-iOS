@@ -41,6 +41,7 @@ class CreateChallengeVC: UIViewController, StoryboardView {
         scrollView.addGestureRecognizer(scrollTapGesture)
         
         self.challengeMissionTextField.delegate = self
+        self.challengeCollectionView.delegate = self
     }
     
     @objc func tapScrollView() {
@@ -116,6 +117,11 @@ class CreateChallengeVC: UIViewController, StoryboardView {
                                 
             }.disposed(by: disposeBag)
         
+        challengeCollectionView.rx.itemSelected
+            .subscribe(onNext: { _ in
+                print("히히")
+            }).disposed(by: disposeBag)
+        
         completeButton.rx.tap
             .bind { [weak self] _ in
                 guard let title = self?.challengeTitleTextField.text, let desc = self?.challengeDescriptionTextField.text,
@@ -140,6 +146,23 @@ extension CreateChallengeVC: UITextFieldDelegate {
             self.reactor?.action.onNext(.addMissions(self.selectedIndex, textField.text ?? ""))
             self.challengeMissionTextField.text = ""
         }
+    }
+}
+
+extension CreateChallengeVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == challengeCollectionView {
+            let width: CGFloat = collectionView.bounds.width / 6
+            let height: CGFloat = 84
+            
+            return CGSize(width: width, height: height)
+        } else {
+            return CGSize(width: 80, height: 60)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
