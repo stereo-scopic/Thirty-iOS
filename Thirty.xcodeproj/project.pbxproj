@@ -28,6 +28,8 @@
 		753B078F286BC84500B62F35 /* FindFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078E286BC84500B62F35 /* FindFriendVC.swift */; };
 		753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB1DA27EB65A300D20579 /* MyInfoVC.swift */; };
 		7562CB35287656960004EC99 /* CreateChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562CB34287656960004EC99 /* CreateChallengeVC.swift */; };
+		75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3C292C506D00706881 /* MyFriendManageVC.swift */; };
+		75771D3F292C51B100706881 /* MyFriendManageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3E292C51B100706881 /* MyFriendManageReactor.swift */; };
 		757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */; };
 		757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96792863E090005CCBA3 /* NoticeVC.swift */; };
 		757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */; };
@@ -153,6 +155,8 @@
 		753B078E286BC84500B62F35 /* FindFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendVC.swift; sourceTree = "<group>"; };
 		753EB1DA27EB65A300D20579 /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
 		7562CB34287656960004EC99 /* CreateChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeVC.swift; sourceTree = "<group>"; };
+		75771D3C292C506D00706881 /* MyFriendManageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageVC.swift; sourceTree = "<group>"; };
+		75771D3E292C51B100706881 /* MyFriendManageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageReactor.swift; sourceTree = "<group>"; };
 		757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailImageVC.swift; sourceTree = "<group>"; };
 		757C96792863E090005CCBA3 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
 		757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCompleteVC.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 				759D328A27C8A45000A88C02 /* ChallengeVC.swift */,
 				F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */,
 				75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */,
+				75771D3E292C51B100706881 /* MyFriendManageReactor.swift */,
 				759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */,
 				75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */,
 				F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */,
@@ -427,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
+				75771D3C292C506D00706881 /* MyFriendManageVC.swift */,
 				759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */,
 				7537B61027E00A9800A66F11 /* MyVC.swift */,
 				F9D9B63328CB472B004AF18D /* MyReactor.swift */,
@@ -708,10 +714,12 @@
 				F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */,
 				759F12E028CFFCD0008D7947 /* MySettingReactor.swift in Sources */,
 				F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */,
+				75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */,
 				757D66C92874FEDF00E3C5DE /* SelectChallengeThemeVC.swift in Sources */,
 				F9D9B63628CB4867004AF18D /* User.swift in Sources */,
 				F9D9B63028CB3970004AF18D /* ChangeNicknameVC.swift in Sources */,
 				F96039162915F66500F296DA /* WelcomeSignUpVC.swift in Sources */,
+				75771D3F292C51B100706881 /* MyFriendManageReactor.swift in Sources */,
 				75A41CF927E409D2009AD9D0 /* UIViewController+Extension.swift in Sources */,
 				F96EBBC628D5C22700FECD00 /* RewardAPI.swift in Sources */,
 				75A7741D28DD2D0600B7775C /* UIImageView+Extension.swift in Sources */,

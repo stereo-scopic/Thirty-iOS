@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGI-hO-5bQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGI-hO-5bQ">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -2544,6 +2544,135 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfJ-G4-gz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1158" y="146"/>
+        </scene>
+        <!--My Friend ManageVC-->
+        <scene sceneID="C2b-Ed-5VM">
+            <objects>
+                <viewController storyboardIdentifier="MyFriendManageVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CzM-b8-zun" customClass="MyFriendManageVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k1W-jG-tKq">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GID-MA-26H">
+                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC8-VY-qGR">
+                                        <rect key="frame" x="12" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="HzY-Fl-FRE"/>
+                                            <constraint firstAttribute="height" constant="44" id="vd8-dT-gDF"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow-left"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구관리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awK-sJ-wOE">
+                                        <rect key="frame" x="160.33333333333334" y="11" width="69.333333333333343" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="qAz-zh-zOJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
+                                        <color key="textColor" name="THIRTY Black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="awK-sJ-wOE" firstAttribute="centerY" secondItem="GID-MA-26H" secondAttribute="centerY" id="9qb-98-NuX"/>
+                                    <constraint firstItem="jC8-VY-qGR" firstAttribute="leading" secondItem="GID-MA-26H" secondAttribute="leading" constant="12" id="N43-EN-Jut"/>
+                                    <constraint firstItem="awK-sJ-wOE" firstAttribute="centerX" secondItem="GID-MA-26H" secondAttribute="centerX" id="SK3-cr-h1S"/>
+                                    <constraint firstAttribute="height" constant="44" id="TU9-Bs-QPn"/>
+                                    <constraint firstItem="jC8-VY-qGR" firstAttribute="centerY" secondItem="GID-MA-26H" secondAttribute="centerY" id="rn5-Ha-87g"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cn6-q3-uea">
+                                <rect key="frame" x="0.0" y="142" width="390" height="668"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriendCell" rowHeight="63" id="Wyq-Q2-snh" customClass="MyFriendCell" customModule="Thirty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wyq-Q2-snh" id="YrS-xp-Ytf">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38k-If-qab">
+                                                    <rect key="frame" x="299" y="17" width="71" height="29"/>
+                                                    <color key="backgroundColor" name="Gray200"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
+                                                    <state key="normal" title="   차단 해제   ">
+                                                        <color key="titleColor" name="Gray700"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cys-0b-JbQ">
+                                                    <rect key="frame" x="20" y="31.666666666666668" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="38k-If-qab" secondAttribute="trailing" id="j61-Yg-QDY"/>
+                                                <constraint firstItem="cys-0b-JbQ" firstAttribute="leading" secondItem="YrS-xp-Ytf" secondAttribute="leadingMargin" id="sNb-g2-5k6"/>
+                                                <constraint firstItem="38k-If-qab" firstAttribute="centerY" secondItem="YrS-xp-Ytf" secondAttribute="centerY" id="sXT-lf-jFE"/>
+                                                <constraint firstItem="cys-0b-JbQ" firstAttribute="centerY" secondItem="YrS-xp-Ytf" secondAttribute="centerY" id="wfh-Rc-0Jm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deletefriendButton" destination="38k-If-qab" id="Ika-If-hfI"/>
+                                            <outlet property="friendNicknameLabel" destination="cys-0b-JbQ" id="zaY-2j-FHN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaX-TK-Vbp">
+                                <rect key="frame" x="21" y="96" width="348" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZv-03-8Xz">
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="54"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="친구목록">
+                                            <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaH-if-6Pl">
+                                        <rect key="frame" x="174" y="0.0" width="174" height="54"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="차단목록">
+                                            <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="c6R-Ro-oVt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h1N-hQ-ZGM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GID-MA-26H" secondAttribute="trailing" id="3wg-k5-nxG"/>
+                            <constraint firstItem="ZaX-TK-Vbp" firstAttribute="top" secondItem="GID-MA-26H" secondAttribute="bottom" constant="8" symbolic="YES" id="Ig1-1A-Pnz"/>
+                            <constraint firstItem="Cn6-q3-uea" firstAttribute="leading" secondItem="h1N-hQ-ZGM" secondAttribute="leading" id="Ly1-ok-TG3"/>
+                            <constraint firstItem="h1N-hQ-ZGM" firstAttribute="trailing" secondItem="Cn6-q3-uea" secondAttribute="trailing" id="Vye-I3-L2J"/>
+                            <constraint firstItem="h1N-hQ-ZGM" firstAttribute="trailing" secondItem="ZaX-TK-Vbp" secondAttribute="trailing" constant="21" id="by4-I0-znX"/>
+                            <constraint firstItem="GID-MA-26H" firstAttribute="top" secondItem="h1N-hQ-ZGM" secondAttribute="top" id="gzr-wu-f9C"/>
+                            <constraint firstItem="ZaX-TK-Vbp" firstAttribute="leading" secondItem="h1N-hQ-ZGM" secondAttribute="leading" constant="21" id="nmo-Sp-Zm9"/>
+                            <constraint firstItem="GID-MA-26H" firstAttribute="leading" secondItem="h1N-hQ-ZGM" secondAttribute="leading" id="qDA-S4-lFt"/>
+                            <constraint firstItem="Cn6-q3-uea" firstAttribute="top" secondItem="GID-MA-26H" secondAttribute="bottom" constant="54" id="udD-nK-GE5"/>
+                            <constraint firstItem="h1N-hQ-ZGM" firstAttribute="bottom" secondItem="Cn6-q3-uea" secondAttribute="bottom" id="vcV-Bk-ILw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dTR-Qi-ndL"/>
+                    <connections>
+                        <outlet property="backButton" destination="jC8-VY-qGR" id="jGb-Kt-A5l"/>
+                        <outlet property="blockListButton" destination="vaH-if-6Pl" id="BeO-bC-Omr"/>
+                        <outlet property="friendListButton" destination="WZv-03-8Xz" id="Lia-oT-Ju2"/>
+                        <outlet property="friendListTableView" destination="Cn6-q3-uea" id="btU-P7-WG3"/>
+                        <outlet property="friendTableView" destination="Cn6-q3-uea" id="nuR-Mp-cbt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHk-ox-L3A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156.9230769230769" y="-548.10426540284357"/>
         </scene>
     </scenes>
     <resources>
