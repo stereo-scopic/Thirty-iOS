@@ -17,7 +17,8 @@ class MyFriendManageReactor: Reactor {
     }
     
     enum Mutation {
-        
+        case getFriendList([Friend])
+        case getBlockUserList([BlockUser])
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -53,14 +54,14 @@ class MyFriendManageReactor: Reactor {
     private func getBlockUserListRx() -> Observable<Mutation> {
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<AuthAPI>()
-            provider.request(.getFriendList) { result in
+            provider.request(.getblockUserList) { result in
                 switch result {
                 case .success(let response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     
                     let result = try? response.map([Friend].self)
-                    observer.onNext(Mutation.getFriendList(result ?? []))
+                    observer.onNext(Mutation.getBlockUserList(result ?? []))
                     observer.onCompleted()
                 case .failure(let error):
                     observer.onError(error)

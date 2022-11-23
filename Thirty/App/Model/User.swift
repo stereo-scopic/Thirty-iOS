@@ -67,3 +67,15 @@ struct CommonResponse: Codable {
     var statusCode: Int?
     var message: String?
 }
+
+struct BlockUser: Codable {
+    var id: Int?
+    var created_at: String?
+    var updated_at: String?
+    var targetUser: TargetUser?
+}
+
+struct TargetUser: Codable {
+    var id: String?
+    var nickname: String?
+}
