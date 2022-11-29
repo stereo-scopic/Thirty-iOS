@@ -79,3 +79,14 @@ struct TargetUser: Codable {
     var id: String?
     var nickname: String?
 }
+
+struct FriendAndBlockUser: Codable {
+    var friendId: String?
+    var status: String?
+    var created_at: String?
+    var friendNickname: String?
+    
+    var id: Int?
+    var updated_at: String?
+    var targetUser: TargetUser?
+}

@@ -52,8 +52,10 @@ class CommunityReactor: Reactor {
         switch mutation {
         case .getAllCommunityList(let allCommunityList):
             newState.allCommunityList = allCommunityList
+            newState.serverMessage = ""
         case .getFriendCommunityList(let friendCommunityList):
             newState.friendCommunityList = friendCommunityList
+            newState.serverMessage = ""
         case .blockUser(let message):
             newState.serverMessage = message
         case .reportUser(let message):

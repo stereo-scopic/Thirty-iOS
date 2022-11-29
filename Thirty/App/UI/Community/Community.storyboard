@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a1r-FG-Zfb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a1r-FG-Zfb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -638,6 +638,9 @@
                                                             <buttonConfiguration key="configuration" style="plain" title="깨찰빵깨찰빵">
                                                                 <fontDescription key="titleFontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="nicknameButtonClicked:" destination="Mgn-vI-eLh" eventType="touchUpInside" id="3E3-eW-alV"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이돌 덕질 챌린지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7x-Of-Oy2">
                                                             <rect key="frame" x="117" y="0.0" width="118.5" height="20"/>
@@ -765,6 +768,7 @@
                                             <outlet property="challengeTitleLabel" destination="C7x-Of-Oy2" id="Gca-SI-KyD"/>
                                             <outlet property="detailLabel" destination="a57-U6-BwE" id="UMS-sk-XCW"/>
                                             <outlet property="moreButton" destination="KIf-oI-tP2" id="5ia-Zj-N6L"/>
+                                            <outlet property="nicknameButton" destination="PR3-dy-rhC" id="GTU-xK-HyO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

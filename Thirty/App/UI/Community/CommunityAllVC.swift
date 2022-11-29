@@ -86,6 +86,14 @@ class CommunityAllVC: UIViewController, StoryboardView {
 
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.serverMessage ?? "" }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: CommunityReactor) {
