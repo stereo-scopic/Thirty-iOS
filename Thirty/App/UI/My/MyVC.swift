@@ -104,7 +104,7 @@ class MyVC: UIViewController, StoryboardView {
         myFriendButton.rx.tap
             .bind {
                 guard let myFriendListVC = self.storyboard?
-                        .instantiateViewController(withIdentifier: "MyFriendListVC") as? MyFriendListVC else { return }
+                        .instantiateViewController(withIdentifier: "MyFriendManageVC") as? MyFriendManageVC else { return }
                 self.navigationController?.pushViewController(myFriendListVC, animated: false)
             }
             .disposed(by: disposeBag)

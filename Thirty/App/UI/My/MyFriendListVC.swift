@@ -30,12 +30,12 @@ class MyFriendListVC: UIViewController, StoryboardView {
     private func bindState(_ reactor: MyFriendListReactor) {
         reactor.state
             .map { $0.friendList ?? [] }
-            .bind(to: friendListTableView.rx.items(cellIdentifier: MyFriendCell.identifier, cellType: MyFriendCell.self)) { _, item, cell in
-                cell.friendNicknameLabel.text = item.friendNickname
-                cell.deletefriendButton.rx.tap
-                    .bind {
-                        self.reactor?.action.onNext(.deleteFriend(item.friendId ?? ""))
-                    }.disposed(by: self.disposeBag)
+            .bind(to: friendListTableView.rx.items(cellIdentifier: MyFriendCell.identifier, cellType: MyFriendCell.self)) { _, _, _ in
+//                cell.friendNicknameLabel.text = item.friendNickname
+//                cell.deletefriendButton.rx.tap
+//                    .bind {
+//                        self.reactor?.action.onNext(.deleteFriend(item.friendId ?? ""))
+//                    }.disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
     }
     
@@ -47,9 +47,9 @@ class MyFriendListVC: UIViewController, StoryboardView {
     }
 }
 
-class MyFriendCell: UITableViewCell {
-    @IBOutlet weak var friendNicknameLabel: UILabel!
-    @IBOutlet weak var deletefriendButton: UIButton!
-    
-    static let identifier = "MyFriendCell"
-}
+// class MyFriendCell: UITableViewCell {
+//    @IBOutlet weak var friendNicknameLabel: UILabel!
+//    @IBOutlet weak var deletefriendButton: UIButton!
+//    
+//    static let identifier = "MyFriendCell"
+// }
