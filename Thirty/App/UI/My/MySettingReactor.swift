@@ -13,11 +13,11 @@ class MySettingReactor: Reactor {
     var initialState: State = State()
     
     enum Action {
-        case signOutTapped
+        case withDrawalTapped
     }
     
     enum Mutation {
-        case signOut
+        case withdrawal
     }
     
     struct State {
@@ -26,18 +26,17 @@ class MySettingReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .signOutTapped:
+        case .withDrawalTapped:
             return requestSignOutRx()
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
         switch mutation {
-        case .signOut:
+        case .withdrawal:
             break
         }
-        return newState
+        return state
     }
     
     private func requestSignOutRx() -> Observable<Mutation> {
@@ -48,8 +47,7 @@ class MySettingReactor: Reactor {
                 case let .success(response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
-//                    let result = try? response.map(<#T##type: Decodable.Protocol##Decodable.Protocol#>)
-                    observer.onNext(Mutation.signOut)
+                    observer.onNext(Mutation.withdrawal)
                     observer.onCompleted()
                 case .failure(let error):
                     observer.onError(error)

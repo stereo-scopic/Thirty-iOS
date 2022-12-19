@@ -29,7 +29,7 @@ struct User: Codable {
     var date_joined: String?
     var updated_at: String?
     var type: String?
-    var visibility: String?
+    var visibility: ShareVisibilityRange?
     var deleted_at: String?
     
     init() {
@@ -40,8 +40,38 @@ struct User: Codable {
         date_joined = ""
         updated_at = ""
         type = ""
-        visibility = ""
+        visibility = .privateRange
         deleted_at = ""
+    }
+}
+
+enum ShareVisibilityRange: String, Codable {
+    case privateRange = "PRIVATE"
+    case friendRange = "FRIEND"
+    case publicRange = "PUBLIC"
+    
+    func visibilityNum() -> Float {
+        switch self {
+        case .privateRange:
+            return 0
+        case .friendRange:
+            return 1
+        case .publicRange:
+            return 2
+        }
+    }
+    
+    func stringByNum(_ value: Float) -> String {
+        switch value {
+        case 0:
+            return ShareVisibilityRange.privateRange.rawValue
+        case 1:
+            return ShareVisibilityRange.friendRange.rawValue
+        case 2:
+            return ShareVisibilityRange.publicRange.rawValue
+        default:
+            return ShareVisibilityRange.privateRange.rawValue
+        }
     }
 }
 

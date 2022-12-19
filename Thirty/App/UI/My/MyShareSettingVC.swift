@@ -30,17 +30,8 @@ class MyShareSettingVC: UIViewController, StoryboardView {
     
     private func bindState(_ reactor: MyShareSettingReactor) {
         let visibilityValue = UserService.shared.myProfile?.visibility
-        
-        switch visibilityValue {
-        case "PRIVATE":
-            slider.value = 0
-        case "FRIEND":
-            slider.value = 1
-        case "PUBLIC":
-            slider.value = 2
-        default:
-            slider.value = 2
-        }
+
+        slider.value = visibilityValue?.visibilityNum() ?? 0
     }
     
     private func bindAction(_ reactor: MyShareSettingReactor) {
@@ -52,11 +43,11 @@ class MyShareSettingVC: UIViewController, StoryboardView {
                 
                 var visibilityString = ""
                 if roundValue == 0 {
-                    visibilityString = "PRIVATE"
+                    visibilityString = ShareVisibilityRange.privateRange.rawValue
                 } else if roundValue == 1 {
-                    visibilityString = "FRIEND"
+                    visibilityString = ShareVisibilityRange.friendRange.rawValue
                 } else if roundValue == 2 {
-                    visibilityString = "PUBLIC"
+                    visibilityString = ShareVisibilityRange.publicRange.rawValue
                 }
                 
                 self.reactor?.action.onNext(.changeVisibility(visibilityString))

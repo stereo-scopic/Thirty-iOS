@@ -85,19 +85,7 @@ class SignUpVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.signUpFlag }
             .subscribe(onNext: { flag in
-//                if flag {
-//                    self.dismiss(animated: true, completion: {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//                            self.signUpSuccess.onNext(flag)
-//                        }
-//                    })
-//                }
                 if flag {
-//                    guard let signUpConfirmVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpConfirmVC") as? SignUpConfirmVC else { return }
-//                    signUpConfirmVC.modalTransitionStyle = .crossDissolve
-//                    signUpConfirmVC.modalPresentationStyle = .fullScreen
-//                    signUpConfirmVC.email = self.emailTextField.text
-//                    self.present(signUpConfirmVC, animated: true, completion: nil)
                     guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
                     welcomePopupVC.modalTransitionStyle = .crossDissolve
                     welcomePopupVC.modalPresentationStyle = .fullScreen

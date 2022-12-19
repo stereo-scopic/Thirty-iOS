@@ -28,18 +28,11 @@ class MySettingVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUI()
         reactor = MySettingReactor()
     }
     
     func bind(reactor: MySettingReactor) {
-        bindState(reactor)
         bindAction(reactor)
-    }
-    
-    private func bindState(_ reactor: MySettingReactor) {
-        
     }
     
     private func bindAction(_ reactor: MySettingReactor) {
@@ -92,7 +85,7 @@ class MySettingVC: UIViewController, StoryboardView {
                 let withDrawalAlert = UIAlertController(title: nil, message: "정말 써티를 떠나시겠어요?", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
                 let okAction = UIAlertAction(title: "탈퇴하기", style: .destructive) { _ in
-                    reactor.action.onNext(.signOutTapped)
+                    reactor.action.onNext(.withDrawalTapped)
                     UserDefaults.standard.set(false, forKey: "launched")
                     
                     self.dismiss(animated: true, completion: nil)
@@ -111,50 +104,17 @@ class MySettingVC: UIViewController, StoryboardView {
         
         privateInfoButton.rx.tap
             .bind {
-                if let url = URL(string: "https://shunnyjang.notion.site/26fd7a95eb4e4151abd4e3e2a93fb55d") {
+                if let url = URL(string: privateInfoPageAddress) {
                     UIApplication.shared.open(url, options: [:])
                 }
             }.disposed(by: disposeBag)
         
         appStoreButton.rx.tap
             .bind {
-                let url = "itms-apps://itunes.apple.com/app/6443761411"
+                let url = appStoreAddress
                 if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }.disposed(by: disposeBag)
-    }
-    
-    func setUI() {
-        //        termsOfServiceButton.rx.tap
-        //            .bind {
-        //                guard let myShareSettingVC = self.storyboard?
-        //                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
-        //                            return
-        //                        }
-        //                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
-        //            }
-        //            .disposed(by: disposeBag)
-        
-        //        privateInfoButton.rx.tap
-        //            .bind {
-        //
-        //            }
-        //            .disposed(by: disposeBag)
-        
-        //        openSourceButton.rx.tap
-        //            .bind {
-        //                guard let myShareSettingVC = self.storyboard?
-        //                        .instantiateViewController(withIdentifier: "MyShareSettingVC") as?  else {
-        //                            return
-        //                        }
-        //                self.navigationController?.pushViewController(myShareSettingVC, animated: false)
-        //            }
-        //            .disposed(by: disposeBag)
-        
     }
 }

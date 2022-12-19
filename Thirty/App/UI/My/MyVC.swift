@@ -61,7 +61,6 @@ class MyVC: UIViewController, StoryboardView {
                 loginVC.modalTransitionStyle = .crossDissolve
                 loginVC.modalPresentationStyle = .fullScreen
                 self.present(loginVC, animated: true, completion: nil)
-                //                self.navigationController?.pushViewController(loginVC, animated: false)
             }
             .disposed(by: disposeBag)
         
@@ -111,21 +110,18 @@ class MyVC: UIViewController, StoryboardView {
         
         idCopyButton.rx.tap
             .bind {
+                self.view.showToast(message: "복사 되었습니다.")
                 UIPasteboard.general.string = self.idLabel.text
             }.disposed(by: disposeBag)
         
         csButton.rx.tap
             .bind {
-                // 이메일 사용가능한지 체크하는 if문
                 if MFMailComposeViewController.canSendMail() {
-                    
                     let compseVC = MFMailComposeViewController()
                     compseVC.mailComposeDelegate = self
                     
                     compseVC.setToRecipients(["thir03ty@gmail.com"])
                     compseVC.setSubject("써티 사용 의견 보내기")
-//                    compseVC.setMessageBody("메시지컨텐츠", isHTML: false)
-                    
                     self.present(compseVC, animated: true, completion: nil)
                     
                 } else {
@@ -161,11 +157,7 @@ class MyVC: UIViewController, StoryboardView {
     @IBAction func timeButtonTouchUpInside(_ sender: Any) {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
-        if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = .wheels
-        } else {
-            
-        }
+        datePicker.preferredDatePickerStyle = .wheels
         datePicker.locale = NSLocale(localeIdentifier: "ko_KR") as Locale
         
         let dateChooserAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -199,7 +191,7 @@ extension MyVC: MFMailComposeViewControllerDelegate {
         let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) {
             (_) in
-            print("확인")
+            
         }
         sendMailErrorAlert.addAction(confirmAction)
         self.present(sendMailErrorAlert, animated: true, completion: nil)
