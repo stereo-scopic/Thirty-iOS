@@ -66,7 +66,6 @@
 		75A7741D28DD2D0600B7775C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */; };
 		75B6B3C128EEF2E10081AA36 /* ChallengeExportReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B6B3C028EEF2E10081AA36 /* ChallengeExportReactor.swift */; };
 		75C3618229095E9500B5C97D /* CreateChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3618129095E9500B5C97D /* CreateChallengeReactor.swift */; };
-		75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C427E300D40022B5D8 /* ExploreVC.swift */; };
 		75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C727E307D50022B5D8 /* ExploreListVC.swift */; };
 		75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */; };
 		75C8C3EA28E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */; };
@@ -103,7 +102,7 @@
 		F96EBBC628D5C22700FECD00 /* RewardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBC528D5C22700FECD00 /* RewardAPI.swift */; };
 		F9727DFF2887F00300E9513B /* FindPwdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727DFE2887F00300E9513B /* FindPwdVC.swift */; };
 		F984DE4D27F1D4C90049EA83 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F984DE4C27F1D4C90049EA83 /* .swiftlint.yml */; };
-		F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC2.swift */; };
+		F98C9AE628C4C225003A25CD /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC.swift */; };
 		F98C9AE828C4CC66003A25CD /* BucketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE728C4CC66003A25CD /* BucketAPI.swift */; };
 		F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE928C4CEC9003A25CD /* Token.swift */; };
 		F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */; };
@@ -196,7 +195,6 @@
 		75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		75B6B3C028EEF2E10081AA36 /* ChallengeExportReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeExportReactor.swift; sourceTree = "<group>"; };
 		75C3618129095E9500B5C97D /* CreateChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeReactor.swift; sourceTree = "<group>"; };
-		75C586C427E300D40022B5D8 /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		75C586C727E307D50022B5D8 /* ExploreListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreListVC.swift; sourceTree = "<group>"; };
 		75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailVC.swift; sourceTree = "<group>"; };
 		75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAnswerEnrollVC.swift; sourceTree = "<group>"; };
@@ -234,7 +232,7 @@
 		F96EBBC528D5C22700FECD00 /* RewardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAPI.swift; sourceTree = "<group>"; };
 		F9727DFE2887F00300E9513B /* FindPwdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwdVC.swift; sourceTree = "<group>"; };
 		F984DE4C27F1D4C90049EA83 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		F98C9AE528C4C225003A25CD /* ExploreVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC2.swift; sourceTree = "<group>"; };
+		F98C9AE528C4C225003A25CD /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		F98C9AE728C4CC66003A25CD /* BucketAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPI.swift; sourceTree = "<group>"; };
 		F98C9AE928C4CEC9003A25CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
@@ -397,8 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				759D328427C8934500A88C02 /* Explore.storyboard */,
-				F98C9AE528C4C225003A25CD /* ExploreVC2.swift */,
-				75C586C427E300D40022B5D8 /* ExploreVC.swift */,
+				F98C9AE528C4C225003A25CD /* ExploreVC.swift */,
 				75E98C40287CEA8A009DBDC2 /* ExploreReactor.swift */,
 				75C586C727E307D50022B5D8 /* ExploreListVC.swift */,
 				75E2AF7C28B2F9D70036DEA5 /* ExploreListReactor.swift */,
@@ -751,7 +748,6 @@
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
 				F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */,
-				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
 				F96EBBC228D5BDE000FECD00 /* MyBadgeReactor.swift in Sources */,
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
 				75E98C43287CEB03009DBDC2 /* Category.swift in Sources */,
@@ -795,7 +791,7 @@
 				F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */,
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
 				753B078B286BC80200B62F35 /* CommunityFriendVC.swift in Sources */,
-				F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */,
+				F98C9AE628C4C225003A25CD /* ExploreVC.swift in Sources */,
 				F9CFD70328FAD8ED0019344B /* SignUpConfirmVC.swift in Sources */,
 				F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */,
 				F9727DFF2887F00300E9513B /* FindPwdVC.swift in Sources */,
