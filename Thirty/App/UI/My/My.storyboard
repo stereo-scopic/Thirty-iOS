@@ -20,6 +20,9 @@
         <array key="Pretendard-Bold.otf">
             <string>Pretendard-Bold</string>
         </array>
+        <array key="Pretendard-Light.otf">
+            <string>Pretendard-Light</string>
+        </array>
         <array key="Pretendard-Medium.otf">
             <string>Pretendard-Medium</string>
         </array>
@@ -344,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqd-ZU-Wf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2804" y="147"/>
+            <point key="canvasLocation" x="3628" y="842"/>
         </scene>
         <!--공유범위 설정-->
         <scene sceneID="413-z0-IFj">
@@ -1475,7 +1478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9U-k2-Ry6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="865"/>
+            <point key="canvasLocation" x="2802" y="146"/>
         </scene>
         <!--로그인-->
         <scene sceneID="uCN-QI-DZS">
@@ -1542,7 +1545,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdB-5I-7fD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="865"/>
+            <point key="canvasLocation" x="4478" y="842"/>
         </scene>
         <!--My BadgeVC-->
         <scene sceneID="IOk-1R-vaT">
@@ -1688,7 +1691,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9z-lh-fpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944.9275362318842" y="1583.7053571428571"/>
+            <point key="canvasLocation" x="1945" y="842"/>
         </scene>
         <!--My Badge DetailVC-->
         <scene sceneID="ae0-ZK-Z6R">
@@ -1764,7 +1767,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hZ-Vv-0pS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2746" y="1584"/>
+            <point key="canvasLocation" x="2802" y="842"/>
         </scene>
         <!--회원가입-->
         <scene sceneID="zl7-MU-m8Y">
@@ -2603,6 +2606,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcb-AS-u0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="366" y="146"/>
+        </scene>
+        <!--Completed Challenge ListVC-->
+        <scene sceneID="g43-He-Vhu">
+            <objects>
+                <viewController storyboardIdentifier="CompletedChallengeListVC" hidesBottomBarWhenPushed="YES" id="mvx-BO-2Lw" customClass="CompletedChallengeListVC" customModule="Thirty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Luv-Hy-a1P">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L23-J7-dIu">
+                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완수한 챌린지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdU-gF-C6v">
+                                        <rect key="frame" x="140.66666666666666" y="11" width="108.66666666666666" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="RXT-sg-nZw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
+                                        <color key="textColor" name="THIRTY Black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-iw-00N">
+                                        <rect key="frame" x="12" y="0.0" width="44" height="44"/>
+                                        <state key="normal" image="arrow-left"/>
+                                        <connections>
+                                            <action selector="backButtonTouchUpInside:" destination="mvx-BO-2Lw" eventType="touchUpInside" id="1t2-jk-0uX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="9mQ-iw-00N" firstAttribute="leading" secondItem="L23-J7-dIu" secondAttribute="leading" constant="12" id="3MP-SQ-QSS"/>
+                                    <constraint firstItem="9mQ-iw-00N" firstAttribute="centerY" secondItem="L23-J7-dIu" secondAttribute="centerY" id="6AJ-Ha-cSd"/>
+                                    <constraint firstItem="EdU-gF-C6v" firstAttribute="centerX" secondItem="L23-J7-dIu" secondAttribute="centerX" id="Rhm-Xf-zdR"/>
+                                    <constraint firstItem="EdU-gF-C6v" firstAttribute="centerY" secondItem="L23-J7-dIu" secondAttribute="centerY" id="Sxp-mK-lHU"/>
+                                    <constraint firstAttribute="height" constant="44" id="qte-i2-ybB"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rcb-dV-yk1">
+                                <rect key="frame" x="20" y="88" width="350" height="742"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g9Y-LD-Pbk">
+                                    <size key="itemSize" width="218" height="255"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompletedChallengeCell" id="FBZ-Xt-Nzc" customClass="CompletedChallengeCell" customModule="Thirty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="229"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4dd-5k-G5b">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="229"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="klt-Ma-kiS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="160" id="NSY-we-4if"/>
+                                                        <constraint firstAttribute="height" constant="160" id="mNc-Nq-e8H"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="챌린지명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eah-zx-zoE">
+                                                    <rect key="frame" x="0.0" y="172" width="160" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
+                                                    <color key="textColor" name="THIRTY Black"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최애의 모든 것을 따라하고 싶어.. 손민수 해보자!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHF-Tg-zWc">
+                                                    <rect key="frame" x="0.0" y="191" width="160" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="38" id="2Jf-3B-71y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="14"/>
+                                                    <color key="textColor" name="Gray500"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="IHF-Tg-zWc" secondAttribute="trailing" id="7Bx-BM-dwq"/>
+                                                <constraint firstItem="IHF-Tg-zWc" firstAttribute="leading" secondItem="4dd-5k-G5b" secondAttribute="leading" id="8ta-uN-MwW"/>
+                                                <constraint firstItem="klt-Ma-kiS" firstAttribute="leading" secondItem="4dd-5k-G5b" secondAttribute="leading" id="NsA-GU-NUe"/>
+                                                <constraint firstItem="eah-zx-zoE" firstAttribute="leading" secondItem="4dd-5k-G5b" secondAttribute="leading" id="SJO-e7-loI"/>
+                                                <constraint firstItem="klt-Ma-kiS" firstAttribute="top" secondItem="4dd-5k-G5b" secondAttribute="top" id="Toh-vo-9bC"/>
+                                                <constraint firstAttribute="trailing" secondItem="klt-Ma-kiS" secondAttribute="trailing" id="edg-5Z-ihl"/>
+                                                <constraint firstItem="IHF-Tg-zWc" firstAttribute="top" secondItem="eah-zx-zoE" secondAttribute="bottom" constant="2" id="hdE-mg-Ten"/>
+                                                <constraint firstItem="eah-zx-zoE" firstAttribute="top" secondItem="klt-Ma-kiS" secondAttribute="bottom" constant="12" id="jt6-fo-3pY"/>
+                                                <constraint firstAttribute="trailing" secondItem="eah-zx-zoE" secondAttribute="trailing" id="kfq-3a-BdA"/>
+                                                <constraint firstAttribute="bottom" secondItem="IHF-Tg-zWc" secondAttribute="bottom" id="r5z-jf-yhm"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="IHF-Tg-zWc" id="FE1-NY-cIJ"/>
+                                            <outlet property="image" destination="klt-Ma-kiS" id="mhm-QN-rpH"/>
+                                            <outlet property="img" destination="klt-Ma-kiS" id="9rj-j0-hWC"/>
+                                            <outlet property="titleLabel" destination="eah-zx-zoE" id="6Dk-uC-1gu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GhS-ZW-Aia"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L23-J7-dIu" firstAttribute="top" secondItem="GhS-ZW-Aia" secondAttribute="top" id="D4C-Km-bni"/>
+                            <constraint firstItem="rcb-dV-yk1" firstAttribute="trailing" secondItem="GhS-ZW-Aia" secondAttribute="trailing" constant="-20" id="OPA-FY-fgq"/>
+                            <constraint firstItem="rcb-dV-yk1" firstAttribute="bottom" secondItem="GhS-ZW-Aia" secondAttribute="bottom" constant="20" id="Ufb-WQ-pSB"/>
+                            <constraint firstItem="L23-J7-dIu" firstAttribute="leading" secondItem="Luv-Hy-a1P" secondAttribute="leading" id="XIY-EG-2jh"/>
+                            <constraint firstItem="GhS-ZW-Aia" firstAttribute="trailing" secondItem="L23-J7-dIu" secondAttribute="trailing" id="pL9-a3-mCp"/>
+                            <constraint firstItem="rcb-dV-yk1" firstAttribute="leading" secondItem="GhS-ZW-Aia" secondAttribute="leading" constant="20" id="wRj-zP-x8x"/>
+                            <constraint firstItem="rcb-dV-yk1" firstAttribute="top" secondItem="L23-J7-dIu" secondAttribute="bottom" id="yZY-LR-YU3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="rcb-dV-yk1" id="3X2-LV-NIT"/>
+                        <outlet property="exploreCollectionView" destination="rcb-dV-yk1" id="Qvh-bS-ecc"/>
+                        <outlet property="navigationTitleLabel" destination="EdU-gF-C6v" id="mBj-d4-VNh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C9p-Xn-Bxl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="842"/>
         </scene>
     </scenes>
     <resources>

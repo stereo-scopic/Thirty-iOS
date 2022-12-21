@@ -43,6 +43,8 @@
 		758B0F092900C47800FEDBEF /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */; };
 		758B9FD628B83DF0001A40B5 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD528B83DF0001A40B5 /* Mission.swift */; };
 		758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */; };
+		7595E73329527FA8004F1C42 /* CompletedChallengeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7595E73229527FA8004F1C42 /* CompletedChallengeListVC.swift */; };
+		7595E735295280DD004F1C42 /* CompletedChallengeListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7595E734295280DD004F1C42 /* CompletedChallengeListReactor.swift */; };
 		759A93E028F841AE007731E2 /* MyBadgeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */; };
 		759BE93C28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */; };
 		759BE93E28E327E70072C9D8 /* BucketLinkPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */; };
@@ -169,6 +171,8 @@
 		758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		758B9FD528B83DF0001A40B5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailReactor.swift; sourceTree = "<group>"; };
+		7595E73229527FA8004F1C42 /* CompletedChallengeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeListVC.swift; sourceTree = "<group>"; };
+		7595E734295280DD004F1C42 /* CompletedChallengeListReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeListReactor.swift; sourceTree = "<group>"; };
 		759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeDetailVC.swift; sourceTree = "<group>"; };
 		759BE13128F59A23006B75AE /* Thirty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thirty.entitlements; sourceTree = "<group>"; };
 		759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAnswerEnrollReactor.swift; sourceTree = "<group>"; };
@@ -429,6 +433,8 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
+				7595E73229527FA8004F1C42 /* CompletedChallengeListVC.swift */,
+				7595E734295280DD004F1C42 /* CompletedChallengeListReactor.swift */,
 				75771D3C292C506D00706881 /* MyFriendManageVC.swift */,
 				759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */,
 				7537B61027E00A9800A66F11 /* MyVC.swift */,
@@ -709,6 +715,7 @@
 			files = (
 				757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */,
 				F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */,
+				7595E73329527FA8004F1C42 /* CompletedChallengeListVC.swift in Sources */,
 				759F12E028CFFCD0008D7947 /* MySettingReactor.swift in Sources */,
 				F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */,
 				75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */,
@@ -801,6 +808,7 @@
 				F96EBBC028D5BDD200FECD00 /* MyBadgeVC.swift in Sources */,
 				F9377F1228EB204200B99027 /* NoticeReactor.swift in Sources */,
 				75E58EC427FE5DE100A87E73 /* Network.swift in Sources */,
+				7595E735295280DD004F1C42 /* CompletedChallengeListReactor.swift in Sources */,
 				F9BF9EE028F3AB6900F95CE5 /* CommunityReactor.swift in Sources */,
 				F92028D928D9E8CA00B7714C /* Bucket.swift in Sources */,
 				75C8C3EA28E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift in Sources */,
