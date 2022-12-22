@@ -27,6 +27,7 @@ class MyVC: UIViewController, StoryboardView {
     @IBOutlet weak var faqButton: UIButton!
     @IBOutlet weak var csButton: UIButton!
     
+    @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var myBadgeButton: UIButton!
     @IBOutlet weak var myFriendButton: UIButton!
     
@@ -89,6 +90,14 @@ class MyVC: UIViewController, StoryboardView {
         faqButton.rx.tap
             .bind {
                 
+            }
+            .disposed(by: disposeBag)
+        
+        completeButton.rx.tap
+            .bind {
+                guard let completedChallengeListVC = self.storyboard?
+                        .instantiateViewController(withIdentifier: "CompletedChallengeListVC") as? CompletedChallengeListVC else { return }
+                self.navigationController?.pushViewController(completedChallengeListVC, animated: false)
             }
             .disposed(by: disposeBag)
         
