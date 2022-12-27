@@ -242,7 +242,6 @@ class ChallengeVC: UIViewController, StoryboardView {
                 self?.bucketAnswerUpdatedDate.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
                 
                 if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
-//                    self?.bucketAnswerImage.load(url: bucketImageURL)
                     self?.bucketAnswerImage.kf.setImage(with: bucketImageURL)
                 } else {
                     self?.bucketAnswerImage.image = nil
@@ -292,11 +291,6 @@ class ChallengeVC: UIViewController, StoryboardView {
     }
     
     func setCollectionView() {
-//        challengeListCollectionView.rx.modelSelected(Bucket.self)
-//            .subscribe(onNext: { [weak self] bucket in
-//                self?.reactor?.action.onNext(.selectBucket(bucket))
-//            }).disposed(by: disposeBag)
-        
         Observable.zip(challengeListCollectionView.rx.modelSelected(Bucket.self), challengeListCollectionView.rx.itemSelected)
             .bind { [weak self] (bucket, indexPath) in
                 self?.selectedBucketIndex = indexPath

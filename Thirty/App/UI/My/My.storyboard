@@ -2937,17 +2937,6 @@
                                                     <constraint firstAttribute="height" constant="121" id="Wbz-r9-c00"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-8R-VGW">
-                                                <rect key="frame" x="302" y="600.33333333333337" width="72" height="23"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="a9o-ti-lMX"/>
-                                                    <constraint firstAttribute="width" constant="72" id="iax-q7-FNV"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" name="THIRTY Black"/>
-                                                </state>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBf-ln-Whc">
                                                 <rect key="frame" x="334" y="89.666666666666657" width="44" height="44"/>
                                                 <constraints>
@@ -2997,13 +2986,11 @@
                                             <constraint firstAttribute="trailing" secondItem="cRo-8Z-aep" secondAttribute="trailing" id="Fqx-LD-EeL"/>
                                             <constraint firstItem="bc0-45-eW3" firstAttribute="top" secondItem="ui1-J2-pDt" secondAttribute="bottom" constant="16" id="HUv-of-o9U"/>
                                             <constraint firstItem="ui1-J2-pDt" firstAttribute="top" secondItem="VO8-7S-kfl" secondAttribute="bottom" constant="6" id="Ie3-v2-IfY"/>
-                                            <constraint firstAttribute="trailing" secondItem="tkw-8R-VGW" secondAttribute="trailing" constant="16" id="IkH-n0-LZT"/>
                                             <constraint firstAttribute="trailing" secondItem="BQ9-eL-0Mu" secondAttribute="trailing" id="IsD-uR-TlP"/>
                                             <constraint firstAttribute="bottom" secondItem="bc0-45-eW3" secondAttribute="bottom" constant="39" id="KAL-d6-AW0"/>
                                             <constraint firstItem="BQ9-eL-0Mu" firstAttribute="top" secondItem="pih-Ef-GLs" secondAttribute="bottom" constant="16" id="T5D-Pz-wjL"/>
                                             <constraint firstItem="sLB-3g-PnQ" firstAttribute="leading" secondItem="DNm-ik-wx8" secondAttribute="leading" constant="16" id="TzA-2W-pdG"/>
                                             <constraint firstItem="VO8-7S-kfl" firstAttribute="leading" secondItem="DNm-ik-wx8" secondAttribute="leading" constant="20" id="WBI-77-ro8"/>
-                                            <constraint firstItem="tkw-8R-VGW" firstAttribute="top" secondItem="BQ9-eL-0Mu" secondAttribute="bottom" constant="30.5" id="egw-KM-lB0"/>
                                             <constraint firstItem="VO8-7S-kfl" firstAttribute="top" secondItem="BQ9-eL-0Mu" secondAttribute="bottom" constant="30" id="fFi-k6-GGu"/>
                                             <constraint firstItem="sLB-3g-PnQ" firstAttribute="top" secondItem="cRo-8Z-aep" secondAttribute="bottom" constant="20" id="jtX-bI-6Sh"/>
                                             <constraint firstItem="nhW-D5-Nxg" firstAttribute="leading" secondItem="DNm-ik-wx8" secondAttribute="leading" constant="16" id="kno-Rz-3It"/>
@@ -3035,18 +3022,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="mbi-NN-N9y"/>
                     <connections>
-                        <outlet property="bucketAnswerDate" destination="VO8-7S-kfl" id="ejz-Lf-nBH"/>
-                        <outlet property="bucketAnswerDetail" destination="r0D-rw-euk" id="Is4-DT-VcV"/>
-                        <outlet property="bucketAnswerEditButton" destination="tkw-8R-VGW" id="u01-dV-yJw"/>
-                        <outlet property="bucketAnswerImage" destination="lXQ-eb-SfL" id="axg-UI-yw6"/>
-                        <outlet property="bucketAnswerTitle" destination="ui1-J2-pDt" id="363-pY-LLo"/>
-                        <outlet property="bucketAnswerUpdatedDate" destination="fRH-Ro-frU" id="pea-4V-9KW"/>
-                        <outlet property="challengeCategoryLabel" destination="sLB-3g-PnQ" id="G4h-xL-qhh"/>
-                        <outlet property="challengeCreatedAtLabel" destination="pih-Ef-GLs" id="kvz-rK-vpt"/>
-                        <outlet property="challengeEditButton" destination="oBf-ln-Whc" id="9RL-gP-IOt"/>
-                        <outlet property="challengeTitleLabel" destination="nhW-D5-Nxg" id="jA0-4q-Z1P"/>
-                        <outlet property="scrollView" destination="Ft4-Wb-NNj" id="EnI-Jj-u5M"/>
-                        <outlet property="thirtyCollectionView" destination="BQ9-eL-0Mu" id="iqz-on-ni8"/>
+                        <outlet property="backButton" destination="9DY-Hh-BPl" id="izP-6n-F96"/>
+                        <outlet property="bucketAnswerDateLabel" destination="VO8-7S-kfl" id="iEl-l5-nyc"/>
+                        <outlet property="bucketAnswerDetailLabel" destination="r0D-rw-euk" id="RUD-4c-EKB"/>
+                        <outlet property="bucketAnswerImageView" destination="lXQ-eb-SfL" id="YKU-ba-F3X"/>
+                        <outlet property="bucketAnswerTitleLabel" destination="ui1-J2-pDt" id="x2c-HO-kcy"/>
+                        <outlet property="bucketAnswerUpdatedDateLabel" destination="fRH-Ro-frU" id="uQb-OP-BGZ"/>
+                        <outlet property="bucketCategoryLabel" destination="sLB-3g-PnQ" id="BLd-Hq-LLd"/>
+                        <outlet property="bucketCollectionView" destination="BQ9-eL-0Mu" id="UrH-KO-mim"/>
+                        <outlet property="bucketCreatedDateLabel" destination="pih-Ef-GLs" id="iad-a6-blH"/>
+                        <outlet property="bucketMoreButton" destination="oBf-ln-Whc" id="GJC-Dj-8Y8"/>
+                        <outlet property="bucketTitleLabel" destination="nhW-D5-Nxg" id="s5N-YE-WjC"/>
+                        <outlet property="mainScrollView" destination="Ft4-Wb-NNj" id="EUD-pd-Gl8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cT-PH-C41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

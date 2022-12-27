@@ -38,8 +38,11 @@ class CompletedChallengeListVC: UIViewController, StoryboardView {
         
         collectionView.rx.modelSelected(Bucket.self)
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                
+            .subscribe(onNext: { [weak self] bucket in
+                guard let completedChallengeDetailVC = self?.storyboard?
+                        .instantiateViewController(withIdentifier: "CompletedChallengeDetailVC") as? CompletedChallengeDetailVC else { return }
+                completedChallengeDetailVC.bucketId = bucket.id
+                self?.navigationController?.pushViewController(completedChallengeDetailVC, animated: false)
             }).disposed(by: disposeBag)
     }
     
