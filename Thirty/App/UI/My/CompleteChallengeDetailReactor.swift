@@ -15,29 +15,39 @@ class CompletedChallengeDetailReactor: Reactor {
     
     enum Action {
         case viewWillAppear(String)
+        case selectBucketAnswer(Int)
     }
     
     enum Mutation {
         case getBucketDetail(BucketDetail)
+        case selectBucketAnswer(Int)
     }
     
     struct State {
         var bucketDetail: BucketDetail?
+        var selectedBucketAnswer: BucketAnswer?
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .viewWillAppear(bucketId):
             return getBucketDetailRx(bucketId)
+        case .selectBucketAnswer(let index):
+            return Observable.just(.selectBucketAnswer(index))
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case let .getBucketDetail(bucketDetail):
+        case .getBucketDetail(let bucketDetail):
             newState.bucketDetail = bucketDetail
-            
+        case .selectBucketAnswer(let index):
+            if index < state.bucketDetail?.answers?.count ?? 0 {
+                newState.selectedBucketAnswer = state.bucketDetail?.answers?[index]
+            } else {
+                newState.selectedBucketAnswer = BucketAnswer(answerid: nil, created_at: "아직 답변 전이에요.", updated_at: nil, music: nil, date: index, detail: "", image: nil, stamp: 0)
+            }
         }
         return newState
     }

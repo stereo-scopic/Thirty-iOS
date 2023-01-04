@@ -12,6 +12,7 @@ class CompletedChallengeDetailVC: UIViewController, StoryboardView {
     typealias Reactor = CompletedChallengeDetailReactor
     var disposeBag = DisposeBag()
     var bucketId: String = ""
+//    var selectedBucketAnswer = BucketAnswer(stamp: 0)
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -28,8 +29,13 @@ class CompletedChallengeDetailVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.reactor = CompletedChallengeDetailReactor()
+        
+        bucketCollectionView.delegate = self
+        bucketCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.reactor?.action.onNext(.selectBucketAnswer(indexPath.row))
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +110,37 @@ class CompletedChallengeDetailVC: UIViewController, StoryboardView {
                 self?.bucketTitleLabel.text = bucketDetail?.bucket?.challenge.title
                 self?.bucketCreatedDateLabel.text = "\(bucketDetail?.bucket?.created_at?.iSO8601Date().dateToString().dateYYMMDD() ?? "") ~ \(bucketDetail?.bucket?.updated_at?.iSO8601Date().dateToString().dateYYMMDD() ?? "")"
             }).disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.selectedBucketAnswer }
+            .subscribe(onNext: { [weak self] bucketAnswer in
+                guard let mission = bucketAnswer?.mission, !mission.isEmpty else {
+                    self?.bucketAnswerDateLabel.text = ""
+                    self?.bucketAnswerTitleLabel.text = ""
+                    self?.bucketAnswerDetailLabel.text = ""
+                    self?.bucketAnswerUpdatedDateLabel.text = ""
+                    self?.bucketAnswerImageView.image = UIImage()
+                    
+                    // 스크롤 맨 위로
+                    let scrollviewTopOffset = CGPoint(x: 0, y: 0)
+                    self?.mainScrollView.setContentOffset(scrollviewTopOffset, animated: true)
+                    return
+                }
+                
+                self?.bucketAnswerDateLabel.text = "#\(bucketAnswer?.date ?? 0)"
+                self?.bucketAnswerTitleLabel.text = bucketAnswer?.mission ?? ""
+                self?.bucketAnswerDetailLabel.text = bucketAnswer?.detail
+                self?.bucketAnswerUpdatedDateLabel.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
+                
+                if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
+                    self?.bucketAnswerImageView.kf.setImage(with: bucketImageURL)
+                } else {
+                    self?.bucketAnswerImageView.image = nil
+                }
+                
+                let scrollviewBottomOffset = CGPoint(x: 0, y: (self?.mainScrollView.contentSize.height)! - (self?.mainScrollView.bounds.height)!)
+                self?.mainScrollView.setContentOffset(scrollviewBottomOffset, animated: true)
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: CompletedChallengeDetailReactor) {
@@ -112,9 +149,46 @@ class CompletedChallengeDetailVC: UIViewController, StoryboardView {
                 self.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
         
-        /// 답변 선택시 하단으로 스크롤 & 답변 보여주기 필요함.
         /// 내보내기 액션 추가 필요
+        bucketMoreButton.rx.tap
+            .subscribe(onNext: {
+                let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                let exportAction = UIAlertAction(title: "내보내기", style: .default) { _ in
+                    guard let challengeExportVC = self.storyboard?
+                            .instantiateViewController(withIdentifier: "ChallengeExportVC") as? ChallengeExportVC else { return }
+                    challengeExportVC.bucketId = self.bucketId
+                    challengeExportVC.preVC = "CompletedChallengeDetailVC"
+                    challengeExportVC.modalTransitionStyle = .crossDissolve
+                    challengeExportVC.modalPresentationStyle = .overFullScreen
+                    
+                    self.present(challengeExportVC, animated: true)
+                }
+                
+                alertVC.addAction(cancelAction)
+                alertVC.addAction(exportAction)
+                
+                self.present(alertVC, animated: true, completion: nil)
+            }).disposed(by: disposeBag)
         
     }
 
+}
+
+extension CompletedChallengeDetailVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == bucketCollectionView {
+            let width: CGFloat = collectionView.bounds.width / 6
+            let height: CGFloat = 84
+            
+            return CGSize(width: width, height: height)
+        } else {
+            return CGSize(width: 80, height: 60)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }

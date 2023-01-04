@@ -15,6 +15,7 @@ class ChallengeExportVC: UIViewController, StoryboardView {
     typealias Reactor = ChallengeExportReactor
     var disposeBag = DisposeBag()
     var bucketId = ""
+    var preVC = ""
     var selectedTheme = BehaviorRelay<ExportTheme>(value: .simple)
     
     var themeColors: [UIColor] = []
@@ -195,11 +196,16 @@ class ChallengeExportVC: UIViewController, StoryboardView {
             print(error)
         }else {
             print("success")
-            //            guard let challengeShareVC = self.storyboard?
-            //                    .instantiateViewController(withIdentifier: "ChallengeShareVC") as? ChallengeShareVC else { return }
-            //            self.navigationController?.pushViewController(challengeShareVC, animated: false)
-            //
-            self.performSegue(withIdentifier: "goCompletePopup", sender: self)
+            self.view.showToast(message: "저장이 완료되었습니다!")
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                if self.preVC == "CompletedChallengeDetailVC" {
+                    self.dismiss(animated: true)
+                }else {
+                    self.performSegue(withIdentifier: "goCompletePopup", sender: self)
+                }
+            }
         }
     }
 }
