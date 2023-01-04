@@ -1,29 +1,26 @@
 //
-//  SignUpVC.swift
+//  WelcomeSignUpVC.swift
 //  Thirty
 //
-//  Created by 송하경 on 2022/04/05.
+//  Created by 송하경 on 2022/11/05.
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 import ReactorKit
 
-class SignUpVC: UIViewController, StoryboardView {
+class WelcomeSignUpVC: UIViewController, StoryboardView {
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var confirmPwdTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
-    
+    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var emailValidImage: UIImageView!
     @IBOutlet weak var pwdValidImage: UIImageView!
     @IBOutlet weak var confirmPwdValidImage: UIImageView!
     
     @IBOutlet weak var pwdInfoLabel: UILabel!
     @IBOutlet weak var confirmPwdInfoLabel: UILabel!
-    
-    @IBOutlet weak var signUpButton: UIButton!
     
     let successImage = UIImage(named: "textfield_success")
     let warningImage = UIImage(named: "textfield_warning")
@@ -43,13 +40,8 @@ class SignUpVC: UIViewController, StoryboardView {
         return signUpSuccess.asObservable()
     }
     
+    typealias Reactor = WelcomeSignUpReactor
     var disposeBag = DisposeBag()
-    typealias Reactor = SignUpReactor
-    
-    @IBAction func backButtonTouchUpInside(_ sender: Any) {
-//        self.popVC(animated: false, completion: nil)
-        self.dismiss(animated: true, completion: nil)
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -58,42 +50,16 @@ class SignUpVC: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.reactor = SignUpReactor()
-        bindInput()
+        self.reactor = WelcomeSignUpReactor()
         bindOutput()
     }
     
-    func bind(reactor: SignUpReactor) {
-        bindAction(reactor)
+    func bind(reactor: WelcomeSignUpReactor) {
         bindState(reactor)
+        bindAction(reactor)
     }
     
-    private func bindAction(_ reactor: SignUpReactor) {
-        signUpButton.rx.tap
-            .subscribe(onNext: {
-                let emailValue = try? self.emailInputText.value()
-                let pwd = try? self.pwdInputText.value()
-                let nickname = try? self.nicknameInputText.value()
-                if let emailValue = emailValue, let pwdValue = pwd, let nickname = nickname {
-                    reactor.action.onNext(.signupButtonTapped(emailValue, pwdValue, nickname))
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func bindState(_ reactor: SignUpReactor) {
-        reactor.state
-            .map { $0.signUpFlag }
-            .subscribe(onNext: { flag in
-                if flag {
-                    guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
-                    welcomePopupVC.modalTransitionStyle = .crossDissolve
-                    welcomePopupVC.modalPresentationStyle = .fullScreen
-                    self.present(welcomePopupVC, animated: true, completion: nil)
-                }
-            })
-            .disposed(by: disposeBag)
-        
+    private func bindState(_ reactor: WelcomeSignUpReactor) {
         reactor.state
             .map { $0.signUpMessage ?? "" }
             .subscribe(onNext: { message in
@@ -101,9 +67,16 @@ class SignUpVC: UIViewController, StoryboardView {
                     self.view.showToast(message: message)
                 }
             }).disposed(by: disposeBag)
-    }
-    
-    private func bindInput() {
+        
+        reactor.state
+            .map { $0.signUpFlag }
+            .subscribe(onNext: { flag in
+                if flag {
+                    self.performSegue(withIdentifier: "goMain", sender: self)
+                    UserDefaults.standard.setValue(true, forKey: "launched")
+                }
+            }).disposed(by: disposeBag)
+        
         emailTextField.rx.text.orEmpty
             .bind(to: emailInputText)
             .disposed(by: disposeBag)
@@ -136,6 +109,24 @@ class SignUpVC: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
     }
     
+    private func bindAction(_ reactor: WelcomeSignUpReactor) {
+        backButton.rx.tap
+            .bind {
+                self.navigationController?.popViewController(animated: true)
+            }.disposed(by: disposeBag)
+        
+        confirmButton.rx.tap
+            .subscribe(onNext: {
+                let emailValue = try? self.emailInputText.value()
+                let pwd = try? self.pwdInputText.value()
+                let nickname = try? self.nicknameInputText.value()
+                if let emailValue = emailValue, let pwdValue = pwd, let nickname = nickname {
+                    reactor.action.onNext(.signupButtonTapped(emailValue, pwdValue, nickname))
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func bindOutput() {
         emailValid.subscribe(onNext: { b in
             self.emailValidImage.image = b ? self.successImage : self.warningImage
@@ -159,8 +150,8 @@ class SignUpVC: UIViewController, StoryboardView {
         
         Observable.combineLatest(emailValid, pwdValid, confirmPwdValid, nicknameValid, resultSelector: {$0 && $1 && $2 && $3})
             .subscribe(onNext: { b in
-                self.signUpButton.isEnabled = b
-                self.signUpButton.backgroundColor = b ? UIColor.thirtyBlack : UIColor.gray300
+                self.confirmButton.isEnabled = b
+                self.confirmButton.backgroundColor = b ? UIColor.thirtyBlack : UIColor.gray300
             })
             .disposed(by: disposeBag)
     }

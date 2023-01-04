@@ -15,16 +15,21 @@ class CommunityReactor: Reactor {
         case allCommunityDidAppear
         case friendCommunityDidAppear
         case requestFriend(String)
+        case reportUser(String)
+        case blockUser(String)
     }
     
     enum Mutation {
         case getAllCommunityList([CommunityChallenge2])
         case getFriendCommunityList([CommunityChallenge2])
+        case reportUser(String)
+        case blockUser(String)
     }
     
     struct State {
         var allCommunityList: [CommunityChallenge2]?
         var friendCommunityList: [CommunityChallenge2]?
+        var serverMessage: String?
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -35,6 +40,10 @@ class CommunityReactor: Reactor {
             return getFriendCommunityListRx()
         case .requestFriend(let userId):
             return requestFriendRx(userId)
+        case .reportUser(let targetUserId):
+            return reportUserRx(targetUserId)
+        case .blockUser(let targetUserId):
+            return blockUserRx(targetUserId)
         }
     }
     
@@ -43,8 +52,14 @@ class CommunityReactor: Reactor {
         switch mutation {
         case .getAllCommunityList(let allCommunityList):
             newState.allCommunityList = allCommunityList
+            newState.serverMessage = ""
         case .getFriendCommunityList(let friendCommunityList):
             newState.friendCommunityList = friendCommunityList
+            newState.serverMessage = ""
+        case .blockUser(let message):
+            newState.serverMessage = message
+        case .reportUser(let message):
+            newState.serverMessage = message
         }
         return newState
     }
@@ -99,6 +114,48 @@ class CommunityReactor: Reactor {
                 case .success(let response):
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
+                    observer.onCompleted()
+                case .failure(let error):
+                    print(error)
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func reportUserRx(_ targetUserId: String) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<AuthAPI>()
+            provider.request(.reportUser(targetUserId)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    let result = try? response.map(CommonResponse.self)
+                    observer.onNext(Mutation.reportUser(result?.message ?? ""))
+                    observer.onCompleted()
+                case .failure(let error):
+                    print(error)
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
+        return response
+    }
+    
+    private func blockUserRx(_ targetUserId: String) -> Observable<Mutation> {
+        let response = Observable<Mutation>.create { observer in
+            let provider = MoyaProvider<AuthAPI>()
+            provider.request(.blockUser(targetUserId)) { result in
+                switch result {
+                case .success(let response):
+                    let str = String(decoding: response.data, as: UTF8.self)
+                    print(str)
+                    let result = try? response.map(CommonResponse.self)
+                    observer.onNext(Mutation.blockUser(result?.message ?? ""))
                     observer.onCompleted()
                 case .failure(let error):
                     print(error)

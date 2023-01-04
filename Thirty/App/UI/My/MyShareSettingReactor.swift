@@ -31,9 +31,9 @@ class MyShareSettingReactor: Reactor {
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
+        let newState = state
         switch mutation {
-        case .changedVisibility(let bool):
+        case .changedVisibility:
             break
         }
         return newState

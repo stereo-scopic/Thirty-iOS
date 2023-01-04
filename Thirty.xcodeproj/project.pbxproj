@@ -14,6 +14,7 @@
 		7501A4FA27E20D4C00EB4EB0 /* Blatant-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7537B61627E00E2100A66F11 /* Blatant-Regular.otf */; };
 		7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FB27E239B500EB4EB0 /* MyNC.swift */; };
 		7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */; };
+		7504D4A9293DEE1500BE0075 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D4A8293DEE1500BE0075 /* Constants.swift */; };
 		7504D90728F707BE0033A27F /* MyShareSettingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D90628F707BE0033A27F /* MyShareSettingReactor.swift */; };
 		7504D90928F70E0D0033A27F /* MyNoticeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D90828F70E0D0033A27F /* MyNoticeReactor.swift */; };
 		7504D90B28F70EF30033A27F /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504D90A28F70EF30033A27F /* Announcement.swift */; };
@@ -21,6 +22,8 @@
 		751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A19F327E8A8890025812D /* UIColor+Extension.swift */; };
 		75340CF928EF9CCB004DF0E5 /* FindFriendReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75340CF828EF9CCB004DF0E5 /* FindFriendReactor.swift */; };
 		7537B61127E00A9800A66F11 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537B61027E00A9800A66F11 /* MyVC.swift */; };
+		7537C2712953D2620031C4FE /* CompletedChallengeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537C2702953D2620031C4FE /* CompletedChallengeDetailVC.swift */; };
+		7537C2732953D2700031C4FE /* CompleteChallengeDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537C2722953D2700031C4FE /* CompleteChallengeDetailReactor.swift */; };
 		753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B0786286BC7CA00B62F35 /* CommunityTabBarController.swift */; };
 		753B0789286BC7E700B62F35 /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B0788286BC7E700B62F35 /* CommunityVC.swift */; };
 		753B078B286BC80200B62F35 /* CommunityFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078A286BC80200B62F35 /* CommunityFriendVC.swift */; };
@@ -28,6 +31,8 @@
 		753B078F286BC84500B62F35 /* FindFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078E286BC84500B62F35 /* FindFriendVC.swift */; };
 		753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB1DA27EB65A300D20579 /* MyInfoVC.swift */; };
 		7562CB35287656960004EC99 /* CreateChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562CB34287656960004EC99 /* CreateChallengeVC.swift */; };
+		75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3C292C506D00706881 /* MyFriendManageVC.swift */; };
+		75771D3F292C51B100706881 /* MyFriendManageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3E292C51B100706881 /* MyFriendManageReactor.swift */; };
 		757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */; };
 		757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C96792863E090005CCBA3 /* NoticeVC.swift */; };
 		757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */; };
@@ -40,6 +45,8 @@
 		758B0F092900C47800FEDBEF /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */; };
 		758B9FD628B83DF0001A40B5 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD528B83DF0001A40B5 /* Mission.swift */; };
 		758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */; };
+		7595E73329527FA8004F1C42 /* CompletedChallengeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7595E73229527FA8004F1C42 /* CompletedChallengeListVC.swift */; };
+		7595E735295280DD004F1C42 /* CompletedChallengeListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7595E734295280DD004F1C42 /* CompletedChallengeListReactor.swift */; };
 		759A93E028F841AE007731E2 /* MyBadgeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */; };
 		759BE93C28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */; };
 		759BE93E28E327E70072C9D8 /* BucketLinkPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BE93D28E327E70072C9D8 /* BucketLinkPopupVC.swift */; };
@@ -62,7 +69,7 @@
 		75A7741B28DD2C5000B7775C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A7741A28DD2C5000B7775C /* Date+Extension.swift */; };
 		75A7741D28DD2D0600B7775C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */; };
 		75B6B3C128EEF2E10081AA36 /* ChallengeExportReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B6B3C028EEF2E10081AA36 /* ChallengeExportReactor.swift */; };
-		75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C427E300D40022B5D8 /* ExploreVC.swift */; };
+		75C3618229095E9500B5C97D /* CreateChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3618129095E9500B5C97D /* CreateChallengeReactor.swift */; };
 		75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C727E307D50022B5D8 /* ExploreListVC.swift */; };
 		75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */; };
 		75C8C3EA28E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */; };
@@ -73,7 +80,6 @@
 		75E98C41287CEA8A009DBDC2 /* ExploreReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E98C40287CEA8A009DBDC2 /* ExploreReactor.swift */; };
 		75E98C43287CEB03009DBDC2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E98C42287CEB03009DBDC2 /* Category.swift */; };
 		75FB568D28E3BEE0004BB16A /* BucketDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */; };
-		75FFF4CC28F787C300FD62BD /* MyFriendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFF4CB28F787C300FD62BD /* MyFriendListVC.swift */; };
 		75FFF4CE28F787D800FD62BD /* MyFriendListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFF4CD28F787D800FD62BD /* MyFriendListReactor.swift */; };
 		DCBE380F2BCEEBBA85A7E593 /* Pods_Thirty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */; };
 		F913CD9028F3100E001AA913 /* welcome_motion.json in Resources */ = {isa = PBXBuildFile; fileRef = F913CD8E28F3100E001AA913 /* welcome_motion.json */; };
@@ -87,6 +93,10 @@
 		F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9377F1528EB20FB00B99027 /* NoticeAPI.swift */; };
 		F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */; };
 		F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94CCC2928F46B01002B05F5 /* LoginReactor.swift */; };
+		F96039142915F58100F296DA /* WelcomeLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039132915F58100F296DA /* WelcomeLoginVC.swift */; };
+		F96039162915F66500F296DA /* WelcomeSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039152915F66500F296DA /* WelcomeSignUpVC.swift */; };
+		F96039182915F7D500F296DA /* WelcomeLoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039172915F7D500F296DA /* WelcomeLoginReactor.swift */; };
+		F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96039192915F7E100F296DA /* WelcomeSignUpReactor.swift */; };
 		F96EBBB828D5AE2100FECD00 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBB728D5AE2100FECD00 /* KeyChain.swift */; };
 		F96EBBBC28D5B59800FECD00 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBB28D5B59800FECD00 /* TokenManager.swift */; };
 		F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */; };
@@ -96,7 +106,7 @@
 		F96EBBC628D5C22700FECD00 /* RewardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EBBC528D5C22700FECD00 /* RewardAPI.swift */; };
 		F9727DFF2887F00300E9513B /* FindPwdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9727DFE2887F00300E9513B /* FindPwdVC.swift */; };
 		F984DE4D27F1D4C90049EA83 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F984DE4C27F1D4C90049EA83 /* .swiftlint.yml */; };
-		F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC2.swift */; };
+		F98C9AE628C4C225003A25CD /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC.swift */; };
 		F98C9AE828C4CC66003A25CD /* BucketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE728C4CC66003A25CD /* BucketAPI.swift */; };
 		F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE928C4CEC9003A25CD /* Token.swift */; };
 		F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */; };
@@ -122,12 +132,14 @@
 		F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */; };
 		F9DCE45628C6CFE50089E772 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCE45528C6CFE50089E772 /* AuthAPI.swift */; };
 		F9E01FC128CE1A7D00649EC7 /* WelcomePopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E01FC028CE1A7D00649EC7 /* WelcomePopupVC.swift */; };
+		F9FDDBFC291A88F7004AB780 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9FDDBFB291A88F7004AB780 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		71BEF133679519B33BEE5990 /* Pods-Thirty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.debug.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.debug.xcconfig"; sourceTree = "<group>"; };
 		7501A4FB27E239B500EB4EB0 /* MyNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNC.swift; sourceTree = "<group>"; };
 		7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingVC.swift; sourceTree = "<group>"; };
+		7504D4A8293DEE1500BE0075 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7504D90628F707BE0033A27F /* MyShareSettingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShareSettingReactor.swift; sourceTree = "<group>"; };
 		7504D90828F70E0D0033A27F /* MyNoticeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNoticeReactor.swift; sourceTree = "<group>"; };
 		7504D90A28F70EF30033A27F /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -140,6 +152,8 @@
 		7537B61527E00D8300A66F11 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		7537B61627E00E2100A66F11 /* Blatant-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blatant-Regular.otf"; sourceTree = "<group>"; };
 		7537B61727E00E2100A66F11 /* Blatant-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blatant-Bold.otf"; sourceTree = "<group>"; };
+		7537C2702953D2620031C4FE /* CompletedChallengeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeDetailVC.swift; sourceTree = "<group>"; };
+		7537C2722953D2700031C4FE /* CompleteChallengeDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteChallengeDetailReactor.swift; sourceTree = "<group>"; };
 		753B0786286BC7CA00B62F35 /* CommunityTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTabBarController.swift; sourceTree = "<group>"; };
 		753B0788286BC7E700B62F35 /* CommunityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVC.swift; sourceTree = "<group>"; };
 		753B078A286BC80200B62F35 /* CommunityFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFriendVC.swift; sourceTree = "<group>"; };
@@ -147,6 +161,8 @@
 		753B078E286BC84500B62F35 /* FindFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendVC.swift; sourceTree = "<group>"; };
 		753EB1DA27EB65A300D20579 /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
 		7562CB34287656960004EC99 /* CreateChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeVC.swift; sourceTree = "<group>"; };
+		75771D3C292C506D00706881 /* MyFriendManageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageVC.swift; sourceTree = "<group>"; };
+		75771D3E292C51B100706881 /* MyFriendManageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageReactor.swift; sourceTree = "<group>"; };
 		757C96772863E080005CCBA3 /* ChallengeDetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailImageVC.swift; sourceTree = "<group>"; };
 		757C96792863E090005CCBA3 /* NoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeVC.swift; sourceTree = "<group>"; };
 		757C967B2863E0A3005CCBA3 /* ChallengeCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCompleteVC.swift; sourceTree = "<group>"; };
@@ -159,6 +175,8 @@
 		758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		758B9FD528B83DF0001A40B5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailReactor.swift; sourceTree = "<group>"; };
+		7595E73229527FA8004F1C42 /* CompletedChallengeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeListVC.swift; sourceTree = "<group>"; };
+		7595E734295280DD004F1C42 /* CompletedChallengeListReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedChallengeListReactor.swift; sourceTree = "<group>"; };
 		759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeDetailVC.swift; sourceTree = "<group>"; };
 		759BE13128F59A23006B75AE /* Thirty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thirty.entitlements; sourceTree = "<group>"; };
 		759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAnswerEnrollReactor.swift; sourceTree = "<group>"; };
@@ -184,7 +202,7 @@
 		75A7741A28DD2C5000B7775C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		75B6B3C028EEF2E10081AA36 /* ChallengeExportReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeExportReactor.swift; sourceTree = "<group>"; };
-		75C586C427E300D40022B5D8 /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
+		75C3618129095E9500B5C97D /* CreateChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeReactor.swift; sourceTree = "<group>"; };
 		75C586C727E307D50022B5D8 /* ExploreListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreListVC.swift; sourceTree = "<group>"; };
 		75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailVC.swift; sourceTree = "<group>"; };
 		75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAnswerEnrollVC.swift; sourceTree = "<group>"; };
@@ -195,7 +213,6 @@
 		75E98C40287CEA8A009DBDC2 /* ExploreReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreReactor.swift; sourceTree = "<group>"; };
 		75E98C42287CEB03009DBDC2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailVC.swift; sourceTree = "<group>"; };
-		75FFF4CB28F787C300FD62BD /* MyFriendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendListVC.swift; sourceTree = "<group>"; };
 		75FFF4CD28F787D800FD62BD /* MyFriendListReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendListReactor.swift; sourceTree = "<group>"; };
 		A78D5F9FD5D8F7A52AB2972A /* Pods_Thirty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thirty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD038CDF5D2D1A6BE620AA3 /* Pods-Thirty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thirty.release.xcconfig"; path = "Target Support Files/Pods-Thirty/Pods-Thirty.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +227,10 @@
 		F9377F1528EB20FB00B99027 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
 		F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketDetailReactor.swift; sourceTree = "<group>"; };
 		F94CCC2928F46B01002B05F5 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
+		F96039132915F58100F296DA /* WelcomeLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLoginVC.swift; sourceTree = "<group>"; };
+		F96039152915F66500F296DA /* WelcomeSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSignUpVC.swift; sourceTree = "<group>"; };
+		F96039172915F7D500F296DA /* WelcomeLoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeLoginReactor.swift; sourceTree = "<group>"; };
+		F96039192915F7E100F296DA /* WelcomeSignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSignUpReactor.swift; sourceTree = "<group>"; };
 		F96EBBB728D5AE2100FECD00 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		F96EBBBB28D5B59800FECD00 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeReactor.swift; sourceTree = "<group>"; };
@@ -219,7 +240,7 @@
 		F96EBBC528D5C22700FECD00 /* RewardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAPI.swift; sourceTree = "<group>"; };
 		F9727DFE2887F00300E9513B /* FindPwdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwdVC.swift; sourceTree = "<group>"; };
 		F984DE4C27F1D4C90049EA83 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		F98C9AE528C4C225003A25CD /* ExploreVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC2.swift; sourceTree = "<group>"; };
+		F98C9AE528C4C225003A25CD /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		F98C9AE728C4CC66003A25CD /* BucketAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPI.swift; sourceTree = "<group>"; };
 		F98C9AE928C4CEC9003A25CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
@@ -247,6 +268,7 @@
 		F9DCE45328C6CBC10089E772 /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
 		F9DCE45528C6CFE50089E772 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		F9E01FC028CE1A7D00649EC7 /* WelcomePopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePopupVC.swift; sourceTree = "<group>"; };
+		F9FDDBFB291A88F7004AB780 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +322,10 @@
 				757D66CA2874FEFB00E3C5DE /* SelectChallengeVC.swift */,
 				F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */,
 				757D66CC2875048900E3C5DE /* WelcomeVC.swift */,
+				F96039132915F58100F296DA /* WelcomeLoginVC.swift */,
+				F96039152915F66500F296DA /* WelcomeSignUpVC.swift */,
+				F96039172915F7D500F296DA /* WelcomeLoginReactor.swift */,
+				F96039192915F7E100F296DA /* WelcomeSignUpReactor.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -331,6 +357,7 @@
 				759D327B27C8913200A88C02 /* App */,
 				759D326B27C879E900A88C02 /* ViewController.swift */,
 				759D327527C879EA00A88C02 /* Info.plist */,
+				F9FDDBFB291A88F7004AB780 /* GoogleService-Info.plist */,
 			);
 			path = Thirty;
 			sourceTree = "<group>";
@@ -355,6 +382,7 @@
 				759D328A27C8A45000A88C02 /* ChallengeVC.swift */,
 				F96EBBBD28D5BA2700FECD00 /* ChallengeReactor.swift */,
 				75C8C3E928E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift */,
+				75771D3E292C51B100706881 /* MyFriendManageReactor.swift */,
 				759BE93B28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift */,
 				75FB568C28E3BEE0004BB16A /* BucketDetailVC.swift */,
 				F93B5DC128EACA760005FA50 /* BucketDetailReactor.swift */,
@@ -375,14 +403,14 @@
 			isa = PBXGroup;
 			children = (
 				759D328427C8934500A88C02 /* Explore.storyboard */,
-				F98C9AE528C4C225003A25CD /* ExploreVC2.swift */,
-				75C586C427E300D40022B5D8 /* ExploreVC.swift */,
+				F98C9AE528C4C225003A25CD /* ExploreVC.swift */,
 				75E98C40287CEA8A009DBDC2 /* ExploreReactor.swift */,
 				75C586C727E307D50022B5D8 /* ExploreListVC.swift */,
 				75E2AF7C28B2F9D70036DEA5 /* ExploreListReactor.swift */,
 				75C586C927E30ABC0022B5D8 /* ExploreDetailVC.swift */,
 				758B9FD728B83E3A001A40B5 /* ExploreDetailReactor.swift */,
 				7562CB34287656960004EC99 /* CreateChallengeVC.swift */,
+				75C3618129095E9500B5C97D /* CreateChallengeReactor.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -409,6 +437,11 @@
 			isa = PBXGroup;
 			children = (
 				759D328027C8933000A88C02 /* My.storyboard */,
+				7537C2702953D2620031C4FE /* CompletedChallengeDetailVC.swift */,
+				7537C2722953D2700031C4FE /* CompleteChallengeDetailReactor.swift */,
+				7595E73229527FA8004F1C42 /* CompletedChallengeListVC.swift */,
+				7595E734295280DD004F1C42 /* CompletedChallengeListReactor.swift */,
+				75771D3C292C506D00706881 /* MyFriendManageVC.swift */,
 				759A93DF28F841AE007731E2 /* MyBadgeDetailVC.swift */,
 				7537B61027E00A9800A66F11 /* MyVC.swift */,
 				F9D9B63328CB472B004AF18D /* MyReactor.swift */,
@@ -434,7 +467,6 @@
 				753EB1DA27EB65A300D20579 /* MyInfoVC.swift */,
 				7501A4FE27E23B1E00EB4EB0 /* MySettingVC.swift */,
 				759F12DF28CFFCD0008D7947 /* MySettingReactor.swift */,
-				75FFF4CB28F787C300FD62BD /* MyFriendListVC.swift */,
 				75FFF4CD28F787D800FD62BD /* MyFriendListReactor.swift */,
 				7501A4FB27E239B500EB4EB0 /* MyNC.swift */,
 			);
@@ -447,6 +479,7 @@
 				75A41CF727E4097E009AD9D0 /* Extension */,
 				F96EBBB728D5AE2100FECD00 /* KeyChain.swift */,
 				F96EBBBB28D5B59800FECD00 /* TokenManager.swift */,
+				7504D4A8293DEE1500BE0075 /* Constants.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -610,6 +643,7 @@
 				7501A4F627E20D3E00EB4EB0 /* Pretendard-Bold.otf in Resources */,
 				759D327127C879EA00A88C02 /* Assets.xcassets in Resources */,
 				759D328127C8933000A88C02 /* My.storyboard in Resources */,
+				F9FDDBFC291A88F7004AB780 /* GoogleService-Info.plist in Resources */,
 				759D328327C8933700A88C02 /* Community.storyboard in Resources */,
 				F913CD9128F3100E001AA913 /* splash_motion.json in Resources */,
 				759D326F27C879E900A88C02 /* Main.storyboard in Resources */,
@@ -687,11 +721,15 @@
 			files = (
 				757C967C2863E0A3005CCBA3 /* ChallengeCompleteVC.swift in Sources */,
 				F9BC33A627ECA02700F0C722 /* MyAppInfoVC.swift in Sources */,
+				7595E73329527FA8004F1C42 /* CompletedChallengeListVC.swift in Sources */,
 				759F12E028CFFCD0008D7947 /* MySettingReactor.swift in Sources */,
 				F96EBBBE28D5BA2700FECD00 /* ChallengeReactor.swift in Sources */,
+				75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */,
 				757D66C92874FEDF00E3C5DE /* SelectChallengeThemeVC.swift in Sources */,
 				F9D9B63628CB4867004AF18D /* User.swift in Sources */,
 				F9D9B63028CB3970004AF18D /* ChangeNicknameVC.swift in Sources */,
+				F96039162915F66500F296DA /* WelcomeSignUpVC.swift in Sources */,
+				75771D3F292C51B100706881 /* MyFriendManageReactor.swift in Sources */,
 				75A41CF927E409D2009AD9D0 /* UIViewController+Extension.swift in Sources */,
 				F96EBBC628D5C22700FECD00 /* RewardAPI.swift in Sources */,
 				75A7741D28DD2D0600B7775C /* UIImageView+Extension.swift in Sources */,
@@ -711,18 +749,19 @@
 				75B6B3C128EEF2E10081AA36 /* ChallengeExportReactor.swift in Sources */,
 				75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */,
 				F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */,
+				F96039182915F7D500F296DA /* WelcomeLoginReactor.swift in Sources */,
 				F9DCE45628C6CFE50089E772 /* AuthAPI.swift in Sources */,
 				753B078D286BC82200B62F35 /* CommunityAllVC.swift in Sources */,
 				757C967A2863E090005CCBA3 /* NoticeVC.swift in Sources */,
 				753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */,
-				75FFF4CC28F787C300FD62BD /* MyFriendListVC.swift in Sources */,
 				F9C6504928B9F49D0026405A /* SelectChallengeReactor.swift in Sources */,
 				F9DCE45428C6CBC10089E772 /* SignUpReactor.swift in Sources */,
 				7501A4FF27E23B1E00EB4EB0 /* MySettingVC.swift in Sources */,
 				F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */,
+				7537C2732953D2700031C4FE /* CompleteChallengeDetailReactor.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
 				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
-				75C586C527E300D40022B5D8 /* ExploreVC.swift in Sources */,
+				F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */,
 				F96EBBC228D5BDE000FECD00 /* MyBadgeReactor.swift in Sources */,
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
 				75E98C43287CEB03009DBDC2 /* Category.swift in Sources */,
@@ -735,6 +774,7 @@
 				75FB568D28E3BEE0004BB16A /* BucketDetailVC.swift in Sources */,
 				F9377F1628EB20FB00B99027 /* NoticeAPI.swift in Sources */,
 				F96EBBB828D5AE2100FECD00 /* KeyChain.swift in Sources */,
+				75C3618229095E9500B5C97D /* CreateChallengeReactor.swift in Sources */,
 				75C586CA27E30ABC0022B5D8 /* ExploreDetailVC.swift in Sources */,
 				753B0787286BC7CA00B62F35 /* CommunityTabBarController.swift in Sources */,
 				F9377F1428EB20B700B99027 /* Notice.swift in Sources */,
@@ -761,19 +801,22 @@
 				759BE93C28E2E2660072C9D8 /* BucketAnswerEnrollReactor.swift in Sources */,
 				F9D3DBEA28EA995000E0C5A7 /* BucketStampPopupVC.swift in Sources */,
 				F92F4A4A28CE2624005CF5AC /* UserService.swift in Sources */,
+				F96039142915F58100F296DA /* WelcomeLoginVC.swift in Sources */,
 				F93B5DC228EACA760005FA50 /* BucketDetailReactor.swift in Sources */,
 				7537B61127E00A9800A66F11 /* MyVC.swift in Sources */,
 				753B078B286BC80200B62F35 /* CommunityFriendVC.swift in Sources */,
-				F98C9AE628C4C225003A25CD /* ExploreVC2.swift in Sources */,
+				F98C9AE628C4C225003A25CD /* ExploreVC.swift in Sources */,
 				F9CFD70328FAD8ED0019344B /* SignUpConfirmVC.swift in Sources */,
 				F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */,
 				F9727DFF2887F00300E9513B /* FindPwdVC.swift in Sources */,
 				75FFF4CE28F787D800FD62BD /* MyFriendListReactor.swift in Sources */,
+				7537C2712953D2620031C4FE /* CompletedChallengeDetailVC.swift in Sources */,
 				757C96802863E0E3005CCBA3 /* ChallengeShareVC.swift in Sources */,
 				F9D9B63228CB3A77004AF18D /* ChangeNicknameReactor.swift in Sources */,
 				F96EBBC028D5BDD200FECD00 /* MyBadgeVC.swift in Sources */,
 				F9377F1228EB204200B99027 /* NoticeReactor.swift in Sources */,
 				75E58EC427FE5DE100A87E73 /* Network.swift in Sources */,
+				7595E735295280DD004F1C42 /* CompletedChallengeListReactor.swift in Sources */,
 				F9BF9EE028F3AB6900F95CE5 /* CommunityReactor.swift in Sources */,
 				F92028D928D9E8CA00B7714C /* Bucket.swift in Sources */,
 				75C8C3EA28E2CBD100F8BA39 /* BucketAnswerEnrollVC.swift in Sources */,
@@ -782,6 +825,7 @@
 				759BE93E28E327E70072C9D8 /* BucketLinkPopupVC.swift in Sources */,
 				759CD62F28D14B9F00BFFFC7 /* SendEmailPopupVC.swift in Sources */,
 				75E98C41287CEA8A009DBDC2 /* ExploreReactor.swift in Sources */,
+				7504D4A9293DEE1500BE0075 /* Constants.swift in Sources */,
 				758B9FD828B83E3A001A40B5 /* ExploreDetailReactor.swift in Sources */,
 				F91A251027FC642B0037BDA7 /* LoginVC.swift in Sources */,
 			);
@@ -937,12 +981,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -963,12 +1007,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -29,7 +29,7 @@ struct User: Codable {
     var date_joined: String?
     var updated_at: String?
     var type: String?
-    var visibility: String?
+    var visibility: ShareVisibilityRange?
     var deleted_at: String?
     
     init() {
@@ -40,8 +40,38 @@ struct User: Codable {
         date_joined = ""
         updated_at = ""
         type = ""
-        visibility = ""
+        visibility = .privateRange
         deleted_at = ""
+    }
+}
+
+enum ShareVisibilityRange: String, Codable {
+    case privateRange = "PRIVATE"
+    case friendRange = "FRIEND"
+    case publicRange = "PUBLIC"
+    
+    func visibilityNum() -> Float {
+        switch self {
+        case .privateRange:
+            return 0
+        case .friendRange:
+            return 1
+        case .publicRange:
+            return 2
+        }
+    }
+    
+    func stringByNum(_ value: Float) -> String {
+        switch value {
+        case 0:
+            return ShareVisibilityRange.privateRange.rawValue
+        case 1:
+            return ShareVisibilityRange.friendRange.rawValue
+        case 2:
+            return ShareVisibilityRange.publicRange.rawValue
+        default:
+            return ShareVisibilityRange.privateRange.rawValue
+        }
     }
 }
 
@@ -54,6 +84,7 @@ struct Friend: Codable {
     var friendId: String?
     var status: String?
     var created_at: String?
+    var friendNickname: String?
 }
 
 struct LoginResponse: Codable {
@@ -65,4 +96,27 @@ struct LoginResponse: Codable {
 struct CommonResponse: Codable {
     var statusCode: Int?
     var message: String?
+}
+
+struct BlockUser: Codable {
+    var id: Int?
+    var created_at: String?
+    var updated_at: String?
+    var targetUser: TargetUser?
+}
+
+struct TargetUser: Codable {
+    var id: String?
+    var nickname: String?
+}
+
+struct FriendAndBlockUser: Codable {
+    var friendId: String?
+    var status: String?
+    var created_at: String?
+    var friendNickname: String?
+    
+    var id: Int?
+    var updated_at: String?
+    var targetUser: TargetUser?
 }

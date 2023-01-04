@@ -67,7 +67,6 @@ class ChallengeVC: UIViewController, StoryboardView {
     private func bindAction(_ reactor: ChallengeReactor) {
         bucketAnswerEditButton.rx.tap
             .bind {
-//                self.reactor?.action.onNext(.selectBucketAnswer(31))
                 self.bucketAnswerEnrollFlag = true
                 
                 if self.bucketAnswerEditButton.titleLabel?.text == "작성하기" {
@@ -167,10 +166,10 @@ class ChallengeVC: UIViewController, StoryboardView {
                     cell.view.backgroundColor = index % 2 == 0 ? UIColor.thirtyBlack : UIColor.gray50
                     cell.number.textColor = index % 2 == 0 ? UIColor.white : UIColor.thirtyBlack
                 }
+                cell.bucketAnswerTextView.isHidden = true
                 
                 if let bucketImage = item.image, !bucketImage.isEmpty {
                     if let imageUrl = URL(string: bucketImage) {
-//                        cell.bucketAnswerImage.load(url: imageUrl)
                         cell.bucketAnswerImage.kf.setImage(with: imageUrl)
                         cell.number.isHidden = true
                     } else {
@@ -184,8 +183,26 @@ class ChallengeVC: UIViewController, StoryboardView {
                     if let stamp = item.stamp, stamp != 0 {
                         cell.badgeImage.image = UIImage(named: "badge_trans_\(stamp)")
                         cell.number.isHidden = true
+                        
+                        cell.bucketAnswerTextView.isHidden = false
+                        cell.bucketAnswerTextNum.text = "\(index + 1)"
+                        cell.bucketAnswerTextAnswer.text = ""
                     } else {
                         cell.badgeImage.image = UIImage()
+                        
+                        if let detail = item.detail, !detail.isEmpty {
+                            cell.number.isHidden = true
+                            
+                            cell.bucketAnswerTextView.isHidden = false
+                            cell.bucketAnswerTextNum.text = "\(index + 1)"
+                            cell.bucketAnswerTextAnswer.text = item.detail
+
+                            if cell.view.backgroundColor == UIColor.thirtyBlack {
+                                cell.bucketAnswerTextAnswer.textColor = UIColor.white
+                            } else {
+                                cell.bucketAnswerTextAnswer.textColor = UIColor.thirtyBlack
+                            }
+                        }
                     }
                 }
                 
@@ -225,7 +242,6 @@ class ChallengeVC: UIViewController, StoryboardView {
                 self?.bucketAnswerUpdatedDate.text = bucketAnswer?.updated_at?.iSO8601Date().dateToString()
                 
                 if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
-//                    self?.bucketAnswerImage.load(url: bucketImageURL)
                     self?.bucketAnswerImage.kf.setImage(with: bucketImageURL)
                 } else {
                     self?.bucketAnswerImage.image = nil
@@ -275,11 +291,6 @@ class ChallengeVC: UIViewController, StoryboardView {
     }
     
     func setCollectionView() {
-//        challengeListCollectionView.rx.modelSelected(Bucket.self)
-//            .subscribe(onNext: { [weak self] bucket in
-//                self?.reactor?.action.onNext(.selectBucket(bucket))
-//            }).disposed(by: disposeBag)
-        
         Observable.zip(challengeListCollectionView.rx.modelSelected(Bucket.self), challengeListCollectionView.rx.itemSelected)
             .bind { [weak self] (bucket, indexPath) in
                 self?.selectedBucketIndex = indexPath
@@ -318,6 +329,9 @@ class ThirtyCell: UICollectionViewCell {
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var bucketAnswerImage: UIImageView!
     @IBOutlet weak var cellWidth: NSLayoutConstraint!
+    @IBOutlet weak var bucketAnswerTextView: UIView!
+    @IBOutlet weak var bucketAnswerTextNum: UILabel!
+    @IBOutlet weak var bucketAnswerTextAnswer: UILabel!
     
     static var identifier = "ThirtyCell"
     

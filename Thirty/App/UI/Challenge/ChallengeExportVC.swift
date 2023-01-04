@@ -15,6 +15,7 @@ class ChallengeExportVC: UIViewController, StoryboardView {
     typealias Reactor = ChallengeExportReactor
     var disposeBag = DisposeBag()
     var bucketId = ""
+    var preVC = ""
     var selectedTheme = BehaviorRelay<ExportTheme>(value: .simple)
     
     var themeColors: [UIColor] = []
@@ -101,10 +102,10 @@ class ChallengeExportVC: UIViewController, StoryboardView {
                     cell.view.backgroundColor = index % 2 == 0 ? UIColor.thirtyBlack : UIColor.gray50
                     cell.number.textColor = index % 2 == 0 ? UIColor.white : UIColor.thirtyBlack
                 }
+                cell.bucketAnswerTextView.isHidden = true
                 
                 if let bucketImage = item.image, !bucketImage.isEmpty {
                     if let imageUrl = URL(string: bucketImage) {
-//                        cell.bucketAnswerImage.load(url: imageUrl)
                         cell.bucketAnswerImage.kf.setImage(with: imageUrl)
                         cell.number.isHidden = true
                     } else {
@@ -118,8 +119,26 @@ class ChallengeExportVC: UIViewController, StoryboardView {
                     if let stamp = item.stamp, stamp != 0 {
                         cell.badgeImage.image = UIImage(named: "badge_trans_\(stamp)")
                         cell.number.isHidden = true
+                        
+                        cell.bucketAnswerTextView.isHidden = false
+                        cell.bucketAnswerTextNum.text = "\(index + 1)"
+                        cell.bucketAnswerTextAnswer.text = ""
                     } else {
                         cell.badgeImage.image = UIImage()
+                        
+                        if let detail = item.detail, !detail.isEmpty {
+                            cell.number.isHidden = true
+                            
+                            cell.bucketAnswerTextView.isHidden = false
+                            cell.bucketAnswerTextNum.text = "\(index + 1)"
+                            cell.bucketAnswerTextAnswer.text = item.detail
+                            
+                            if cell.view.backgroundColor == UIColor.thirtyBlack {
+                                cell.bucketAnswerTextAnswer.textColor = UIColor.white
+                            } else {
+                                cell.bucketAnswerTextAnswer.textColor = UIColor.thirtyBlack
+                            }
+                        }
                     }
                 }
                 
@@ -177,11 +196,16 @@ class ChallengeExportVC: UIViewController, StoryboardView {
             print(error)
         }else {
             print("success")
-            //            guard let challengeShareVC = self.storyboard?
-            //                    .instantiateViewController(withIdentifier: "ChallengeShareVC") as? ChallengeShareVC else { return }
-            //            self.navigationController?.pushViewController(challengeShareVC, animated: false)
-            //
-            self.performSegue(withIdentifier: "goCompletePopup", sender: self)
+            self.view.showToast(message: "저장이 완료되었습니다!")
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                if self.preVC == "CompletedChallengeDetailVC" {
+                    self.dismiss(animated: true)
+                }else {
+                    self.performSegue(withIdentifier: "goCompletePopup", sender: self)
+                }
+            }
         }
     }
 }
@@ -243,6 +267,9 @@ class ThirtyExportCell: UICollectionViewCell {
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var bucketAnswerImage: UIImageView!
     @IBOutlet weak var cellWidth: NSLayoutConstraint!
+    @IBOutlet weak var bucketAnswerTextView: UIView!
+    @IBOutlet weak var bucketAnswerTextNum: UILabel!
+    @IBOutlet weak var bucketAnswerTextAnswer: UILabel!
     
     static var identifier = "ThirtyExportCell"
     

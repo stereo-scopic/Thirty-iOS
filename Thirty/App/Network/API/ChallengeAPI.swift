@@ -11,6 +11,7 @@ enum ChallengeAPI {
     case categoryList
     case challengeListInCategory(_ categoryName: String)
     case challengeDetail(_ categoryName: String, _ challengeId: Int)
+    case addMyChallenge(_ challengeTitle: String, _ challengeDetail: String, _ missions: [Mission])
 }
 
 extension ChallengeAPI: TargetType {
@@ -20,7 +21,7 @@ extension ChallengeAPI: TargetType {
     
     var path: String {
         switch self {
-        case .categoryList:
+        case .categoryList, .addMyChallenge:
             return "/challenges"
         case let .challengeListInCategory(categoryName):
             return "/challenges/\(categoryName)"
@@ -33,11 +34,21 @@ extension ChallengeAPI: TargetType {
         switch self {
         case .categoryList, .challengeListInCategory, .challengeDetail:
             return .get
+        case .addMyChallenge:
+            return .post
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
+        case .addMyChallenge(let challengeTitle, let challengeDescription, let missions):
+            return [
+                "challenge": [
+                    "title": challengeTitle,
+                    "description": challengeDescription
+                ],
+                "missions": missions
+            ]
         default:
             return nil
         }

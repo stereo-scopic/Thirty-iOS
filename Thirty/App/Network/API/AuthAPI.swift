@@ -9,6 +9,8 @@ import Moya
 
 enum AuthAPI {
     case signUp(_ email: String, _ pwd: String, _ nickname: String)
+    case signUpNewbie(_ email: String, _ pwd: String, _ nickname: String)
+    case signUpNotAuthorized(_ email: String, _ pwd: String, _ nickname: String)
     case signUpConfirm(_ email: String, _ code: Int)
     case signOut
     case login(_ email: String, _ pwd: String)
@@ -19,6 +21,10 @@ enum AuthAPI {
     case requestFriend(_ userId: String)
     case getFriendList
     case deleteFriend(_ friendId: String)
+    case reportUser(_ targetUserId: String)
+    case blockUser(_ targetUserId: String)
+    case unblockUser(_ targetUserId: String)
+    case getblockUserList
 }
 
 extension AuthAPI: TargetType {
@@ -28,8 +34,10 @@ extension AuthAPI: TargetType {
     
     var path: String {
         switch self {
-        case .signUp:
+        case .signUp, .signUpNotAuthorized:
             return "auth/signup"
+        case .signUpNewbie:
+            return "auth/signup/newbie"
         case .signUpConfirm:
             return "auth/activate"
         case .signOut:
@@ -42,14 +50,22 @@ extension AuthAPI: TargetType {
             return "user/\(userId)"
         case .requestFriend, .getFriendList, .deleteFriend:
             return "/relation"
+        case .reportUser:
+            return "user/report"
+        case .blockUser:
+            return "user/block"
+        case .unblockUser:
+            return "user/unblock"
+        case .getblockUserList:
+            return "block"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUp, .signUpConfirm, .signOut, .login, .requestFriend:
+        case .signUp, .signUpNewbie, .signUpNotAuthorized, .signUpConfirm, .signOut, .login, .requestFriend, .reportUser, .blockUser, .unblockUser:
             return .post
-        case .getProfile, .findUser, .getFriendList:
+        case .getProfile, .findUser, .getFriendList, .getblockUserList:
             return .get
         case .changeProfile, .changeVisibility:
             return .patch
@@ -61,8 +77,15 @@ extension AuthAPI: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-        case .signUp(let email, let pwd, let nickname):
+        case .signUp(let email, let pwd, let nickname), .signUpNotAuthorized(let email, let pwd, let nickname):
             return [
+                "email": email,
+                "password": pwd,
+                "nickname": nickname
+            ]
+        case .signUpNewbie(let email, let pwd, let nickname):
+            return [
+                "uuid": UUID().uuidString,
                 "email": email,
                 "password": pwd,
                 "nickname": nickname
@@ -95,6 +118,10 @@ extension AuthAPI: TargetType {
             return [
                 "friend": friendId
             ]
+        case .reportUser(let targetUserId), .blockUser(let targetUserId), .unblockUser(let targetUserId):
+            return [
+                "targetUserId": targetUserId
+            ]
         default:
             return nil
         }
@@ -111,8 +138,13 @@ extension AuthAPI: TargetType {
     }
     
     var headers: [String: String]? {
-        return [
-            "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
-        ]
+        switch self {
+        case .signUpNotAuthorized:
+            return [:]
+        default:
+            return [
+                "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
+            ]
+        }
     }
 }

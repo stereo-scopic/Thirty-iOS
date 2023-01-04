@@ -2,75 +2,95 @@
 //  ExploreVC.swift
 //  Thirty
 //
-//  Created by hakyung on 2022/03/17.
+//  Created by 송하경 on 2022/09/04.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
-import Moya
-import ReactorKit
+import RxGesture
 
-class ExploreVC: UIViewController, StoryboardView {
+class ExploreVC: UIViewController {
+    @IBOutlet weak var hobbyView: UIView!
+    @IBOutlet weak var fanView: UIView!
+    @IBOutlet weak var loveView: UIView!
+    @IBOutlet weak var selfcareView: UIView!
+    @IBOutlet weak var dietView: UIView!
+    @IBOutlet weak var fitnessView: UIView!
+    @IBOutlet weak var studyView: UIView!
+    @IBOutlet weak var createExploreButton: UIButton!
     
-    typealias Reactor = ExploreReactor
-
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var exploreTV: UITableView!
-    
-    var disposeBag = DisposeBag()
-    
-    let cellId = "ExploreCell"
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.reactor = ExploreReactor()
+
+        bindAction()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        reactor?.action.onNext(.viewWillAppear)
-    }
-    
-    func bind(reactor: ExploreReactor) {
-        bindAction(reactor)
-        bindState(reactor)
-    }
-    
-    private func bindAction(_ reactor: ExploreReactor) {
-        button.rx.tap
-            .map { Reactor.Action.load }
-            .bind(to: reactor.action)
+    private func bindAction() {
+        guard let exploreListVC = self.storyboard?.instantiateViewController(withIdentifier: "ExploreListVC") as? ExploreListVC else { return }
+        
+        hobbyView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.hobby
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
             .disposed(by: disposeBag)
         
-        exploreTV.rx.modelSelected(Category.self)
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                if let exploreListVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreListVC") as? ExploreListVC {
-//                    exploreListVC.challengeTheme = item.name ?? ""
-                    self?.navigationController?.pushViewController(exploreListVC, animated: true)
-                }
-            })
+        fanView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.fan
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
             .disposed(by: disposeBag)
-    }
-
-    private func bindState(_ reactor: ExploreReactor) {
-        reactor.state
-            .map { $0.categoryList }
-            .bind(to: exploreTV.rx.items(cellIdentifier: cellId, cellType: ExploreCell.self)) { _, item, cell in
-                cell.title.text = item.name
-                cell.title_kor.text = item.description
+        
+        loveView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.love
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        selfcareView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.selfcare
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        dietView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.diet
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        fitnessView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.fitness
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        studyView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                exploreListVC.selectedTheme = CategoryType.study
+                self.navigationController?.pushViewController(exploreListVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        createExploreButton.rx.tap
+            .bind { [weak self] _ in
+                guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "CreateChallengeVC") as? CreateChallengeVC else { return }
+                self?.navigationController?.pushViewController(vc, animated: true)
             }.disposed(by: disposeBag)
     }
-    
-    @IBAction func exploreButtonTouchUpInside(_ sender: Any) {
-        if let createChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "createChallengeVC") as? CreateChallengeVC {        
-            self.navigationController?.pushViewController(createChallengeVC, animated: false)
-        }
-        
-    }
-}
-
-class ExploreCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var title_kor: UILabel!
 }

@@ -49,6 +49,7 @@ class ExploreDetailVC: UIViewController, StoryboardView {
                 self?.challengeAddButton.backgroundColor = UIColor.gray300
                 self?.challengeAddButton.setTitle("추가됨", for: .normal)
                 self?.challengeAddButton.setImage(UIImage(named: "icon_check"), for: .normal)
+                self?.view.showToast(message: "챌린지가 추가되었어요.")
             })
             .disposed(by: disposeBag)
     }
@@ -57,9 +58,8 @@ class ExploreDetailVC: UIViewController, StoryboardView {
         reactor.state
             .map { $0.challengeDetail.missions ?? [] }
             .bind(to: challengeCollectionView.rx.items(cellIdentifier: ExploreDetailCollectionViewCell.identifier, cellType: ExploreDetailCollectionViewCell.self)) { index, item, cell in
-                cell.dateLabel.text = "\(item.date ?? 0)"
+                cell.dateLabel.text = "\(item.date)"
                 cell.descriptionLabel.text = item.detail
-//                cell.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.gray200
                 
                 if (index / 6) % 2 == 0 {
                     cell.backgroundColor = index % 2 == 0 ? UIColor.gray50 : UIColor.gray200
@@ -73,7 +73,7 @@ class ExploreDetailVC: UIViewController, StoryboardView {
             .map { $0.challengeDetail.missions ?? [] }
             .bind(to: challengeTableView.rx.items(cellIdentifier: ExploreDetailCell.identifier, cellType: ExploreDetailCell.self)) { _, item, cell in
                 cell.titleLabel.text = item.detail
-                cell.seqLabel.text = "#\(item.date ?? 0)"
+                cell.seqLabel.text = "#\(item.date)"
                 cell.backgroundColor = UIColor.gray100
             }
             .disposed(by: disposeBag)
@@ -83,6 +83,7 @@ class ExploreDetailVC: UIViewController, StoryboardView {
             .subscribe(onNext: { challengeDetail in
                 self.challengeTitleLabel.text = challengeDetail.title
                 self.challengeDescriptionLabel.text = challengeDetail.description
+                self.challengeUserCountLabel.text = "\(challengeDetail.bucketCount ?? 0)명이 이 챌린지를 하고 있어요."
             })
             .disposed(by: disposeBag)
     }

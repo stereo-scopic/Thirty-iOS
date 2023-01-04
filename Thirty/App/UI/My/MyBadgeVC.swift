@@ -68,21 +68,18 @@ class MyBadgeVC: UIViewController, StoryboardView {
         collectionView.rx.modelSelected(Badge.self)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] item in
-                if let myBadgeDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "MyBadgeDetailVC") as? MyBadgeDetailVC {
-                    myBadgeDetailVC.badgeInfo = item
-                    
-                    myBadgeDetailVC.modalPresentationStyle = .overFullScreen
-                    myBadgeDetailVC.modalTransitionStyle = .crossDissolve
-                    self?.present(myBadgeDetailVC, animated: true, completion: nil)
+                
+                if item.isowned {
+                    if let myBadgeDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "MyBadgeDetailVC") as? MyBadgeDetailVC {
+                        myBadgeDetailVC.badgeInfo = item
+                        
+                        myBadgeDetailVC.modalPresentationStyle = .overFullScreen
+                        myBadgeDetailVC.modalTransitionStyle = .crossDissolve
+                        self?.present(myBadgeDetailVC, animated: true, completion: nil)
+                    }
                 }
             })
             .disposed(by: disposeBag)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCell.identifier, for: indexPath) as? BadgeCell else { return UICollectionViewCell() }
-        
-        return cell
     }
 }
 

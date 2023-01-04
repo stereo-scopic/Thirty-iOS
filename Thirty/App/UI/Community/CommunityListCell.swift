@@ -8,7 +8,7 @@
 import UIKit
 
 class CommunityListCell: UITableViewCell {
-    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var nicknameButton: UIButton!
     @IBOutlet weak var challengeTitleLabel: UILabel!
     @IBOutlet weak var challengeOrderLabel: UILabel!
     @IBOutlet weak var challengeNameLabel: UILabel!
@@ -23,6 +23,7 @@ class CommunityListCell: UITableViewCell {
     
     var makeExpand: ((Bool) -> Void)?
     var addFriend: ((Bool) -> Void)?
+    var nicknameClicked: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,5 +39,9 @@ class CommunityListCell: UITableViewCell {
     
     @IBAction func addFriendButtonClicked(_ sender: Any) {
         addFriend?(true)
+    }
+    
+    @IBAction func nicknameButtonClicked(_ sender: Any) {
+        nicknameClicked?()
     }
 }

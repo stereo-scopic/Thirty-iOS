@@ -41,11 +41,6 @@ class MyReactor: Reactor {
     }
         
     private func getUserInfo() -> Observable<Mutation> {
-//        let observer = Observable<Mutation>.create { observer in
-//            observer.onNext(Mutation.getAuthInfo(UserService.shared.myProfile ?? User()))
-//            
-//        }
-        
         UserService.shared.getProfile()
         let response = Observable<Mutation>.create { observer in
             let provider = MoyaProvider<AuthAPI>()

@@ -17,7 +17,7 @@ class ExploreListVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var exploreCollectionView: UICollectionView!
-    var selectedTheme = ""
+    var selectedTheme: CategoryType?
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: true, completion: nil)
@@ -26,19 +26,17 @@ class ExploreListVC: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reactor = ExploreListReactor()
-        navigationTitleLabel.text = selectedTheme
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reactor?.action.onNext(.setChallengeByTheme(selectedTheme))
+        guard let selectedTheme = selectedTheme else {
+            return
+        }
+
+        reactor?.action.onNext(.setChallengeByTheme(selectedTheme.rawValue))
+        navigationTitleLabel.text = selectedTheme.rawValue
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreListCell", for: indexPath) as? ExploreListCell else { return UICollectionViewCell() }
-        
-        return cell
-    }
-    
+
     func bind(reactor: ExploreListReactor) {
         bindAction(reactor)
         bindState(reactor)
@@ -49,7 +47,7 @@ class ExploreListVC: UIViewController, StoryboardView {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] item in
                 if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
-                    exploreDetailVC.categoryName = self?.selectedTheme ?? ""
+                    exploreDetailVC.categoryName = self?.selectedTheme?.rawValue ?? ""
                     exploreDetailVC.challengeId = item.id ?? 0
                     self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
                 }
@@ -65,7 +63,6 @@ class ExploreListVC: UIViewController, StoryboardView {
                 cell.descriptionLabel.text = item.description
                 cell.addButton.isSelected = false
                 cell.addButtonClicked = { _ in
-//                    cell.addButton.isSelected = bool
                     cell.addButton.isSelected = true
                     reactor.action.onNext(.addChallenge(item.id ?? 0))
                 }
@@ -93,9 +90,11 @@ class ExploreListCell: UICollectionViewCell {
     var addButtonClicked: ((Bool) -> Void)?
     
     static var identifier = "ExploreListCell"
+    var selectedFlag = false
     
     @IBAction func addButtonTouchUpInside(_ sender: UIButton) {
-        self.addButton.isSelected = !sender.isSelected
+//        self.addButton.isSelected = !sender.isSelected
+        selectedFlag = true
         if let handler = addButtonClicked {
             handler(self.addButton.isSelected)
         }

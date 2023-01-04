@@ -43,4 +43,5 @@ struct ChallengeDetail: Codable {
     var is_public: Bool?
     var category: Category?
     var missions: [Mission]?
+    var bucketCount: Int?
 }

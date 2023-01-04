@@ -52,7 +52,6 @@ class LoginVC: UIViewController, StoryboardView {
             .map { $0.loginFlag }
             .bind { flag in
                 if flag {
-//                    self.navigationController?.popViewController(animated: true)
                     self.dismiss(animated: true, completion: nil)
                 }
             }.disposed(by: disposeBag)
@@ -69,7 +68,6 @@ class LoginVC: UIViewController, StoryboardView {
     private func bindAction(_ reactor: LoginReactor) {
         signUpButton.rx.tap
             .bind {
-//                self.performSegue(withIdentifier: "moveSignUp", sender: self)
                 guard let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC else { return }
                 signUpVC.modalTransitionStyle = .crossDissolve
                 signUpVC.modalPresentationStyle = .fullScreen
@@ -97,25 +95,6 @@ class LoginVC: UIViewController, StoryboardView {
                 }
                 
             }.disposed(by: disposeBag)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let signUpVC = segue.destination as? SignUpVC else {
-            fatalError()
-        }
-        
-//        signUpVC.signUpSuccessObservable
-//            .subscribe(onNext: { flag in
-//                if flag {
-//                    guard let welcomePopupVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomePopupVC") as? WelcomePopupVC else { return }
-//                    welcomePopupVC.modalPresentationStyle = .fullScreen
-//                    welcomePopupVC.modalTransitionStyle = .crossDissolve
-//                    self.present(welcomePopupVC, animated: true, completion: {
-//                        self.navigationController?.popViewController(animated: true)
-//                    })
-//                }
-//            })
-//            .disposed(by: disposeBag)
     }
     
     func setupUI() {

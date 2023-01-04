@@ -35,7 +35,7 @@ class CommunityAllVC: UIViewController, StoryboardView {
             .map { $0.allCommunityList ?? [] }
             .bind(to: communityEveryOneTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { _, item, cell in
 
-                cell.nicknameLabel.text = item.usernickname
+                cell.nicknameButton.setTitle(item.usernickname, for: .normal)
                 cell.challengeTitleLabel.text = item.challenge
                 cell.challengeOrderLabel.text = "#\(item.date)"
                 cell.challengeNameLabel.text = item.mission
@@ -47,7 +47,7 @@ class CommunityAllVC: UIViewController, StoryboardView {
                     
                 cell.addFriend = { _ in
                     // 친구신청API
-                    self.reactor?.action.onNext(.requestFriend(item.userId ?? ""))
+                    self.reactor?.action.onNext(.requestFriend(item.userid ?? ""))
                     cell.addFriendButton.setTitle("추가 완료", for: .normal)
                     cell.addFriendButton.setTitleColor(.thirtyBlack, for: .normal)
                 }
@@ -64,9 +64,36 @@ class CommunityAllVC: UIViewController, StoryboardView {
                     cell.detailLabel.numberOfLines = 0
                     self?.communityEveryOneTableView.reloadData()
                 }
+                
+                cell.nicknameClicked = { [weak self] in
+                    let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                    
+                    let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+                    let deleteAllAction = UIAlertAction(title: "신고하기", style: .default) { _ in
+                        reactor.action.onNext(.reportUser(item.userid ?? ""))
+                    }
+                    let deleteContentAction = UIAlertAction(title: "차단하기", style: .default) { _ in
+                        reactor.action.onNext(.blockUser(item.userid ?? ""))
+                    }
+                    
+                    alertVC.addAction(cancelAction)
+                    alertVC.addAction(deleteAllAction)
+                    alertVC.addAction(deleteContentAction)
+                    
+                    self?.present(alertVC, animated: true, completion: nil)
+                    
+                }
 
             }
             .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.serverMessage ?? "" }
+            .subscribe(onNext: { message in
+                if !message.isEmpty {
+                    self.view.showToast(message: message)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func bindAction(_ reactor: CommunityReactor) {
