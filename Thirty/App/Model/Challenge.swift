@@ -14,7 +14,7 @@ struct Challenge: Codable {
     var title: String?
     var description: String?
     var is_public: Bool?
-    var category: Category?
+    var category: Category? 
     var thumbnail: String?
 }
 
