@@ -1,4 +1,4 @@
-name: Xcode - Build And Analyze On Develop
+name: Build On Develop
 
 on:
   push:
