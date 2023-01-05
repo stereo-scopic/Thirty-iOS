@@ -24,6 +24,6 @@ jobs:
         env:
           scheme: ${{ 'default' }}
         run: |
-           pod install --repo-update --clean-install --project-directory=HappyChuseok/
-  xcodebuild clean test -workspace HappyChuseok/HappyChuseok.xcworkspace -scheme HappyChuseok -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
+           pod install --repo-update --clean-install --project-directory=Thirty/
+           xcodebuild clean test -workspace Thirty/Thirty.xcworkspace -scheme Thirty -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
         
