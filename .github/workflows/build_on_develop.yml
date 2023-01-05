@@ -25,5 +25,5 @@ jobs:
           scheme: ${{ 'default' }}
         run: |
            pod install --repo-update --clean-install 
-           xcodebuild clean test -workspace Thirty/Thirty.xcworkspace -scheme Thirty -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
+           xcodebuild clean test -workspace Thirty.xcworkspace -scheme Thirty -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=latest'
         
