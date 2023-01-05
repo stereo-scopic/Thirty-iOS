@@ -4,6 +4,8 @@ name: Upload TestFlight
 on:
   push:
     branches: [ release/* ]
+  pull_request:
+    branches: [ release/* ]
     
 jobs:
   deploy:
