@@ -69,7 +69,7 @@ jobs:
         # 빌드 및 아카이브
         run: |
           pod install --repo-update --clean-install
-          xcodebuild archive -workspace $XC_WORKSPACE -scheme $XC_SCHEME -configuration release -archivePath $XC_ARCHIVE
+          xcodebuild archive -workspace $XC_WORKSPACE -scheme $XC_SCHEME -configuration release -archivePath $XC_ARCHIVE -allowProvisioningUpdates
       - name: Export app
         # export 를 통해 ipa 파일 만듦
         run: |
