@@ -22,8 +22,8 @@
 	<key>teamID</key>
 	<string>2YT3299DFQ</string>
 	<key>uploadBitcode</key>
-	<true/>
+	<false/>
 	<key>uploadSymbols</key>
-	<true/>
+	<false/>
 </dict>
 </plist>
