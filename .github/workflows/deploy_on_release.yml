@@ -24,7 +24,10 @@ jobs:
       # provisioning
       ENCRYPTED_PROVISION_FILE_PATH: ${{ '.github/secrets/Thirty_Distribution.mobileprovision.gpg' }}
       DECRYPTED_PROVISION_FILE_PATH: ${{ '.github/secrets/Thirty_Distribution.mobileprovision' }}
-      PROVISIONING_ENCRYPTION_KEY: ${{ secrets.PROVISION_ENCRYPTION_PWD }} 
+      PROVISIONING_ENCRYPTION_KEY: ${{ secrets.PROVISION_ENCRYPTION_PWD }}
+      
+      # p8
+      AUTH_P8_FILE_PATH: ${{ '.github/secrets/AuthKey_3Z48FT269L.p8' }}
       
       # certification export key
       CERT_EXPORT_KEY: ${{ secrets.CERT_EXPORT_PWD }}
@@ -74,6 +77,12 @@ jobs:
         # export 를 통해 ipa 파일 만듦
         run: |
           xcodebuild -exportArchive -archivePath $XC_ARCHIVE -exportOptionsPlist ExportOptions.plist -exportPath . -allowProvisioningUpdates
+          
+      - name: Install private API key P8
+        run: | 
+          mkdir -p ~/private_keys
+          echo -n "$secrets.APPSTORE_API_KEY_ID" | $AUTH_P8_FILE_PATH
+          ls
       - name: Upload app to TestFlight
         uses: apple-actions/upload-testflight-build@v1
         with:
