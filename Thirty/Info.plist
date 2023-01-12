@@ -24,7 +24,9 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+			<array>
+				<string>kakao6b74f2ae51a5e262a615f2c38318e198</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>

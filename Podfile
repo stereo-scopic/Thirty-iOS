@@ -20,4 +20,7 @@ target 'Thirty' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
   pod 'Crashlytics'
+  pod 'KakaoSDKCommon'
+  pod 'KakaoSDKAuth'
+  pod 'KakaoSDKUser'
 end

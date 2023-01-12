@@ -94,6 +94,17 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.8.0):
     - GoogleUtilities/Logger
+  - KakaoSDKAuth (2.13.1):
+    - KakaoSDKCommon (= 2.13.1)
+  - KakaoSDKCommon (2.13.1):
+    - KakaoSDKCommon/Common (= 2.13.1)
+    - KakaoSDKCommon/Network (= 2.13.1)
+  - KakaoSDKCommon/Common (2.13.1)
+  - KakaoSDKCommon/Network (2.13.1):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.13.1)
+  - KakaoSDKUser (2.13.1):
+    - KakaoSDKAuth (= 2.13.1)
   - Kingfisher (7.2.2)
   - lottie-ios (3.3.0)
   - Moya (15.0.0):
@@ -127,6 +138,9 @@ DEPENDENCIES:
   - Crashlytics
   - Firebase/Analytics
   - Firebase/Messaging
+  - KakaoSDKAuth
+  - KakaoSDKCommon
+  - KakaoSDKUser
   - Kingfisher
   - lottie-ios
   - Moya
@@ -151,6 +165,9 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
     - Kingfisher
     - lottie-ios
     - Moya
@@ -178,6 +195,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 7e48a3249792ac35d6f18f107f63f199a7e9d0ce
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
+  KakaoSDKAuth: d9de0cb0c723441ced3616d481952bde34438dcb
+  KakaoSDKCommon: a16807e19984a0a208c3117c7ef117f101a9a128
+  KakaoSDKUser: 92d34cf6af7b123c22a7ee44424332123e356901
   Kingfisher: 184d4d1a8c36666e663caf8e08abe87898595c53
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
@@ -192,6 +212,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 2203393a1001686530a8903df5e181afffbcb8e1
+PODFILE CHECKSUM: 847ad35777012950c95f7956bdd234125ad5251b
 
 COCOAPODS: 1.11.2
