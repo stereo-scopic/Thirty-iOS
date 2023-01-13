@@ -52,7 +52,9 @@ jobs:
           # certificate 복호화
           gpg -d -o "$DECRYPTED_CERT_FILE_PATH" --pinentry-mode=loopback --passphrase "$CERT_ENCRYPTION_KEY" "$ENCRYPTED_CERT_FILE_PATH"
           # provisioning 복호화
-          gpg -d -o "$DECRYPTED_PROVISION_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISIONING_ENCRYPTION_KEY" "$ENCRYPTED_PROVISION_FILE_PATH"
+          gpg -d -o "$DECRYPTED_PROVISION_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISIONING_ENCRYPTION_KEY" "$
+          
+          "
           
           # security를 사용하여 인증서와 개인 키를 새로 만든 키 체인으로 가져옴
           security import "$DECRYPTED_CERT_FILE_PATH" -k "$KEYCHAIN" -P "$CERT_EXPORT_KEY" -A
@@ -81,7 +83,7 @@ jobs:
       - name: Install private API key P8
         run: | 
           mkdir -p ~/private_keys
-          echo -n "$secrets.APPSTORE_API_KEY_ID" | base64 --decode --output $AUTH_P8_FILE_PATH
+          echo -n ${{ secrets.APPSTORE_API_KEY_ID }} | base64 --decode --output $AUTH_P8_FILE_PATH
           ls
       - name: Upload app to TestFlight
         uses: apple-actions/upload-testflight-build@v1
