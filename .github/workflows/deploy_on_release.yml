@@ -80,7 +80,7 @@ jobs:
       - name: Install private API key P8
         run: | 
           mkdir -p ~/private_keys
-          echo -n ${{ secrets.APPSTORE_API_KEY_ID }} | base64 --decode --output $AUTH_P8_FILE_PATH
+          echo -n ${{ secrets.APPSTORE_API_KEY_ID }} | base64 --decode --output "$AUTH_P8_FILE_PATH"
           ls
       - name: Upload app to TestFlight
         uses: apple-actions/upload-testflight-build@v1
