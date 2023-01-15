@@ -77,10 +77,10 @@ class LoginVC: UIViewController, StoryboardView {
         
         findPwdButton.rx.tap
             .bind {
-                guard let sendEmailPopupVC = self.storyboard?.instantiateViewController(withIdentifier: "SendEmailPopupVC") as? SendEmailPopupVC else { return }
-                sendEmailPopupVC.modalTransitionStyle = .crossDissolve
-                sendEmailPopupVC.modalPresentationStyle = .fullScreen
-                self.present(sendEmailPopupVC, animated: true, completion: nil)
+                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
+                findPwdVC.modalTransitionStyle = .crossDissolve
+                findPwdVC.modalPresentationStyle = .fullScreen
+                self.present(findPwdVC, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
         

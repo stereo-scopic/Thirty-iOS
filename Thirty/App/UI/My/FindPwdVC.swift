@@ -6,23 +6,30 @@
 //
 
 import UIKit
+import RxSwift
 
 class FindPwdVC: UIViewController {
-
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var sendEmailButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setButtonActions()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setButtonActions() {
+        backButton.rx.tap
+            .bind {
+                self.dismiss(animated: true)
+            }.disposed(by: disposeBag)
+        
+        sendEmailButton.rx.tap
+            .bind {
+                // API 연결
+                self.performSegue(withIdentifier: "sendEmailPopup", sender: self)
+            }.disposed(by: disposeBag)
     }
-    */
-
 }

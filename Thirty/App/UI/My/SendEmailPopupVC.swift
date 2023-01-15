@@ -13,6 +13,7 @@ class SendEmailPopupVC: UIViewController {
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.presentingViewController?
+            .presentingViewController?.dismiss(animated: false, completion: nil)
     }
 }
