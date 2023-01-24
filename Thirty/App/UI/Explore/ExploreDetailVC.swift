@@ -22,6 +22,7 @@ class ExploreDetailVC: UIViewController, StoryboardView {
     var disposeBag = DisposeBag()
     var categoryName: String = ""
     var challengeId: Int = 0
+    var challengeIsOwned: Bool = false
     
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         self.popVC(animated: false, completion: nil)
@@ -29,7 +30,7 @@ class ExploreDetailVC: UIViewController, StoryboardView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.reactor = ExploreDetailReactor(category: categoryName, challengeId: challengeId)
+        self.reactor = ExploreDetailReactor(category: categoryName, challengeId: challengeId, challengeIsOwned: challengeIsOwned)
         self.challengeCollectionView.delegate = self
     }
     
@@ -46,9 +47,6 @@ class ExploreDetailVC: UIViewController, StoryboardView {
         challengeAddButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 reactor.action.onNext(.addChallengeButtonTapped)
-                self?.challengeAddButton.backgroundColor = UIColor.gray300
-                self?.challengeAddButton.setTitle("추가됨", for: .normal)
-                self?.challengeAddButton.setImage(UIImage(named: "icon_check"), for: .normal)
                 self?.view.showToast(message: "챌린지가 추가되었어요.")
             })
             .disposed(by: disposeBag)
@@ -84,6 +82,16 @@ class ExploreDetailVC: UIViewController, StoryboardView {
                 self.challengeTitleLabel.text = challengeDetail.title
                 self.challengeDescriptionLabel.text = challengeDetail.description
                 self.challengeUserCountLabel.text = "\(challengeDetail.bucketCount ?? 0)명이 이 챌린지를 하고 있어요."
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map { $0.challengeIsOwned }
+            .subscribe(onNext: { [weak self] isOwned in
+                self?.challengeAddButton.backgroundColor = isOwned ? UIColor.gray300 : UIColor.black
+                self?.challengeAddButton.setTitle(isOwned ? "추가됨" : "추가하기", for: .normal)
+                self?.challengeAddButton.setImage(isOwned ? UIImage(named: "icon_check") : UIImage(), for: .normal)
+                self?.challengeAddButton.isEnabled = !isOwned
             })
             .disposed(by: disposeBag)
     }

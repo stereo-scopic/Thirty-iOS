@@ -49,6 +49,7 @@ class ExploreListVC: UIViewController, StoryboardView {
                 if let exploreDetailVC = self?.storyboard?.instantiateViewController(withIdentifier: "ExploreDetailVC") as? ExploreDetailVC {
                     exploreDetailVC.categoryName = self?.selectedTheme?.rawValue ?? ""
                     exploreDetailVC.challengeId = item.id ?? 0
+                    exploreDetailVC.challengeIsOwned = item.isUserOwned ??  false
                     self?.navigationController?.pushViewController(exploreDetailVC, animated: true)
                 }
             })
@@ -61,9 +62,8 @@ class ExploreListVC: UIViewController, StoryboardView {
             .bind(to: exploreCollectionView.rx.items(cellIdentifier: ExploreListCell.identifier, cellType: ExploreListCell.self)) { _, item, cell in
                 cell.titleLabel.text = item.title
                 cell.descriptionLabel.text = item.description
-                cell.addButton.isSelected = false
+                cell.addButton.isSelected = item.isUserOwned ?? false
                 cell.addButtonClicked = { _ in
-                    cell.addButton.isSelected = true
                     reactor.action.onNext(.addChallenge(item.id ?? 0))
                 }
                 
@@ -77,6 +77,10 @@ class ExploreListVC: UIViewController, StoryboardView {
             .subscribe(onNext: { message in
                 if !message.isEmpty {
                     self.view.showToast(message: message)
+                    // 목록 갱신
+                    if let selectedTheme = self.selectedTheme {
+                        reactor.action.onNext(.setChallengeByTheme(selectedTheme.rawValue))
+                    }
                 }
             }).disposed(by: disposeBag)
     }
