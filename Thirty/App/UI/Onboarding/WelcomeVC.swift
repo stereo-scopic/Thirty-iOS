@@ -13,7 +13,6 @@ class WelcomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +34,7 @@ class WelcomeVC: UIViewController {
     }
     
     @IBAction func guestButtonTouchUpInside(_ sender: Any) {
-        let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeThemeVC") as! SelectChallengeThemeVC
+        let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeThemeNewVC") as! SelectChallengeThemeNewVC
         
         self.navigationController?.pushViewController(selectChallengeVC, animated: false)
     }

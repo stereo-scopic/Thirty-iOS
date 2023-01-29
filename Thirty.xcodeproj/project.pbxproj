@@ -109,6 +109,8 @@
 		F98C9AE628C4C225003A25CD /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC.swift */; };
 		F98C9AE828C4CC66003A25CD /* BucketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE728C4CC66003A25CD /* BucketAPI.swift */; };
 		F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE928C4CEC9003A25CD /* Token.swift */; };
+		F99B69E4298627A8001F6003 /* SelectChallengeThemeNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B69E3298627A8001F6003 /* SelectChallengeThemeNewVC.swift */; };
+		F99B69E629863CB5001F6003 /* SelectChallengeThemeNewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B69E529863CB5001F6003 /* SelectChallengeThemeNewReactor.swift */; };
 		F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */; };
 		F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65626288D02B300544D83 /* CommunityListCell.swift */; };
 		F9A65629288D07AB00544D83 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65628288D07AB00544D83 /* Community.swift */; };
@@ -243,6 +245,8 @@
 		F98C9AE528C4C225003A25CD /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		F98C9AE728C4CC66003A25CD /* BucketAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPI.swift; sourceTree = "<group>"; };
 		F98C9AE928C4CEC9003A25CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		F99B69E3298627A8001F6003 /* SelectChallengeThemeNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeThemeNewVC.swift; sourceTree = "<group>"; };
+		F99B69E529863CB5001F6003 /* SelectChallengeThemeNewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeThemeNewReactor.swift; sourceTree = "<group>"; };
 		F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		F9A65626288D02B300544D83 /* CommunityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCell.swift; sourceTree = "<group>"; };
 		F9A65628288D07AB00544D83 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				757D45AF28DBD837004DBC5A /* SplashVC.swift */,
+				F99B69E3298627A8001F6003 /* SelectChallengeThemeNewVC.swift */,
+				F99B69E529863CB5001F6003 /* SelectChallengeThemeNewReactor.swift */,
 				757D66C82874FEDF00E3C5DE /* SelectChallengeThemeVC.swift */,
 				757D66CA2874FEFB00E3C5DE /* SelectChallengeVC.swift */,
 				F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */,
@@ -736,6 +742,7 @@
 				F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */,
 				757D66CD2875048900E3C5DE /* WelcomeVC.swift in Sources */,
 				7504D90B28F70EF30033A27F /* Announcement.swift in Sources */,
+				F99B69E629863CB5001F6003 /* SelectChallengeThemeNewReactor.swift in Sources */,
 				F9E01FC128CE1A7D00649EC7 /* WelcomePopupVC.swift in Sources */,
 				75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */,
 				F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */,
@@ -746,6 +753,7 @@
 				757C96822863E169005CCBA3 /* ChallengeExportVC.swift in Sources */,
 				759D328B27C8A45000A88C02 /* ChallengeVC.swift in Sources */,
 				751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */,
+				F99B69E4298627A8001F6003 /* SelectChallengeThemeNewVC.swift in Sources */,
 				75B6B3C128EEF2E10081AA36 /* ChallengeExportReactor.swift in Sources */,
 				75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */,
 				F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */,
