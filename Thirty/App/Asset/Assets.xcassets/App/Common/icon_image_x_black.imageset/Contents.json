@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "IMG_1992.JPG",
+      "filename" : "minus.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "IMG_1992-1.JPG",
+      "filename" : "minus@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "IMG_1992-2.JPG",
       "idiom" : "universal",
       "scale" : "3x"
     }

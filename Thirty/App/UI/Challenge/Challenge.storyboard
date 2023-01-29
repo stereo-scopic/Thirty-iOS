@@ -851,13 +851,24 @@
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge_1" translatesAutoresizingMaskIntoConstraints="NO" id="vv5-W9-q47">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="228"/>
                                                             </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3o-Pi-B0b">
+                                                                <rect key="frame" x="352" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="30" id="Vtx-J9-Izu"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="We5-Pt-sWT"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="icon_image_x_black" title=" "/>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="vv5-W9-q47" firstAttribute="leading" secondItem="TL4-q0-4xG" secondAttribute="leading" id="13r-CY-27J"/>
                                                             <constraint firstItem="vv5-W9-q47" firstAttribute="top" secondItem="TL4-q0-4xG" secondAttribute="top" id="NTY-4B-3Fd"/>
                                                             <constraint firstAttribute="trailing" secondItem="vv5-W9-q47" secondAttribute="trailing" id="Y9F-DD-1QF"/>
+                                                            <constraint firstAttribute="trailing" secondItem="X3o-Pi-B0b" secondAttribute="trailing" id="cfu-Bm-b9c"/>
                                                             <constraint firstAttribute="bottom" secondItem="vv5-W9-q47" secondAttribute="bottom" id="fCm-IL-xTF"/>
+                                                            <constraint firstItem="X3o-Pi-B0b" firstAttribute="top" secondItem="TL4-q0-4xG" secondAttribute="top" id="jlj-GD-tBM"/>
                                                             <constraint firstAttribute="height" constant="228" id="ptS-0L-LNO"/>
                                                         </constraints>
                                                     </view>
@@ -933,6 +944,7 @@
                     <navigationItem key="navigationItem" id="vh9-yg-H8B"/>
                     <connections>
                         <outlet property="backButton" destination="Y17-Eh-tql" id="HcS-Kp-XFZ"/>
+                        <outlet property="badgeDeleteButton" destination="X3o-Pi-B0b" id="WsT-Ma-NWq"/>
                         <outlet property="badgeImageView" destination="vv5-W9-q47" id="oGZ-a1-JxP"/>
                         <outlet property="badgeView" destination="TL4-q0-4xG" id="ut4-DU-T0B"/>
                         <outlet property="bucketAnswerDateLabel" destination="DbD-wT-VYO" id="vx1-OT-UQw"/>
@@ -1974,6 +1986,7 @@
         <image name="color_circle" width="34" height="34"/>
         <image name="icon_dot" width="44" height="44"/>
         <image name="icon_image_x" width="30" height="30"/>
+        <image name="icon_image_x_black" width="31" height="30"/>
         <image name="icon_notification" width="44" height="44"/>
         <image name="icon_plus_gray" width="44" height="44"/>
         <image name="icon_share" width="44" height="44"/>
