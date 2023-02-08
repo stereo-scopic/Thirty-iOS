@@ -48,6 +48,7 @@ class ExploreListReactor: Reactor {
         switch mutation {
         case .setChallengeList(let challengeList):
             newState.challengeList = challengeList
+            newState.addChallengeMessage = ""
         case .addChallenge(let message):
             newState.addChallengeMessage = message
         }

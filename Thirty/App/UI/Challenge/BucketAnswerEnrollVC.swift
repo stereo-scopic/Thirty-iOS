@@ -26,6 +26,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     @IBOutlet weak var bucketImageView: UIImageView!
     
     @IBOutlet weak var badgeView: UIView!
+    @IBOutlet weak var badgeDeleteButton: UIButton!
     @IBOutlet weak var badgeImageView: UIImageView!
     
     @IBOutlet weak var galleryButton: UIButton!
@@ -142,6 +143,12 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
             .bind {
                 self.bucketImgView.isHidden = true
                 self.bucketImageView.image = UIImage()
+            }.disposed(by: disposeBag)
+        
+        badgeDeleteButton.rx.tap
+            .bind {
+                self.badgeView.isHidden = true
+                self.selectedStamp = 0
             }.disposed(by: disposeBag)
     }
     

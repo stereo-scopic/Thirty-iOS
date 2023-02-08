@@ -73,5 +73,13 @@ class WelcomeLoginVC: UIViewController, StoryboardView {
                 self.reactor?.action.onNext(.loginButtonTapped(email, pwd))
                 
             }.disposed(by: disposeBag)
+        
+        findPwdButton.rx.tap
+            .bind {
+                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
+                findPwdVC.modalTransitionStyle = .crossDissolve
+                findPwdVC.modalPresentationStyle = .fullScreen
+                self.present(findPwdVC, animated: true, completion: nil)
+            }.disposed(by: disposeBag)
     }
 }

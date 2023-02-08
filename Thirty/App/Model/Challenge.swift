@@ -16,6 +16,7 @@ struct Challenge: Codable {
     var is_public: Bool?
     var category: Category? 
     var thumbnail: String?
+    var isUserOwned: Bool?
 }
 
 struct CommunityChallengeItem: Decodable {

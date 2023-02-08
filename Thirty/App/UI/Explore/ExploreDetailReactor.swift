@@ -25,13 +25,14 @@ class ExploreDetailReactor: Reactor {
         var challengeDetail: ChallengeDetail = ChallengeDetail()
         var category: String = ""
         var challengeId: Int = 0
+        var challengeIsOwned: Bool = false
     }
     
     var challengeDetailObservable = BehaviorRelay<ChallengeDetail>(value: ChallengeDetail())
     var initialState: State = State()
     
-    init(category: String, challengeId: Int) {
-        self.initialState = State(challengeDetail: ChallengeDetail(), category: category, challengeId: challengeId)
+    init(category: String, challengeId: Int, challengeIsOwned: Bool) {
+        self.initialState = State(challengeDetail: ChallengeDetail(), category: category, challengeId: challengeId, challengeIsOwned: challengeIsOwned)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -49,6 +50,7 @@ class ExploreDetailReactor: Reactor {
         case .setChallengeDetail(let challengeDetail):
             newState.challengeDetail = challengeDetail
         case .addChallenge:
+            newState.challengeIsOwned = true
             print("response 성공여부 처리")
         }
         return newState
