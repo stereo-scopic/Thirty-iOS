@@ -17,6 +17,7 @@ class CommunityReactor: Reactor {
         case requestFriend(String)
         case reportUser(String)
         case blockUser(String)
+        case unFoldCell(Int)
     }
     
     enum Mutation {
@@ -24,6 +25,7 @@ class CommunityReactor: Reactor {
         case getFriendCommunityList([CommunityChallenge2])
         case reportUser(String)
         case blockUser(String)
+        case unFoldCellEvent(Int)
     }
     
     struct State {
@@ -44,6 +46,8 @@ class CommunityReactor: Reactor {
             return reportUserRx(targetUserId)
         case .blockUser(let targetUserId):
             return blockUserRx(targetUserId)
+        case .unFoldCell(let indexRow):
+            return Observable.just(.unFoldCellEvent(indexRow))
         }
     }
     
@@ -60,6 +64,8 @@ class CommunityReactor: Reactor {
             newState.serverMessage = message
         case .reportUser(let message):
             newState.serverMessage = message
+        case .unFoldCellEvent(let row):
+            newState.friendCommunityList?[row].isFolded = false
         }
         return newState
     }

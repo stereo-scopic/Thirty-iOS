@@ -30,6 +30,7 @@
 		753B078D286BC82200B62F35 /* CommunityAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078C286BC82200B62F35 /* CommunityAllVC.swift */; };
 		753B078F286BC84500B62F35 /* FindFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078E286BC84500B62F35 /* FindFriendVC.swift */; };
 		753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB1DA27EB65A300D20579 /* MyInfoVC.swift */; };
+		7549DEB62993C4C7004045EA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549DEB52993C4C7004045EA /* UILabel+Extension.swift */; };
 		7562CB35287656960004EC99 /* CreateChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562CB34287656960004EC99 /* CreateChallengeVC.swift */; };
 		75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3C292C506D00706881 /* MyFriendManageVC.swift */; };
 		75771D3F292C51B100706881 /* MyFriendManageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3E292C51B100706881 /* MyFriendManageReactor.swift */; };
@@ -160,6 +161,7 @@
 		753B078C286BC82200B62F35 /* CommunityAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAllVC.swift; sourceTree = "<group>"; };
 		753B078E286BC84500B62F35 /* FindFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendVC.swift; sourceTree = "<group>"; };
 		753EB1DA27EB65A300D20579 /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
+		7549DEB52993C4C7004045EA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7562CB34287656960004EC99 /* CreateChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeVC.swift; sourceTree = "<group>"; };
 		75771D3C292C506D00706881 /* MyFriendManageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageVC.swift; sourceTree = "<group>"; };
 		75771D3E292C51B100706881 /* MyFriendManageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageReactor.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				75A7741A28DD2C5000B7775C /* Date+Extension.swift */,
 				75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */,
 				758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */,
+				7549DEB52993C4C7004045EA /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */,
 				F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */,
 				7562CB35287656960004EC99 /* CreateChallengeVC.swift in Sources */,
+				7549DEB62993C4C7004045EA /* UILabel+Extension.swift in Sources */,
 				F96EBBBC28D5B59800FECD00 /* TokenManager.swift in Sources */,
 				75A7741B28DD2C5000B7775C /* Date+Extension.swift in Sources */,
 				757C96822863E169005CCBA3 /* ChallengeExportVC.swift in Sources */,

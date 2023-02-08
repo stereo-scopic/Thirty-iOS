@@ -27,6 +27,13 @@ class CommunityListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let labelClickEvent = UITapGestureRecognizer(target: self, action: #selector(self.labelClicked(sender:)))
+        self.detailLabel.addGestureRecognizer(labelClickEvent)
+    }
+    
+    @objc func labelClicked(sender: UITapGestureRecognizer) {
+        makeExpand?(true)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
