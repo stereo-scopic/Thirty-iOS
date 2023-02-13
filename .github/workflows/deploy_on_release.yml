@@ -95,4 +95,5 @@ jobs:
 #          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
       - name: Upload app to TestFlight
         run: |
+          cd /Users/runner/work/Thirty-iOS/Thirty-iOS
           xcrun altool --upload-app -f Thirty.ipa -t ios --apiKey "$APP_STORE_API_KEY_ID" --apiIssuer "$APPSTORE_ISSUER_ID"
