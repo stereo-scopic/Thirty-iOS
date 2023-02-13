@@ -93,8 +93,6 @@ jobs:
         env: 
           APPSTORE_API_KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
         run: |
-          cd usket_TID
-          ls
-          xcrun altool --output-format xml --upload-app -fusket_TID.ipa -t ios --apiKey $APP_STORE_API_KEY_ID --apiIssuer ${{ secrets.APPSTORE_ISSUER_ID }}
+          xcrun altool --output-format xml --upload-app Thirty.ipa -t ios --apiKey $APP_STORE_API_KEY_ID --apiIssuer ${{ secrets.APPSTORE_ISSUER_ID }}
         
         
