@@ -32,6 +32,10 @@ jobs:
       # certification export key
       CERT_EXPORT_KEY: ${{ secrets.CERT_EXPORT_PWD }}
       
+      # Appstore key
+      APPSTORE_API_KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+      APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+      
       KEYCHAIN: ${{ 'test.keychain' }}
       
     steps:
@@ -90,8 +94,5 @@ jobs:
 #          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
 #          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
       - name: Upload app to TestFlight
-        env: 
-          APPSTORE_API_KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
-          APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
         run: |
-          xcrun altool --upload-app -f Thirty.ipa -t ios --apiKey $APP_STORE_API_KEY_ID --apiIssuer $APPSTORE_ISSUER_ID
+          xcrun altool --upload-app -f Thirty.ipa -t ios --apiKey "$APP_STORE_API_KEY_ID" --apiIssuer "$APPSTORE_ISSUER_ID"
