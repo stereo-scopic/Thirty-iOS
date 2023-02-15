@@ -85,7 +85,7 @@ class CommunityFriendVC: UIViewController, StoryboardView {
                     cell.challengeImage.isHidden = true
                 }
                 
-                cell.makeExpand = { [weak self] _ in
+                cell.makeExpand = { _ in
                     cell.detailLabel.numberOfLines = 0
                     reactor.action.onNext(.unFoldCell(index))
                 }
