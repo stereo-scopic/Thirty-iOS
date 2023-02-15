@@ -32,6 +32,7 @@ struct BucketAnswer: Codable {
     var stamp: Int?
     var created_at: String?
     var updated_at: String?
+    var musicOpenGraph: MusicOpenGraph?
     
     init(answerid: Int? = nil, created_at: String = "", updated_at: String? = "", music: String? = "", date: Int = 0, detail: String? = "", image: String? = "", stamp: Int, mission: String? = "") {
         self.answerid = answerid
@@ -44,6 +45,18 @@ struct BucketAnswer: Codable {
         self.stamp = stamp
         self.mission = mission
     }
+}
+
+struct MusicOpenGraph: Codable {
+    var url: String?
+    var title: String?
+    var image: ImageCodable?
+}
+
+struct ImageCodable: Codable {
+    var url: String?
+    var width: String?
+    var height: String?
 }
 
 struct BucketStatusResponse: Codable {

@@ -110,7 +110,7 @@ extension BucketAPI: TargetType {
             
             let date = "\(bucketAnswer.date)".data(using: String.Encoding.utf8) ?? Data()
             let stamp = "\(bucketAnswer.stamp ?? 0)".data(using: String.Encoding.utf8) ?? Data()
-            let music = "".data(using: String.Encoding.utf8) ?? Data()
+            let music = "\(bucketAnswer.music ?? "")".data(using: String.Encoding.utf8) ?? Data()
             let detail = "\(bucketAnswer.detail ?? "")".data(using: String.Encoding.utf8) ?? Data()
             
             let dateData = MultipartFormData(provider: .data(date), name: "date")
@@ -133,7 +133,7 @@ extension BucketAPI: TargetType {
             
             let date = "\(bucketAnswer.date)".data(using: String.Encoding.utf8) ?? Data()
             let stamp = "\(bucketAnswer.stamp ?? 0)".data(using: String.Encoding.utf8) ?? Data()
-            let music = "".data(using: String.Encoding.utf8) ?? Data()
+            let music = "\(bucketAnswer.music ?? "")".data(using: String.Encoding.utf8) ?? Data()
             let detail = "\(bucketAnswer.detail ?? "")".data(using: String.Encoding.utf8) ?? Data()
             
             let dateData = MultipartFormData(provider: .data(date), name: "date")

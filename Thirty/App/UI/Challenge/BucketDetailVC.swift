@@ -20,6 +20,8 @@ class BucketDetailVC: UIViewController, StoryboardView {
 
     @IBOutlet weak var linkImageView: UIView!
     @IBOutlet weak var linkImage: UIImageView!
+    @IBOutlet weak var linkUrlLabel: UILabel!
+    @IBOutlet weak var linkTitleLabel: UILabel!
     
     @IBOutlet weak var detailImageView: UIView!
     @IBOutlet weak var detailImage: UIImageView!
@@ -103,8 +105,16 @@ class BucketDetailVC: UIViewController, StoryboardView {
                     self.detailImageView.isHidden = true
                 }
                 
-                if let bucketLink = answer?.music, !bucketLink.isEmpty {
+                if let musicLink = answer?.musicOpenGraph, let musicLinkImage = musicLink.image?.url {
                     self.linkImageView.isHidden = false
+                    if let imageUrl = URL(string: musicLinkImage) {
+                        self.linkImage.isHidden = false
+                        self.linkImage.kf.setImage(with: imageUrl)
+                        self.linkTitleLabel.text = musicLink.title
+                        self.linkUrlLabel.text = musicLink.url
+                    } else {
+                        self.linkImage.isHidden = true
+                    }
                 } else {
                     self.linkImageView.isHidden = true
                 }

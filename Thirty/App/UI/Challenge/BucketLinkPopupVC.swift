@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxRelay
 
 class BucketLinkPopupVC: UIViewController {
     @IBOutlet weak var linkTextField: UITextField!
@@ -14,6 +15,7 @@ class BucketLinkPopupVC: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     
     let disposeBag = DisposeBag()
+    var inputMusicLink = BehaviorRelay<String>(value: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,8 @@ class BucketLinkPopupVC: UIViewController {
         
         confirmButton.rx.tap
             .bind {
-                
+                self.inputMusicLink.accept(self.linkTextField.text ?? "")
+                self.dismiss(animated: true)
             }.disposed(by: disposeBag)
     }
 }
