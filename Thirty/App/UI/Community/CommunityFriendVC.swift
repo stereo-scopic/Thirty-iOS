@@ -14,13 +14,11 @@ class CommunityFriendVC: UIViewController, StoryboardView {
     @IBOutlet weak var noFriendView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
-    let viewModel = CommunityListViewModel()
     var disposeBag = DisposeBag()
     typealias Reactor = CommunityReactor
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reactor = CommunityReactor()
     }
     

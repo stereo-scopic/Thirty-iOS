@@ -40,13 +40,14 @@ class CommunityAllVC: UIViewController, StoryboardView {
                 cell.challengeOrderLabel.text = "#\(item.date)"
                 cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
-                let readmoreFont = UIFont(name: "Pretendard-Light", size: 16.0)
                 
-                if item.isFolded == nil {
-                    if let detailText = item.detail, detailText.count > 30 {
-                    cell.detailLabel.addTrailing(with: "... ", moreText: "더보기", moreTextFont: readmoreFont!, moreTextColor: .gray400 ?? .black)
-                    }
-                }
+//                let readmoreFont = UIFont(name: "Pretendard-Light", size: 16.0)
+//                
+//                if item.isFolded == nil {
+//                    if let detailText = item.detail, detailText.count > 30 {
+//                    cell.detailLabel.addTrailing(with: "... ", moreText: "더보기", moreTextFont: readmoreFont!, moreTextColor: .gray400 ?? .black)
+//                    }
+//                }
                 
                 cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString().dateMMDD()
                 
@@ -61,7 +62,6 @@ class CommunityAllVC: UIViewController, StoryboardView {
 
                 if let imageUrl = URL(string: item.image ?? "") {
                     cell.challengeImage.isHidden = false
-//                    cell.challengeImage.load(url: imageUrl)
                     cell.challengeImage.kf.setImage(with: imageUrl)
                 } else {
                     cell.challengeImage.isHidden = true
@@ -88,9 +88,7 @@ class CommunityAllVC: UIViewController, StoryboardView {
                     alertVC.addAction(deleteContentAction)
                     
                     self?.present(alertVC, animated: true, completion: nil)
-                    
                 }
-
             }
             .disposed(by: disposeBag)
         

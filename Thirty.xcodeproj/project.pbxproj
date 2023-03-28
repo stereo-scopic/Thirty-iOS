@@ -115,7 +115,6 @@
 		F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */; };
 		F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65626288D02B300544D83 /* CommunityListCell.swift */; };
 		F9A65629288D07AB00544D83 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65628288D07AB00544D83 /* Community.swift */; };
-		F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */; };
 		F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46427EF654A0092F2B8 /* TabBarController.swift */; };
 		F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46727EF67210092F2B8 /* CommunityNC.swift */; };
 		F9B4859427FC8926003A129B /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B4859327FC8926003A129B /* Challenge.swift */; };
@@ -252,7 +251,6 @@
 		F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		F9A65626288D02B300544D83 /* CommunityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCell.swift; sourceTree = "<group>"; };
 		F9A65628288D07AB00544D83 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
-		F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListViewModel.swift; sourceTree = "<group>"; };
 		F9B0D46427EF654A0092F2B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F9B0D46727EF67210092F2B8 /* CommunityNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityNC.swift; sourceTree = "<group>"; };
 		F9B4859327FC8926003A129B /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -427,7 +425,6 @@
 			isa = PBXGroup;
 			children = (
 				759D328227C8933700A88C02 /* Community.storyboard */,
-				F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */,
 				F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */,
 				753B078C286BC82200B62F35 /* CommunityAllVC.swift */,
 				753B078A286BC80200B62F35 /* CommunityFriendVC.swift */,
@@ -772,7 +769,6 @@
 				F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */,
 				7537C2732953D2700031C4FE /* CompleteChallengeDetailReactor.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
-				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
 				F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */,
 				F96EBBC228D5BDE000FECD00 /* MyBadgeReactor.swift in Sources */,
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
@@ -998,7 +994,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1024,7 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

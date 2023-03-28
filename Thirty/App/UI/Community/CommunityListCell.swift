@@ -16,7 +16,6 @@ class CommunityListCell: UITableViewCell {
     @IBOutlet weak var challengeCreatedAtLabel: UILabel!
     @IBOutlet weak var challengeImage: UIImageView!
     @IBOutlet weak var challengeImageStackView: UIStackView!
-    @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var addFriendButton: UIButton!
     
     static var identifier = "CommunityListCell"
@@ -38,10 +37,6 @@ class CommunityListCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }
-    
-    @IBAction func expandCell() {
-        makeExpand?(true)
     }
     
     @IBAction func addFriendButtonClicked(_ sender: Any) {
