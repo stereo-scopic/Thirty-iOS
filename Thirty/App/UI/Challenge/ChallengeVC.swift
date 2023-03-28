@@ -177,30 +177,40 @@ class ChallengeVC: UIViewController, StoryboardView {
                         cell.number.isHidden = false
                     }
                 } else {
-                    cell.bucketAnswerImage.image = UIImage()
-                    cell.number.isHidden = false
-                    
-                    if let stamp = item.stamp, stamp != 0 {
-                        cell.badgeImage.image = UIImage(named: "badge_trans_\(stamp)")
-                        cell.number.isHidden = true
-                        
-                        cell.bucketAnswerTextView.isHidden = false
-                        cell.bucketAnswerTextNum.text = "\(index + 1)"
-                        cell.bucketAnswerTextAnswer.text = ""
+                    if let musicLink = item.musicOpenGraph, let musicLinkImage = musicLink.image?.url {
+                        if let imageUrl = URL(string: musicLinkImage) {
+                            cell.bucketAnswerImage.kf.setImage(with: imageUrl)
+                            cell.number.isHidden = true
+                        } else {
+                            cell.bucketAnswerImage.image = UIImage()
+                            cell.number.isHidden = false
+                        }
                     } else {
-                        cell.badgeImage.image = UIImage()
+                        cell.bucketAnswerImage.image = UIImage()
+                        cell.number.isHidden = false
                         
-                        if let detail = item.detail, !detail.isEmpty {
+                        if let stamp = item.stamp, stamp != 0 {
+                            cell.badgeImage.image = UIImage(named: "badge_trans_\(stamp)")
                             cell.number.isHidden = true
                             
                             cell.bucketAnswerTextView.isHidden = false
                             cell.bucketAnswerTextNum.text = "\(index + 1)"
-                            cell.bucketAnswerTextAnswer.text = item.detail
-
-                            if cell.view.backgroundColor == UIColor.thirtyBlack {
-                                cell.bucketAnswerTextAnswer.textColor = UIColor.white
-                            } else {
-                                cell.bucketAnswerTextAnswer.textColor = UIColor.thirtyBlack
+                            cell.bucketAnswerTextAnswer.text = ""
+                        } else {
+                            cell.badgeImage.image = UIImage()
+                            
+                            if let detail = item.detail, !detail.isEmpty {
+                                cell.number.isHidden = true
+                                
+                                cell.bucketAnswerTextView.isHidden = false
+                                cell.bucketAnswerTextNum.text = "\(index + 1)"
+                                cell.bucketAnswerTextAnswer.text = item.detail
+                                
+                                if cell.view.backgroundColor == UIColor.thirtyBlack {
+                                    cell.bucketAnswerTextAnswer.textColor = UIColor.white
+                                } else {
+                                    cell.bucketAnswerTextAnswer.textColor = UIColor.thirtyBlack
+                                }
                             }
                         }
                     }
@@ -244,7 +254,15 @@ class ChallengeVC: UIViewController, StoryboardView {
                 if let bucketImageURL = URL(string: bucketAnswer?.image ?? "") {
                     self?.bucketAnswerImage.kf.setImage(with: bucketImageURL)
                 } else {
-                    self?.bucketAnswerImage.image = nil
+                    if let musicLink = bucketAnswer?.musicOpenGraph, let musicLinkImage = musicLink.image?.url {
+                        if let imageUrl = URL(string: musicLinkImage) {
+                            self?.bucketAnswerImage.kf.setImage(with: imageUrl)
+                        } else {
+                            self?.bucketAnswerImage.image = UIImage()
+                        }
+                    } else {
+                        self?.bucketAnswerImage.image = nil
+                    }
                 }
                 
                 self?.selectedBucketAnswer = bucketAnswer ?? BucketAnswer(stamp: 0)

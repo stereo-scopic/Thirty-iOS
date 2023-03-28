@@ -65,7 +65,10 @@ extension ChallengeAPI: TargetType {
     }
     
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+//        return ["Content-Type": "application/json"]
+        return [
+            "Authorization": "Bearer \(TokenManager.shared.loadAccessToken() ?? "")"
+        ]
     }
     
 }

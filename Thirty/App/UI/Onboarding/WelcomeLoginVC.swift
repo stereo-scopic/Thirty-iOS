@@ -63,15 +63,23 @@ class WelcomeLoginVC: UIViewController, StoryboardView {
                 self.navigationController?.popViewController(animated: true)
             }.disposed(by: disposeBag)
         
+        let email = emailTextField.rx.text.orEmpty
+        let pwd = pwdTextField.rx.text.orEmpty
+        let observerCombined = Observable.combineLatest(email, pwd)
+        
         loginButton.rx.tap
+            .withLatestFrom(observerCombined)
+            .subscribe(onNext: { [weak self] (email, pwd) in
+                self?.view.endEditing(true)
+                self?.reactor?.action.onNext(.loginButtonTapped(email, pwd))
+            }).disposed(by: disposeBag)
+        
+        findPwdButton.rx.tap
             .bind {
-                self.view.endEditing(true)
-                
-                let email = self.emailTextField.text ?? ""
-                let pwd = self.pwdTextField.text ?? ""
-                
-                self.reactor?.action.onNext(.loginButtonTapped(email, pwd))
-                
+                guard let findPwdVC = self.storyboard?.instantiateViewController(withIdentifier: "FindPwdVC") as? FindPwdVC else { return }
+                findPwdVC.modalTransitionStyle = .crossDissolve
+                findPwdVC.modalPresentationStyle = .fullScreen
+                self.present(findPwdVC, animated: true, completion: nil)
             }.disposed(by: disposeBag)
     }
 }

@@ -33,4 +33,5 @@ struct CommunityChallenge2: Decodable {
     var stamp: Int?
     var created_at: String?
     var isFriend: Bool?
+    var isFolded: Bool? = true
 }

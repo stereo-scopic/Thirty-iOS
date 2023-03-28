@@ -14,13 +14,11 @@ class CommunityFriendVC: UIViewController, StoryboardView {
     @IBOutlet weak var noFriendView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
-    let viewModel = CommunityListViewModel()
     var disposeBag = DisposeBag()
     typealias Reactor = CommunityReactor
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         reactor = CommunityReactor()
     }
     
@@ -42,18 +40,24 @@ class CommunityFriendVC: UIViewController, StoryboardView {
     private func bindState(_ reactor: CommunityReactor) {
         reactor.state
             .map { $0.friendCommunityList ?? [] }
-            .bind(to: communityFriendTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { _, item, cell in
-
+            .bind(to: communityFriendTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { index, item, cell in
+                
                 cell.nicknameButton.setTitle(item.usernickname, for: .normal)
                 cell.challengeTitleLabel.text = item.challenge
                 cell.challengeOrderLabel.text = "#\(item.date)"
                 cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
+                
+                let readmoreFont = UIFont(name: "Pretendard-Light", size: 16.0)
+                
+                if item.isFolded == nil {
+                    if let detailText = item.detail, detailText.count > 30 {
+                    cell.detailLabel.addTrailing(with: "... ", moreText: "더보기", moreTextFont: readmoreFont!, moreTextColor: .gray400 ?? .black)
+                    }
+                }
+                
                 cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString().dateMMDD()
-//                cell.detailLabel.numberOfLines = 1
-//                cell.addFriend = { _ in
-//
-//                }
+                
                 cell.nicknameClicked = { [weak self] in
                     let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                     
@@ -70,21 +74,19 @@ class CommunityFriendVC: UIViewController, StoryboardView {
                     alertVC.addAction(deleteContentAction)
                     
                     self?.present(alertVC, animated: true, completion: nil)
-                    
                 }
-
+                
                 if let imageUrl = URL(string: item.image ?? "") {
                     cell.challengeImage.isHidden = false
-                    cell.challengeImage.load(url: imageUrl)
+                    cell.challengeImage.kf.setImage(with: imageUrl)
                 } else {
                     cell.challengeImage.isHidden = true
                 }
-
-                cell.makeExpand = { [weak self] _ in
+                
+                cell.makeExpand = { _ in
                     cell.detailLabel.numberOfLines = 0
-                    self?.communityFriendTableView.reloadData()
+                    reactor.action.onNext(.unFoldCell(index))
                 }
-
             }
             .disposed(by: disposeBag)
         
@@ -95,7 +97,6 @@ class CommunityFriendVC: UIViewController, StoryboardView {
                     self.view.showToast(message: message)
                 }
             }).disposed(by: disposeBag)
-
     }
     
     @objc func nicknameTapped(_ sender: UITapGestureRecognizer) {

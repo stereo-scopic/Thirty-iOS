@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGI-hO-5bQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGI-hO-5bQ">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1248,9 +1248,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QtW-s3-CDt">
                                         <rect key="frame" x="12" y="0.0" width="44" height="44"/>
                                         <state key="normal" image="arrow-left"/>
-                                        <connections>
-                                            <action selector="backButtonTouchUpInside:" destination="2zK-H0-9dp" eventType="touchUpInside" id="exr-23-4Dc"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1281,7 +1278,7 @@
                                     <color key="titleColor" name="THIRTY White"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonTouchUpInside:" destination="2zK-H0-9dp" eventType="touchUpInside" id="sk2-sq-q4F"/>
+                                    <segue destination="qcV-PF-aFW" kind="presentation" identifier="sendEmailPopup" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="rsh-EN-fNB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1303,8 +1300,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="로그인" id="BfX-DP-CJB"/>
                     <connections>
-                        <outlet property="emailTextField" destination="uVw-CT-qXd" id="85N-z7-SMf"/>
-                        <outlet property="loginButton" destination="or7-7I-GZL" id="kES-uw-cec"/>
+                        <outlet property="backButton" destination="QtW-s3-CDt" id="f17-Oh-mDA"/>
+                        <outlet property="emailTextField" destination="uVw-CT-qXd" id="gE2-kd-0ry"/>
+                        <outlet property="sendEmailButton" destination="or7-7I-GZL" id="FvJ-yv-i1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDa-k2-Xnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1338,7 +1336,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWd-t1-M2Q">
-                                <rect key="frame" x="57" y="535" width="276" height="48.333333333333371"/>
+                                <rect key="frame" x="57" y="535" width="276" height="46.666666666666629"/>
                                 <string key="text">비밀번호 재설정 메일을 보냈어요 
 확인해보세요!</string>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>

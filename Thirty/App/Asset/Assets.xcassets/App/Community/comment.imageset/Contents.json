@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "IMG_1992.JPG",
+      "filename" : "Union-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "IMG_1992-1.JPG",
+      "filename" : "Union@2x-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "IMG_1992-2.JPG",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -63,7 +63,7 @@ class SelectChallengeThemeVC: UIViewController {
 extension SelectChallengeThemeVC {
     @IBAction func nextButtonTouchUpInside(_ sender: UIButton) {
         let selectChallengeVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectChallengeVC") as! SelectChallengeVC
-        selectChallengeVC.selectedItem = selectedItem
+//        selectChallengeVC.selectedItem = selectedItem
         
         let selectChallengeReactor = SelectChallengeReactor()
         selectChallengeReactor.selectedTheme = selectedItem

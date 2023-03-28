@@ -33,15 +33,23 @@ class CommunityAllVC: UIViewController, StoryboardView {
     private func bindState(_ reactor: CommunityReactor) {
         reactor.state
             .map { $0.allCommunityList ?? [] }
-            .bind(to: communityEveryOneTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { _, item, cell in
+            .bind(to: communityEveryOneTableView.rx.items(cellIdentifier: CommunityListCell.identifier, cellType: CommunityListCell.self)) { index, item, cell in
 
                 cell.nicknameButton.setTitle(item.usernickname, for: .normal)
                 cell.challengeTitleLabel.text = item.challenge
                 cell.challengeOrderLabel.text = "#\(item.date)"
                 cell.challengeNameLabel.text = item.mission
                 cell.detailLabel.text = item.detail
+                
+//                let readmoreFont = UIFont(name: "Pretendard-Light", size: 16.0)
+//                
+//                if item.isFolded == nil {
+//                    if let detailText = item.detail, detailText.count > 30 {
+//                    cell.detailLabel.addTrailing(with: "... ", moreText: "더보기", moreTextFont: readmoreFont!, moreTextColor: .gray400 ?? .black)
+//                    }
+//                }
+                
                 cell.challengeCreatedAtLabel.text = item.created_at?.iSO8601Date().dateToString().dateMMDD()
-//                cell.detailLabel.numberOfLines = 1
                 
                 cell.addFriendButton.isHidden = item.isFriend ?? true
                     
@@ -54,15 +62,14 @@ class CommunityAllVC: UIViewController, StoryboardView {
 
                 if let imageUrl = URL(string: item.image ?? "") {
                     cell.challengeImage.isHidden = false
-//                    cell.challengeImage.load(url: imageUrl)
                     cell.challengeImage.kf.setImage(with: imageUrl)
                 } else {
                     cell.challengeImage.isHidden = true
                 }
 
-                cell.makeExpand = { [weak self] _ in
+                cell.makeExpand = { _ in
                     cell.detailLabel.numberOfLines = 0
-                    self?.communityEveryOneTableView.reloadData()
+                    reactor.action.onNext(.unFoldCell(index))
                 }
                 
                 cell.nicknameClicked = { [weak self] in
@@ -81,9 +88,7 @@ class CommunityAllVC: UIViewController, StoryboardView {
                     alertVC.addAction(deleteContentAction)
                     
                     self?.present(alertVC, animated: true, completion: nil)
-                    
                 }
-
             }
             .disposed(by: disposeBag)
         

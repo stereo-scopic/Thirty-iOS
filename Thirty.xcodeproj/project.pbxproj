@@ -30,6 +30,7 @@
 		753B078D286BC82200B62F35 /* CommunityAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078C286BC82200B62F35 /* CommunityAllVC.swift */; };
 		753B078F286BC84500B62F35 /* FindFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B078E286BC84500B62F35 /* FindFriendVC.swift */; };
 		753EB1DB27EB65A300D20579 /* MyInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EB1DA27EB65A300D20579 /* MyInfoVC.swift */; };
+		7549DEB62993C4C7004045EA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549DEB52993C4C7004045EA /* UILabel+Extension.swift */; };
 		7562CB35287656960004EC99 /* CreateChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7562CB34287656960004EC99 /* CreateChallengeVC.swift */; };
 		75771D3D292C506D00706881 /* MyFriendManageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3C292C506D00706881 /* MyFriendManageVC.swift */; };
 		75771D3F292C51B100706881 /* MyFriendManageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75771D3E292C51B100706881 /* MyFriendManageReactor.swift */; };
@@ -109,10 +110,11 @@
 		F98C9AE628C4C225003A25CD /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE528C4C225003A25CD /* ExploreVC.swift */; };
 		F98C9AE828C4CC66003A25CD /* BucketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE728C4CC66003A25CD /* BucketAPI.swift */; };
 		F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98C9AE928C4CEC9003A25CD /* Token.swift */; };
+		F99B69E4298627A8001F6003 /* SelectChallengeThemeNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B69E3298627A8001F6003 /* SelectChallengeThemeNewVC.swift */; };
+		F99B69E629863CB5001F6003 /* SelectChallengeThemeNewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99B69E529863CB5001F6003 /* SelectChallengeThemeNewReactor.swift */; };
 		F99C6FD128F3195B00F5F1DD /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */; };
 		F9A65627288D02B300544D83 /* CommunityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65626288D02B300544D83 /* CommunityListCell.swift */; };
 		F9A65629288D07AB00544D83 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A65628288D07AB00544D83 /* Community.swift */; };
-		F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */; };
 		F9B0D46527EF654A0092F2B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46427EF654A0092F2B8 /* TabBarController.swift */; };
 		F9B0D46827EF67210092F2B8 /* CommunityNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B0D46727EF67210092F2B8 /* CommunityNC.swift */; };
 		F9B4859427FC8926003A129B /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B4859327FC8926003A129B /* Challenge.swift */; };
@@ -160,6 +162,7 @@
 		753B078C286BC82200B62F35 /* CommunityAllVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAllVC.swift; sourceTree = "<group>"; };
 		753B078E286BC84500B62F35 /* FindFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendVC.swift; sourceTree = "<group>"; };
 		753EB1DA27EB65A300D20579 /* MyInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVC.swift; sourceTree = "<group>"; };
+		7549DEB52993C4C7004045EA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7562CB34287656960004EC99 /* CreateChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeVC.swift; sourceTree = "<group>"; };
 		75771D3C292C506D00706881 /* MyFriendManageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageVC.swift; sourceTree = "<group>"; };
 		75771D3E292C51B100706881 /* MyFriendManageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendManageReactor.swift; sourceTree = "<group>"; };
@@ -243,10 +246,11 @@
 		F98C9AE528C4C225003A25CD /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		F98C9AE728C4CC66003A25CD /* BucketAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAPI.swift; sourceTree = "<group>"; };
 		F98C9AE928C4CEC9003A25CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		F99B69E3298627A8001F6003 /* SelectChallengeThemeNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeThemeNewVC.swift; sourceTree = "<group>"; };
+		F99B69E529863CB5001F6003 /* SelectChallengeThemeNewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChallengeThemeNewReactor.swift; sourceTree = "<group>"; };
 		F99C6FD028F3195B00F5F1DD /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		F9A65626288D02B300544D83 /* CommunityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCell.swift; sourceTree = "<group>"; };
 		F9A65628288D07AB00544D83 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
-		F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListViewModel.swift; sourceTree = "<group>"; };
 		F9B0D46427EF654A0092F2B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F9B0D46727EF67210092F2B8 /* CommunityNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityNC.swift; sourceTree = "<group>"; };
 		F9B4859327FC8926003A129B /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				757D45AF28DBD837004DBC5A /* SplashVC.swift */,
+				F99B69E3298627A8001F6003 /* SelectChallengeThemeNewVC.swift */,
+				F99B69E529863CB5001F6003 /* SelectChallengeThemeNewReactor.swift */,
 				757D66C82874FEDF00E3C5DE /* SelectChallengeThemeVC.swift */,
 				757D66CA2874FEFB00E3C5DE /* SelectChallengeVC.swift */,
 				F9C6504828B9F49D0026405A /* SelectChallengeReactor.swift */,
@@ -419,7 +425,6 @@
 			isa = PBXGroup;
 			children = (
 				759D328227C8933700A88C02 /* Community.storyboard */,
-				F9A6562A288D08CF00544D83 /* CommunityListViewModel.swift */,
 				F9BF9EDF28F3AB6900F95CE5 /* CommunityReactor.swift */,
 				753B078C286BC82200B62F35 /* CommunityAllVC.swift */,
 				753B078A286BC80200B62F35 /* CommunityFriendVC.swift */,
@@ -509,6 +514,7 @@
 				75A7741A28DD2C5000B7775C /* Date+Extension.swift */,
 				75A7741C28DD2D0600B7775C /* UIImageView+Extension.swift */,
 				758B0F082900C47800FEDBEF /* UICollectionView+Extension.swift */,
+				7549DEB52993C4C7004045EA /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -736,16 +742,19 @@
 				F9BC339D27EC9FB600F0C722 /* MyAlertVC.swift in Sources */,
 				757D66CD2875048900E3C5DE /* WelcomeVC.swift in Sources */,
 				7504D90B28F70EF30033A27F /* Announcement.swift in Sources */,
+				F99B69E629863CB5001F6003 /* SelectChallengeThemeNewReactor.swift in Sources */,
 				F9E01FC128CE1A7D00649EC7 /* WelcomePopupVC.swift in Sources */,
 				75C586C827E307D50022B5D8 /* ExploreListVC.swift in Sources */,
 				F9BC33A327EC9FFD00F0C722 /* MyNoticeVC.swift in Sources */,
 				F9BC33A027EC9FD700F0C722 /* MyShareSettingVC.swift in Sources */,
 				7562CB35287656960004EC99 /* CreateChallengeVC.swift in Sources */,
+				7549DEB62993C4C7004045EA /* UILabel+Extension.swift in Sources */,
 				F96EBBBC28D5B59800FECD00 /* TokenManager.swift in Sources */,
 				75A7741B28DD2C5000B7775C /* Date+Extension.swift in Sources */,
 				757C96822863E169005CCBA3 /* ChallengeExportVC.swift in Sources */,
 				759D328B27C8A45000A88C02 /* ChallengeVC.swift in Sources */,
 				751A19F427E8A8890025812D /* UIColor+Extension.swift in Sources */,
+				F99B69E4298627A8001F6003 /* SelectChallengeThemeNewVC.swift in Sources */,
 				75B6B3C128EEF2E10081AA36 /* ChallengeExportReactor.swift in Sources */,
 				75073B1C280F8080008814EE /* ChallengeAPI.swift in Sources */,
 				F98C9AEA28C4CEC9003A25CD /* Token.swift in Sources */,
@@ -760,7 +769,6 @@
 				F94CCC2A28F46B01002B05F5 /* LoginReactor.swift in Sources */,
 				7537C2732953D2700031C4FE /* CompleteChallengeDetailReactor.swift in Sources */,
 				7501A4FC27E239B500EB4EB0 /* MyNC.swift in Sources */,
-				F9A6562B288D08CF00544D83 /* CommunityListViewModel.swift in Sources */,
 				F960391A2915F7E100F296DA /* WelcomeSignUpReactor.swift in Sources */,
 				F96EBBC228D5BDE000FECD00 /* MyBadgeReactor.swift in Sources */,
 				757C96782863E080005CCBA3 /* ChallengeDetailImageVC.swift in Sources */,
@@ -976,8 +984,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
@@ -986,10 +994,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Thirty Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1002,8 +1010,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Thirty/Thirty.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2YT3299DFQ;
 				INFOPLIST_FILE = Thirty/Info.plist;
@@ -1012,10 +1020,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sookmyung.thirty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Thirty Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -20,12 +20,16 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     
     @IBOutlet weak var linkView: UIView!
     @IBOutlet weak var linkImageView: UIImageView!
+    @IBOutlet weak var linkTitleLabel: UILabel!
+    @IBOutlet weak var linkUrlLabel: UILabel!
+    @IBOutlet weak var linkImageDeleteButton: UIButton!
     
     @IBOutlet weak var bucketImgView: UIView!
     @IBOutlet weak var bucketImageDeleteButton: UIButton!
     @IBOutlet weak var bucketImageView: UIImageView!
     
     @IBOutlet weak var badgeView: UIView!
+    @IBOutlet weak var badgeDeleteButton: UIButton!
     @IBOutlet weak var badgeImageView: UIImageView!
     
     @IBOutlet weak var galleryButton: UIButton!
@@ -35,6 +39,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
     var bucketId: String = ""
     var bucketAnswer: BucketAnswer = BucketAnswer(stamp: 0)
     var selectedStamp: Int = 0
+    var musicLink: String?
     var editFlag = false
     var textViewPlaceHolder = "내용을 입력하세요."
     
@@ -69,6 +74,15 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                         self.selectedStamp = stampNum
                     }
                 }).disposed(by: disposeBag)
+        } else if let linkPopupVC = segue.destination as? BucketLinkPopupVC {
+            linkPopupVC.inputMusicLink
+                .subscribe(onNext: { musicLink in
+                    if !musicLink.isEmpty {
+                        #warning("등록시 링크 썸네일")
+//                        self.linkView.isHidden = false
+                        self.musicLink = musicLink                        
+                    }
+                }).disposed(by: disposeBag)
         }
     }
     
@@ -96,6 +110,7 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
         completeButton.rx.tap
             .bind {
                 var bucketAnswerText = ""
+                var musicLinkText = ""
                 if self.bucketAnswerTextView.text != self.textViewPlaceHolder {
                     bucketAnswerText = self.bucketAnswerTextView.text
                 }
@@ -105,10 +120,14 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                     return
                 }
                 
+                if let musicLink = self.musicLink {
+                    musicLinkText = musicLink
+                }
+                
                 self.loadingView.isHidden = false
                 self.loadingIndicator.startAnimating()
                 let bucketAnswer = BucketAnswer(answerid: self.bucketAnswer.answerid,
-                                                music: "",
+                                                music: musicLinkText,
                                                 date: self.bucketAnswer.date,
                                                 detail: bucketAnswerText,
                                                 image: "",
@@ -143,6 +162,18 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                 self.bucketImgView.isHidden = true
                 self.bucketImageView.image = UIImage()
             }.disposed(by: disposeBag)
+        
+        badgeDeleteButton.rx.tap
+            .bind {
+                self.badgeView.isHidden = true
+                self.selectedStamp = 0
+            }.disposed(by: disposeBag)
+        
+        linkImageDeleteButton.rx.tap
+            .bind {
+                self.linkView.isHidden = true
+                self.musicLink = ""
+            }.disposed(by: disposeBag)
     }
     
     private func bindState(_ reactor: BucketAnswerEnrollReactor) {
@@ -160,6 +191,21 @@ class BucketAnswerEnrollVC: UIViewController, StoryboardView {
                         }
                     } else {
                         self?.bucketImgView.isHidden = true
+                    }
+                    
+                    if let musicLink = bucketAnswer.musicOpenGraph, let musicLinkImage = musicLink.image?.url {
+                        self?.linkView.isHidden = false
+                        if let imageUrl = URL(string: musicLinkImage) {
+                            self?.linkImageView.isHidden = false
+                            self?.linkImageView.kf.setImage(with: imageUrl)
+                            self?.musicLink = musicLink.url
+                            self?.linkTitleLabel.text = musicLink.title
+                            self?.linkUrlLabel.text = musicLink.url
+                        } else {
+                            self?.linkImageView.isHidden = true
+                        }
+                    } else {
+                        self?.linkView.isHidden = true
                     }
                     
                     if let stampNum = bucketAnswer.stamp, stampNum != 0 {

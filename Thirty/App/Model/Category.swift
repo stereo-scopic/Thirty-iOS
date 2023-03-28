@@ -22,3 +22,16 @@ enum CategoryType: String {
     case fitness = "피트니스"
     case study = "공부"
 }
+
+func korNameOfCategory(_ type: CategoryType.RawValue?) -> String {
+    switch type {
+    case "취미": return "HOBBY"
+    case "덕질": return "FAN"
+    case "연애": return "LOVE"
+    case "셀프케어": return "SELFCARE"
+    case "다이어트": return "DIET"
+    case "피트니스": return "FITNESS"
+    case "공부": return "STUDY"
+    default: return ""
+    }
+}

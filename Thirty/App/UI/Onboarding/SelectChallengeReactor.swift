@@ -19,12 +19,14 @@ class SelectChallengeReactor: Reactor {
     enum Mutation {
         case setChallengeList([Challenge])
         case getToken(Token)
+        case addSuccessed(Bool)
     }
     
     struct State {
         var selectedTheme: String = ""
         var challengeList: [Challenge] = []
         var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
+        var addChallengeResponse: Bool = false
     }
     
     var challengeObservable = BehaviorRelay<[Challenge]>(value: [])
@@ -50,6 +52,8 @@ class SelectChallengeReactor: Reactor {
         case .getToken(let token):
             try? TokenManager.shared.saveAccessToken(token.access_token ?? "")
             try? TokenManager.shared.saveRefreshToken(token.refresh_token ?? "")
+        case .addSuccessed(let flag):
+            newState.addChallengeResponse = flag
         }
         return newState
     }
@@ -83,6 +87,11 @@ class SelectChallengeReactor: Reactor {
                     let str = String(decoding: response.data, as: UTF8.self)
                     print(str)
                     let result = try? response.map(Token.self)
+                    if 200 ..< 300 ~= response.statusCode {
+                        observer.onNext(.addSuccessed(true))
+                    } else {
+                        observer.onNext(.addSuccessed(false))
+                    }
                     observer.onNext(Mutation.getToken(result ?? Token()))
                     observer.onCompleted()
                 case let .failure(error):
