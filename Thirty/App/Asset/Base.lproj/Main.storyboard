@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S1m-OY-DwQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S1m-OY-DwQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5l-Jv-Wwu">
-                                <rect key="frame" x="20" y="72" width="218.5" height="80"/>
+                                <rect key="frame" x="20" y="72" width="220.5" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="oOV-Hk-3wk"/>
                                 </constraints>
@@ -363,7 +363,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SF4-lH-fuX">
-                                <rect key="frame" x="151" y="802.5" width="112" height="33.5"/>
+                                <rect key="frame" x="151" y="802.5" width="112" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="Qtg-fB-TGl"/>
                                 </constraints>
@@ -440,7 +440,7 @@
                                 <state key="normal" title="시작하기"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-vb-9Q2">
-                                <rect key="frame" x="10" y="308.5" width="394" height="439.5"/>
+                                <rect key="frame" x="10" y="312.5" width="394" height="435.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kpY-Iz-ZnO">
                                     <size key="itemSize" width="128" height="128"/>
@@ -504,32 +504,32 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첫 챌린지를 선택해보세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-PD-nBW">
-                                <rect key="frame" x="20" y="142.5" width="370" height="38.5"/>
+                                <rect key="frame" x="20" y="148" width="370" height="37.5"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="32"/>
                                 <color key="textColor" name="Gray100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7F-cR-zJx">
-                                <rect key="frame" x="20" y="112" width="40" height="18.5"/>
+                                <rect key="frame" x="20" y="112" width="38.5" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="20" name="BlatantRegular"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="20" name="BlatantRegular"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="/ 2">
                                         <attributes>
                                             <color key="NSColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="20" name="BlatantRegular"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -537,7 +537,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앞서 선택한 테마에 맞는 챌린지를 보여드릴게요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-Pf-9jk">
-                                <rect key="frame" x="20" y="193" width="301" height="19.5"/>
+                                <rect key="frame" x="20" y="197.5" width="303.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                 <color key="textColor" name="Gray500"/>
                                 <nil key="highlightedColor"/>
@@ -606,7 +606,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvB-kK-bDm">
-                                <rect key="frame" x="20" y="128" width="36.5" height="17"/>
+                                <rect key="frame" x="20" y="128" width="36.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="THIRTY Black"/>
                                 <nil key="highlightedColor"/>
@@ -638,7 +638,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="987-09-bde">
-                                <rect key="frame" x="20" y="153" width="374" height="52"/>
+                                <rect key="frame" x="20" y="152.5" width="374" height="52"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJS-69-Kqg">
                                         <rect key="frame" x="12" y="8" width="350" height="36"/>
@@ -656,13 +656,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-Cu-H7G">
-                                <rect key="frame" x="20" y="229" width="48.5" height="17"/>
+                                <rect key="frame" x="20" y="228.5" width="48.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="THIRTY Black"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odm-l9-hV1">
-                                <rect key="frame" x="20" y="254" width="374" height="52"/>
+                                <rect key="frame" x="20" y="253" width="374" height="52"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrE-lL-iH2">
                                         <rect key="frame" x="12" y="8" width="350" height="36"/>
@@ -680,7 +680,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fg-st-4N4">
-                                <rect key="frame" x="20" y="346" width="374" height="52"/>
+                                <rect key="frame" x="20" y="345" width="374" height="52"/>
                                 <color key="backgroundColor" name="Gray300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="D7N-U9-ZJK"/>
@@ -691,7 +691,7 @@
                                 </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCY-u2-kfQ">
-                                <rect key="frame" x="20" y="438" width="374" height="29"/>
+                                <rect key="frame" x="20" y="437" width="374" height="29"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <state key="normal" title="SNS 계정으로 로그인하기">
                                     <color key="titleColor" name="THIRTY Black"/>
@@ -705,7 +705,7 @@
                                 </state>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="7Fn-HK-cOH">
-                                <rect key="frame" x="96" y="501" width="222" height="56"/>
+                                <rect key="frame" x="96" y="500" width="222" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzt-lO-1TL">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
@@ -1144,7 +1144,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNC-z5-YUA">
-                                <rect key="frame" x="57" y="561" width="300" height="48.5"/>
+                                <rect key="frame" x="57" y="561" width="300" height="47"/>
                                 <string key="text">비밀번호 재설정 메일을 보냈어요 
 확인해보세요!</string>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="20"/>
@@ -1229,7 +1229,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROW-ca-DgD">
-                                <rect key="frame" x="20" y="142.5" width="218.5" height="80"/>
+                                <rect key="frame" x="20" y="148" width="220.5" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="skP-JZ-Rho"/>
                                 </constraints>
@@ -1240,31 +1240,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9to-HU-2g5">
-                                <rect key="frame" x="24" y="112" width="37.5" height="18.5"/>
+                                <rect key="frame" x="24" y="112" width="35.5" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="1">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="20" name="BlatantRegular"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="20" name="BlatantRegular"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="/ 2">
                                         <attributes>
                                             <color key="NSColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="20" name="BlatantRegular"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ybI-Ba-slG">
-                                <rect key="frame" x="24" y="309" width="366" height="498"/>
+                                <rect key="frame" x="24" y="314" width="366" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="caO-Qe-x8Z">
                                     <size key="itemSize" width="181" height="128"/>
@@ -1284,16 +1284,16 @@
                                                     <rect key="frame" x="2" y="2" width="155" height="85"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-g9-hcu">
-                                                            <rect key="frame" x="47" y="18.5" width="61" height="48"/>
+                                                            <rect key="frame" x="42.5" y="16.5" width="70" height="52.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOBBY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoq-F3-xeK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="61" height="18.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="HOBBY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoq-F3-xeK">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="BlatantRegular" family="Blatant" pointSize="20"/>
                                                                     <color key="textColor" name="THIRTY White"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="취미" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcY-w9-Q5h">
-                                                                    <rect key="frame" x="0.0" y="28.5" width="61" height="19.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="취미" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcY-w9-Q5h">
+                                                                    <rect key="frame" x="0.0" y="33.5" width="70" height="19"/>
                                                                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                                                     <color key="textColor" name="THIRTY White"/>
                                                                     <nil key="highlightedColor"/>
@@ -1326,7 +1326,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가장 마음에 드는 테마로 챌린지를 시작해봐요!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrX-D0-f6P">
-                                <rect key="frame" x="20" y="234.5" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="240" width="374" height="19"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                 <color key="textColor" name="Gray500"/>
                                 <nil key="highlightedColor"/>
@@ -1368,7 +1368,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c04-QT-ido"/>
+        <segue reference="xZm-Px-26l"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="apple_login" width="56" height="56"/>
